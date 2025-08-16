@@ -134,52 +134,19 @@ form .actions{margin-top:14px}
   min-height:60px;
 }
 
-
-/* ====== Mobile Navigation (Hamburger) ====== */
-.hamburger{
-  display:none;
-  background:transparent;
-  border:0;
-  padding:8px;
-  margin-left:8px;
-  cursor:pointer;
-}
-.hamburger span{
-  display:block;
-  width:24px;
-  height:2px;
-  margin:5px 0;
-  background: var(--text);
-  transition: transform .2s ease, opacity .2s ease;
-}
-
-/* Animate to "X" when open */
-.nav-open .hamburger span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
-.nav-open .hamburger span:nth-child(2){ opacity:0; }
-.nav-open .hamburger span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
-
+/* --- Force dark menu background on mobile and when open --- */
+:root{ --header-bg:#111827; }
 @media (max-width: 900px){
-  .hamburger{ display:block; }
   .menu{
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    background: var(--surface);
-    display: none;
-    flex-direction: column;
-    padding: 12px 16px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    z-index: 20;
+    background: var(--header-bg) !important;
+    border-top: 1px solid rgba(255,255,255,0.08);
   }
-  .menu.open{ display: flex; }
-  .menu a{
-    padding: 10px 6px;
-    font-size: 15px;
-    border-radius: 8px;
-  }
-  .nav .inner{
-    position: relative;
-  }
+}
+/* Ensure desktop dropdowns (if any) also use header color */
+.menu.open{ background: var(--header-bg) !important; }
+
+@media (max-width: 768px){
+  .hero-left{ display:flex; flex-direction:column; gap:12px; }
+  .hero .photo{ align-self:flex-start; }
+  .hero .about{ width:100%; }
 }

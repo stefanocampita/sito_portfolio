@@ -11,11 +11,7 @@
   
 <div class="nav">
   <div class="inner">
-    \1
-<button class="hamburger" aria-label="Open menu" aria-expanded="false">
-  <span></span><span></span><span></span>
-</button>
-
+    <div class="brand" style="display:flex;align-items:center;"><a href="index.html"><img src="logo.png" alt="Logo" style="height:60px;"></a></div>
     <div class="menu">
       <a href="index.html" class="">Home</a>
       <a href="portfolio.html" class="">Portfolio</a>
@@ -80,28 +76,6 @@
     </div>
   </div>
 </footer>
-
-
-<script>
-  (function(){
-    var btn = document.querySelector('.hamburger');
-    var menu = document.querySelector('.menu');
-    if(!btn || !menu) return;
-    btn.addEventListener('click', function(){
-      var isOpen = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.classList.toggle('nav-open', isOpen);
-    });
-    // Close on link click (mobile UX)
-    menu.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        menu.classList.remove('open');
-        document.querySelector('.hamburger')?.setAttribute('aria-expanded','false');
-        document.body.classList.remove('nav-open');
-      });
-    });
-  })();
-</script>
 
 </body>
 </html>
