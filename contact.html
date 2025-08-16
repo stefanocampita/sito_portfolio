@@ -1,0 +1,81 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact — IB/PE</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  
+<div class="nav">
+  <div class="inner">
+    <div class="brand" style="display:flex; align-items:center;"><a href="index.html"><img src="logo.png" alt="Logo" style="height:60px;"></a></div>
+    <div class="menu">
+      <a href="index.html" class="">Home</a>
+      <a href="portfolio.html" class="">Portfolio</a>
+      <a href="blog.html" class="">Blog</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </div>
+</div>
+<main class="main">
+
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <form onsubmit="event.preventDefault(); alert('Thanks! This is a static demo — wire this to your email later.');">
+      <div class="row">
+        <div>
+          <label for="name">Name</label><br/>
+          <input id="name" class="input" placeholder="Your name"/>
+        </div>
+        <div>
+          <label for="email">Email</label><br/>
+          <input id="email" type="email" class="input" placeholder="your@email.com"/>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <label for="msg">Message</label><br/>
+        <textarea id="msg" class="input" placeholder="Write your message..."></textarea>
+      </div>
+      <div class="actions">
+        <button class="btn primary" type="submit">Send Message</button>
+        <a class="btn accent" href="mailto:ste@examplemail.com">Email Direct</a>
+        <a class="btn outline" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </form>
+  </div>
+  
+<div class="icons">
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</main>
+  <footer class="site-footer">
+  <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+    <div class="left" style="font-size:14px; color:#F9FAFB">
+      <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+      <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:email@example.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

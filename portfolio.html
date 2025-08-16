@@ -1,0 +1,127 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Portfolio — IB/PE</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  
+<div class="nav">
+  <div class="inner">
+    <div class="brand" style="display:flex; align-items:center;"><a href="index.html"><img src="logo.png" alt="Logo" style="height:60px;"></a></div>
+    <div class="menu">
+      <a href="index.html" class="">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog.html" class="">Blog</a>
+      <a href="contact.html" class="">Contact</a>
+    </div>
+  </div>
+</div>
+<main class="main">
+
+  <div class="container">
+    <h2>Portfolio</h2>
+    <div class="searchbar">
+      <input id="search" type="text" placeholder="Search projects (e.g., LBO, DCF, M&A) ..." oninput="filterCards()"/>
+    </div>
+    <div id="grid" class="grid">
+      <!-- Cards -->
+      <div class="card" data-tags="lbo industrial sensitivity memo">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>LBO Model — Mid‑Cap Industrial</h3>
+          <p>Complete leveraged buyout model with sensitivity tables on leverage/exit multiples and a 2‑page IC memo.</p>
+        </div>
+        <div class="tag"></div>
+      </div>
+      <div class="card" data-tags="m&a accretion dilution synergies tech">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>M&A Case — Tech Consolidation</h3>
+          <p>Cross‑border acquisition with synergy build, accretion/dilution analysis and debt structure assessment.</p>
+        </div>
+        <div class="tag"></div>
+      </div>
+      <div class="card" data-tags="equity research dcf comparables consumer">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Equity Research — Consumer</h3>
+          <p>Full DCF plus trading/transaction comps with a balanced Buy/Hold/Sell recommendation and key catalysts.</p>
+        </div>
+        <div class="tag"></div>
+      </div>
+      <div class="card" data-tags="private markets thesis pmi deal origination">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Private Markets Thesis — PMI</h3>
+          <p>Deal origination note: market mapping, moat analysis and preliminary valuation for a family‑owned business.</p>
+        </div>
+        <div class="tag"></div>
+      </div>
+      <div class="card" data-tags="modelling excel template best practices audit">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Excel Modelling Template</h3>
+          <p>Clean, auditable template with layout standards, assumptions sheet and version control checklist.</p>
+        </div>
+        <div class="tag"></div>
+      </div>
+      <div class="card" data-tags="debt levfin covenants debt package">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>LevFin — Covenant Pack</h3>
+          <p>Debt schedule, covenant tests and headroom sensitivity for a sponsor‑backed buyout financing.</p>
+        </div>
+        <div class="tag"></div>
+      </div>
+    </div>
+  </div>
+  
+<div class="icons">
+      
+    </div>
+  </div>
+</div>
+
+  <script>
+    function filterCards(){
+      const q = document.getElementById('search').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(c => {
+        const tags = (c.getAttribute('data-tags')||'').toLowerCase();
+        const title = c.querySelector('h3').innerText.toLowerCase();
+        const text = c.querySelector('p').innerText.toLowerCase();
+        const hit = !q || tags.includes(q) || title.includes(q) || text.includes(q);
+        c.style.display = hit ? 'block' : 'none';
+      });
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+</main>
+  <footer class="site-footer">
+  <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+    <div class="left" style="font-size:14px; color:#F9FAFB">
+      <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+      <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:email@example.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
