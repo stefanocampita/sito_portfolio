@@ -158,3 +158,19 @@ form .actions{margin-top:14px}
   .hero .photo{ width:120px; height:120px; }
   .hero .about{ width:100%; }
 }
+
+
+/* Ensure header logo displays correctly */
+.logo{
+  height: 44px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 900px){
+  .logo{ height: 40px; }
+}
+
+
+/* Logo image sizing */
+.logo{ height:40px; width:auto; display:block; }
+@media (max-width: 900px){ .logo{ height:36px; } }
