@@ -11,7 +11,11 @@
   
 <div class="nav">
   <div class="inner">
-    <div class="brand" style="display:flex;align-items:center;"><a href="index.html"><img src="logo.png" alt="Logo" style="height:60px;"></a></div>
+    <div class="brand">Stefano Campita</div>
+<button class="hamburger" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
     <div class="menu">
       <a href="index.html" class="">Home</a>
       <a href="portfolio.html" class="active">Portfolio</a>
@@ -27,9 +31,9 @@
     <div class="searchbar">
       <input id="search" type="text" placeholder="Search projects (e.g., LBO, DCF, M&A) ..." oninput="filterCards()"/>
     </div>
-    
     <div id="grid" class="grid">
-      <div class="card" data-tags="lbo industrial sensitivity memo buyout">
+      <!-- Cards -->
+      <div class="card" data-tags="lbo industrial sensitivity memo">
         <div class="thumb"></div>
         <div class="body">
           <h3>LBO Model — Mid‑Cap Industrial</h3>
@@ -37,37 +41,47 @@
         </div>
         <div class="tag"></div>
       </div>
-
-      <div class="card" data-tags="excel modeling template standards audit">
+      <div class="card" data-tags="m&a accretion dilution synergies tech">
         <div class="thumb"></div>
         <div class="body">
-          <h3>Excel Modeling Template</h3>
-          <p>Clean, auditable workbook with layout standards, assumptions sheet, sensitivity blocks and version control checklist.</p>
+          <h3>M&A Case — Tech Consolidation</h3>
+          <p>Cross‑border acquisition with synergy build, accretion/dilution analysis and debt structure assessment.</p>
         </div>
         <div class="tag"></div>
       </div>
-
-      <div class="card" data-tags="thesis causal assumptions inference research">
+      <div class="card" data-tags="equity research dcf comparables consumer">
         <div class="thumb"></div>
         <div class="body">
-          <h3>Thesis on Causal Assumptions</h3>
-          <p>Research project on identifying and testing causal assumptions behind return drivers, with diagnostics and robustness checks.</p>
+          <h3>Equity Research — Consumer</h3>
+          <p>Full DCF plus trading/transaction comps with a balanced Buy/Hold/Sell recommendation and key catalysts.</p>
         </div>
         <div class="tag"></div>
       </div>
-
-      <div class="card" data-tags="valuation python forecasting exit strategy end to end">
+      <div class="card" data-tags="private markets thesis pmi deal origination">
         <div class="thumb"></div>
         <div class="body">
-          <h3>End‑to‑End Deal Model (Excel→Python→Exit)</h3>
-          <p>Build the valuation in Excel, project future returns with a Python model, and design a data‑driven exit strategy.</p>
+          <h3>Private Markets Thesis — PMI</h3>
+          <p>Deal origination note: market mapping, moat analysis and preliminary valuation for a family‑owned business.</p>
+        </div>
+        <div class="tag"></div>
+      </div>
+      <div class="card" data-tags="modelling excel template best practices audit">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Excel Modelling Template</h3>
+          <p>Clean, auditable template with layout standards, assumptions sheet and version control checklist.</p>
+        </div>
+        <div class="tag"></div>
+      </div>
+      <div class="card" data-tags="debt levfin covenants debt package">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>LevFin — Covenant Pack</h3>
+          <p>Debt schedule, covenant tests and headroom sensitivity for a sponsor‑backed buyout financing.</p>
         </div>
         <div class="tag"></div>
       </div>
     </div>
-
-  </div>
-  </div>
   </div>
   
 <div class="icons">
@@ -108,10 +122,32 @@
     </div>
     <div class="right">
       <a class="icon" href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
-      <a class="icon" href="mailto:stefanocampita@gmail.com" aria-label="Email">@</a>
+      <a class="icon" href="mailto:email@example.com" aria-label="Email">@</a>
     </div>
   </div>
 </footer>
+
+
+<script>
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    // Close after clicking a link (mobile)
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>

@@ -82,7 +82,7 @@ form .actions{margin-top:14px}
 .hero-left{display:flex; gap:16px; align-items:stretch}
 .hero .photo{background:#E5E7EB; border-radius:12px; height:220px; width:180px; min-width:180px; display:flex; align-items:center; justify-content:center; color:#555; font-weight:600}
 .about{background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px; max-width:420px}
-
+.about h3{margin:0; font-size:16px}
 .about p{margin:0; font-size:13.5px; line-height:1.6}
 .site-footer{background:#1A1A1A; color:#F9FAFB; padding:20px 0; margin-top:40px}
 .site-footer .inner{max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
@@ -119,34 +119,42 @@ form .actions{margin-top:14px}
   transform: scaleX(1);
 }
 
-.about{font-size:15px; line-height:1.6}
-.about p{margin:0 0 8px; color: var(--text)}
 
+/* ===== Mobile Hamburger + Dark Drawer ===== */
+.hamburger{ display:none; background:transparent; border:0; padding:8px; margin-left:8px; cursor:pointer; }
+.hamburger span{ display:block; width:24px; height:2px; margin:5px 0; background:#fff; transition:transform .2s ease, opacity .2s ease; }
+.nav-open .hamburger span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.nav-open .hamburger span:nth-child(2){ opacity:0; }
+.nav-open .hamburger span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 
-.about h3{margin:0 0 6px; font-size:15px; font-weight:700; color: var(--primary)}
-.about p{margin:0 0 8px; font-size:15px; line-height:1.6; color: var(--text)}
-
-.nav .inner img{
-  display:block;
-  height:40px;
-}
-.nav .inner{
-  min-height:60px;
-}
-
-/* --- Force dark menu background on mobile and when open --- */
-:root{ --header-bg:#111827; }
 @media (max-width: 900px){
+  .hamburger{ display:block; }
+  .nav .inner{ position:relative; }
   .menu{
-    background: var(--header-bg) !important;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    position:absolute;
+    top:100%;
+    right:0;
+    left:0;
+    display:none;
+    flex-direction:column;
+    gap:6px;
+    background:#1a1a1a !important; /* requested dark bg */
+    padding:14px 16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    z-index:50;
+  }
+  .menu.open{ display:flex; }
+  .menu a{
+    color:#fff !important; /* white text for contrast */
+    padding:10px 6px;
+    border-radius:8px;
+    font-size:16px;
   }
 }
-/* Ensure desktop dropdowns (if any) also use header color */
-.menu.open{ background: var(--header-bg) !important; }
 
 @media (max-width: 768px){
-  .hero-left{ display:flex; flex-direction:column; gap:12px; }
-  .hero .photo{ align-self:flex-start; }
+  .hero{ display:grid; grid-template-columns:1fr; gap:16px; }
+  .hero-left{ display:flex; flex-direction:column; gap:12px; order:2; }
+  .hero .photo{ width:120px; height:120px; }
   .hero .about{ width:100%; }
 }
