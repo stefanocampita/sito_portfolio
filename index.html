@@ -5,92 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Home — IB/PE Portfolio</title>
   <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Overrides SOLO per la home (per tornare al layout “di prima”) -->
+  <style>
+    /* Desktop: due colonne, con blocco destro comodo e foto più grande */
+    @media (min-width: 1024px){
+      .hero{
+        display: grid;
+        grid-template-columns: 1.1fr 1fr; /* sinistra leggermente più ampia, come prima */
+        gap: 28px;
+        align-items: center;
+        padding: 40px 0;
+      }
+      .hero-right{ display:block; max-width: 820px; }
+      .hero-right .sub{ max-width: 720px; }
+      /* Foto più larga (torna “importante” come nella versione precedente) */
+      .hero .photo{
+        width: 420px;   /* aumenta/diminuisci qui se vuoi */
+        height: 420px;
+      }
+    }
+    /* Base: assicurati che l’immagine riempia il riquadro senza deformarsi */
+    .hero .photo{
+      background:#1a1a1a; border-radius:12px; overflow:hidden;
+    }
+    .hero .photo img{
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+  </style>
 </head>
 <body>
   
-<div class="nav">
-  <div class="inner">
-    <div class="brand">
-      <a href="index.html">
-        <img src="logo.png" alt="Logo" class="logo">
-      </a>
-    </div>
-    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="menu">
-      <a href="index.html" class="active">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo" class="logo">
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </div>
-</div>
 
-<main class="main">
-  <section class="hero container">
-    <!-- Colonna sinistra: foto + about -->
-    <div class="hero-left">
-      <div class="photo">
-        <!-- Assicurati che photo.jpg sia nella stessa cartella -->
-        <img src="foto_about_me.png" alt="Your Photo">
+  <main class="main">
+    <section class="hero container">
+      <!-- Colonna sinistra: foto + about -->
+      <div class="hero-left">
+        <div class="photo">
+          <!-- Assicurati che il file si chiami esattamente photo.jpg nella stessa cartella -->
+          <img src="photo.jpg" alt="Your Photo">
+        </div>
+        <div class="about">
+          <h3>About me</h3>
+          <p>I study how capital meets strategy. I build valuation and LBO models, pressure‑test assumptions, and write investment memos to sharpen judgment. My approach is rigorous and data‑driven, with clear, concise communication.</p>
+          <p>I’m drawn to calculated risk and to the discipline of turning noisy financials into actionable insights. This site collects selected projects — valuations, LBOs, and M&amp;A case studies — that reflect how I think and solve problems. If you like my work, feel free to reach out.</p>
+        </div>
       </div>
-      <div class="about">
-        <h3>About me</h3>
-        <p>I study how capital meets strategy. I build valuation and LBO models, pressure‑test assumptions, and write investment memos to sharpen judgment. My approach is rigorous and data‑driven, with clear, concise communication.</p>
-        <p>I’m drawn to calculated risk and to the discipline of turning noisy financials into actionable insights. This site collects selected projects — valuations, LBOs, and M&A case studies — that reflect how I think and solve problems. If you like my work, feel free to reach out.</p>
+
+      <!-- Colonna destra: titolo + testo + bottoni -->
+      <div class="hero-right">
+        <h1 class="h1">Financial Modeling &amp; Deal Analysis</h1>
+        <p class="sub">
+          I build clean valuation models (DCF, comps), full LBO models with sensitivities,
+          and concise investment memos. This site collects selected projects and case studies
+          that mirror real IB/PE deliverables.
+        </p>
+        <div class="btnrow">
+          <a class="btn primary" href="portfolio.html">View Portfolio</a>
+          <a class="btn outline" href="blog.html">Read Blog</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div class="left" style="font-size:14px; color:#F9FAFB">
+        <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+        <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita@gmail.com" aria-label="Email">@</a>
       </div>
     </div>
+  </footer>
 
-    <!-- Colonna destra: titolo + testo + bottoni (desktop e mobile) -->
-    <div class="hero-right">
-      <h1 class="h1">Financial Modeling &amp; Deal Analysis</h1>
-      <p class="sub">
-        I build clean valuation models (DCF, comps), full LBO models with 
-        sensitivities, and concise investment memos. This site collects selected 
-        projects and case studies that mirror real IB/PE deliverables.
-      </p>
-      <div class="btnrow">
-        <a class="btn primary" href="portfolio.html">View Portfolio</a>
-        <a class="btn outline" href="blog.html">Read Blog</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-    <div class="left" style="font-size:14px; color:#F9FAFB">
-      <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
-      <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
-    </div>
-    <div class="right">
-      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
-      <a class="icon" href="mailto:stefanocampita@gmail.com" aria-label="Email">@</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  (function(){
-    var btn = document.querySelector('.hamburger');
-    var menu = document.querySelector('.menu');
-    if(!btn || !menu) return;
-    btn.addEventListener('click', function(){
-      var isOpen = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.classList.toggle('nav-open', isOpen);
-    });
-    // Close after clicking a link (mobile)
-    menu.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        menu.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        btn.setAttribute('aria-expanded','false');
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
       });
-    });
-  })();
-</script>
+      // Close after clicking a link (mobile)
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
