@@ -227,6 +227,6 @@ form .actions{ margin-top:14px; }
   color: var(--accent); /* oro del sito */
   font-size: 15px;
   margin-top: 16px;
-  text-aling: left;
+  text-aling: center;
   max-width: 560px;
 }
