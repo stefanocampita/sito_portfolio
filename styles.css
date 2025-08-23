@@ -224,9 +224,9 @@ form .actions{ margin-top:14px; }
 /* Citazione sotto i bottoni */
 .quote{
   font-style: italic;
-  color: var(--accent); /* oro del sito */
+  color: var(--accent);
   font-size: 15px;
   margin-top: 16px;
-  text-aling: center;
-  max-width: 560px;
+  text-align: left;   /* metti "center" se preferisci centrata */
+  max-width: 560px;   /* allinea con la larghezza del paragrafo */
 }
