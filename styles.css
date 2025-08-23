@@ -116,7 +116,7 @@ form .actions{ margin-top:14px; }
   background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:14px;
   display:flex; flex-direction:column; gap:8px; max-width:420px;
 }
-.about h3{ margin:0; font-size:16px; }
+.about h3{ margin:0; font-size:20px; }
 .about p{ margin:0; font-size:16px; line-height:1.6; color:var(--text); }
 
 /* ===== Header logo ===== */
