@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,16 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Portfolio — IB/PE</title>
   <link rel="stylesheet" href="styles.css"/>
+  <!-- stile minimo per il bottone "View" nelle card -->
+  <style>
+    .card .actions { margin-top: 12px; }
+    .btn.sm { padding: 8px 12px; font-size: 13px; border-radius: 8px; }
+  </style>
 </head>
 <body>
   
 <div class="nav">
   <div class="inner">
     <div class="brand"><a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a></div>
-<button class="hamburger" aria-label="Open menu" aria-expanded="false">
-  <span></span><span></span><span></span>
-</button>
-
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <div class="menu">
       <a href="index.html" class="">Home</a>
       <a href="portfolio.html" class="active">Portfolio</a>
@@ -24,180 +27,102 @@
     </div>
   </div>
 </div>
-<main class="main">
 
+<main class="main">
   <div class="container">
     <h2>Portfolio</h2>
+
     <div class="searchbar">
       <input id="search" type="text" placeholder="Search projects (e.g., LBO, DCF, M&A) ..." oninput="filterCards()"/>
     </div>
+
     <div id="grid" class="grid">
-  <!-- Notion template -->
-  <div class="card" data-tags="notion deal tracker template">
-    <div class="thumb">
-      <img src="notion-cover.png" alt="Notion Dealflow Template cover" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="body">
-      <h3>Notion Deal Flow Tracker</h3>
-      <p>A simple, ready-to-use template to organize deals, record assumptions, and monitor returns. Built for clarity and decision‑making.</p>
-      <div class="actions">
-        <!-- per ora punta al blog generale; quando pubblichi il post dedicato, cambia href -->
-        <a class="btn sm outline" href="blog.html#dealflow" target="_blank" rel="noopener">View</a>
+      <!-- Notion template -->
+      <div class="card" data-tags="notion deal tracker template">
+        <div class="thumb">
+          <!-- carica questo file nella stessa cartella del sito -->
+          <img src="notion-cover.png" alt="Notion Dealflow Template cover" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="body">
+          <h3>Notion Deal Flow Tracker</h3>
+          <p>A simple, ready-to-use template to organize deals, record assumptions, and monitor returns. Built for clarity and decision‑making.</p>
+          <div class="actions">
+            <!-- aggiorna quando creerai il post dedicato -->
+            <a class="btn sm outline" href="blog.html#dealflow" target="_blank" rel="noopener">View</a>
+          </div>
+        </div>
+        <div class="tag"></div>
       </div>
-    </div>
-    <div class="tag"></div>
-  </div>
 
-  <!-- M&A case -->
-  <div class="card" data-tags="m&a accretion dilution synergies tech">
-    <div class="thumb"></div>
-    <div class="body">
-      <h3>M&A Case — Tech Consolidation</h3>
-      <p>Cross‑border acquisition with synergy build, accretion/dilution analysis and debt structure assessment.</p>
-      <div class="actions">
-        <a class="btn sm outline" href="post-ma-cross-border.html">View</a>
-      </div>
-    </div>
-    <div class="tag"></div>
-  </div>
-
-  <!-- Equity research -->
-  <div class="card" data-tags="equity research dcf comparables consumer">
-    <div class="thumb"></div>
-    <div class="body">
-      <h3>Equity Research — Consumer</h3>
-      <p>Full DCF plus trading/transaction comps with a balanced Buy/Hold/Sell recommendation and key catalysts.</p>
-      <div class="actions">
-        <!-- collega al playbook di valuation (adatto come approfondimento) -->
-        <a class="btn sm outline" href="post-valuation-playbook.html">View</a>
-      </div>
-    </div>
-    <div class="tag"></div>
-  </div>
-
-  <!-- Private markets thesis -->
-  <div class="card" data-tags="private markets thesis pmi deal origination">
-    <div class="thumb"></div>
-    <div class="body">
-      <h3>Private Markets Thesis — PMI</h3>
-      <p>Deal origination note: market mapping, moat analysis and preliminary valuation for a family‑owned business.</p>
-      <div class="actions">
-        <!-- placeholder: manda al blog finché non hai un post dedicato -->
-        <a class="btn sm outline" href="blog.html#thesis">View</a>
-      </div>
-    </div>
-    <div class="tag"></div>
-  </div>
-
-  <!-- Excel modelling template -->
-  <div class="card" data-tags="modelling excel template best practices audit">
-    <div class="thumb"></div>
-    <div class="body">
-      <h3>Excel Modelling Template</h3>
-      <p>Clean, auditable template with layout standards, assumptions sheet and version control checklist.</p>
-      <div class="actions">
-        <a class="btn sm outline" href="post-valuation-playbook.html#template">View</a>
-      </div>
-    </div>
-    <div class="tag"></div>
-  </div>
-
-  <!-- LevFin pack -->
-  <div class="card" data-tags="debt levfin covenants debt package">
-    <div class="thumb"></div>
-    <div class="body">
-      <h3>LevFin — Covenant Pack</h3>
-      <p>Debt schedule, covenant tests and headroom sensitivity for a sponsor‑backed buyout financing.</p>
-      <div class="actions">
-        <a class="btn sm outline" href="post-lbo-assumptions-to-irr.html">View</a>
-      </div>
-    </div>
-    <div class="tag"></div>
-  </div>
-</div>
-
-  </div>
-  <div class="body">
-    <h3>Notion Deal Flow Tracker</h3>
-    <p>A simple, ready-to-use template to organize deals, record assumptions, and monitor returns. Built for clarity and decision-making.</p>
-  </div>
-  <div class="tag"></div>
-</div>
-
+      <!-- M&A case -->
       <div class="card" data-tags="m&a accretion dilution synergies tech">
         <div class="thumb"></div>
         <div class="body">
           <h3>M&A Case — Tech Consolidation</h3>
           <p>Cross‑border acquisition with synergy build, accretion/dilution analysis and debt structure assessment.</p>
+          <div class="actions">
+            <a class="btn sm outline" href="post-ma-cross-border.html">View</a>
+          </div>
         </div>
         <div class="tag"></div>
       </div>
+
+      <!-- Equity research -->
       <div class="card" data-tags="equity research dcf comparables consumer">
         <div class="thumb"></div>
         <div class="body">
           <h3>Equity Research — Consumer</h3>
           <p>Full DCF plus trading/transaction comps with a balanced Buy/Hold/Sell recommendation and key catalysts.</p>
+          <div class="actions">
+            <a class="btn sm outline" href="post-valuation-playbook.html">View</a>
+          </div>
         </div>
         <div class="tag"></div>
       </div>
+
+      <!-- Private markets thesis -->
       <div class="card" data-tags="private markets thesis pmi deal origination">
         <div class="thumb"></div>
         <div class="body">
           <h3>Private Markets Thesis — PMI</h3>
           <p>Deal origination note: market mapping, moat analysis and preliminary valuation for a family‑owned business.</p>
+          <div class="actions">
+            <a class="btn sm outline" href="blog.html#thesis" target="_blank" rel="noopener">View</a>
+          </div>
         </div>
         <div class="tag"></div>
       </div>
+
+      <!-- Excel modelling template -->
       <div class="card" data-tags="modelling excel template best practices audit">
         <div class="thumb"></div>
         <div class="body">
           <h3>Excel Modelling Template</h3>
           <p>Clean, auditable template with layout standards, assumptions sheet and version control checklist.</p>
+          <div class="actions">
+            <a class="btn sm outline" href="post-valuation-playbook.html#template">View</a>
+          </div>
         </div>
         <div class="tag"></div>
       </div>
+
+      <!-- LevFin pack -->
       <div class="card" data-tags="debt levfin covenants debt package">
         <div class="thumb"></div>
         <div class="body">
           <h3>LevFin — Covenant Pack</h3>
           <p>Debt schedule, covenant tests and headroom sensitivity for a sponsor‑backed buyout financing.</p>
+          <div class="actions">
+            <a class="btn sm outline" href="post-lbo-assumptions-to-irr.html">View</a>
+          </div>
         </div>
         <div class="tag"></div>
       </div>
-    </div>
-  </div>
-  
-<div class="icons">
-      
-    </div>
-  </div>
-</div>
-
-  <script>
-    function filterCards(){
-      const q = document.getElementById('search').value.toLowerCase().trim();
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(c => {
-        const tags = (c.getAttribute('data-tags')||'').toLowerCase();
-        const title = c.querySelector('h3').innerText.toLowerCase();
-        const text = c.querySelector('p').innerText.toLowerCase();
-        const hit = !q || tags.includes(q) || title.includes(q) || text.includes(q);
-        c.style.display = hit ? 'block' : 'none';
-      });
-    }
-  </script>
-
-
-
-
-
-
-
-
-
-
+    </div><!-- /#grid -->
+  </div><!-- /.container -->
 </main>
-  <footer class="site-footer">
+
+<footer class="site-footer">
   <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
     <div class="left" style="font-size:14px; color:#F9FAFB">
       <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
@@ -205,13 +130,24 @@
     </div>
     <div class="right">
       <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
-      <a class="icon" href="mailto:email@example.com" aria-label="Email">@</a>
+      <a class="icon" href="mailto:stefanocampita@gmail.com" aria-label="Email">@</a>
     </div>
   </div>
 </footer>
 
-
 <script>
+  function filterCards(){
+    const q = document.getElementById('search').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(c => {
+      const tags = (c.getAttribute('data-tags')||'').toLowerCase();
+      const title = c.querySelector('h3').innerText.toLowerCase();
+      const text = c.querySelector('p').innerText.toLowerCase();
+      const hit = !q || tags.includes(q) || title.includes(q) || text.includes(q);
+      c.style.display = hit ? 'block' : 'none';
+    });
+  }
+
   (function(){
     var btn = document.querySelector('.hamburger');
     var menu = document.querySelector('.menu');
@@ -221,7 +157,6 @@
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       document.body.classList.toggle('nav-open', isOpen);
     });
-    // Close after clicking a link (mobile)
     menu.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click', function(){
         menu.classList.remove('open');
