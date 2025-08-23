@@ -221,3 +221,10 @@ form .actions{ margin-top:14px; }
 /* Button dentro le card */
 .card .actions { margin-top: 12px; }
 .btn.sm { padding: 8px 12px; font-size: 13px; border-radius: 8px; }
+/* Citazione sotto i bottoni */
+.quote{
+  font-style: italic;
+  color: var(--accent); /* oro del sito */
+  font-size: 15px;
+  margin-top: 14px;
+}
