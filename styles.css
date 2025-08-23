@@ -222,3 +222,30 @@ form .actions{ margin-top:14px; }
 .card .actions { margin-top: 12px; }
 .btn.sm { padding: 8px 12px; font-size: 13px; border-radius: 8px; }
 }
+/* Foto About: dimensioni e ritaglio */
+.hero .photo{
+  width: 350px;      /* regola la grandezza a piacere */
+  height: 350px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.hero .photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === RESET DESKTOP: 2 colonne, testo a destra === */
+@media (min-width: 1024px){
+  .hero{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* sinistra: foto+about / destra: testo */
+    gap: 28px;
+    align-items: center;
+    padding: 40px 0;
+  }
+  .hero-right{ display: block; }  /* mostra il blocco a destra */
+  .hero-extra{ display: none; }   /* nascondi quello sotto About */
+}
