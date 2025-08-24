@@ -271,6 +271,7 @@ form .actions{ margin-top:14px; }
 .highlight-quote {
   color: var(--accent);  /* oro come il resto dei dettagli */
   font-style: italic;
+  font-weight: bold;
 }
 /* ===== MOBILE FIXES (≤900px) ===== */
 @media (max-width: 900px){
