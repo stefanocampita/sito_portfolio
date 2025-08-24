@@ -37,7 +37,7 @@ a{ color:var(--primary); text-decoration:none; }
 .menu a{
   color:#fff;
   font-weight:700;
-  font-size:16px;              /* leggermente più grande */
+  font-size:20px;              /* leggermente più grande */
   margin-left:20px;
   padding:6px 10px;            /* più area clickabile */
   border-bottom:2px solid transparent;
