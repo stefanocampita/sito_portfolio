@@ -393,3 +393,83 @@ form .actions{ margin-top:14px; }
     margin-bottom: 12px;
   }
 }
+/* ===== Desktop layout ottimizzato (>=1024px) ===== */
+@media (min-width: 1024px){
+
+  /* Griglia principale a 2 colonne con gutter ampio */
+  .hero-desktop{
+    display: grid;
+    grid-template-columns: 440px 1fr;  /* sinistra fissa ~440px, destra flessibile */
+    gap: 36px;
+    align-items: start;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  /* Colonna sinistra: nome + foto */
+  .name-title{
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    color: var(--primary);
+    text-align: left;
+  }
+  .col-left .photo{
+    width: 440px;      /* coerente con la colonna */
+    height: 540px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .col-left .photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Colonna destra: due righe (About sopra, Copy sotto) */
+  .col-right{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 28px;
+  }
+
+  /* Card About allineata e ariosa */
+  .col-right .about{
+    background:#fff;
+    border:1px solid #ECECEC;
+    border-radius:12px;
+    padding:16px 18px;
+    max-width: 900px;
+  }
+  .col-right .about h3{ margin:0 0 8px; font-size: 18px; }
+  .col-right .about p{ margin:0 0 10px; font-size: 15px; line-height: 1.65; }
+
+  /* Blocco headline + testo + CTA con larghezza di lettura comoda */
+  .hero-copy{
+    max-width: 900px;     /* limita il numero di caratteri per riga */
+  }
+  .hero-copy .h1{
+    font-size: 34px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+  .hero-copy .sub{
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 760px;     /* testo più largo, ma non infinito */
+    margin: 8px 0 18px;
+  }
+  .hero-copy .btnrow .btn{
+    padding: 12px 16px;
+    font-weight: 700;
+    border-radius: 10px;
+  }
+}
+
+/* Micro-tweak schermi larghi */
+@media (min-width: 1400px){
+  .hero-copy{ max-width: 980px; }
+  .col-right .about{ max-width: 980px; }
+}
