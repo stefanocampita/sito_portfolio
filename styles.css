@@ -268,3 +268,7 @@ form .actions{ margin-top:14px; }
   .hero-right{ display: block; }  /* mostra il blocco a destra */
   .hero-extra{ display: none; }   /* nascondi quello sotto About */
 }
+.highlight-quote {
+  color: var(--accent);  /* oro come il resto dei dettagli */
+  font-style: italic;
+}
