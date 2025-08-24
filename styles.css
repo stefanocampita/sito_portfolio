@@ -474,3 +474,9 @@ form .actions{ margin-top:14px; }
   .hero-copy{ max-width: 980px; }
   .col-right .about{ max-width: 980px; }
 }
+/* spazio extra solo su mobile tra le due sezioni index */
+@media (max-width : 900px){
+  .col-right .about {
+    margin-bottom: 200px;
+  }
+}
