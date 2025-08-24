@@ -378,3 +378,18 @@ form .actions{ margin-top:14px; }
     padding-right: 4px; /* evita di arrivare troppo al bordo */
   }
 }
+/* Nome sopra la foto */
+.name-title{
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 14px;
+  color: var(--primary); /* colore principale (nero) */
+}
+
+@media (max-width: 900px){
+  .name-title{
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+}
