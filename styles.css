@@ -35,9 +35,28 @@ a{ color:var(--primary); text-decoration:none; }
 }
 .brand{ font-weight:700; letter-spacing:.3px; font-size:15px; }
 .menu a{
-  color:#fff; font-weight:700; font-size:14px;
-  margin-left:20px; padding-bottom:3px; border-bottom:2px solid transparent;
+  color:#fff;
+  font-weight:700;
+  font-size:16px;              /* leggermente più grande */
+  margin-left:20px;
+  padding:6px 10px;            /* più area clickabile */
+  border-bottom:2px solid transparent;
+  position:relative;
 }
+
+/* Barra verticale bianca tra i link */
+.menu a:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-12px;                 /* distanza dal testo */
+  top:50%;
+  transform:translateY(-50%);
+  width:1px;
+  height:18px;
+  background:#fff;
+  opacity:0.6;                 /* leggermente trasparente */
+}
+
 .menu a.active{ border-color:var(--accent); }
 
 /* ===== Containers ===== */
