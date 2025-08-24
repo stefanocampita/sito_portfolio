@@ -276,7 +276,7 @@ form .actions{ margin-top:14px; }
 @media (max-width: 900px){
 
   /* Container padding un filo maggiore per respiro */
-  .container { padding: 24px 16px; }
+  .container { padding: 24px 20px; }
 
   /* NAV / MENU */
   .hamburger{ display:block; }
