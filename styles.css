@@ -360,3 +360,21 @@ form .actions{ margin-top:14px; }
   .hero .photo{ height: 280px; }
   .btn{ font-size:13.5px; padding:10px 12px; }
 }
+/* --- Ottimizzazione spazi laterali su mobile --- */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .about {
+    padding: 18px; /* più aria interna alla card */
+  }
+
+  .hero .sub, 
+  .hero .h1, 
+  .hero .btnrow {
+    padding-left: 4px;
+    padding-right: 4px; /* evita di arrivare troppo al bordo */
+  }
+}
