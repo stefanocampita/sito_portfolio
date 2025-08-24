@@ -272,3 +272,91 @@ form .actions{ margin-top:14px; }
   color: var(--accent);  /* oro come il resto dei dettagli */
   font-style: italic;
 }
+/* ===== MOBILE FIXES (≤900px) ===== */
+@media (max-width: 900px){
+
+  /* Container padding un filo maggiore per respiro */
+  .container { padding: 24px 16px; }
+
+  /* NAV / MENU */
+  .hamburger{ display:block; }
+  .nav .inner{ position:relative; }
+  .menu{
+    position:absolute; top:100%; left:0; right:0;
+    display:none; flex-direction:column; gap:6px;
+    background:#1a1a1a; padding:14px 16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35); z-index:50;
+  }
+  .menu.open{ display:flex; }
+  .menu a{
+    color:#fff; font-weight:700; font-size:16px;
+    padding:10px 6px; border-radius:8px;
+  }
+
+  /* HERO LAYOUT: stack verticale ordinato */
+  .hero{
+    display:grid; grid-template-columns:1fr;
+    gap:16px; padding:24px 0;
+  }
+
+  /* Foto full-width con cornice scura e crop corretto */
+  .hero .photo{
+    width:100%; max-width:100%;
+    height: 320px;             /* altezza visiva comoda su telefono */
+    background:#1a1a1a; border-radius:12px; overflow:hidden;
+  }
+  .hero .photo img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+
+  /* About subito dopo la foto, full width */
+  .hero-left{
+    display:flex; flex-direction:column; gap:12px; order:1;
+  }
+  .about{
+    max-width:100%; padding:12px; border-radius:12px;
+  }
+  .about h3{ font-size:16px; }
+  .about p{ font-size:14.5px; line-height:1.65; }
+
+  /* Blocco testo/CTA: mettilo dopo l’about */
+  .hero-right{
+    order:2;
+  }
+
+  /* Tipografia hero più compatta per evitare righe troppo lunghe */
+  .h1{
+    font-size:24px; line-height:1.25; margin-bottom:6px;
+  }
+  .sub{
+    font-size:14.5px; line-height:1.65; max-width:100%;
+    margin:10px 0 18px;
+  }
+
+  /* Bottoni: area click comoda */
+  .btnrow{ gap:10px; }
+  .btn{ padding:11px 14px; font-size:14px; border-radius:10px; }
+
+  /* Portfolio: griglia a 1 colonna + searchbar full width */
+  .grid{ grid-template-columns:1fr; gap:16px; }
+  .thumb{ height:160px; }             /* immagini card più alte su mobile */
+  .searchbar{ margin:14px 0 22px; }
+  .searchbar input{ width:100%; font-size:15px; padding:12px 14px; }
+
+  /* Blog list */
+  .post{ grid-template-columns:1fr; }
+  .post .thumb{ height:160px; }
+
+  /* Footer stack */
+  .site-footer .inner{
+    flex-direction:column; align-items:flex-start; gap:10px;
+  }
+}
+
+/* ===== MICRO-FIX SCHERMI PICCOLI (≤600px) ===== */
+@media (max-width: 600px){
+  .h1{ font-size:22px; }
+  .sub{ font-size:14px; }
+  .hero .photo{ height: 280px; }
+  .btn{ font-size:13.5px; padding:10px 12px; }
+}
