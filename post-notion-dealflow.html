@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Notion Deal Flow Tracker — IB/PE</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+
+<div class="nav">
+  <div class="inner">
+    <div class="brand"><a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a></div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+    <h2>Notion Deal Flow Tracker</h2>
+    <p style="color:#666; margin-top:-6px;">Draft article — placeholder content</p>
+
+    <div class="thumb" style="margin:14px 0 16px; display:flex; align-items:center; justify-content:center; background:#E5E7EB; height:220px; border-radius:12px;">
+      <span style="color:#555;">(cover image placeholder)</span>
+    </div>
+
+    <p>
+      This is a draft article for the Notion Deal Flow Tracker project.  
+      Here we will later add detailed explanation, screenshots of the template, and a link to download it.
+    </p>
+
+    <p>
+      For now, this page serves as a placeholder to test the navigation:  
+      clicking "View" in the Portfolio card correctly opens this dedicated blog article.
+    </p>
+
+    <div style="margin-top:18px;">
+      <a class="btn outline" href="blog.html">← Back to Blog</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+    <div class="left" style="font-size:14px; color:#F9FAFB">
+      <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+      <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
