@@ -56,6 +56,28 @@ This overview highlights the core philosophy of the template:
 In the following sections, we will dive into its structure, key fields, 
 and examples of how it can be used in practice.
 </p>
+<h3>Template Structure & Key Fields</h3>
+<p>
+The tracker captures both qualitative and quantitative aspects of each deal, ensuring that 
+opportunities are logged with enough context to support investment decisions. 
+Each row corresponds to a company under evaluation, with fields structured as follows:
+</p>
+
+<ul>
+  <li><strong>Core Identifiers:</strong> Company, Sector, Country, and Deal Stage provide the basic classification and pipeline position.</li>
+  <li><strong>Valuation Metrics:</strong> Valuation (€M), EBITDA (€M), and EV/EBITDA Multiple frame the financial baseline of the opportunity.</li>
+  <li><strong>Deal Economics:</strong> Deal Size (€M), MoM Multiple, and Holding Period (Years) quantify the potential commitment and timeframe.</li>
+  <li><strong>Returns Analysis:</strong> IRR (Est.) is calculated directly, complemented by an Expected IRR (%) column for quick reference and comparison.</li>
+  <li><strong>Ownership & Tracking:</strong> Each deal has an assigned Owner, Notes for qualitative observations, and a Last Contact Date to ensure timely follow-ups.</li>
+  <li><strong>Size Classification:</strong> A Deal Size Check field automatically tags transactions as Small, Mid, or Large, adding a quick-scan dimension to the pipeline.</li>
+</ul>
+
+<p>
+This structure blends quantitative rigor (valuation multiples, IRR, MoM) with practical workflow tools 
+(notes, owner, contact tracking), making it suitable as both a 
+<em>pipeline manager</em> and a <em>lightweight investment memo generator</em>.
+</p>
+
 
 
     <div style="margin-top:18px;">
