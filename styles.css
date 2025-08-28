@@ -1,0 +1,569 @@
+/* ===== Base layout (sticky footer) ===== */
+html, body { min-height:100%; margin:0; padding:0; }
+body { display:flex; flex-direction:column; min-height:100vh; }
+.nav { flex:0 0 auto; }
+.main { flex:1 0 auto; }
+.site-footer { flex:0 0 auto; }
+
+/* ===== Theme vars ===== */
+:root{
+  --primary:#1A1A1A;
+  --secondary:#F9FAFB;
+  --accent:#C9A227;
+  --text:#333333;
+}
+
+/* ===== Reset / base ===== */
+* { box-sizing:border-box; }
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color:var(--text);
+  background:var(--secondary);
+}
+a{ color:var(--primary); text-decoration:none; }
+
+/* ===== Nav ===== */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:var(--primary); color:#fff; border-bottom:2px solid var(--accent);
+}
+.nav .inner{
+  max-width:1280px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:8px 20px;
+}
+.brand{ font-weight:700; letter-spacing:.3px; font-size:15px; }
+.menu a{
+  color:#fff;
+  font-weight:700;
+  font-size:18px;              /* leggermente più grande */
+  margin-left:20px;
+  padding:6px 10px;            /* più area clickabile */
+  border-bottom:2px solid transparent;
+  position:relative;
+}
+
+/* Barra verticale bianca tra i link */
+.menu a:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-12px;                 /* distanza dal testo */
+  top:50%;
+  transform:translateY(-50%);
+  width:1px;
+  height:18px;
+  background:#fff;
+  opacity:0.6;                 /* leggermente trasparente */
+}
+
+.menu a.active{ border-color:var(--accent); }
+
+/* ===== Containers ===== */
+.container{ max-width:1280px; margin:0 auto; padding:28px 20px; }
+
+/* ===== Hero ===== */
+.hero{
+  display:grid; grid-template-columns:1.3fr 1fr;
+  gap:28px; align-items:center; padding:40px 0;
+}
+.hero-left{ display:flex; gap:16px; align-items:stretch; }
+
+/* Headline & buttons */
+.h1{ font-size:32px; font-weight:800; margin:0 0 6px; }
+.h1 .arrow{ color:var(--accent); }
+.sub{ font-size:15px; line-height:1.6; max-width:560px; margin:12px 0 22px; }
+.btnrow{ display:flex; gap:12px; flex-wrap:wrap; }
+.btn{ border-radius:10px; padding:12px 16px; font-weight:700; border:2px solid var(--primary); }
+.btn.primary{ background:var(--primary); color:#fff; }
+.btn.outline{ background:#fff; color:var(--primary); }
+.btn.accent{ background:#fff; border-color:var(--accent); color:var(--accent); }
+
+/* ===== Portfolio / Blog cards ===== */
+.grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+.card{ background:#fff; border-radius:12px; overflow:hidden; border:1px solid #ECECEC; }
+.thumb{ background:#E5E7EB; height:150px; }
+.card .body{ padding:14px; }
+.card h3{ margin:0 0 8px; font-size:15px; }
+.card p{ margin:0; font-size:13.5px; line-height:1.6; }
+
+/* ===== Posts list ===== */
+.list{ display:flex; flex-direction:column; gap:18px; }
+.post{
+  display:grid; grid-template-columns:190px 1fr; gap:14px;
+  background:#fff; padding:14px; border-radius:12px; border:1px solid #ECECEC;
+}
+.post .thumb{ height:120px; }
+h2{ margin:8px 0 10px; }
+
+/* ===== Footer ===== */
+.site-footer{
+  background:#1A1A1A; color:#F9FAFB; padding:16px 0; margin-top:40px; flex-shrink:0;
+}
+.site-footer .inner{
+  max-width:1280px; margin:0 auto; padding:0 20px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+}
+.site-footer .left{ font-size:14px; }
+.site-footer .right .icon{
+  background:#C9A227; color:#fff; width:28px; height:28px;
+  display:inline-flex; align-items:center; justify-content:center; border-radius:999px; margin-left:8px; font-weight:800;
+}
+
+/* ===== Forms ===== */
+label{ font-size:13px; color:#555; }
+.input, textarea{
+  width:100%; padding:12px 14px; border:1px solid #E5E7EB; border-radius:10px; background:#fff; font-size:14px;
+}
+textarea{ min-height:140px; resize:vertical; }
+form .row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+form .actions{ margin-top:14px; }
+
+/* ===== Blog title underline hover ===== */
+.list .post h3 a{
+  position:relative; text-decoration:none; color:var(--primary);
+}
+.list .post h3 a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+  background:var(--accent); transform:scaleX(0); transform-origin:left;
+  transition:transform 120ms ease-in-out;
+}
+.list .post h3 a:hover::after{ transform:scaleX(1); }
+
+/* ===== About box (uniform text) ===== */
+.about{
+  background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:14px;
+  display:flex; flex-direction:column; gap:8px; max-width:420px;
+}
+.about h3{ margin:0; font-size:20px; }
+.about p{ margin:0; font-size:16px; line-height:1.6; color:var(--text); }
+
+/* ===== Header logo ===== */
+.logo{ height:40px; width:auto; display:block; }
+@media (max-width:900px){ .logo{ height:36px; } }
+
+/* ===== About photo box ===== */
+.hero .photo{
+  width:400px; height:400px;
+  background:#1a1a1a; border-radius:12px; overflow:hidden;
+}
+.hero .photo img{
+  width:100%; height:100%; object-fit:cover; border-radius:12px;
+}
+
+/* ===== Mobile hamburger (dark drawer) ===== */
+.hamburger{
+  display:none; background:transparent; border:0; padding:8px; margin-left:8px; cursor:pointer;
+}
+.hamburger span{
+  display:block; width:24px; height:2px; margin:5px 0; background:#fff;
+  transition:transform .2s ease, opacity .2s ease;
+}
+.nav-open .hamburger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-open .hamburger span:nth-child(2){ opacity:0; }
+.nav-open .hamburger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+@media (max-width:900px){
+  .hamburger{ display:block; }
+  .nav .inner{ position:relative; }
+  .menu{
+    position:absolute; top:100%; right:0; left:0;
+    display:none; flex-direction:column; gap:6px;
+    background:#1a1a1a !important;
+    padding:14px 16px; box-shadow:0 10px 30px rgba(0,0,0,.35); z-index:50;
+  }
+  .menu.open{ display:flex; }
+  .menu a{
+    color:#fff !important; padding:10px 6px; border-radius:8px; font-size:16px;
+  }
+}
+
+/* ===== Responsive layout ===== */
+@media (max-width:900px){
+  .hero{ grid-template-columns:1fr; }
+  .grid{ grid-template-columns:1fr 1fr; }
+  .post{ grid-template-columns:1fr; }
+  form .row{ grid-template-columns:1fr; }
+  .about{ max-width:100%; }
+}
+@media (max-width:768px){
+  .hero{ display:grid; grid-template-columns:1fr; gap:16px; }
+  .hero-left{ display:flex; flex-direction:column; gap:12px; order:2; }
+  .hero .about{ width:100%; }
+}
+@media (max-width:600px){
+  .grid{ grid-template-columns:1fr; }
+}
+
+/* Wide containers */
+@media (min-width:1600px){ .container, .nav .inner{ max-width:1400px; } }
+@media (min-width:1400px){ .grid{ grid-template-columns:repeat(4, 1fr); } }
+
+/* ===== Desktop behavior: show hero content under About ===== */
+/* Mobile-first: keep original right block, hide extra block */
+.hero-extra{ display:none; }
+.hero-right{ display:block; }
+
+/* Desktop: hide right block, show extra under About, single column */
+@media (min-width:1024px){
+  .hero{ display:grid; grid-template-columns:1fr; }
+  .hero-right{ display:none; }
+  .hero-extra{ display:block; margin-top:24px; }
+  .hero .h1{ font-size:28px; line-height:1.25; }
+  .hero .sub{ font-size:16px; line-height:1.6; max-width:720px; }
+}
+
+/* ===== Portfolio Searchbar (restored style) ===== */
+.searchbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+
+.searchbar input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #E5E7EB;
+  background: #fff;
+  font-size: 15px;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchbar input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,162,39,0.2);
+}
+/* Button dentro le card */
+.card .actions { margin-top: 12px; }
+.btn.sm { padding: 8px 12px; font-size: 13px; border-radius: 8px; }
+}
+/* Foto About: dimensioni e ritaglio */
+.hero .photo{
+  width: 350px;      /* regola la grandezza a piacere */
+  height: 350px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.hero .photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === RESET DESKTOP: 2 colonne, testo a destra === */
+@media (min-width: 1024px){
+  .hero{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* sinistra: foto+about / destra: testo */
+    gap: 28px;
+    align-items: center;
+    padding: 40px 0;
+  }
+  .hero-right{ display: block; }  /* mostra il blocco a destra */
+  .hero-extra{ display: none; }   /* nascondi quello sotto About */
+}
+.highlight-quote {
+  color: var(--accent);  /* oro come il resto dei dettagli */
+  font-style: italic;
+  font-weight: bold;
+}
+/* ===== MOBILE FIXES (≤900px) ===== */
+@media (max-width: 900px){
+
+  /* Container padding un filo maggiore per respiro */
+  .container { padding: 24px 24px; }
+
+  /* NAV / MENU */
+  .hamburger{ display:block; }
+  .nav .inner{ position:relative; }
+  .menu{
+    position:absolute; top:100%; left:0; right:0;
+    display:none; flex-direction:column; gap:6px;
+    background:#1a1a1a; padding:14px 16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35); z-index:50;
+  }
+  .menu.open{ display:flex; }
+  .menu a{
+    color:#fff; font-weight:700; font-size:16px;
+    padding:10px 6px; border-radius:8px;
+  }
+
+  /* HERO LAYOUT: stack verticale ordinato */
+  .hero{
+    display:grid; grid-template-columns:1fr;
+    gap:16px; padding:24px 0;
+  }
+
+  /* Foto full-width con cornice scura e crop corretto */
+  .hero .photo{
+    width:100%; max-width:100%;
+    height: 320px;             /* altezza visiva comoda su telefono */
+    background:#1a1a1a; border-radius:12px; overflow:hidden;
+  }
+  .hero .photo img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+
+  /* About subito dopo la foto, full width */
+  .hero-left{
+    display:flex; flex-direction:column; gap:12px; order:1;
+  }
+  .about{
+    max-width:100%; padding:12px; border-radius:12px;
+  }
+  .about h3{ font-size:16px; }
+  .about p{ font-size:14.5px; line-height:1.65; }
+
+  /* Blocco testo/CTA: mettilo dopo l’about */
+  .hero-right{
+    order:2;
+  }
+
+  /* Tipografia hero più compatta per evitare righe troppo lunghe */
+  .h1{
+    font-size:24px; line-height:1.25; margin-bottom:6px;
+  }
+  .sub{
+    font-size:14.5px; line-height:1.65; max-width:100%;
+    margin:10px 0 18px;
+  }
+
+  /* Bottoni: area click comoda */
+  .btnrow{ gap:10px; }
+  .btn{ padding:11px 14px; font-size:14px; border-radius:10px; }
+
+  /* Portfolio: griglia a 1 colonna + searchbar full width */
+  .grid{ grid-template-columns:1fr; gap:16px; }
+  .thumb{ height:160px; }             /* immagini card più alte su mobile */
+  .searchbar{ margin:14px 0 22px; }
+  .searchbar input{ width:100%; font-size:15px; padding:12px 14px; }
+
+  /* Blog list */
+  .post{ grid-template-columns:1fr; }
+  .post .thumb{ height:160px; }
+
+  /* Footer stack */
+  .site-footer .inner{
+    flex-direction:column; align-items:flex-start; gap:10px;
+  }
+}
+
+/* ===== MICRO-FIX SCHERMI PICCOLI (≤600px) ===== */
+@media (max-width: 600px){
+  .h1{ font-size:22px; }
+  .sub{ font-size:14px; }
+  .hero .photo{ height: 280px; }
+  .btn{ font-size:13.5px; padding:10px 12px; }
+}
+/* --- Ottimizzazione spazi laterali su mobile --- */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .about {
+    padding: 18px; /* più aria interna alla card */
+  }
+
+  .hero .sub, 
+  .hero .h1, 
+  .hero .btnrow {
+    padding-left: 4px;
+    padding-right: 4px; /* evita di arrivare troppo al bordo */
+  }
+}
+/* Nome sopra la foto */
+.name-title{
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 14px;
+  color: var(--primary); /* colore principale (nero) */
+}
+
+@media (max-width: 900px){
+  .name-title{
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+}
+/* ===== Desktop layout ottimizzato (>=1024px) ===== */
+@media (min-width: 1024px){
+
+  /* Griglia principale a 2 colonne con gutter ampio */
+  .hero-desktop{
+    display: grid;
+    grid-template-columns: 440px 1fr;  /* sinistra fissa ~440px, destra flessibile */
+    gap: 36px;
+    align-items: start;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  /* Colonna sinistra: nome + foto */
+  .name-title{
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    color: var(--primary);
+    text-align: left;
+  }
+  .col-left .photo{
+    width: 440px;      /* coerente con la colonna */
+    height: 540px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .col-left .photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Colonna destra: due righe (About sopra, Copy sotto) */
+  .col-right{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 28px;
+  }
+
+  /* Card About allineata e ariosa */
+  .col-right .about{
+    background:#fff;
+    border:1px solid #ECECEC;
+    border-radius:12px;
+    padding:16px 18px;
+    max-width: 900px;
+  }
+  .col-right .about h3{ margin:0 0 8px; font-size: 18px; }
+  .col-right .about p{ margin:0 0 10px; font-size: 15px; line-height: 1.65; }
+
+  /* Blocco headline + testo + CTA con larghezza di lettura comoda */
+  .hero-copy{
+    max-width: 900px;     /* limita il numero di caratteri per riga */
+  }
+  .hero-copy .h1{
+    font-size: 34px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+  .hero-copy .sub{
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 760px;     /* testo più largo, ma non infinito */
+    margin: 8px 0 18px;
+  }
+  .hero-copy .btnrow .btn{
+    padding: 12px 16px;
+    font-weight: 700;
+    border-radius: 10px;
+  }
+}
+
+/* Micro-tweak schermi larghi */
+@media (min-width: 1400px){
+  .hero-copy{ max-width: 980px; }
+  .col-right .about{ max-width: 980px; }
+}
+/* spazio extra solo su mobile tra le due sezioni index */
+@media (max-width : 900px){
+  .col-right .about {
+    margin-bottom: 200px;
+  }
+}
+/* --- Portfolio & Blog cards --- */
+.card {
+  background: #fff;
+  border: 1px solid #ECECEC;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card .thumb {
+  width: 100%;
+  height: 200px;              /* altezza uniforme per le anteprime */
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* ritaglia senza deformare */
+  display: block;
+}
+
+.card .body h3 {
+  margin: 10px 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card .body p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.card .actions {
+  margin-top: 12px;
+}
+
+.card .btn.sm {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #ECECEC;
+  text-decoration: none;
+}
+
+.card .btn.sm:hover {
+  background: #f5f5f5;
+}
+.actions .btn {
+  display: inline-block;   /* non full width */
+  width: auto;             /* prendi la larghezza del testo */
+  min-width: 160px;        /* opzionale: larghezza minima */
+  text-align: center;
+  align-self: flex-start;  /* evita stretch nel flex column */
+}
+.col-right {
+  padding-top: 80px; /* prova 20px, 30px, 40px finché non ti piace */
+}
+/* Desktop / default */
+.photo {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;          /* riquadro verticale elegante */
+  overflow: hidden;
+  border-radius: 12px;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;  /* alza il focus verso la fronte */
+  display: block;
+}
+
+/* Mobile: contenitore più alto */
+@media (max-width: 640px) {
+  .photo { aspect-ratio: 3 / 4; }        /* più alto su mobile */
+  .photo img { object-position: center 15%; } /* ancora un po’ più su */
+}
