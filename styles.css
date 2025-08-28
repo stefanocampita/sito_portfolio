@@ -546,3 +546,26 @@ form .actions{ margin-top:14px; }
 .col-right {
   padding-top: 80px; /* prova 20px, 30px, 40px finché non ti piace */
 }
+/* Contenitore con rapporto e bordo arrotondato */
+.photo {
+  width: 100%;
+  max-width: 380px;          /* regola come vuoi */
+  aspect-ratio: 4 / 5;       /* riquadro verticale elegante */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Riempie il riquadro senza schiacciare, ma guarda più in alto */
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;  /* <-- sposta in su: 0% = alto, 50% = centro */
+  display: block;
+}
+
+/* Su mobile: riquadro un po’ più alto e focus ancora su */
+@media (max-width: 640px) {
+  .photo { aspect-ratio: 3 / 4; }      /* riquadro più alto su telefono */
+  .photo img { object-position: center 15%; }
+}
