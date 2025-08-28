@@ -543,3 +543,6 @@ form .actions{ margin-top:14px; }
   text-align: center;
   align-self: flex-start;  /* evita stretch nel flex column */
 }
+.col-right {
+  padding-top: 30px; /* prova 20px, 30px, 40px finché non ti piace */
+}
