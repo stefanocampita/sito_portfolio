@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI in Finance: A Companion, Not a Replacement — IB/PE Blog</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo" class="logo">
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="container">
+      <h1 style="margin:10px 0 16px">AI in Finance: A Companion, Not a Replacement</h1>
+
+      <div style="max-width:980px; margin-top:10px; line-height:1.7; font-size:15px; color:#444; display:flex; flex-direction:column; gap:12px; background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:18px">
+        <p>The discussion around artificial intelligence's application in finance has intensified in recent months, with viewpoints going from excitement to concerns about the widespread replacement of analysts' work. In my opinion, the reality will be less dramatic and more pragmatic: AI will be a "traveling companion" rather than a replacement.</p>
+
+        <p>AI will primarily be used for operational and repetitive tasks in Finance sectors, such as data collection, preliminary analysis, and model compilation. Automation tools will significantly speed up the process of creating an LBO or DCF. However, the interpretation of results and the capacity for decision-making under uncertainty have always been at the heart of the profession, not spreadsheet compilation. With this being said, AI cannot take the place of an experienced analyst's tact and discretion.</p>
+
+        <p>Furthermore, I believe that the application of AI in Finance will soon be subject to regulation and require certified supervision. Not everyone will be able to use predictive models freely when making important decisions; licensed professionals will need to approve them. Given the possibility of mistakes and, more specifically, bias in the results, I believe this is unavoidable. Biased data poses a significant risk in the financial industry, where minor distortions can have major repercussions.</p>
+
+        <p>Because of this, I picture AI mainly as an efficiency tool: it reduces workload, expedites processes, and frees up professionals to focus on what truly matters. However, the ability to go beyond what the machine generates will continue to be the true test of an analyst's skill. Those who can use the same tools to add value beyond the crowd will be the ones who stand out, not those who rely on AI the most.</p>
+
+        <p>To sum up, artificial intelligence in Finance will change (already constantly changing) the field rather than replace it. It will reduce the time spent on monotonous tasks and increase the focus on strategic choices. AI can be a useful co-pilot, but the pilot will always remain human with their abilities, knowledge, and critical thinking.</p>
+      </div>
+
+      <div style="margin-top:20px">
+        <a class="btn outline" href="blog.html">← Back to Blog</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div class="left" style="font-size:14px; color:#F9FAFB">
+        <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+        <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+      });
+      // Close after clicking a link (mobile)
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
