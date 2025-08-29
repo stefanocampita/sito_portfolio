@@ -567,7 +567,9 @@ form .actions{ margin-top:14px; }
   .photo { aspect-ratio: 3 / 4; }        /* più alto su mobile */
   .photo img { object-position: center 15%; } /* ancora un po’ più su */
 }
-/* Mobile: riduci spazio tra About me e Financial Modeling */
 @media (max-width:900px){
-  .col-right { padding-top:1px; }  /* da 30px → 10px */
+  .col-right { padding-top:0; }
+  .about { margin-bottom:8px; }               /* riduci spazio sotto about */
+  .hero-copy .h1 { margin-top:0; }            /* elimina spazio sopra il titolo */
 }
+
