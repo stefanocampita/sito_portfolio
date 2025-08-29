@@ -575,5 +575,20 @@ form .actions{ margin-top:14px; }
   /* Elimina margine sopra al titolo "Financial Modeling & Deal Analysis" */
   .hero-copy .h1 { margin-top:0; }
 }
+/* Mobile: incolla subito sotto le altre media query */
+@media (max-width: 900px){
+  .col-right { padding-top:0; }
+
+  /* Azzeriamo margini “misteriosi” sui figli diretti della colonna destra */
+  .col-right > * { margin-top:0 !important; margin-bottom:0 !important; }
+
+  /* Impostiamo noi il distanziamento tra i fratelli (About me → Financial Modeling) */
+  .col-right > * + * { margin-top:8px !important; } /* prova 6–10px a gusto */
+
+  /* Ridondanza mirata: annulla eventuali margini sul blocco testo */
+  .hero-copy { margin-top:0 !important; }
+  .hero-copy .h1 { margin-top:0 !important; }
+  .about { margin-bottom:0 !important; }
+}
 
 
