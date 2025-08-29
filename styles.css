@@ -569,5 +569,5 @@ form .actions{ margin-top:14px; }
 }
 /* Mobile: riduci spazio tra About me e Financial Modeling */
 @media (max-width:900px){
-  .col-right { padding-top:10px; }  /* da 30px → 10px */
+  .col-right { padding-top:1px; }  /* da 30px → 10px */
 }
