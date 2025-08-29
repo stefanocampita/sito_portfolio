@@ -576,5 +576,13 @@ form .actions{ margin-top:14px; }
   .hero-copy .h1 { margin-top:0 !important; }
   .about { margin-bottom:0 !important; }
 }
+@media (max-width: 900px){
+  /* Forza il margine sotto la card About me */
+  .about { margin-bottom: 20px !important; }
+
+  /* Assicurati che il titolo Financial Modeling non abbia extra margin sopra */
+  .hero-copy,
+  .hero-copy .h1 { margin-top: 0 !important; }
+}
 
 
