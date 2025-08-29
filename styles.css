@@ -561,20 +561,6 @@ form .actions{ margin-top:14px; }
   object-position: center 20%;  /* alza il focus verso la fronte */
   display: block;
 }
-/* Mobile: riduci spazio tra About me e Financial Modeling */
-@media (max-width:900px){
-  .col-right { padding-top:10px; }  /* da 30px → 10px */
-}
-@media (max-width:900px){
-  /* Elimina lo spazio verticale extra */
-  .col-right { padding-top:0; }
-  
-  /* Riduci margine sotto la card About me */
-  .about { margin-bottom:8px; }
-  
-  /* Elimina margine sopra al titolo "Financial Modeling & Deal Analysis" */
-  .hero-copy .h1 { margin-top:0; }
-}
 /* Mobile: incolla subito sotto le altre media query */
 @media (max-width: 900px){
   .col-right { padding-top:0; }
@@ -583,7 +569,7 @@ form .actions{ margin-top:14px; }
   .col-right > * { margin-top:0 !important; margin-bottom:0 !important; }
 
   /* Impostiamo noi il distanziamento tra i fratelli (About me → Financial Modeling) */
-  .col-right > * + * { margin-top:8px !important; } /* prova 6–10px a gusto */
+  .col-right > * + * { margin-top:12px !important; } /* prova 6–10px a gusto */
 
   /* Ridondanza mirata: annulla eventuali margini sul blocco testo */
   .hero-copy { margin-top:0 !important; }
