@@ -584,5 +584,43 @@ form .actions{ margin-top:14px; }
   .hero-copy,
   .hero-copy .h1 { margin-top: 0 !important; }
 }
+/* ===== Link-in-bio (links.html) ===== */
+.linkhub {
+  max-width: 680px;            /* stretto, mobile-first */
+  text-align: center;
+}
+
+.hub-header { 
+  display: grid; 
+  place-items: center; 
+  gap: 8px; 
+  margin: 24px 0 10px; 
+}
+.hub-avatar {
+  width: 96px; height: 96px; border-radius: 9999px;
+  object-fit: cover; box-shadow: 0 2px 16px rgba(0,0,0,.15);
+}
+.hub-title { font-size: 24px; margin: 8px 0 0; }
+.hub-subtitle { opacity: .8; margin: 0; }
+
+.hub-links { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; 
+  margin: 18px 0 6px; 
+}
+.hub-btn { 
+  display: inline-block; 
+  width: 100%;                 /* bottoni larghi e facili da toccare */
+  max-width: 480px;            /* non oltre */
+  margin: 0 auto;              /* centrati */
+  text-align: center;
+}
+
+.hub-note { 
+  font-size: 12px; 
+  opacity: .7; 
+  margin-top: 12px; 
+}
 
 
