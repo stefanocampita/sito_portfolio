@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Links — Stefano Campita</title>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Social preview (facoltativo, modifica se vuoi) -->
+  <meta property="og:title" content="Stefano Campita — Links"/>
+  <meta property="og:description" content="IB/PE portfolio — contatti e link rapidi"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="logo.png"/>
+</head>
+<body>
+
+<!-- Nav presente per coerenza visiva ma SENZA voce di menu per questa pagina -->
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <!-- nessun link a links.html -->
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container linkhub">
+    <!-- Header compatto stile “linktree” -->
+    <div class="hub-header">
+      <img class="hub-avatar" src="avatar.jpg" alt="Stefano Campita" onerror="this.style.display='none'"/>
+      <h1 class="hub-title">Stefano Campita</h1>
+      <p class="hub-subtitle">IB/PE | Financial Modeling & Deal Analysis</p>
+    </div>
+
+    <!-- Bottoni principali -->
+    <div class="hub-links">
+      <a class="btn accent hub-btn" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn outline hub-btn" href="mailto:stefanocampita2@gmail.com">Email</a>
+      <a class="btn hub-btn" href="contact.html">Contact Page</a>
+      <!-- Aggiungi altri link se vuoi -->
+      <!-- <a class="btn hub-btn" href="portfolio.html#lbo-model">LBO Model</a> -->
+      <!-- <a class="btn hub-btn" href="blog.html">Blog</a> -->
+    </div>
+
+    <!-- Info piccola (facoltativa) -->
+    <p class="hub-note">Tip: salva questo link sulla tua tessera NFC per condividere rapidamente i tuoi contatti.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+    <div class="left" style="font-size:14px; color:#F9FAFB">
+      <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+      <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav hamburger (come nelle altre pagine)
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
