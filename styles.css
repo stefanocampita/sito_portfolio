@@ -623,14 +623,12 @@ form .actions{ margin-top:14px; }
   margin-top: 12px; 
 }
 /* Article layout */
-.article-hero { margin: 10px 0 16px; }
 .article-hero .hero-media img {
-  width:80%;          /* invece di 100% */
-  max-width:720px;    /* limite massimo */
-  height:auto;
+  width:100%;          /* resta larga quanto il contenitore */
+  height:260px;        /* altezza fissa più bassa */
+  object-fit:cover;    /* non deforma, ma ritaglia se serve */
   border-radius:12px;
   display:block;
-  margin:0 auto;      /* la centra */
 }
 
 .article-title { font-size:28px; margin:12px 0 2px; }
