@@ -624,7 +624,15 @@ form .actions{ margin-top:14px; }
 }
 /* Article layout */
 .article-hero { margin: 10px 0 16px; }
-.article-hero .hero-media img { width:100%; height:auto; border-radius:12px; display:block; }
+.article-hero .hero-media img {
+  width:80%;          /* invece di 100% */
+  max-width:720px;    /* limite massimo */
+  height:auto;
+  border-radius:12px;
+  display:block;
+  margin:0 auto;      /* la centra */
+}
+
 .article-title { font-size:28px; margin:12px 0 2px; }
 .article-meta { color:#6b7280; font-size:14px; display:flex; gap:8px; align-items:center; }
 
