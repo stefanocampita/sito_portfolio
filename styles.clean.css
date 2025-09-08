@@ -123,7 +123,28 @@ a{ color:var(--primary); text-decoration:none; }
 
 /* Desktop variant homepage */
 @media (min-width: 1024px){
-  .hero{ grid-template-columns:1fr 1.2fr; }
+  /* 2 colonne principali (foto a sinistra / contenuti a destra) */
+  .hero{
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;                 /* evita micro disallineamenti verticali */
+  }
+
+  /* Centra il nome esattamente sopra la foto */
+  .col-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;                /* nome + foto centrati nella colonna sinistra */
+  }
+  .name-title{ text-align: center; }
+
+  /* A destra: About | Financial Modeling affiancati, allineati all'inizio foto */
+  .col-right{
+    display: grid;
+    grid-template-columns: minmax(420px, 1fr) 1fr;  /* About (sx) | Financial (dx) */
+    gap: 24px;
+    align-items: start;
+    margin-top: 48px;                   /* compensa l'altezza del nome sopra la foto */
+  }
 }
 
 /* ================================
