@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Home — IB/PE Portfolio</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
   <link rel="icon" type="image/png" href="favicon.png"/>
 </head>
 <body>
@@ -35,8 +35,7 @@
       <div class="col-left">
         <h2 class="name-title">Stefano Campita</h2>
         <div class="photo">
-          <!-- Assicurati che photo.jpg esista nella stessa cartella -->
-          <img src="foto_about_me.png" alt="Your Photo">
+          <img src="foto_about_me.png" alt="Stefano Campita portrait">
         </div>
       </div>
 
@@ -44,10 +43,9 @@
       <div class="col-right">
         <div class="about card">
           <h3>About me</h3>
-          <p>I study how capital meets strategy. I build valuation and LBO models, pressure‑test assumptions, and write investment memos to sharpen judgment. My approach is rigorous and data‑driven, with clear, concise communication.</p>
+          <p>I study how capital meets strategy. I build valuation and LBO models, pressure-test assumptions, and write investment memos to sharpen judgment. My approach is rigorous and data-driven, with clear, concise communication.</p>
           <p>I’m drawn to calculated risk and I like turning noisy financials into quantitative datas. This site collects selected projects — valuations, LBOs, and M&amp;A case studies — that reflect how I think and solve problems. If you like my work, feel free to reach out.</p>
-          <!-- Frase evidenziata -->
-  <p><span class="highlight-quote">“Without data, you’re just another person with an opinion.” — W. Edwards Deming</span></p>
+          <p><span class="highlight-quote">“Without data, you’re just another person with an opinion.” — W. Edwards Deming</span></p>
         </div>
         
         <div class="hero-copy">
@@ -67,14 +65,14 @@
   </main>
 
   <footer class="site-footer">
-    <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-      <div class="left" style="font-size:14px; color:#F9FAFB">
+    <div class="inner">
+      <div class="left">
         <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
         <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
       </div>
       <div class="right">
         <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
-        <a class="icon" href="mailto:stefanocampita@gmail.com" aria-label="Email">@</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
       </div>
     </div>
   </footer>
@@ -89,7 +87,6 @@
         btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         document.body.classList.toggle('nav-open', isOpen);
       });
-      // Close after clicking a link (mobile)
       menu.querySelectorAll('a').forEach(function(a){
         a.addEventListener('click', function(){
           menu.classList.remove('open');

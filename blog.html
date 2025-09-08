@@ -1,131 +1,108 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Blog — IB/PE</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
 </head>
 <body>
   
 <div class="nav">
   <div class="inner">
-    <div class="brand"><a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a></div>
-<button class="hamburger" aria-label="Open menu" aria-expanded="false">
-  <span></span><span></span><span></span>
-</button>
-
+    <div class="brand">
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <div class="menu">
-      <a href="index.html" class="">Home</a>
-      <a href="portfolio.html" class="">Portfolio</a>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="blog.html" class="active">Blog</a>
-      <a href="contact.html" class="">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 </div>
-<main class="main">
 
+<main class="main">
   <div class="container">
     <h2>Latest Articles</h2>
+
     <div class="list">
+
+      <!-- Notion Deal Flow -->
       <div class="post">
-  <div class="thumb" style="border-radius:12px; overflow:hidden;">
-    <img src="immagine notion deal flow.png" alt="Notion Deal Flow Tracker thumbnail"
-         style="width:100%; height:100%; object-fit:cover; display:block;">
-  </div>
-  <div>
-    <h3><a href="post-notion-dealflow.html">Notion Deal Flow Tracker</a></h3>
-    <p>
-      Lightweight dealflow template built in Notion.  
-      Designed to capture opportunities, log assumptions, and track MoM/IRR 
-      across deals. Screenshots and template link inside.
-    </p>
-  </div>
-</div>
+        <div class="thumb">
+          <img src="immagine notion deal flow.png" alt="Notion Deal Flow Tracker thumbnail" loading="lazy">
+        </div>
+        <div>
+          <h3><a href="post-notion-dealflow.html">Notion Deal Flow Tracker</a></h3>
+          <p>Lightweight dealflow template built in Notion. Designed to capture opportunities, log assumptions, and track MoM/IRR across deals. Screenshots and template link inside.</p>
+        </div>
+      </div>
+
+      <!-- LBO Modelling -->
       <div class="post">
-  <div class="thumb" style="border-radius:12px; overflow:hidden;">
-    <img src="LBOmodelpreviewimage.png" 
-         alt="LBO Modelling: From Assumptions to IRR thumbnail"
-         style="width:100%; height:100%; object-fit:cover; display:block;">
-  </div>
-  <div>
-    <h3><a href="post-lbo-assumptions-to-irr.html">LBO Modelling: From Assumptions to IRR</a></h3>
-    <p>A step-by-step walkthrough of building an LBO model, with leverage scenarios, exit multiples, and sensitivity tables.</p>
-  </div>
-</div>
+        <div class="thumb">
+          <img src="LBOmodelpreviewimage.png" alt="LBO Modelling: From Assumptions to IRR thumbnail" loading="lazy">
+        </div>
+        <div>
+          <h3><a href="post-lbo-assumptions-to-irr.html">LBO Modelling: From Assumptions to IRR</a></h3>
+          <p>A step-by-step walkthrough of building an LBO model, with leverage scenarios, exit multiples, and sensitivity tables.</p>
+        </div>
+      </div>
 
-     <div class="post">
-  <div class="thumb" style="border-radius:12px; overflow:hidden;">
-    <img src="ai-in-finance-preview.png" 
-         alt="AI in Finance blog post preview"
-         style="width:100%; height:100%; object-fit:cover; display:block;">
-  </div>
-  <div>
-    <h3><a href="Post-AI-in-finance.html">AI in Finance: A Companion, Not a Replacement</a></h3>
-    <p>An analysis of how AI is changing private equity and investment banking (and Finance in general) shows that while it can be a strong assistant for repetitive tasks, it cannot replace human judgment. Tool for efficiency rather than a decision-maker.</p>
-  </div>
-</div>
-
-
-      
+      <!-- AI in Finance -->
       <div class="post">
-  <div class="thumb" style="background-image:url('foto ESG.png'); background-size:cover; background-position:center;"></div>
-  <div>
-    <h3><a href="post-ESG.html">Investment Banking 2.0: The Impact of New ESG Regulations on M&A Transactions</a></h3>
-    <p>How new ESG regulations are reshaping M&A: from due diligence to valuations, deal structures and the evolving role of investment bankers.</p>
-  </div>
-</div>
+        <div class="thumb">
+          <img src="ai-in-finance-preview.png" alt="AI in Finance blog post preview" loading="lazy">
+        </div>
+        <div>
+          <h3><a href="Post-AI-in-finance.html">AI in Finance: A Companion, Not a Replacement</a></h3>
+          <p>An analysis of how AI is changing private equity and investment banking (and Finance in general): a powerful assistant for repetitive tasks, but not a substitute for judgment.</p>
+        </div>
+      </div>
 
+      <!-- ESG -->
       <div class="post">
-  <div class="thumb" style="border-radius:12px; overflow:hidden;">
-    <img src="Token_foto.png" 
-         alt="Tokenization in Private Equity and Investment Banking preview"
-         style="width:100%; height:100%; object-fit:cover; display:block;">
-  </div>
-  <div>
-    <h3><a href="Post-Tokenization.html">From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</a></h3>
-    <p>Tokenization is no longer theory—it is beginning to influence the strategies of banks and private equity firms in ways that few expected.</p>
-  </div>
-</div>
+        <div class="thumb">
+          <img src="foto ESG.png" alt="ESG &amp; M&amp;A article preview" loading="lazy">
+        </div>
+        <div>
+          <h3><a href="post-ESG.html">Investment Banking 2.0: The Impact of New ESG Regulations on M&amp;A Transactions</a></h3>
+          <p>How new ESG regulations are reshaping M&amp;A: from due diligence to valuations, deal structures and the evolving role of investment bankers.</p>
+        </div>
+      </div>
 
-      
+      <!-- Tokenization -->
+      <div class="post">
+        <div class="thumb">
+          <img src="Token_foto.png" alt="Tokenization in IB/PE article preview" loading="lazy">
+        </div>
+        <div>
+          <h3><a href="Post-Tokenization.html">From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</a></h3>
+          <p>Tokenization is no longer theory—it is beginning to influence the strategies of banks and private equity firms in ways that few expected.</p>
+        </div>
+      </div>
 
     </div>
   </div>
-  
-<div class="icons">
-      
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
 </main>
-  <footer class="site-footer">
-  <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-    <div class="left" style="font-size:14px; color:#F9FAFB">
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
       <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
       <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
     </div>
     <div class="right">
       <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
-      <a class="icon" href="mailto:email@example.com" aria-label="Email">@</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
     </div>
   </div>
 </footer>
-
 
 <script>
   (function(){
@@ -137,7 +114,6 @@
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       document.body.classList.toggle('nav-open', isOpen);
     });
-    // Close after clicking a link (mobile)
     menu.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click', function(){
         menu.classList.remove('open');

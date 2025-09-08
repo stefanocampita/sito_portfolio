@@ -4,10 +4,12 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>LBO Modelling: From Assumptions to IRR — IB/PE Blog</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+
+  <!-- NAV -->
   <div class="nav">
     <div class="inner">
       <div class="brand"><a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a></div>
@@ -15,120 +17,133 @@
         <span></span><span></span><span></span>
       </button>
       <div class="menu">
-        <a href="index.html" class="">Home</a>
-        <a href="portfolio.html" class="">Portfolio</a>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
         <a href="blog.html" class="active">Blog</a>
-        <a href="contact.html" class="">Contact</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </div>
 
   <main class="main">
     <div class="container">
-      <h1 style="margin:10px 0 6px">LBO Modelling: From Assumptions to IRR</h1>
-      <p style="font-size:15px; color:#444; max-width:900px">A Leveraged Buyout (LBO) is one of the most iconic transactions in the world of finance: acquiring a company through a combination of debt and equity. The purpose of this section is to provide a step-by-step walkthrough of how I build a complete LBO model, starting from the base assumptions and progressing all the way to the calculation of the internal rate of return (IRR).</p>
 
-      <div style="display:flex; flex-direction:column; gap:18px; max-width:980px; margin-top:10px">
+      <!-- HERO -->
+      <section class="article-hero">
+        <div class="hero-media">
+          <img src="LBOmodelpreviewimage.png" alt="LBO Modelling cover">
+        </div>
+        <h1 class="article-title">LBO Modelling: From Assumptions to IRR</h1>
+        <div class="article-meta">
+          <span>Published: <time datetime="2025-08-20">Aug 20, 2025</time></span>
+          <span>•</span>
+          <span>Reading time: ~5–6 min</span>
+        </div>
+      </section>
 
-        <!-- Starting Assumptions -->
-        <section style="background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:14px 16px">
-          <h2 style="margin:0 0 6px; font-size:18px">Starting Assumptions</h2>
-          <p style="margin:0; font-size:14.5px; line-height:1.7">These are the starting assumptions given (I didn't calculate anything here).</p>
-          <p><b>Revenues (LTM)</b>: 100 M$</p>
-          <p><b>Annual Revenue Growth</b>: 10% (constant for the 5 years)</p>
-          <p><b>EBITDA (LTM)</b>: 50 M$</p>
-          <p><b>EBITDA Margin</b>: constant</p>
-          <p><b>D&amp;A + Capex</b>: 5% of annual revenues</p>
-          <p><b>NWC</b>: unchanged</p>
-          <p><b>Tax Rate</b>: 25%</p>
-          <p><b>Entry Multiple</b>: 10X EBITDA</p>
-          <p><b>Exit Multiple</b>: 10X EBITDA after 5 years</p>
-          <p><b>Projection Period</b>: 5 Years</p>
-          <p><b>Initial Leverage</b>: 6X EBITDA</p>
-          <p><b>Debt Interest Rate</b>: 8%</p>
-          <p>No capital amortization until maturity</p>
-        </section>
+      <!-- CONTENT -->
+      <article class="card article-content">
+        <p>A Leveraged Buyout (LBO) is one of the most iconic transactions in finance: acquiring a company through a combination of debt and equity. The purpose of this page is to walk through a complete LBO model — from base assumptions to IRR.</p>
 
-        <!-- TEV & Capital Structure -->
-        <section style="background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:14px 16px">
-          <h2 style="margin:0 0 6px; font-size:18px">TEV &amp; Capital Structure</h2>
-          <p style="margin:0; font-size:14.5px; line-height:1.7">Now is the time to start some calculations. Here I calculated the purchase TEV and I determined the initial capital structure, divided in Debt &amp; Equity.</p>
-          <p><b>Step 1</b> = Purchase TEV</p>
-          <p><b>EBITDA LTM</b> = 50</p>
-          <p><b>Entry Multiple</b> = 10X</p>
-          <p><b>TEV_in</b> = 50 x 10 = 500</p>
-          <p><b>Step 2</b> = Capital Structure</p>
-          <p>From assumption the Initial Leverage is 6X EBITDA</p>
-          <p><b>Debt</b> = 6 x 50 = 300</p>
-          <p><b>Equity</b> = 500 - 300 = 200</p>
-          <p>Result</p>
-          <p><b>Tev_in</b> = 500</p>
-          <p><b>initial Debt</b> = 300 (60%)</p>
-          <p><b>Equity Sponsor</b> = 200 (40%)</p>
-        </section>
+        <h2><strong>Starting Assumptions</strong></h2>
+        <p>These are the starting assumptions given (no calculations here):</p>
+        <ul>
+          <li><b>Revenues (LTM)</b>: 100 M$</li>
+          <li><b>Annual Revenue Growth</b>: 10% (constant for 5 years)</li>
+          <li><b>EBITDA (LTM)</b>: 50 M$</li>
+          <li><b>EBITDA Margin</b>: constant</li>
+          <li><b>D&amp;A + Capex</b>: 5% of annual revenues</li>
+          <li><b>NWC</b>: unchanged</li>
+          <li><b>Tax Rate</b>: 25%</li>
+          <li><b>Entry Multiple</b>: 10x EBITDA</li>
+          <li><b>Exit Multiple</b>: 10x EBITDA after 5 years</li>
+          <li><b>Projection Period</b>: 5 years</li>
+          <li><b>Initial Leverage</b>: 6x EBITDA</li>
+          <li><b>Debt Interest Rate</b>: 8%</li>
+          <li>No capital amortization until maturity</li>
+        </ul>
 
-        <!-- Interest expense on Debt -->
-        <section style="background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:14px 16px">
-          <h2 style="margin:0 0 6px; font-size:18px">Interest expense on Debt</h2>
-          <p style="margin:0; font-size:14.5px; line-height:1.7">I calculated the interest expense on the debt keeping in mind that is not being paid down through the period (5 years). with this being said, i understood that the interest expense will be the same every year.</p>
-          <p>Debt &amp; Tax Rates</p>
-          <p><b>Total Debt</b> = 300</p>
-          <p><b>Interest Rate</b> = 8%</p>
-          <p><b>Annual Interest Expense</b> = 300 x 8% = 24</p>
-        </section>
+        <h2><strong>TEV &amp; Capital Structure</strong></h2>
+        <p>Now we start calculating the purchase TEV and the initial capital structure (Debt &amp; Equity).</p>
+        <ul>
+          <li><b>EBITDA LTM</b> = 50</li>
+          <li><b>Entry Multiple</b> = 10x</li>
+          <li><b>TEV_in</b> = 50 × 10 = 500</li>
+          <li><b>Initial Leverage</b> = 6 × EBITDA ⇒ <b>Debt</b> = 6 × 50 = 300</li>
+          <li><b>Equity</b> = 500 − 300 = 200</li>
+        </ul>
+        <p><b>Result</b>: TEV_in = 500; Initial Debt = 300 (60%); Equity Sponsor = 200 (40%).</p>
 
-        <!-- Projection over 5 years -->
-        <section style="background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:14px 16px">
-          <h2 style="margin:0 0 6px; font-size:18px">Projection over 5 years</h2>
-          <p style="margin:0; font-size:14.5px; line-height:1.7">In My opinion the following part is the most fascinating one. We are projeting P&amp;L down to LFCF over the 5 years.</p>
-          <img src="lbo projection.PNG"
-               alt="LBO Projection over 5 years"
-               style="margin-top:12px; max-width:100%; border-radius:8px; border:1px solid #ECECEC"/>
-        </section>
+        <h2><strong>Interest Expense on Debt</strong></h2>
+        <p>Debt is not amortized during the 5-year period, so interest is flat each year.</p>
+        <ul>
+          <li><b>Total Debt</b> = 300</li>
+          <li><b>Interest Rate</b> = 8%</li>
+          <li><b>Annual Interest Expense</b> = 300 × 8% = 24</li>
+        </ul>
 
-        <!-- Exit TEV & Returns -->
-        <section style="background:#fff; border:1px solid #ECECEC; border-radius:12px; padding:14px 16px">
-          <h2 style="margin:0 0 6px; font-size:18px">Exit TEV &amp; Returns</h2>
-          <p style="margin:0; font-size:14.5px; line-height:1.7">Now for the closing part of this LBO Model I calculated the Exit TEV, Mom (Multiple of Money) and IRR (Internal Rate of Return)</p>
-          <p><b>Step 1</b> = Exit TEV</p>
-          <p><b>EBITDA Y5</b> = 80.5</p>
-          <p><b>Exit Multiple</b> = 10X</p>
-          <p><b>TEV_out</b> = 80.5 x 10 = 805</p>
-          <p><b>Step 2</b> = Exit Equity Value</p>
-          <p><b>TEV_out</b> = 805</p>
-          <p><b>Net Debt</b> = 300</p>
-          <p><b>Equity Exit Value</b> = 805 - 300 = 505</p>
-          <p><b>Step 3</b> = Returns</p>
-          <p><b>Invested Equity</b>b> = 200</p>
-          <p><b>Exit Equity</b> = 505 (60%)</p>
-          <p><b>Mom</b> = 505/200 = 2.53%</p>
-          <p>I calculated the IRR by intuition:</p>
-          <p><b>if 2x in 5 years</b> = 15%</p>
-          <p><b>2x in 3 years</b> = 25%</p>
-          <p><b>3x in 5 years</b> = 25%</p>
-          <p><b>3x in 3 years</b> = 45%</p>
-          <p>Therefore 2.5x in 5 years is about 20% IRR</p>
-          <p><b>Pay attention!</b> In this setup, the debt is structured as bullet repayment, meaning it is not amortized during the holding period: the company pays only interest each year and repays the full principal at exit. As a result, Free Cash Flows do not reduce the outstanding debt, which remains constant at 300 until year five.</p>
-          <p>This LBO model illustrates how assumptions on growth, leverage, and exit multiples translate into investor returns, delivering ~20% IRR and a 2.5x MoM over five years</p>
-        </section>
+        <h2><strong>Projection over 5 Years</strong></h2>
+        <p>We project P&amp;L down to (levered) free cash flow over five years.</p>
+        <img src="lbo projection.PNG" alt="LBO Projection over 5 years">
 
-      </div>
+        <h2><strong>Exit TEV &amp; Returns</strong></h2>
+        <p><b>Step 1 — Exit TEV</b></p>
+        <ul>
+          <li><b>EBITDA Y5</b> = 80.5</li>
+          <li><b>Exit Multiple</b> = 10x</li>
+          <li><b>TEV_out</b> = 80.5 × 10 = 805</li>
+        </ul>
+        <p><b>Step 2 — Exit Equity Value</b></p>
+        <ul>
+          <li><b>TEV_out</b> = 805</li>
+          <li><b>Net Debt</b> = 300</li>
+          <li><b>Equity Exit Value</b> = 805 − 300 = 505</li>
+        </ul>
+        <p><b>Step 3 — Returns</b></p>
+        <ul>
+          <li><b>Invested Equity</b> = 200</li>
+          <li><b>Exit Equity</b> = 505</li>
+          <li><b>MoM</b> = 505 / 200 = <b>2.53x</b></li>
+        </ul>
+        <p>I estimated the IRR by intuition: ~20% for ~2.5x in 5 years (rule-of-thumb: 2x in 5y ≈ 15%; 3x in 5y ≈ 25%).</p>
 
-      <div style="margin-top:20px">
-        <a class="btn outline" href="blog.html">← Back to Blog</a>
-      </div>
+        <aside class="callout">
+          <strong>Note:</strong> Debt is bullet (no amortization). The company pays interest annually and repays the full principal at exit; therefore FCF does not reduce the outstanding debt, which remains 300 until year five.
+        </aside>
+
+        <div class="article-actions">
+          <a class="btn outline" href="blog.html">← Back to Blog</a>
+        </div>
+      </article>
+
+      <!-- READ ALSO -->
+      <section class="read-also">
+        <h3>Read Also</h3>
+        <div class="read-grid">
+          <a class="read-card" href="post-notion-dealflow.html">
+            <b>Notion Deal Flow Tracker</b>
+            <span>Capture deals, track assumptions, and monitor MoM/IRR.</span>
+          </a>
+          <a class="read-card" href="Post-Tokenization.html">
+            <b>Tokenization &amp; IB/PE</b>
+            <span>What it is, why it matters, examples and challenges.</span>
+          </a>
+        </div>
+      </section>
+
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-      <div class="left" style="font-size:14px; color:#F9FAFB">
+    <div class="inner">
+      <div class="left">
         <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
         <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
       </div>
       <div class="right">
         <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
-        <a class="icon" href="mailto:email@example.com" aria-label="Email">@</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
       </div>
     </div>
   </footer>
@@ -152,5 +167,6 @@
       });
     })();
   </script>
+
 </body>
 </html>

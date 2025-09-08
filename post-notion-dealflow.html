@@ -4,15 +4,19 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Notion Deal Flow Tracker — IB/PE</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
   <link rel="icon" type="image/png" href="favicon.png"/>
 </head>
 <body>
 
 <div class="nav">
   <div class="inner">
-    <div class="brand"><a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a></div>
-    <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="brand">
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <div class="menu">
       <a href="index.html">Home</a>
       <a href="portfolio.html">Portfolio</a>
@@ -24,82 +28,76 @@
 
 <main class="main">
   <div class="container">
-    <h1>Notion Deal Flow Tracker</h1>
-    <div class="thumb" style="margin:14px 0 16px; height:220px; border-radius:12px; overflow:hidden;">
-  <img src="notion-cover-1200x400.png" alt="Notion Deal Flow Tracker cover" 
-     style="width:100%; height:100%; object-fit:contain; display:block; background:#fff; padding:6px;">
 
-</div>
+    <!-- HERO -->
+    <section class="article-hero">
+      <div class="hero-media">
+        <img src="notion-cover-1200x400.png" alt="Notion Deal Flow Tracker cover">
+      </div>
+      <h1 class="article-title">Notion Deal Flow Tracker</h1>
+      <div class="article-meta">
+        <span>Published: <time datetime="2025-09-01">Sep 1, 2025</time></span>
+        <span>•</span>
+        <span>Reading time: ~3–4 min</span>
+      </div>
+    </section>
 
+    <!-- CONTENT -->
+    <article class="card article-content">
+      <h2><strong>Overview</strong></h2>
+      <p>The Notion Deal Flow Tracker is a lightweight tool designed to mirror the way investment professionals structure and monitor opportunities. It combines a clear tabular layout with calculated fields for key metrics (MoM, IRR) and offers different views (table, board, gallery) to adapt to the deal pipeline stage.</p>
 
-    <h3>Overview</h3>
-<p>
-The Notion Deal Flow Tracker is a lightweight tool designed to mirror the way
-investment professionals structure and monitor opportunities. It combines a clear
-tabular layout with calculated fields for key metrics (MoM, IRR) and offers 
-different views (table, board, gallery) to adapt to the deal pipeline stage.
-</p>
+      <p>Its main purpose is to bring structure to a noisy process: opportunities can be logged consistently, assumptions are recorded explicitly, and outcomes can be compared across deals. By integrating simple formulas, the tracker helps transform raw entries into actionable insights while remaining easy to maintain.</p>
 
-<p>
-Its main purpose is to bring structure to a noisy process: 
-opportunities can be logged consistently, assumptions are recorded explicitly, 
-and outcomes can be compared across deals. By integrating simple formulas, 
-the tracker helps transform raw entries into actionable insights while 
-remaining easy to maintain.
-</p>
+      <p>This overview highlights the core philosophy of the template: <strong>clarity, consistency, and decision-making support</strong>. In the following sections, we will dive into its structure, key fields, and examples of how it can be used in practice.</p>
 
-<p>
-This overview highlights the core philosophy of the template: 
-<strong>clarity, consistency, and decision-making support</strong>. 
-In the following sections, we will dive into its structure, key fields, 
-and examples of how it can be used in practice.
-</p>
-<h3>Template Structure & Key Fields</h3>
-<p>
-The tracker captures both qualitative and quantitative aspects of each deal, ensuring that 
-opportunities are logged with enough context to support investment decisions. 
-Each row corresponds to a company under evaluation, with fields structured as follows:
-</p>
+      <h2><strong>Template Structure &amp; Key Fields</strong></h2>
+      <p>The tracker captures both qualitative and quantitative aspects of each deal, ensuring that opportunities are logged with enough context to support investment decisions. Each row corresponds to a company under evaluation, with fields structured as follows:</p>
 
-<ul>
-  <li><strong>Core Identifiers:</strong> Company, Sector, Country, and Deal Stage provide the basic classification and pipeline position.</li>
-  </p>    </p>
-  <li><strong>Valuation Metrics:</strong> Valuation (€M), EBITDA (€M), and EV/EBITDA Multiple frame the financial baseline of the opportunity.</li>
-  </p>    </p>
-  <li><strong>Deal Economics:</strong> Deal Size (€M), MoM Multiple, and Holding Period (Years) quantify the potential commitment and timeframe.</li>
-  </p>    </p>
-  <li><strong>Returns Analysis:</strong> IRR (Est.) is calculated directly, complemented by an Expected IRR (%) column for quick reference and comparison.</li>
-  </p>    </p>
-  <li><strong>Ownership & Tracking:</strong> Each deal has an assigned Owner, Notes for qualitative observations, and a Last Contact Date to ensure timely follow-ups.</li>
-  </p>    </p>
-  <li><strong>Size Classification:</strong> A Deal Size Check field automatically tags transactions as Small, Mid, or Large, adding a quick-scan dimension to the pipeline.</li>
-</ul>
+      <ul>
+        <li><strong>Core Identifiers:</strong> Company, Sector, Country, and Deal Stage provide the basic classification and pipeline position.</li>
+        <li><strong>Valuation Metrics:</strong> Valuation (€M), EBITDA (€M), and EV/EBITDA Multiple frame the financial baseline of the opportunity.</li>
+        <li><strong>Deal Economics:</strong> Deal Size (€M), MoM Multiple, and Holding Period (Years) quantify the potential commitment and timeframe.</li>
+        <li><strong>Returns Analysis:</strong> IRR (Est.) is calculated directly, complemented by an Expected IRR (%) column for quick reference and comparison.</li>
+        <li><strong>Ownership &amp; Tracking:</strong> Each deal has an assigned Owner, Notes for qualitative observations, and a Last Contact Date to ensure timely follow-ups.</li>
+        <li><strong>Size Classification:</strong> A Deal Size Check field automatically tags transactions as Small, Mid, or Large, adding a quick-scan dimension to the pipeline.</li>
+      </ul>
 
-<p>
-This is the first version of the template. An updated Excel version with additional features will be available soon. If you have any suggestions, feel free to contact me via email or connect with me on LinkedIn.</p>
-<div style="margin-top:28px;">
-  <a class="btn primary" href="https://nine-eustoma-490.notion.site/2516fc594be98075b581c2f3a3841882?v=2516fc594be9807b87b7000c001a7b0b&source=copy_link" target="_blank">
-    ⬇ Duplicate in Notion
-  </a>
-</div>
+      <p>This is the first version of the template. An updated Excel version with additional features will be available soon. If you have any suggestions, feel free to contact me via email or connect with me on LinkedIn.</p>
 
+      <div class="article-actions">
+        <a class="btn primary" href="https://nine-eustoma-490.notion.site/2516fc594be98075b581c2f3a3841882?v=2516fc594be9807b87b7000c001a7b0b&source=copy_link" target="_blank" rel="noopener">⬇ Duplicate in Notion</a>
+        <a class="btn outline" href="blog.html">← Back to Blog</a>
+      </div>
+    </article>
 
+    <!-- READ ALSO -->
+    <section class="read-also">
+      <h3>Read Also</h3>
+      <div class="read-grid">
+        <a class="read-card" href="post-lbo-assumptions-to-irr.html">
+          <b>LBO Modelling: From Assumptions to IRR</b>
+          <span>Step-by-step build and drivers behind returns.</span>
+        </a>
+        <a class="read-card" href="Post-Tokenization.html">
+          <b>Tokenization &amp; IB/PE</b>
+          <span>What it is, why it matters, examples and challenges.</span>
+        </a>
+      </div>
+    </section>
 
-    <div style="margin-top:30px;">
-      <a class="btn outline" href="blog.html">← Back to Blog</a>
-    </div>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-    <div class="left" style="font-size:14px; color:#F9FAFB">
+  <div class="inner">
+    <div class="left">
       <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
       <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
     </div>
     <div class="right">
       <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
-      <a class="icon" href="mailto:stefanocampita@gmail.com" aria-label="Email">@</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
     </div>
   </div>
 </footer>
