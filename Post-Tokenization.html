@@ -1,133 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>From Blockchain to the Boardroom — Tokenization & IB/PE</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <meta name="description" content="An informational overview of how tokenization is entering investment banks and private equity boardrooms, with examples and key challenges." />
-  <meta property="og:title" content="From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking" />
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="images/tokenization-hero.png" />
-  <meta property="og:description" content="How tokenization is reshaping Private Equity and Investment Banking: concepts, examples, opportunities and challenges." />
-
-  <!-- Minimal styles to mirror your previous post (safe to keep even with your global CSS) -->
-  <style>
-    .container { max-width: 980px; margin: 0 auto; padding: 24px 16px; }
-    .post-title { font-size: clamp(1.8rem, 2.6vw, 2.2rem); font-weight: 700; margin: 6px 0 12px; }
-    .hero-card { background: #111827; border-radius: 14px; padding: 18px; margin: 12px 0 18px; }
-    .hero-img { width: 100%; height: auto; display: block; border-radius: 10px; object-fit: cover; }
-    .meta { color: #6b7280; font-size: 0.95rem; display: flex; gap: 10px; align-items: center; }
-    .meta .dot { width: 4px; height: 4px; background:#9ca3af; border-radius:50%; display:inline-block; }
-    .meta-secondary { color:#9ca3af; font-size: 0.88rem; margin-top: 4px; }
-    .card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 16px; margin: 10px 0; }
-    .card p { margin: 0; line-height: 1.7; color:#111827; }
-    .section-title { font-size: 1.15rem; font-weight: 700; margin: 18px 0 10px; }
-    .list { margin: 10px 0; padding-left: 20px; }
-    .list li { margin: 6px 0; }
-    .takeaways { background:#fff7ed; border:1px solid #fed7aa; }
-    .takeaways h4 { margin: 0 0 8px; font-size: 1rem; }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
-    .small { font-size: 0.95rem; color:#111827; }
-    .muted { color:#6b7280; }
-    .back { display:inline-block; margin-top: 16px; padding: 10px 14px; border:1px solid #e5e7eb; border-radius:10px; text-decoration:none; }
-    @media (max-width: 700px){
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <!-- social preview -->
+  <meta name="description" content="Tokenization is reshaping Private Equity and Investment Banking—unlocking liquidity, enabling fractional ownership, and streamlining settlement while navigating regulatory and tech challenges."/>
+  <meta property="og:title" content="From Blockchain to the Boardroom — Tokenization & IB/PE"/>
+  <meta property="og:description" content="What tokenization really is, why it matters for IB and PE, real-world examples, and key challenges."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:image" content="images/tokenization-hero.png"/>
 </head>
 <body>
 
-  <main class="container">
-    <!-- Title of this article -->
-    <h1 class="post-title">From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</h1>
-
-    <div class="hero-card">
-      <img class="hero-img" src="images/tokenization-hero.png" alt="Tokenization and finance illustration" loading="lazy" />
+<!-- NAV identica al resto del sito -->
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
     </div>
-
-    <div class="meta">
-      <span>Published: Sep 8, 2025</span>
-      <span class="dot"></span>
-      <span>Reading time: ~4–5 min</span>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <!-- Subtle author line (low-visibility, as requested) -->
-    <div class="meta-secondary">Author: Stefano Campita</div>
+  </div>
+</div>
 
-    <!-- Intro -->
-    <section class="card">
+<main class="main">
+  <div class="container" style="max-width:920px">
+
+    <!-- HERO (immagine + titolo) -->
+    <section class="article-hero">
+      <div class="hero-media">
+        <!-- carica la tua immagine (es. 1280x640) -->
+        <img src="images/tokenization-hero.png" alt="Tokenization & IB/PE" onerror="this.style.background='#1f2937'; this.style.height='260px'">
+      </div>
+      <h1 class="article-title">From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</h1>
+      <div class="article-meta">
+        <span>Published: <time datetime="2025-09-08">Sep 8, 2025</time></span>
+        <span>•</span>
+        <span>Reading time: ~4–5 min</span>
+      </div>
+      <!-- autore: discreto -->
+      <div class="article-meta" style="opacity:.75">Author: Stefano Campita</div>
+    </section>
+
+    <!-- CARD contenuto -->
+    <article class="card article-content">
+      <!-- INTRO -->
       <p>The discourse surrounding digital assets has changed in recent years. Trading Bitcoin and chasing the latest cryptocurrency trend are no longer the only focal points. The tokenization of tangible assets is now at the center of attention, representing a far more structural shift. Tokenization is not just hype; it is a real change that is making its way into investment banks and private equity boardrooms.</p>
-    </section>
 
-    <!-- Meaning -->
-    <h2 class="section-title">The true meaning of tokenization</h2>
-    <section class="card">
+      <!-- H2 + testo (TITOLI GRANDI E IN GRASSETTO) -->
+      <h2><strong>The true meaning of tokenization</strong></h2>
       <p>Fundamentally, tokenization is the process of using a digital token on a blockchain to represent a real asset, such as stocks, bonds, real estate, or private equity fund shares.</p>
-    </section>
 
-    <!-- Advantages -->
-    <h2 class="section-title">The advantages are compelling</h2>
-    <section class="card">
-      <ul class="list">
+      <h2><strong>The advantages are compelling</strong></h2>
+      <ul>
         <li><strong>Fractional ownership:</strong> expanding access to historically exclusive asset classes and reducing barriers to entry.</li>
         <li><strong>Increased liquidity:</strong> creating opportunities for assets that were previously difficult to trade.</li>
         <li><strong>Efficiency and transparency:</strong> improved record-keeping, faster settlements, and automated processes through smart contracts.</li>
       </ul>
-    </section>
 
-    <!-- Why it matters -->
-    <h2 class="section-title">Why does this matter for Investment Banking and Private Equity?</h2>
-    <section class="card">
-      <p class="small"><strong>Private Equity —</strong> tokenization provides investors with more options for investment and exit strategies by opening up secondary markets and introducing new fundraising models.</p>
-      <p class="small"><strong>Investment Banking —</strong> blockchain adoption enables faster deal execution, leaner intermediation costs, and exposure to new fintech or crypto-native targets that are becoming strategically relevant.</p>
-    </section>
+      <h2><strong>Why does this matter for Investment Banking and Private Equity?</strong></h2>
+      <p><strong>Private Equity —</strong> tokenization provides investors with more options for investment and exit strategies by opening up secondary markets and introducing new fundraising models.</p>
+      <p><strong>Investment Banking —</strong> blockchain adoption enables faster deal execution, leaner intermediation costs, and exposure to new fintech or crypto-native targets that are becoming strategically relevant.</p>
 
-    <!-- Examples -->
-    <h2 class="section-title">Real-World Examples</h2>
-    <section class="card">
-      <ul class="list">
+      <h2><strong>Real-World Examples</strong></h2>
+      <ul>
         <li>BlackRock's launch of <em>BUIDL</em>, the world’s largest tokenized fund, demonstrated strong institutional confidence in blockchain as market infrastructure.</li>
         <li>Goldman Sachs and BNY Mellon are piloting tokenized money-market funds to accelerate settlements and enhance liquidity.</li>
         <li>Inversion Labs, a startup applying private equity principles to the crypto space, is raising a $500 million fund to pursue acquisitions in the industry.</li>
       </ul>
-    </section>
 
-    <!-- Opportunities & challenges -->
-    <h2 class="section-title">Opportunities and challenges</h2>
-    <section class="card">
+      <h2><strong>Opportunities and challenges</strong></h2>
       <p>Access to private markets, historically reserved for institutional investors and high-net-worth individuals, could become more widely available through tokenization. It might change the way capital is raised, traded, and exited.</p>
-      <ul class="list">
+      <ul>
         <li>Regulation remains fragmented and evolving, with jurisdictions moving at different speeds.</li>
         <li>Technology and custody risks remain critical, from data security to digital wallet infrastructure.</li>
         <li>As barriers to entry fall and transparency increases, private-market business models may come under pressure.</li>
       </ul>
+
+      <h2><strong>Conclusion</strong></h2>
+      <p>Tokenization is steadily becoming a tool that can make investment banking and private equity more efficient, transparent, and inclusive. It won’t replace the traditional frameworks that define these industries—but it may enhance them with capabilities better suited to a global, digital, and increasingly interconnected financial system.</p>
+
+      <!-- KEY TAKEAWAYS -->
+      <aside class="callout">
+        <strong>Key takeaways:</strong>
+        <ul>
+          <li>Tokenization is moving from concept to practice in IB and PE.</li>
+          <li>Benefits: fractional access, improved liquidity, faster and more transparent settlement.</li>
+          <li>Challenges remain: regulation, custody/security, and evolving business models.</li>
+        </ul>
+      </aside>
+
+      <!-- Share / Back -->
+      <div class="article-actions">
+        <a class="btn outline" href="blog.html">← Back to Blog</a>
+      </div>
+    </article>
+
+    <!-- READ ALSO (stessa struttura) -->
+    <section class="read-also">
+      <h3>Read Also</h3>
+      <div class="read-grid">
+        <a class="read-card" href="Post-LBO-From-Assumptions-to-IRR.html">
+          <b>LBO Modelling: From Assumptions to IRR</b>
+          <span>Step-by-step build and drivers behind returns.</span>
+        </a>
+        <a class="read-card" href="Post-Notion-Dealflow-Tracker.html">
+          <b>Notion Deal Flow Tracker</b>
+          <span>Capture deals, track assumptions, and monitor MoM/IRR.</span>
+        </a>
+      </div>
     </section>
 
-    <!-- Key takeaways -->
-    <section class="card takeaways">
-      <h4>Key takeaways</h4>
-      <ul class="list">
-        <li>Tokenization is moving from concept to practice in IB and PE.</li>
-        <li>Benefits: fractional access, improved liquidity, faster and more transparent settlement.</li>
-        <li>Challenges remain: regulation, custody/security, and evolving business models.</li>
-      </ul>
-    </section>
+  </div>
+</main>
 
-    <!-- Read also -->
-    <h3 class="section-title">Read Also</h3>
-    <div class="grid">
-      <a class="card" href="Post-LBO-From-Assumptions-to-IRR.html">
-        <strong>LBO Modelling: From Assumptions to IRR</strong>
-        <p class="muted">Step-by-step build and what really drives returns.</p>
-      </a>
-      <a class="card" href="Post-Notion-Dealflow-Tracker.html">
-        <strong>Notion Deal Flow Tracker</strong>
-        <p class="muted">Lightweight template to capture deals, assumptions, and monitor MoM/IRR.</p>
-      </a>
+<footer class="site-footer">
+  <div class="inner" style="max-width:1280px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+    <div class="left" style="font-size:14px; color:#F9FAFB">
+      <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+      <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
     </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
 
-    <a class="back" href="blog.html">← Back to Blog</a>
+<script>
+  // Nav hamburger (identico al tuo)
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
 
-  </main>
 </body>
 </html>
