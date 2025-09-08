@@ -650,6 +650,8 @@ form .actions{ margin-top:14px; }
 .read-card { display:block; border:1px solid #e5e7eb; border-radius:10px; padding:12px; background:#fff; }
 .read-card span { display:block; color:#6b7280; margin-top:4px; font-size:14px; 
 }
+/* DEBUG 15s: individua l'hero dell'AI post */
+.hero-card img, .hero-img { outline: 3px solid magenta !important; }
 
 
 
