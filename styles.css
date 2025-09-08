@@ -650,19 +650,9 @@ form .actions{ margin-top:14px; }
 .read-card { display:block; border:1px solid #e5e7eb; border-radius:10px; padding:12px; background:#fff; }
 .read-card span { display:block; color:#6b7280; margin-top:4px; font-size:14px; 
 }
-/* ==== Post hero (responsive banner) ==== */
-.article-hero .hero-media {
-  border-radius: 12px;
-  overflow: hidden;
-  background: #0f1115;
-  height: clamp(200px, 28vw, 320px);  /* mobile → desktop */
+.article-hero .hero-media { position: relative; aspect-ratio: 21 / 9; border-radius: 12px; overflow: hidden; }
+.article-hero .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; 
 }
 
-.article-hero .hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 
