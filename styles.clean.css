@@ -104,7 +104,9 @@ a{ color:var(--primary); text-decoration:none; }
 /* ================================
    HOMEPAGE HERO / ABOUT
 ================================ */
-.hero{ display:grid; grid-template-columns:1.3fr 1fr; gap:28px; align-items:center; padding:40px 0; }
+/* la colonna sinistra si adatta alla larghezza della foto; i blocchi partono dall'alto */
+.hero{ display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:start; padding:40px 0; }
+
 .hero-left{ display:flex; gap:16px; align-items:stretch; }
 .h1{ font-size:32px; font-weight:800; margin:0 0 6px; }
 .sub{ font-size:15px; line-height:1.6; max-width:560px; margin:12px 0 22px; }
@@ -123,27 +125,27 @@ a{ color:var(--primary); text-decoration:none; }
 
 /* Desktop variant homepage */
 @media (min-width: 1024px){
-  /* 2 colonne principali (foto a sinistra / contenuti a destra) */
+  /* sinistra = larghezza della foto, destra = contenuti */
   .hero{
-    grid-template-columns: 1fr 1.2fr;
-    align-items: start;                 /* evita micro disallineamenti verticali */
+    grid-template-columns: auto 1fr;
+    align-items: start;
   }
 
-  /* Centra il nome esattamente sopra la foto */
+  /* nome + foto centrati nella colonna sinistra */
   .col-left{
     display: flex;
     flex-direction: column;
-    align-items: center;                /* nome + foto centrati nella colonna sinistra */
+    align-items: center;
   }
   .name-title{ text-align: center; }
 
-  /* A destra: About | Financial Modeling affiancati, allineati all'inizio foto */
+  /* a destra: About (sx) | Financial (dx) affiancati */
   .col-right{
     display: grid;
-    grid-template-columns: minmax(420px, 1fr) 1fr;  /* About (sx) | Financial (dx) */
-    gap: 24px;
+    grid-template-columns: minmax(420px, 1fr) 1fr;
+    gap: 28px;
     align-items: start;
-    margin-top: 48px;                   /* compensa l'altezza del nome sopra la foto */
+    margin-top: 0;
   }
 }
 
