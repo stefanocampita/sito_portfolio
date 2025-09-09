@@ -118,6 +118,13 @@ a{ color:var(--primary); text-decoration:none; }
 }
 .about h3{ margin:0; font-size:20px; }
 .about p{ margin:0; font-size:16px; line-height:1.6; color:var(--text); }
+/* Citazione evidenziata nell'About */
+.highlight-quote{
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 700;
+}
+
 
 .photo{ width:100%; max-width:380px; aspect-ratio:4/5; overflow:hidden; border-radius:var(--radius); background:#1a1a1a; }
 .photo img{ width:100%; height:100%; object-fit:cover; object-position:center 20%; }
@@ -125,13 +132,13 @@ a{ color:var(--primary); text-decoration:none; }
 
 /* Desktop variant homepage */
 @media (min-width: 1024px){
-  /* sinistra = larghezza della foto, destra = contenuti */
+  /* 2 colonne: sinistra = foto, destra = contenuti */
   .hero{
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr; /* foto prende lo spazio della sua larghezza */
     align-items: start;
   }
 
-  /* nome + foto centrati nella colonna sinistra */
+  /* Nome centrato sopra la foto */
   .col-left{
     display: flex;
     flex-direction: column;
@@ -139,15 +146,19 @@ a{ color:var(--primary); text-decoration:none; }
   }
   .name-title{ text-align: center; }
 
-  /* a destra: About (sx) | Financial (dx) affiancati */
+  /* A destra: About (sx) | Financial (dx) */
   .col-right{
     display: grid;
     grid-template-columns: minmax(420px, 1fr) 1fr;
     gap: 28px;
     align-items: start;
-    margin-top: 0;
+
+    /* spinge il blocco destro sotto l'altezza del nome,
+       così parte allineato con l'inizio della foto */
+    margin-top: 64px; /* se serve, regola 56–72px */
   }
 }
+
 
 /* ================================
    BLOG: ARTICLE PAGE
