@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Strategic Rationale — Adyen × Nexi</title>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+
+<!-- NAV come nel resto del sito -->
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="article-hero">
+      <div class="hero-media">
+        <!-- Sostituisci il src quando hai la cover -->
+        <img src="strategic-rationale-hero.png" alt="Strategic Rationale cover">
+      </div>
+      <h1 class="article-title">Strategic Rationale — Adyen × Nexi</h1>
+      <div class="article-meta">
+        <span>Published: <time datetime="2025-09-09">Sep 9, 2025</time></span>
+        <span>•</span>
+        <span>Reading time: ~2–3 min</span>
+      </div>
+    </section>
+
+    <!-- CONTENUTO -->
+    <article class="card article-content">
+      <h2><strong>Strategic Rationale</strong></h2>
+      <ul>
+        <li>• <strong>Complementary strengths</strong>: Adyen’s global digital merchant base complements Nexi’s European local presence.</li>
+        <li>• <strong>Scale benefits</strong>: combined size enhances negotiating power with banks, regulators, and suppliers.</li>
+        <li>• <strong>Cross-selling opportunities</strong>: integrate Adyen’s unified commerce platform with Nexi’s issuing and banking partnerships.</li>
+        <li>• <strong>Pan-European leadership</strong>: potential to create a leader bridging online payments and open banking across Europe.</li>
+      </ul>
+
+      <!-- Sezioni immagini interne (placeholder). Carica i tuoi file e sostituisci i src -->
+      <h2><strong>Exhibits</strong></h2>
+      <p>Visuals and supporting exhibits (optional):</p>
+
+      <!-- Esempio figura 1 -->
+      <img src="exhibit-1.png" alt="Exhibit 1 – placeholder">
+
+      <!-- Esempio figura 2 -->
+      <img src="exhibit-2.png" alt="Exhibit 2 – placeholder">
+
+      <p><em>Sources: Adyen Annual Report 2024; Nexi FY2024 Results Presentation.</em></p>
+
+      <div class="article-actions">
+        <a class="btn outline" href="portfolio.html">← Back to Portfolio</a>
+      </div>
+    </article>
+
+    <!-- READ ALSO (facoltativo, in stile esistente) -->
+    <section class="read-also">
+      <h3>Read Also</h3>
+      <div class="read-grid">
+        <a class="read-card" href="post-lbo-assumptions-to-irr.html">
+          <b>LBO Modelling: From Assumptions to IRR</b>
+          <span>Step-by-step build and drivers behind returns.</span>
+        </a>
+        <a class="read-card" href="post-notion-dealflow.html">
+          <b>Notion Deal Flow Tracker</b>
+          <span>Capture deals, track assumptions, and monitor MoM/IRR.</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+      <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
