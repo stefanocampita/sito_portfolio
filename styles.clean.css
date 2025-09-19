@@ -330,7 +330,7 @@ form .actions{ margin-top:14px; }
 }
 
 .slideshow-container{
-  display:felx;
+  display:flex;
   align-items:center;
   justify-content:center;
   border:1px solid #e5e7eb;
