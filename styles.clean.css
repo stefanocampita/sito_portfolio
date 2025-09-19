@@ -366,7 +366,7 @@ form .actions{ margin-top:14px; }
 
 .dots{ display:flex; justify-content:center; gap:6px; margin-top:8px; }
 .dot{ width:10px; height:10px; border-radius:999px; background:#cfd4da; border:1px solid #c9ced6; }
-.dot .is-active{ background:var(--primary); border-color:var(--primary); }
+.dot.is-active{ background-color:var(--primary); border-color:var(--primary); }
 @media (max-width:900px){
   .exhibits-left img{ max-width:100%; }
 }
