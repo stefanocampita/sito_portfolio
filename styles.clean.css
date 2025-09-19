@@ -313,7 +313,7 @@ form .actions{ margin-top:14px; }
 .card.slideshow{
   padding:10px;          /* era 12px */
   max-width:760px;       /* nuova: riduce la larghezza complessiva */
-  margin:8px auto;       /* nuova: centra il blocco */
+  margin:12px auto;       /* nuova: centra il blocco */
 }
 
 .slideshow-container{
@@ -329,7 +329,7 @@ form .actions{ margin-top:14px; }
 
 /* centra il contenuto nello slideshow */
 .slideshow .slide{
-  display:none;
+  dplay:none;
   align-items:center;
   justify-content:center;
    height: 100%;
