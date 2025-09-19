@@ -206,6 +206,7 @@ a{ color:var(--primary); text-decoration:none; }
 }
 .card.article-content .slideshow .slide.is-active{
   display:flex;                 /* solo la slide attiva è visibile */
+   width: 300px;
 }
 /* Base: una slide alla volta */
 .slideshow .slide{ display:none; 
