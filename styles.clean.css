@@ -297,6 +297,6 @@ form .actions{ margin-top:14px; }
 .dots .dot.is-active{ background:var(--primary); border-color:var(--primary); }
 
 @media (max-width:900px){
-  .exhibits-split{ grid-template-columns:1fr; }
+  .exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; }
   .exhibits-left img{ max-width:100%; }
 }
