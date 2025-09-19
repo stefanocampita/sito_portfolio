@@ -279,7 +279,7 @@ form .actions{ margin-top:14px; }
 
 .slideshow-container{
   position:relative; border:1px solid #e5e7eb;
-  border-radius:var(--radius); overflow:hidden; background:#fff;
+  border-radius:var(--radius); overflow:hidden; background:#fff; aspect-ratio: 16 / 9; height: auto;
 }
 .slide{ display:none; } .slide.is-active{ display:block; }
 .slide img{ width:100%; display:block; }
