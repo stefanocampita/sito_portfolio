@@ -309,7 +309,7 @@ form .actions{ margin-top:14px; }
 @media (max-width:900px){
   .exhibits-split{ grid-template-columns: 1fr; }
   .exhibits-left img{ max-width:100%; }
-
+}
 .exhibits-right {
   background:#fff;
   border:1px solid #ECECEC;
