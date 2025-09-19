@@ -286,7 +286,10 @@ form .actions{ margin-top:14px; }
 .exhibits-split{
   display:grid;
   grid-template-columns:minmax(260px,520px) 1fr;
-  gap:18px; align-items:start; margin:12px 0 16px;
+  gap:18px;
+  align-items:start;
+  margin:12px 0 16px;
+}
 .exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; }
 
 }
@@ -301,19 +304,18 @@ form .actions{ margin-top:14px; }
   border-radius:var(--radius); overflow:hidden; background:#fff; width: 100%; aspect-ratio: 4 / 3; height: auto;
 }
 /* centra il contenuto nello slideshow */
-.slide{
-  display: flex;                 /* NOVITÀ */
-  align-items: center;           /* NOVITÀ */
-  justify-content: center;       /* NOVITÀ */
+.slideshow .slide{
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-/* l’immagine riempie il box mantenendo proporzioni e resta centrata */
-.slide img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center; /* NOVITÀ */
-  display: block;
+.slideshow .slide img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  display:block;
 }
 
 .slideshow .nav{
