@@ -342,7 +342,7 @@ form .actions{ margin-top:14px; }
 
 /* centra il contenuto nello slideshow */
 .slideshow .slide{
-  dplay:none;
+  display:none;
   align-items:center;
   justify-content:center;
    height: 100%;
