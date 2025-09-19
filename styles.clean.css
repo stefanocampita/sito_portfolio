@@ -294,18 +294,22 @@ form .actions{ margin-top:14px; }
 }
 .exhibits-split{
   display:grid;
-  grid-template-columns:minmax(260px,520px) 1fr;
+  grid-template-columns: 1fr 1fr;  /* 2 colonne equilibrate */
   gap:18px;
   align-items:start;
   margin:12px 0 16px;
-}
-.exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; }
-
 }
 .exhibits-left img{
   display:block; width:100%; height:auto; max-width:520px;
   margin:12px 0 0 0; border-radius:8px; border:1px solid #ECECEC;
 }
+.exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; } /* quando serve tutta larghezza */
+
+@media (max-width:900px){
+  .exhibits-split{ grid-template-columns: 1fr; }
+  .exhibits-left img{ max-width:100%; }
+
+
 .card.slideshow{
   padding:10px;          /* era 12px */
   max-width:760px;       /* nuova: riduce la larghezza complessiva */
