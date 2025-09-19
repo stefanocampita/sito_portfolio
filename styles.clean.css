@@ -190,17 +190,29 @@ a{ color:var(--primary); text-decoration:none; }
 .card.article-content h2{ font-size:22px; margin:18px 0 8px; }
 .card.article-content p{ font-size:16px; line-height:1.65; margin:10px 0; }
 .card.article-content img{
-  display:block;                 /* per centrare correttamente */
-  width:100%;                    /* riempie il contenitore */
-  max-width:520px;               /* << dimensione massima desktop (regolabile) */
-  margin:12px 0 0 0;            /* centra l’immagine */
+  display:block;
+  width:100%;
+  max-width:520px;
+  margin:12px 0 0 0;
   border-radius:8px;
   border:1px solid #ECECEC;
 }
-.card.article.content .slideshow img{
-   max-width:100%;
-   margin:0;
-   border:0;
+
+/* ✅ OVERRIDE solo per le immagini nello slideshow */
+.card.article-content .slideshow .slide{
+  display:flex;                 /* centra il contenuto */
+  align-items:center;
+  justify-content:center;
+}
+
+.card.article-content .slideshow img{
+  max-width:100% !important;    /* non ereditare il 520px */
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  margin:0;
+  border:0;
 }
 
 
@@ -286,10 +298,23 @@ form .actions{ margin-top:14px; }
 
 .slideshow-container{
   position:relative; border:1px solid #e5e7eb;
-  border-radius:var(--radius); overflow:hidden; background:#fff; aspect-ratio: 16 / 9; height: auto;
+  border-radius:var(--radius); overflow:hidden; background:#fff; width: 100%; aspect-ratio: 4 / 3; height: auto;
 }
-.slide{ display:none; } .slide.is-active{ display:block; }
-.slide img{ width:100%; height:100%; object-fit: contain; display:block; }
+/* centra il contenuto nello slideshow */
+.slide{
+  display: flex;                 /* NOVITÀ */
+  align-items: center;           /* NOVITÀ */
+  justify-content: center;       /* NOVITÀ */
+}
+
+/* l’immagine riempie il box mantenendo proporzioni e resta centrata */
+.slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center; /* NOVITÀ */
+  display: block;
+}
 
 .slideshow .nav{
   position:absolute; top:50%; transform:translateY(-50%);
