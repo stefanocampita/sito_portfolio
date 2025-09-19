@@ -192,10 +192,15 @@ a{ color:var(--primary); text-decoration:none; }
 .card.article-content img{
   display:block;                 /* per centrare correttamente */
   width:100%;                    /* riempie il contenitore */
-  max-width:300px;               /* << dimensione massima desktop (regolabile) */
+  max-width:520px;               /* << dimensione massima desktop (regolabile) */
   margin:12px 0 0 0;            /* centra l’immagine */
   border-radius:8px;
   border:1px solid #ECECEC;
+}
+.card.article.content .slideshow img{
+   max-width:100%;
+   margin:0;
+   border:0;
 }
 
 
@@ -270,6 +275,8 @@ form .actions{ margin-top:14px; }
   display:grid;
   grid-template-columns:minmax(260px,520px) 1fr;
   gap:18px; align-items:start; margin:12px 0 16px;
+.exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; }
+
 }
 .exhibits-left img{
   display:block; width:100%; height:auto; max-width:520px;
@@ -295,8 +302,6 @@ form .actions{ margin-top:14px; }
 .dots{ display:flex; justify-content:center; gap:6px; margin-top:8px; }
 .dots .dot{ width:10px; height:10px; border-radius:999px; background:#cfd4da; border:1px solid #c9ced6; }
 .dots .dot.is-active{ background:var(--primary); border-color:var(--primary); }
-
 @media (max-width:900px){
-  .exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; }
   .exhibits-left img{ max-width:100%; }
 }
