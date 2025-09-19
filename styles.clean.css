@@ -358,21 +358,29 @@ form .actions{ margin-top:14px; }
   display:block;
 }
 
-.slideshow .slide-nav{
+.slideshow .slide-nav {
   position: absolute;
   top: calc(100% + 8px);  /* sotto al box delle slide */
-  transform: none;        /* niente translateY */
-  border:1px solid #d1d5db;
-  background:#fff;
-  padding:6px 10px;
-  border-radius:10px;
-  font-weight:700;
-  font-size:16px;
-  line-height:1;
-  cursor:pointer;
-  transition:background .15s, box-shadow .15s, border-color .15s;
+  transform: none;
+  background: #000;       /* sfondo nero */
+  color: #fff;            /* testo bianco */
+  border: 1px solid #000; /* bordo nero */
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .15s, box-shadow .15s, border-color .15s;
   z-index: 2;
 }
+
+/* effetto hover (facoltativo ma consigliato) */
+.slideshow .slide-nav:hover {
+  background: #222;   /* grigio scurissimo */
+  border-color: #222;
+}
+
 .slide-nav{border: none;
     border-radius: 1rem;
     font-size: 1rem;
