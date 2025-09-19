@@ -193,7 +193,7 @@ a{ color:var(--primary); text-decoration:none; }
   display:block;                 /* per centrare correttamente */
   width:100%;                    /* riempie il contenitore */
   max-width:300px;               /* << dimensione massima desktop (regolabile) */
-  margin:12px auto 0;            /* centra l’immagine */
+  margin:12px 0 0 0;            /* centra l’immagine */
   border-radius:8px;
   border:1px solid #ECECEC;
 }
