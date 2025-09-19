@@ -192,7 +192,7 @@ a{ color:var(--primary); text-decoration:none; }
 .card.article-content img{
   display:block;                 /* per centrare correttamente */
   width:100%;                    /* riempie il contenitore */
-  max-width:640px;               /* << dimensione massima desktop (regolabile) */
+  max-width:600px;               /* << dimensione massima desktop (regolabile) */
   margin:12px auto 0;            /* centra l’immagine */
   border-radius:8px;
   border:1px solid #ECECEC;
