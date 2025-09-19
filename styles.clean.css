@@ -314,9 +314,10 @@ form .actions{ margin-top:14px; }
 }
 /* centra il contenuto nello slideshow */
 .slideshow .slide{
-  display:flex;
+  display:none;
   align-items:center;
   justify-content:center;
+   height: 100%;
 }
 
 .slideshow .slide img{
