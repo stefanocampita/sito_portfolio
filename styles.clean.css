@@ -198,12 +198,21 @@ a{ color:var(--primary); text-decoration:none; }
   border:1px solid #ECECEC;
 }
 
-/* ✅ OVERRIDE solo per le immagini nello slideshow */
+/* ✅ OVERRIDE corretto: mostra solo la slide attiva */
 .card.article-content .slideshow .slide{
-  display:flex;                 /* centra il contenuto */
+  display:none;                 /* nasconde le non attive */
   align-items:center;
   justify-content:center;
 }
+.card.article-content .slideshow .slide.is-active{
+  display:flex;                 /* solo la slide attiva è visibile */
+}
+/* Base: una slide alla volta */
+.slideshow .slide{ display:none; 
+}
+.slideshow .slide.is-active{ display:flex; 
+}
+
 
 .card.article-content .slideshow img{
   max-width:100% !important;    /* non ereditare il 520px */
