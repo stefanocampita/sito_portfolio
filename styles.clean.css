@@ -309,6 +309,18 @@ form .actions{ margin-top:14px; }
   .exhibits-split{ grid-template-columns: 1fr; }
   .exhibits-left img{ max-width:100%; }
 
+.exhibits-right {
+  background:#fff;
+  border:1px solid #ECECEC;
+  border-radius:8px;
+  padding:12px 14px;
+}
+
+.exhibits-right h3 { margin:0 0 8px; }
+.exhibits-right p  { margin:0 0 8px; line-height:1.65; }
+.exhibits-right ul { margin:8px 0 0 18px; line-height:1.6; }
+
+
 
 .card.slideshow{
   padding:10px;          /* era 12px */
