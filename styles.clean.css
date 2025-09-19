@@ -373,6 +373,10 @@ form .actions{ margin-top:14px; }
   transition:background .15s, box-shadow .15s, border-color .15s;
   z-index: 2;
 }
+.nav-container{
+     display:flex;
+     justify-content:center;
+}
 /* posizionamento: una a sinistra e una a destra del centro */
 .slideshow .prev{ left: calc(50% - 68px); }
 .slideshow .next{ left: calc(50% + 36px); }
