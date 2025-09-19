@@ -282,7 +282,7 @@ form .actions{ margin-top:14px; }
   border-radius:var(--radius); overflow:hidden; background:#fff; aspect-ratio: 16 / 9; height: auto;
 }
 .slide{ display:none; } .slide.is-active{ display:block; }
-.slide img{ width:100%; display:block; }
+.slide img{ width:100%; height:100%; object-fit: contain; display:block; }
 
 .slideshow .nav{
   position:absolute; top:50%; transform:translateY(-50%);
