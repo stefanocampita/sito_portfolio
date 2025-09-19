@@ -151,6 +151,28 @@
     });
   })();
 </script>
+<script>
+(function(){
+  let slideIndex = 1;
+  const slides = () => document.querySelectorAll(".slideshow .slide");
+  const dots   = () => document.querySelectorAll(".dots .dot");
+
+  function showSlides(n){
+    const s = slides(), d = dots();
+    if (n > s.length) slideIndex = 1;
+    if (n < 1) slideIndex = s.length;
+    s.forEach(el => el.classList.remove("is-active"));
+    d.forEach(el => el.classList.remove("is-active"));
+    s[slideIndex-1].classList.add("is-active");
+    d[slideIndex-1].classList.add("is-active");
+  }
+
+  window.plusSlides = n => showSlides(slideIndex += n);
+  window.currentSlide = n => showSlides(slideIndex = n);
+
+  showSlides(slideIndex);
+})();
+</script>
 
 </body>
 </html>
