@@ -53,15 +53,46 @@
         <li> <strong>Pan-European leadership</strong>: potential to create a leader bridging online payments and open banking across Europe.</li>
       </ul>
 
-      <!-- Sezioni immagini interne (placeholder). Carica i tuoi file e sostituisci i src -->
       <h2><strong>Exhibits</strong></h2>
-      <p>Visuals and supporting exhibits (optional):</p>
+<p>Visuals and supporting exhibits:</p>
 
-      <!-- Esempio figura 1 -->
-      <img src="ADYEN NEXI MAP.png" alt="Exhibit 1 – placeholder">
+<div class="exhibits-split">
+  <!-- Colonna SINISTRA: le due immagini -->
+  <div class="exhibits-left">
+    <img src="ADYEN NEXI MAP.png" alt="Exhibit 1 — Geographic Footprint">
+    <img src="revenue_growth_yoy.png" alt="Exhibit 2 — Revenue Growth YoY">
+  </div>
 
-      <!-- Esempio figura 2 -->
-      <img src="revenue_growth_yoy.png" alt="Exhibit 2 – placeholder">
+  <!-- Colonna DESTRA: slideshow -->
+  <section class="card slideshow">
+    <h3 style="margin:0 0 8px;">Slide preview</h3>
+    <div class="slideshow-container" aria-label="PPT slideshow" role="region">
+      <div class="slide fade is-active">
+        <img src="images/adyen-nexi-cover.png" alt="Cover slide" loading="lazy" />
+      </div>
+      <div class="slide fade">
+        <img src="images/adyen-nexi-overview.png" alt="Company Overview" loading="lazy" />
+      </div>
+      <div class="slide fade">
+        <img src="images/adyen-nexi-valuation.png" alt="Valuation Snapshot" loading="lazy" />
+      </div>
+      <div class="slide fade">
+        <img src="images/adyen-nexi-rationale.png" alt="Strategic Rationale" loading="lazy" />
+      </div>
+
+      <button class="nav prev" aria-label="Previous" onclick="plusSlides(-1)">❮</button>
+      <button class="nav next" aria-label="Next" onclick="plusSlides(1)">❯</button>
+    </div>
+
+    <div class="dots" aria-label="Pagination">
+      <button class="dot is-active" onclick="currentSlide(1)"></button>
+      <button class="dot" onclick="currentSlide(2)"></button>
+      <button class="dot" onclick="currentSlide(3)"></button>
+      <button class="dot" onclick="currentSlide(4)"></button>
+    </div>
+  </section>
+</div>
+
 
       <p><em>Sources: Adyen Annual Report 2024; Nexi FY2024 Results Presentation.</em></p>
 
