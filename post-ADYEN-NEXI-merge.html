@@ -54,57 +54,60 @@
       </ul>
 
       <h2><strong>Exhibits</strong></h2>
-<p>Visuals and supporting exhibits:</p>
+      <p>Visuals and supporting exhibits:</p>
 
-<div class="exhibits-split">
-  <!-- Colonna SINISTRA: le due immagini -->
-  <div class="exhibits-left">
-    <img src="ADYEN NEXI MAP.png" alt="Exhibit 1 — Geographic Footprint">
-    <img src="revenue_growth_yoy.png" alt="Exhibit 2 — Revenue Growth YoY">
-  </div>
+      <div class="exhibits-split">
+        <!-- Colonna SINISTRA: le due immagini -->
+        <div class="exhibits-left">
+          <img src="ADYEN NEXI MAP.png" alt="Exhibit 1 — Geographic Footprint">
+          <img src="revenue_growth_yoy.png" alt="Exhibit 2 — Revenue Growth YoY">
+        </div>
 
-  <!-- Colonna DESTRA: slideshow -->
-  <section class="card slideshow">
-    <h3 style="margin:0 0 8px;">Slide preview</h3>
-    <div class="slideshow-container" aria-label="PPT slideshow" role="region">
-      <div class="slide fade is-active">
-        <img src="FOTO POWERPOINT/Proposed Acquisition of Nexi by Adyen-1.png" alt="Cover slide" loading="lazy" />
-      </div>
-      <div class="slide fade">
-        <img src="FOTO POWERPOINT/Proposed Acquisition of Nexi by Adyen-2.png" alt="Company Overview" loading="lazy" />
-      </div>
-      <div class="slide fade">
-        <img src="FOTO POWERPOINT/Proposed Acquisition of Nexi by Adyen-3.png" alt="Valuation Snapshot" loading="lazy" />
-      </div>
-      <div class="slide fade">
-        <img src="FOTO POWERPOINT/Proposed Acquisition of Nexi by Adyen-4.png" alt="Strategic Rationale" loading="lazy" />
-      </div>
-      <div class="slide fade">
-        <img src="FOTO POWERPOINT/Proposed Acquisition of Nexi by Adyen-5.png" alt="Strategic Rationale" loading="lazy" />
-      </div>
-      <div class="slide fade">
-        <img src="FOTO POWERPOINT/Proposed Acquisition of Nexi by Adyen-6.png" alt="Strategic Rationale" loading="lazy" />
-      </div>
-      <div class="slide fade">
-        <img src="FOTO POWERPOINT/Proposed Acquisition of Nexi by Adyen-7.png" alt="Strategic Rationale" loading="lazy" />
-      </div>
-      <div class="slide fade">
-        <img src="FOTO POWERPOINT/Proposed Acquisition of Nexi by Adyen-8.png" alt="Strategic Rationale" loading="lazy" />
-      </div>
+        <!-- Slideshow: riga successiva, SPAN su entrambe le colonne -->
+        <section class="card slideshow exhibit-slideshow">
+          <h3 style="margin:0 0 8px;">Slide preview</h3>
+          <div class="slideshow-container" aria-label="PPT slideshow" role="region">
+            <div class="slide fade is-active">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-1.png" alt="Cover slide" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-2.png" alt="Company Overview" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-3.png" alt="Valuation Snapshot" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-4.png" alt="Strategic Rationale" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-5.png" alt="Synergies" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-6.png" alt="Risks" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-7.png" alt="Valuation Snapshot 2" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-8.png" alt="Conclusion" loading="lazy" />
+            </div>
 
-      <button class="nav prev" aria-label="Previous" onclick="plusSlides(-1)">❮</button>
-      <button class="nav next" aria-label="Next" onclick="plusSlides(1)">❯</button>
-    </div>
+            <button class="nav prev" aria-label="Previous" onclick="plusSlides(-1)">❮</button>
+            <button class="nav next" aria-label="Next" onclick="plusSlides(1)">❯</button>
+          </div>
 
-    <div class="dots" aria-label="Pagination">
-      <button class="dot is-active" onclick="currentSlide(1)"></button>
-      <button class="dot" onclick="currentSlide(2)"></button>
-      <button class="dot" onclick="currentSlide(3)"></button>
-      <button class="dot" onclick="currentSlide(4)"></button>
-    </div>
-  </section>
-</div>
-
+          <div class="dots" aria-label="Pagination">
+            <button class="dot is-active" onclick="currentSlide(1)"></button>
+            <button class="dot" onclick="currentSlide(2)"></button>
+            <button class="dot" onclick="currentSlide(3)"></button>
+            <button class="dot" onclick="currentSlide(4)"></button>
+            <button class="dot" onclick="currentSlide(5)"></button>
+            <button class="dot" onclick="currentSlide(6)"></button>
+            <button class="dot" onclick="currentSlide(7)"></button>
+            <button class="dot" onclick="currentSlide(8)"></button>
+          </div>
+        </section>
+      </div>
 
       <p><em>Sources: Adyen Annual Report 2024; Nexi FY2024 Results Presentation.</em></p>
 
@@ -163,6 +166,7 @@
     });
   })();
 </script>
+
 <script>
 (function(){
   let slideIndex = 1;
@@ -176,7 +180,7 @@
     s.forEach(el => el.classList.remove("is-active"));
     d.forEach(el => el.classList.remove("is-active"));
     s[slideIndex-1].classList.add("is-active");
-    d[slideIndex-1].classList.add("is-active");
+    if (d[slideIndex-1]) d[slideIndex-1].classList.add("is-active");
   }
 
   window.plusSlides = n => showSlides(slideIndex += n);
