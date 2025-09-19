@@ -330,7 +330,9 @@ form .actions{ margin-top:14px; }
 }
 
 .slideshow-container{
-  position:relative;
+  display:felx;
+  align-items:center;
+  justify-content:center;
   border:1px solid #e5e7eb;
   border-radius:var(--radius);
   overflow:hidden;
@@ -340,7 +342,7 @@ form .actions{ margin-top:14px; }
   height:auto;
 }
 
-/* centra il contenuto nello slideshow */
+/* centra il contenuto nello slideshow *asdjvbaskjdbvakjsdbvàajsdbvàajsdbvsd/
 .slideshow .slide{
   display:none;
   align-items:center;
