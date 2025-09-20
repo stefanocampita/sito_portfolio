@@ -66,19 +66,12 @@
 
       <!-- GRIGLIA: sinistra immagini, destra slideshow -->
       <div class="exhibits-split">
-        <!-- Colonna sinistra: immagini -->
+        <!-- Colonna sinistra: SOLO la mappa -->
         <div class="exhibits-left">
           <figure>
             <img src="ADYEN NEXI MAP.png" alt="Exhibit 1 — Geographic Footprint">
             <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
               Footprint: Adyen global digital reach meets Nexi’s local EU density → cross-sell angle.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <img src="revenue_growth_yoy.png" alt="Exhibit 2 — Revenue Growth YoY">
-            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
-              Growth profile: scale & momentum to support pricing and mix improvements.
             </figcaption>
           </figure>
         </div>
@@ -87,7 +80,7 @@
         <section class="card slideshow slideshow--in-grid" style="max-width:100%;margin:0;">
           <h3 style="margin:0 0 8px;">PowerPoint Presentation</h3>
 
-          <div class="slideshow-container" aria-label="PPT slideshow" role="region">
+          <div class="slideshow-container" aria-label="PPT slideshow" role="region" style="position:relative;">
             <div class="slide fade is-active">
               <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-1.png" alt="Cover slide" loading="lazy" />
             </div>
@@ -112,13 +105,16 @@
             <div class="slide fade">
               <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-8.png" alt="Conclusion" loading="lazy" />
             </div>
+
+            <!-- CONTROLLI DENTRO IL CONTAINER, CENTRATI -->
+            <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:3;">
+              <!-- override inline: rendiamo i bottoni 'static' per centrarli nel flex -->
+              <button class="slide-nav prev" aria-label="Previous" onclick="plusSlides(-1)" style="position:static;top:auto;left:auto;transform:none;">Previous</button>
+              <button class="slide-nav next" aria-label="Next" onclick="plusSlides(1)" style="position:static;top:auto;left:auto;transform:none;">Next</button>
+            </div>
           </div>
 
-          <div class="slide-nav-container" style="display:flex;justify-content:center;gap:12px;margin-top:8px;">
-            <button class="slide-nav prev" aria-label="Previous" onclick="plusSlides(-1)">Previous</button>
-            <button class="slide-nav next" aria-label="Next" onclick="plusSlides(1)">Next</button>
-          </div>
-
+          <!-- Dots sotto (restano dove sono) -->
           <div class="dots" aria-label="Pagination">
             <button class="dot is-active" onclick="currentSlide(1)"></button>
             <button class="dot" onclick="currentSlide(2)"></button>
@@ -129,20 +125,14 @@
             <button class="dot" onclick="currentSlide(7)"></button>
             <button class="dot" onclick="currentSlide(8)"></button>
           </div>
-
-          <!-- Azioni deck -->
-          <div class="deck-actions" style="display:flex;gap:10px;justify-content:flex-end;margin-top:10px;">
-            <a class="btn outline" href="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen.pdf">Download deck</a>
-            <a class="btn" href="post-approach-adyen-nexi.html" style="border-color:var(--accent);color:var(--accent);">Build notes →</a>
-          </div>
         </section>
       </div>
 
       <h2>Key Takeaways</h2>
       <ol>
-        <li>Complementarità concreta su merchant mix e coverage locale → cross-sell & pricing.</li>
-        <li>Sinergie plausibili ma <em>execution-heavy</em> lato integrazione tech e partnership bancarie.</li>
-        <li>Leadership Pan-EU credibile se antitrust favorevole + roadmap d’integrazione disciplinata.</li>
+        <li>Real complementarity on merchant mix and local coverage → cross-sell & pricing upside.</li>
+        <li>Synergies are plausible but <em>execution-heavy</em> across tech integration and banking partnerships.</li>
+        <li>Pan-EU leadership thesis holds if antitrust clears and integration follows a disciplined roadmap.</li>
       </ol>
 
       <p><em>Sources: Adyen Annual Report 2024; Nexi FY2024 Results Presentation.</em></p>
