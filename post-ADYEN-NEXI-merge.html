@@ -41,6 +41,14 @@
         <span>•</span>
         <span>Reading time: ~2–3 min</span>
       </div>
+
+      <!-- META BAR (pillole) -->
+      <div class="meta-bar" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;">
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Deal type: Strategic M&amp;A</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Role: Solo author</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Tools: Excel · PowerPoint</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Slides: 8</span>
+      </div>
     </section>
 
     <!-- CONTENUTO PROGETTO (solo deliverable) -->
@@ -56,7 +64,9 @@
       <h2><strong>Exhibits</strong></h2>
       <p>Visuals and supporting exhibits:</p>
 
+      <!-- GRIGLIA: sinistra immagini, destra slideshow -->
       <div class="exhibits-split">
+        <!-- Colonna sinistra: immagini -->
         <div class="exhibits-left">
           <figure>
             <img src="ADYEN NEXI MAP.png" alt="Exhibit 1 — Geographic Footprint">
@@ -72,54 +82,61 @@
             </figcaption>
           </figure>
         </div>
+
+        <!-- Colonna destra: slideshow -->
+        <section class="card slideshow slideshow--in-grid" style="max-width:100%;margin:0;">
+          <h3 style="margin:0 0 8px;">PowerPoint Presentation</h3>
+
+          <div class="slideshow-container" aria-label="PPT slideshow" role="region">
+            <div class="slide fade is-active">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-1.png" alt="Cover slide" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-2.png" alt="Company Overview" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-3.png" alt="Valuation Snapshot" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-4.png" alt="Strategic Rationale" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-5.png" alt="Synergies" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-6.png" alt="Risks" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-7.png" alt="Valuation Snapshot 2" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-8.png" alt="Conclusion" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="slide-nav-container" style="display:flex;justify-content:center;gap:12px;margin-top:8px;">
+            <button class="slide-nav prev" aria-label="Previous" onclick="plusSlides(-1)">Previous</button>
+            <button class="slide-nav next" aria-label="Next" onclick="plusSlides(1)">Next</button>
+          </div>
+
+          <div class="dots" aria-label="Pagination">
+            <button class="dot is-active" onclick="currentSlide(1)"></button>
+            <button class="dot" onclick="currentSlide(2)"></button>
+            <button class="dot" onclick="currentSlide(3)"></button>
+            <button class="dot" onclick="currentSlide(4)"></button>
+            <button class="dot" onclick="currentSlide(5)"></button>
+            <button class="dot" onclick="currentSlide(6)"></button>
+            <button class="dot" onclick="currentSlide(7)"></button>
+            <button class="dot" onclick="currentSlide(8)"></button>
+          </div>
+
+          <!-- Azioni deck -->
+          <div class="deck-actions" style="display:flex;gap:10px;justify-content:flex-end;margin-top:10px;">
+            <a class="btn outline" href="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen.pdf">Download deck</a>
+            <a class="btn" href="post-approach-adyen-nexi.html" style="border-color:var(--accent);color:var(--accent);">Build notes →</a>
+          </div>
+        </section>
       </div>
-
-      <!-- Slideshow (deck) -->
-      <section class="card slideshow slideshow--wide">
-        <h3 style="margin:0 0 8px;">PowerPoint Presentation</h3>
-        <div class="slideshow-container" aria-label="PPT slideshow" role="region">
-          <div class="slide fade is-active">
-            <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-1.png" alt="Cover slide" loading="lazy" />
-          </div>
-          <div class="slide fade">
-            <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-2.png" alt="Company Overview" loading="lazy" />
-          </div>
-          <div class="slide fade">
-            <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-3.png" alt="Valuation Snapshot" loading="lazy" />
-          </div>
-          <div class="slide fade">
-            <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-4.png" alt="Strategic Rationale" loading="lazy" />
-          </div>
-          <div class="slide fade">
-            <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-5.png" alt="Synergies" loading="lazy" />
-          </div>
-          <div class="slide fade">
-            <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-6.png" alt="Risks" loading="lazy" />
-          </div>
-          <div class="slide fade">
-            <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-7.png" alt="Valuation Snapshot 2" loading="lazy" />
-          </div>
-          <div class="slide fade">
-            <img src="FOTO%20POWERPOINT/Proposed%20Acquisition%20of%20Nexi%20by%20Adyen-8.png" alt="Conclusion" loading="lazy" />
-          </div>
-        </div>
-
-        <div class="slide-nav-container">
-          <button class="slide-nav prev" aria-label="Previous" onclick="plusSlides(-1)">Previous</button>
-          <button class="slide-nav next" aria-label="Next" onclick="plusSlides(1)">Next</button>
-        </div>
-
-        <div class="dots" aria-label="Pagination">
-          <button class="dot is-active" onclick="currentSlide(1)"></button>
-          <button class="dot" onclick="currentSlide(2)"></button>
-          <button class="dot" onclick="currentSlide(3)"></button>
-          <button class="dot" onclick="currentSlide(4)"></button>
-          <button class="dot" onclick="currentSlide(5)"></button>
-          <button class="dot" onclick="currentSlide(6)"></button>
-          <button class="dot" onclick="currentSlide(7)"></button>
-          <button class="dot" onclick="currentSlide(8)"></button>
-        </div>
-      </section>
 
       <h2>Key Takeaways</h2>
       <ol>
@@ -127,10 +144,6 @@
         <li>Sinergie plausibili ma <em>execution-heavy</em> lato integrazione tech e partnership bancarie.</li>
         <li>Leadership Pan-EU credibile se antitrust favorevole + roadmap d’integrazione disciplinata.</li>
       </ol>
-
-      <p style="margin:16px 0;">
-        <a class="btn outline" href="post-approach-adyen-nexi.html">Read full build notes →</a>
-      </p>
 
       <p><em>Sources: Adyen Annual Report 2024; Nexi FY2024 Results Presentation.</em></p>
 
