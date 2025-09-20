@@ -314,7 +314,7 @@ form .actions{ margin-top:14px; }
   max-width:760px;
   margin:12px auto;
   position: relative;          /* spazio per i bottoni sotto */
-  padding-bottom: 64px;        /* distacco per frecce + dots */
+  padding-bottom: 16px;        
 }
 
 .slideshow-container{
@@ -329,6 +329,16 @@ form .actions{ margin-top:14px; }
   aspect-ratio:4 / 3;
   height:auto;
 }
+.slideshow-container{ position: relative; }
+
+/* quando i bottoni sono dentro al container, non usare top/left */
+.slideshow-container .slide-nav{
+  position: static;
+  top: auto; left: auto; transform: none;
+}
+
+/* se mai mancasse il wrapper flex, garantisci un piccolo gap tra i due bottoni */
+.slideshow-container .slide-nav + .slide-nav{ margin-left:12px; }
 
 /* centra il contenuto nello slideshow */
 .slideshow .slide{
@@ -368,9 +378,6 @@ form .actions{ margin-top:14px; }
   transition: filter .15s, transform .05s, background .15s, border-color .15s;
   z-index: 2;
 }
-/* posizionamento: gap complessivo 16px tra i due */
-.slideshow .prev{ left: calc(50% - 120px - 8px); }
-.slideshow .next{ left: calc(50% + 8px); }
 
 .slideshow .slide-nav:hover {
   background: #222;
