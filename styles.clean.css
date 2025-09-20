@@ -103,7 +103,7 @@ a{ color:var(--primary); text-decoration:none; }
   height:120px;
   border-radius: var(--radius);
   overflow: hidden;
-  background:#0f1115;   /* sfondo scuro sotto PNG trasparenti */
+  background:#0f1115;
 }
 .post .thumb img{
   width:100%;
@@ -115,9 +115,7 @@ a{ color:var(--primary); text-decoration:none; }
 /* ================================
    HOMEPAGE HERO / ABOUT
 ================================ */
-/* la colonna sinistra si adatta alla larghezza della foto; i blocchi partono dall'alto */
 .hero{ display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:start; padding:40px 0; }
-
 .hero-left{ display:flex; gap:16px; align-items:stretch; }
 .h1{ font-size:32px; font-weight:800; margin:0 0 6px; }
 .sub{ font-size:15px; line-height:1.6; max-width:560px; margin:12px 0 22px; }
@@ -129,35 +127,19 @@ a{ color:var(--primary); text-decoration:none; }
 }
 .about h3{ margin:0; font-size:20px; }
 .about p{ margin:0; font-size:16px; line-height:1.6; color:var(--text); }
-/* Citazione evidenziata nell'About */
-.highlight-quote{
-  color: var(--accent);
-  font-style: italic;
-  font-weight: 700;
-}
+.highlight-quote{ color: var(--accent); font-style: italic; font-weight: 700; }
 
 .photo{ width:100%; max-width:380px; aspect-ratio:4/5; overflow:hidden; border-radius:var(--radius); background:#1a1a1a; }
 .photo img{ width:100%; height:100%; object-fit:cover; object-position:center 65%; display:block; }
 .name-title{ font-size:22px; font-weight:700; text-align:center; margin-bottom:14px; color:var(--primary); }
 
-/* Desktop variant homepage */
 @media (min-width: 1024px){
-  .hero{
-    grid-template-columns: auto 1fr;
-    align-items: start;
-  }
-  .col-left{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .name-title{ text-align: center; }
+  .hero{ grid-template-columns: auto 1fr; align-items: start; }
+  .col-left{ display:flex; flex-direction:column; align-items:center; }
+  .name-title{ text-align:center; }
   .col-right{
-    display: grid;
-    grid-template-columns: minmax(420px, 1fr) 1fr;
-    gap: 28px;
-    align-items: start;
-    margin-top: 64px;
+    display:grid; grid-template-columns:minmax(420px, 1fr) 1fr;
+    gap:28px; align-items:start; margin-top:64px;
   }
 }
 
@@ -166,9 +148,7 @@ a{ color:var(--primary); text-decoration:none; }
 ================================ */
 .article-hero .hero-media{ border-radius:var(--radius); overflow:hidden; background:#0f1115; }
 .article-hero .hero-media img{
-  width:100%;
-  height:clamp(200px, 28vw, 320px);
-  object-fit:cover; display:block; border-radius:var(--radius);
+  width:100%; height:clamp(200px, 28vw, 320px); object-fit:cover; display:block; border-radius:var(--radius);
 }
 .article-title{ font-size:28px; margin:12px 0 2px; }
 .article-meta{ color:#6b7280; font-size:14px; display:flex; gap:8px; align-items:center; }
@@ -180,36 +160,22 @@ a{ color:var(--primary); text-decoration:none; }
 .card.article-content h2{ font-size:22px; margin:18px 0 8px; }
 .card.article-content p{ font-size:16px; line-height:1.65; margin:10px 0; }
 .card.article-content img{
-  display:block;
-  width:100%;
-  max-width:520px;
-  margin:12px 0 0 0;
-  border-radius:8px;
-  border:1px solid #ECECEC;
+  display:block; width:100%; max-width:520px; margin:12px 0 0 0; border-radius:8px; border:1px solid #ECECEC;
 }
 
-/* ✅ OVERRIDE corretto: mostra solo la slide attiva */
+/* mostra solo la slide attiva */
 .card.article-content .slideshow .slide{
-  display:none;
-  align-items:center;
-  justify-content:center;
+  display:none; align-items:center; justify-content:center;
 }
 .card.article-content .slideshow .slide.is-active{
-  display:flex;
-  width: 750px;
+  display:flex; width:750px;   /* desktop */
 }
-/* Base: una slide alla volta */
 .slideshow .slide{ display:none; }
 .slideshow .slide.is-active{ display:flex; }
 
 .card.article-content .slideshow img{
-  max-width:100% !important;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center;
-  margin:0;
-  border:0;
+  max-width:100% !important; width:100%; height:100%;
+  object-fit:contain; object-position:center; margin:0; border:0;
 }
 
 /* Callout / key takeaways */
@@ -269,6 +235,38 @@ form .actions{ margin-top:14px; }
   .post{ grid-template-columns:1fr; }
   .post .thumb{ height:160px; }
   .site-footer .inner{ flex-direction:column; align-items:flex-start; gap:10px; }
+
+  /* Exhibits: colonna singola su mobile */
+  .exhibits-split{ grid-template-columns: 1fr; }
+  .exhibits-left img{ max-width:100%; }
+
+  /* ===== Slideshow: mobile fixes ===== */
+  .card.slideshow{
+    max-width:100%;
+    margin:10px auto;
+    padding:8px 8px 56px;     /* meno spazio sotto */
+  }
+  .slideshow-container{ aspect-ratio:16 / 9; }
+  .card.article-content .slideshow .slide.is-active{ width:auto; }
+
+  .slide-controls{
+    bottom:-24px;
+    gap:8px;
+  }
+  .slide-controls .slide-nav{
+    width:110px;
+    padding:10px 0;
+    font-size:15px;
+    border-radius:12px;
+  }
+  .dots{
+    margin-top:6px;
+    gap:4px;
+  }
+  .dots .dot{
+    width:18px;
+    height:5px;
+  }
 }
 
 @media (max-width: 768px){
@@ -280,6 +278,9 @@ form .actions{ margin-top:14px; }
   .grid{ grid-template-columns:repeat(4,1fr); }
 }
 
+/* ================================
+   EXHIBITS GRID
+================================ */
 .exhibits-split{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -293,85 +294,53 @@ form .actions{ margin-top:14px; }
 }
 .exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; }
 
-@media (max-width:900px){
-  .exhibits-split{ grid-template-columns: 1fr; }
-  .exhibits-left img{ max-width:100%; }
+.exhibits-right{
+  background:#fff; border:1px solid #ECECEC; border-radius:8px; padding:12px 14px;
 }
-
-.exhibits-right {
-  background:#fff;
-  border:1px solid #ECECEC;
-  border-radius:8px;
-  padding:12px 14px;
-}
-.exhibits-right h3 { margin:0 0 8px; }
-.exhibits-right p  { margin:0 0 8px; line-height:1.65; }
-.exhibits-right ul { margin:8px 0 0 18px; line-height:1.6; }
+.exhibits-right h3{ margin:0 0 8px; }
+.exhibits-right p{ margin:0 0 8px; line-height:1.65; }
+.exhibits-right ul{ margin:8px 0 0 18px; line-height:1.6; }
 
 /* ---------------- Slideshow ---------------- */
 .card.slideshow{
   padding:10px;
   max-width:760px;
   margin:12px auto;
-  position: relative;          /* la card è il riferimento dei controlli */
-  padding-bottom: 20px;        /* spazio per i bottoni/dots sotto */
+  position:relative;       /* la card è il riferimento dei controlli */
+  padding-bottom:20px;     /* spazio sotto (ridotto) */
 }
 
-/* il container deve tagliare le slide ai bordi arrotondati */
+/* il container taglia correttamente i bordi arrotondati */
 .slideshow-container{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid #e5e7eb;
-  border-radius:var(--radius);
-  overflow:hidden;             /* <— torna hidden (prima era visible) */
-  background:#fff;
-  width:100%;
-  aspect-ratio:4 / 3;
-  height:auto;
-  position: relative;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid #e5e7eb; border-radius:var(--radius);
+  overflow:hidden; background:#fff;
+  width:100%; aspect-ratio:4 / 3; height:auto;
+  position:relative;
 }
 
-/* Slide: centrate e una alla volta */
+/* Slide */
 .slideshow .slide{
   position:absolute; inset:0;
   display:none; align-items:center; justify-content:center;
 }
 .slideshow .slide.is-active{ display:flex; }
 .slideshow .slide img{
-  width:100%; height:100%;
-  object-fit:contain; object-position:center;
-  display:block;
+  width:100%; height:100%; object-fit:contain; object-position:center; display:block;
 }
 
-/* Controlli: ora sono SIBLING del container e si posizionano rispetto alla card */
+/* Controlli sotto (centrati rispetto alla card) */
 .slide-controls{
-  position: absolute;
-  bottom: -28px;               /* regola su/giù */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  z-index: 3;
+  position:absolute; bottom:-28px; left:50%; transform:translateX(-50%);
+  display:flex; gap:12px; z-index:3;
 }
-
-/* Bottoni: stile uniforme, non assoluti */
 .slide-controls .slide-nav{
-  position: static;            /* niente top/left */
-  background:#000;
-  color:#fff;
-  border:1px solid #000;
-  width:120px;
-  padding:8px 0;
-  border-radius:10px;
-  font-weight:700;
-  font-size:16px;
-  line-height:1;
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-  box-shadow:0 1px 4px rgba(0,0,0,.18);
+  position:static;
+  background:#000; color:#fff; border:1px solid #000;
+  width:120px; padding:8px 0; border-radius:10px;
+  font-weight:700; font-size:16px; line-height:1;
+  display:inline-flex; justify-content:center; align-items:center;
+  cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.18);
   transition:filter .15s, transform .05s, background .15s, border-color .15s;
 }
 .slide-controls .slide-nav:hover{ background:#222; border-color:#222; }
@@ -379,23 +348,13 @@ form .actions{ margin-top:14px; }
 
 /* Dots (trattini) */
 .dots{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  margin-top:6px;
+  display:flex; justify-content:center; align-items:center;
+  gap:6px; margin-top:6px;
 }
 .dots .dot{
-  width:22px; height:6px;
-  border-radius:999px;
-  background:#cfd4da;
-  border:1px solid #c9ced6;
-  cursor:pointer;
+  width:22px; height:6px; border-radius:999px;
+  background:#cfd4da; border:1px solid #c9ced6; cursor:pointer;
   transition:background .15s, border-color .15s, transform .05s;
 }
 .dots .dot:hover{ transform:scale(1.04); }
 .dots .dot.is-active{ background:#000; border-color:#000; }
-
-@media (max-width:900px){
-  .exhibits-left img{ max-width:100%; }
-}
