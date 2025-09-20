@@ -107,12 +107,11 @@
             </div>
 
             <!-- CONTROLLI DENTRO IL CONTAINER, CENTRATI -->
-            <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:3;">
-              <!-- override inline: rendiamo i bottoni 'static' per centrarli nel flex -->
-              <button class="slide-nav prev" aria-label="Previous" onclick="plusSlides(-1)" style="position:static;top:auto;left:auto;transform:none;">Previous</button>
-              <button class="slide-nav next" aria-label="Next" onclick="plusSlides(1)" style="position:static;top:auto;left:auto;transform:none;">Next</button>
-            </div>
-          </div>
+<div class="slide-controls">
+  <button class="slide-nav prev" aria-label="Previous" onclick="plusSlides(-1)">Previous</button>
+  <button class="slide-nav next" aria-label="Next" onclick="plusSlides(1)">Next</button>
+</div>
+
 
           <!-- Dots sotto (restano dove sono) -->
           <div class="dots" aria-label="Pagination">
