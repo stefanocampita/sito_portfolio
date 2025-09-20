@@ -323,7 +323,7 @@ form .actions{ margin-top:14px; }
   justify-content:center;
   border:1px solid #e5e7eb;
   border-radius:var(--radius);
-  overflow:hidden;
+  overflow:visible;
   background:#fff;
   width:100%;
   aspect-ratio:4 / 3;
@@ -346,13 +346,14 @@ form .actions{ margin-top:14px; }
 /* Controlli: wrapper centrato SOTTO il box */
 .slideshow-container .slide-controls{
   position: absolute;
-  bottom: -36px;               /* regola su/giù */
+  bottom: -32px;               /* regola su/giù */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 12px;
   z-index: 3;
 }
+.dots{ margin-top: 14px; }
 
 /* Bottoni: stile (non posizionati assoluti) */
 .slideshow .slide-nav{
