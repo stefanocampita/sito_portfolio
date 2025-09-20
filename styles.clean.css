@@ -284,3 +284,30 @@ form .actions{ margin-top:14px; }
   .container, .nav .inner{ max-width:1400px; }
   .grid{ grid-template-columns:repeat(4,1fr); }
 }
+/* Fix mobile: keep Prev/Next inside the card */
+@media (max-width: 900px){
+  .card.slideshow{
+    padding: 8px 10px 96px;   /* spazio in basso per i bottoni */
+  }
+  .slide-controls{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 16px;             /* dentro il bordo arrotondato */
+    gap: 10px;
+  }
+  .slide-controls .slide-nav{
+    width: 120px;
+    padding: 10px 0;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+  .dots{
+    margin-top: 8px;          /* piccolo spazio tra slide e dots */
+    gap: 4px;
+  }
+  .dots .dot{
+    width: 18px;
+    height: 5px;
+  }
+}
