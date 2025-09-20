@@ -313,22 +313,23 @@ form .actions{ margin-top:14px; }
   padding:10px;
   max-width:760px;
   margin:12px auto;
-  position: relative;          /* la card ospita i bottoni sotto */
-  padding-bottom: 88px;        /* spazio per i bottoni sotto */
+  position: relative;          /* la card è il riferimento dei controlli */
+  padding-bottom: 88px;        /* spazio per i bottoni/dots sotto */
 }
 
+/* il container deve tagliare le slide ai bordi arrotondati */
 .slideshow-container{
   display:flex;
   align-items:center;
   justify-content:center;
   border:1px solid #e5e7eb;
   border-radius:var(--radius);
-  overflow:visible;
+  overflow:hidden;             /* <— torna hidden (prima era visible) */
   background:#fff;
   width:100%;
   aspect-ratio:4 / 3;
   height:auto;
-  position: relative;          /* riferimento per i controlli */
+  position: relative;
 }
 
 /* Slide: centrate e una alla volta */
@@ -343,20 +344,20 @@ form .actions{ margin-top:14px; }
   display:block;
 }
 
-/* Controlli: wrapper centrato SOTTO il box */
-.slideshow-container .slide-controls{
+/* Controlli: ora sono SIBLING del container e si posizionano rispetto alla card */
+.slide-controls{
   position: absolute;
-  bottom: -32px;               /* regola su/giù */
+  bottom: -36px;               /* regola su/giù */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 12px;
   z-index: 3;
 }
-.dots{ margin-top: 14px; }
 
-/* Bottoni: stile (non posizionati assoluti) */
-.slideshow .slide-nav{
+/* Bottoni: stile uniforme, non assoluti */
+.slide-controls .slide-nav{
+  position: static;            /* niente top/left */
   background:#000;
   color:#fff;
   border:1px solid #000;
@@ -372,10 +373,9 @@ form .actions{ margin-top:14px; }
   cursor:pointer;
   box-shadow:0 1px 4px rgba(0,0,0,.18);
   transition:filter .15s, transform .05s, background .15s, border-color .15s;
-  position: static;            /* niente top/left */
 }
-.slideshow .slide-nav:hover{ background:#222; border-color:#222; }
-.slideshow .slide-nav:active{ transform:scale(0.98); }
+.slide-controls .slide-nav:hover{ background:#222; border-color:#222; }
+.slide-controls .slide-nav:active{ transform:scale(0.98); }
 
 /* Dots (trattini) */
 .dots{
@@ -383,7 +383,7 @@ form .actions{ margin-top:14px; }
   justify-content:center;
   align-items:center;
   gap:6px;
-  margin-top:10px;     /* più vicino ai bottoni */
+  margin-top:12px;
 }
 .dots .dot{
   width:22px; height:6px;
