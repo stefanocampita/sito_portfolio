@@ -136,40 +136,30 @@ a{ color:var(--primary); text-decoration:none; }
   font-weight: 700;
 }
 
-
 .photo{ width:100%; max-width:380px; aspect-ratio:4/5; overflow:hidden; border-radius:var(--radius); background:#1a1a1a; }
-.photo img{ width:100%; height:100%; object-fit:cover; object-position:center 65%;  /* ↑ alza l’immagine dentro il riquadro */ display:block; }
+.photo img{ width:100%; height:100%; object-fit:cover; object-position:center 65%; display:block; }
 .name-title{ font-size:22px; font-weight:700; text-align:center; margin-bottom:14px; color:var(--primary); }
 
 /* Desktop variant homepage */
 @media (min-width: 1024px){
-  /* 2 colonne: sinistra = foto, destra = contenuti */
   .hero{
-    grid-template-columns: auto 1fr; /* foto prende lo spazio della sua larghezza */
+    grid-template-columns: auto 1fr;
     align-items: start;
   }
-
-  /* Nome centrato sopra la foto */
   .col-left{
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   .name-title{ text-align: center; }
-
-  /* A destra: About (sx) | Financial (dx) */
   .col-right{
     display: grid;
     grid-template-columns: minmax(420px, 1fr) 1fr;
     gap: 28px;
     align-items: start;
-
-    /* spinge il blocco destro sotto l'altezza del nome,
-       così parte allineato con l'inizio della foto */
-    margin-top: 64px; /* se serve, regola 56–72px */
+    margin-top: 64px;
   }
 }
-
 
 /* ================================
    BLOG: ARTICLE PAGE
@@ -177,7 +167,7 @@ a{ color:var(--primary); text-decoration:none; }
 .article-hero .hero-media{ border-radius:var(--radius); overflow:hidden; background:#0f1115; }
 .article-hero .hero-media img{
   width:100%;
-  height:clamp(200px, 28vw, 320px);     /* mobile → desktop uniforme */
+  height:clamp(200px, 28vw, 320px);
   object-fit:cover; display:block; border-radius:var(--radius);
 }
 .article-title{ font-size:28px; margin:12px 0 2px; }
@@ -200,23 +190,20 @@ a{ color:var(--primary); text-decoration:none; }
 
 /* ✅ OVERRIDE corretto: mostra solo la slide attiva */
 .card.article-content .slideshow .slide{
-  display:none;                 /* nasconde le non attive */
+  display:none;
   align-items:center;
   justify-content:center;
 }
 .card.article-content .slideshow .slide.is-active{
-  display:flex;                 /* solo la slide attiva è visibile */
-   width: 750px;
+  display:flex;
+  width: 750px;
 }
 /* Base: una slide alla volta */
-.slideshow .slide{ display:none; 
-}
-.slideshow .slide.is-active{ display:flex; 
-}
-
+.slideshow .slide{ display:none; }
+.slideshow .slide.is-active{ display:flex; }
 
 .card.article-content .slideshow img{
-  max-width:100% !important;    /* non ereditare il 520px */
+  max-width:100% !important;
   width:100%;
   height:100%;
   object-fit:contain;
@@ -224,7 +211,6 @@ a{ color:var(--primary); text-decoration:none; }
   margin:0;
   border:0;
 }
-
 
 /* Callout / key takeaways */
 .callout{ background:#fff7ed; border:1px solid #f59e0b; border-radius:10px; padding:12px 14px; margin:16px 0 6px; }
@@ -293,9 +279,10 @@ form .actions{ margin-top:14px; }
   .container, .nav .inner{ max-width:1400px; }
   .grid{ grid-template-columns:repeat(4,1fr); }
 }
+
 .exhibits-split{
   display:grid;
-  grid-template-columns: 1fr 1fr;  /* 2 colonne equilibrate */
+  grid-template-columns: 1fr 1fr;
   gap:18px;
   align-items:start;
   margin:12px 0 16px;
@@ -304,29 +291,30 @@ form .actions{ margin-top:14px; }
   display:block; width:100%; height:auto; max-width:520px;
   margin:12px 0 0 0; border-radius:8px; border:1px solid #ECECEC;
 }
-.exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; } /* quando serve tutta larghezza */
+.exhibits-split .exhibit-slideshow{ grid-column: 1 / -1; }
 
 @media (max-width:900px){
   .exhibits-split{ grid-template-columns: 1fr; }
   .exhibits-left img{ max-width:100%; }
 }
+
 .exhibits-right {
   background:#fff;
   border:1px solid #ECECEC;
   border-radius:8px;
   padding:12px 14px;
 }
-
 .exhibits-right h3 { margin:0 0 8px; }
 .exhibits-right p  { margin:0 0 8px; line-height:1.65; }
 .exhibits-right ul { margin:8px 0 0 18px; line-height:1.6; }
 
-
-
+/* ---------------- Slideshow ---------------- */
 .card.slideshow{
-  padding:10px;          /* era 12px */
-  max-width:760px;       /* nuova: riduce la larghezza complessiva */
-  margin:12px auto;       /* nuova: centra il blocco */
+  padding:10px;
+  max-width:760px;
+  margin:12px auto;
+  position: relative;          /* spazio per i bottoni sotto */
+  padding-bottom: 64px;        /* distacco per frecce + dots */
 }
 
 .slideshow-container{
@@ -342,12 +330,12 @@ form .actions{ margin-top:14px; }
   height:auto;
 }
 
-/* centra il contenuto nello slideshow *asdjvbaskjdbvakjsdbvàajsdbvàajsdbvsd/
+/* centra il contenuto nello slideshow */
 .slideshow .slide{
   display:none;
   align-items:center;
   justify-content:center;
-   height: 100%;
+  height: 100%;
 }
 
 .slideshow .slide img{
@@ -358,61 +346,48 @@ form .actions{ margin-top:14px; }
   display:block;
 }
 
+/* Bottoni: neri, testo bianco, stessa larghezza, più distanziati */
 .slideshow .slide-nav {
   position: absolute;
-  top: calc(100% + 8px);  /* sotto al box delle slide */
+  top: calc(100% + 12px);   /* sotto al box delle slide */
   transform: none;
-  background: #000;       /* sfondo nero */
-  color: #fff;            /* testo bianco */
-  border: 1px solid #000; /* bordo nero */
-  padding: 6px 10px;
+  background: #000;         /* sfondo nero */
+  color: #fff;              /* testo bianco */
+  border: 1px solid #000;   /* bordo nero */
+  width: 120px;             /* stessa larghezza */
+  padding: 8px 0;
   border-radius: 10px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: background .15s, box-shadow .15s, border-color .15s;
+  box-shadow: 0 1px 4px rgba(0,0,0,.18);
+  transition: filter .15s, transform .05s, background .15s, border-color .15s;
   z-index: 2;
 }
+/* posizionamento: gap complessivo 16px tra i due */
+.slideshow .prev{ left: calc(50% - 120px - 8px); }
+.slideshow .next{ left: calc(50% + 8px); }
 
-/* effetto hover (facoltativo ma consigliato) */
 .slideshow .slide-nav:hover {
-  background: #222;   /* grigio scurissimo */
+  background: #222;
   border-color: #222;
 }
+.slideshow .slide-nav:active{ transform: scale(0.98); }
 
-.slide-nav{border: none;
-    border-radius: 1rem;
-    font-size: 1rem;
-    padding: 0.3rem 1rem;
-    background-color:#1a1a1a;
-}
-.slide-nav-container{
-     display:flex;
-     justify-content:center;
-}
-/* posizionamento: una a sinistra e una a destra del centro */
-.slideshow .prev{ left: calc(50% - 68px); }
-.slideshow .next{ left: calc(50% + 36px); }
-
-.slide-nav:hover{
-  background:#f9fafb;
-  border-color:#cbd5e1;
-  box-shadow:0 1px 4px rgba(0,0,0,.06);
-}
-.slide-nav:active{ background:#f3f4f6; }
-
-/* i "trattini" (dots) — restano centrati, un filo più in basso delle frecce */
+/* Dots (trattini) */
 .dots{
   display:flex;
   justify-content:center;
   align-items:center;
   gap:6px;
-  margin-top: 36px;      /* spazio sotto le frecce */
+  margin-top: 12px;       /* più vicino ai bottoni */
 }
 .dots .dot{
-  width:22px;            /* trattino orizzontale */
-  height:6px;
+  width:22px; height:6px;
   border-radius:999px;
   background:#cfd4da;
   border:1px solid #c9ced6;
@@ -421,7 +396,7 @@ form .actions{ margin-top:14px; }
 }
 .dots .dot:hover{ transform:scale(1.04); }
 .dots .dot.is-active{
-  background:#000;       /* nero quando attivo */
+  background:#000;
   border-color:#000;
 }
 
@@ -437,6 +412,7 @@ form .actions{ margin-top:14px; }
   object-fit:contain; object-position:center;
   display:block;
 }
+
 @media (max-width:900px){
   .exhibits-left img{ max-width:100%; }
 }
