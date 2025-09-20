@@ -314,7 +314,7 @@ form .actions{ margin-top:14px; }
   max-width:760px;
   margin:12px auto;
   position: relative;          /* la card è il riferimento dei controlli */
-  padding-bottom: 88px;        /* spazio per i bottoni/dots sotto */
+  padding-bottom: 20px;        /* spazio per i bottoni/dots sotto */
 }
 
 /* il container deve tagliare le slide ai bordi arrotondati */
@@ -347,7 +347,7 @@ form .actions{ margin-top:14px; }
 /* Controlli: ora sono SIBLING del container e si posizionano rispetto alla card */
 .slide-controls{
   position: absolute;
-  bottom: -36px;               /* regola su/giù */
+  bottom: -28px;               /* regola su/giù */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -383,7 +383,7 @@ form .actions{ margin-top:14px; }
   justify-content:center;
   align-items:center;
   gap:6px;
-  margin-top:12px;
+  margin-top:6px;
 }
 .dots .dot{
   width:22px; height:6px;
