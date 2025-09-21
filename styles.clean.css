@@ -141,9 +141,9 @@ a{ color:var(--primary); text-decoration:none; }
 .article-meta{ color:#6b7280; font-size:14px; display:flex; gap:8px; align-items:center; }
 /* separazione tra hero (titolo + meta + pills) e la card sotto */
 .article-hero{
-  padding-bottom: 8px;              /* un filo di respiro interno */
-  margin-bottom: 18px;              /* spazio verso la card successiva */
-  border-bottom: 1px solid #e5e7eb; /* sottile linea di separazione */
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .card.article-content{
@@ -253,6 +253,27 @@ form .actions{ margin-top:14px; }
 .dots .dot:hover{ transform:scale(1.04); }
 .dots .dot.is-active{ background:#000; border-color:#000; }
 
+/* ========== READ ALSO (mini cards) — aggiunta minima ========== */
+.read-also{ margin:22px 0; }
+.read-also .read-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:12px;
+}
+.read-also .read-card{
+  display:block;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:12px 14px;
+  box-shadow:0 1px 4px rgba(0,0,0,.04);
+}
+.read-also .read-card b{ display:block; font-size:15px; margin-bottom:6px; }
+.read-also .read-card span{ display:block; color:#6b7280; font-size:14px; line-height:1.5; }
+@media (max-width:700px){
+  .read-also .read-grid{ grid-template-columns:1fr; }
+}
+
 /* ================================
    RESPONSIVE
 ================================ */
@@ -290,16 +311,15 @@ form .actions{ margin-top:14px; }
   .container, .nav .inner{ max-width:1400px; }
   .grid{ grid-template-columns:repeat(4,1fr); }
 }
+
 /* Fix mobile: keep Prev/Next inside the card */
 @media (max-width: 900px){
-  .card.slideshow{
-    padding: 8px 10px 96px;   /* spazio in basso per i bottoni */
-  }
+  .card.slideshow{ padding: 8px 10px 96px; }
   .slide-controls{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 16px;             /* dentro il bordo arrotondato */
+    bottom: 16px;
     gap: 10px;
   }
   .slide-controls .slide-nav{
@@ -308,12 +328,6 @@ form .actions{ margin-top:14px; }
     border-radius: 12px;
     font-size: 15px;
   }
-  .dots{
-    margin-top: 8px;          /* piccolo spazio tra slide e dots */
-    gap: 4px;
-  }
-  .dots .dot{
-    width: 18px;
-    height: 5px;
-  }
+  .dots{ margin-top: 8px; gap: 4px; }
+  .dots .dot{ width: 18px; height: 5px; }
 }
