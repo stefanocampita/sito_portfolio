@@ -139,6 +139,12 @@ a{ color:var(--primary); text-decoration:none; }
 .article-hero .hero-media img{ width:100%; height:clamp(200px,28vw,320px); object-fit:cover; display:block; border-radius:var(--radius); }
 .article-title{ font-size:28px; margin:12px 0 2px; }
 .article-meta{ color:#6b7280; font-size:14px; display:flex; gap:8px; align-items:center; }
+/* separazione tra hero (titolo + meta + pills) e la card sotto */
+.article-hero{
+  padding-bottom: 8px;              /* un filo di respiro interno */
+  margin-bottom: 18px;              /* spazio verso la card successiva */
+  border-bottom: 1px solid #e5e7eb; /* sottile linea di separazione */
+}
 
 .card.article-content{
   background:#fff; border:1px solid #e5e7eb; border-radius:var(--radius);
