@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CVHub — Business Project EcoNova</title>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+</head>
+<body>
+
+<!-- NAV (identica al sito) -->
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="article-hero">
+      <div class="hero-media">
+        <!-- Usa un’immagine 1600x420 circa, con safe margins -->
+        <img src="CVHUB/CVHub-cover.png" alt="CVHub — cover">
+      </div>
+      <h1 class="article-title">CVHub — Business Project EcoNova</h1>
+      <div class="article-meta">
+        <span>Published: <time datetime="2025-09-22">Sep 22, 2025</time></span>
+        <span>•</span>
+        <span>Reading time: ~3–4 min</span>
+      </div>
+
+      <!-- META PILLS -->
+      <div class="meta-bar" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;">
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Project type: Product &amp; GTM</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Role: Solo author</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Tools: PowerPoint · Excel</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Slides: 12</span>
+      </div>
+    </section>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <article class="card article-content">
+      <h2><strong>Executive Summary</strong></h2>
+      <p>
+        CVHub is a digital platform that turns static résumés into strategic tools. Users create a <strong>Master CV</strong> and generate role-specific versions in minutes. Target users are students, graduates and young professionals across Europe. Monetization combines a <strong>freemium B2C</strong> model (credit-based CV Wallet) with <strong>B2B institutional licenses</strong>.
+      </p>
+
+      <!-- 3 colonne dentro la card, senza nuovo CSS: semplice griglia -->
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:8px;">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Problem</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Resumes are static and outdated</li>
+            <li>Job seekers struggle to stand out</li>
+            <li>Existing tools focus only on design</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Solution</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li><strong>Master CV</strong> as central, updated profile</li>
+            <li>Role-specific CVs in minutes</li>
+            <li>Personal branding &amp; strategy first</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Business Model</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Freemium B2C with credits (CV Wallet)</li>
+            <li>B2B licenses for universities</li>
+            <li>Scalable SaaS economics</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXHIBITS -->
+    <article class="card article-content">
+      <h2><strong>Exhibits</strong></h2>
+      <p>Visuals and supporting exhibits:</p>
+
+      <div class="exhibits-split">
+        <!-- Sinistra: Market Size -->
+        <div class="exhibits-left">
+          <figure>
+            <img src="CVHUB/cvhub-market-size.png" alt="Exhibit — Market Size (TAM / SAM / SOM)">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+              Market size: TAM ≈ 20M · SAM ≈ 5M · SOM ≈ 0.5M (Europe, 3-year early adopters).
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Destra: slideshow (stesso componente e JS) -->
+        <section class="card slideshow slideshow--in-grid" style="max-width:100%;margin:0;">
+          <h3 style="margin:0 0 8px;">PowerPoint Presentation</h3>
+
+          <div class="slideshow-container" aria-label="PPT slideshow" role="region">
+            <div class="slide fade is-active">
+              <img src="CVHUB_DECK/Slide-1.png" alt="Cover slide" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="CVHUB_DECK/Slide-2.png" alt="Executive Summary" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="CVHUB_DECK/Slide-3.png" alt="Problem & Solution" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="CVHUB_DECK/Slide-4.png" alt="Market Size" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="CVHUB_DECK/Slide-5.png" alt="Competition" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="CVHUB_DECK/Slide-6.png" alt="Unit Economics" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="CVHUB_DECK/Slide-7.png" alt="Roadmap" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="CVHUB_DECK/Slide-8.png" alt="Why Invest & KPIs" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Controlli -->
+          <div class="slide-controls">
+            <button class="slide-nav prev" aria-label="Previous" onclick="plusSlides(-1)">Previous</button>
+            <button class="slide-nav next" aria-label="Next" onclick="plusSlides(1)">Next</button>
+          </div>
+
+          <!-- Dots -->
+          <div class="dots" aria-label="Pagination">
+            <button class="dot is-active" onclick="currentSlide(1)"></button>
+            <button class="dot" onclick="currentSlide(2)"></button>
+            <button class="dot" onclick="currentSlide(3)"></button>
+            <button class="dot" onclick="currentSlide(4)"></button>
+            <button class="dot" onclick="currentSlide(5)"></button>
+            <button class="dot" onclick="currentSlide(6)"></button>
+            <button class="dot" onclick="currentSlide(7)"></button>
+            <button class="dot" onclick="currentSlide(8)"></button>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <!-- COMPETITIVE LANDSCAPE -->
+    <article class="card article-content">
+      <h2><strong>Competitive Landscape</strong></h2>
+      <p>Positioning vs. key alternatives — CVHub aims for high perceived value with accessible pricing.</p>
+      <figure>
+        <img src="CVHUB/cvhub-competition-matrix.png" alt="Exhibit — Price vs. Value matrix">
+        <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+          Europass · Canva · Zety · LinkedIn (indirect) → CVHub positioned as strategic + adaptable.
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- UNIT ECONOMICS -->
+    <article class="card article-content">
+      <h2><strong>Unit Economics (Hypothetical)</strong></h2>
+      <table>
+        <thead><tr><th>Metric</th><th>Value</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>CAC</td><td>~€5</td><td>Digital campaigns &amp; referral</td></tr>
+          <tr><td>LTV</td><td>~€20</td><td>Multiple CVs + premium features</td></tr>
+          <tr><td>Free → Premium</td><td>20–25%</td><td>Conversion target</td></tr>
+          <tr><td>Gross Margin</td><td>&gt;80%</td><td>SaaS benchmark</td></tr>
+        </tbody>
+      </table>
+      <p class="callout" style="margin-top:10px;padding:10px 12px;border:1px dashed #cbd5e1;border-radius:10px;background:#f8fafc;font-weight:700;">
+        Rule of thumb: <strong>LTV €20 &gt; CAC €5</strong> → early profitability with ~50k users.
+      </p>
+    </article>
+
+    <!-- ROADMAP -->
+    <article class="card article-content">
+      <h2><strong>Development Roadmap</strong></h2>
+      <figure>
+        <img src="CVHUB/cvhub-roadmap.png" alt="Exhibit — Roadmap 24 months">
+        <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+          0–3m MVP · 3–6m Pilot · 6–12m Launch IT · 12–18m EU · 18–24m Scale.
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- WHY INVEST + KPIs -->
+    <article class="card article-content">
+      <h2><strong>Why Invest &amp; KPIs</strong></h2>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:8px;">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;font-size:18px;">Why Invest in CVHub?</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Growing HR Tech demand</li>
+            <li>Clear pain point for job seekers</li>
+            <li>Scalable SaaS margins</li>
+            <li>B2C + B2B monetization</li>
+            <li>Exit potential (LinkedIn / Indeed / Workday)</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;font-size:18px;">Expected KPIs</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Free → Premium: 20–25%</li>
+            <li>Churn: &lt;10%</li>
+            <li>ARPU: ~€20</li>
+            <li>Gross margin: &gt;80%</li>
+            <li>User base: 50k → 150k → 500k</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;font-size:18px;">Downloads</h3>
+          <div class="btnrow" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
+            <a class="btn outline sm" href="CVHub_PitchDeck_SiteVersion.pdf" target="_blank" rel="noopener">Pitch Deck (PDF)</a>
+            <a class="btn outline sm" href="CVHub_PitchDeck_SiteVersion.pptx" target="_blank" rel="noopener">Pitch Deck (PPTX)</a>
+            <a class="btn outline sm" href="CVHub_OnePager.pdf" target="_blank" rel="noopener">One-Pager</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- READ ALSO -->
+    <section class="read-also">
+      <h3>Read Also</h3>
+      <div class="read-grid">
+        <a class="read-card" href="post-lbo-assumptions-to-irr.html">
+          <b>LBO Modelling: From Assumptions to IRR</b>
+          <span>Step-by-step build and drivers behind returns.</span>
+        </a>
+        <a class="read-card" href="post-notion-dealflow.html">
+          <b>Notion Deal Flow Tracker</b>
+          <span>Capture deals, track assumptions, and monitor MoM/IRR.</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+      <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MENU JS (identico) -->
+<script>
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+<!-- SLIDESHOW JS (identico) -->
+<script>
+(function(){
+  let slideIndex = 1;
+  const slides = () => document.querySelectorAll(".slideshow .slide");
+  const dots   = () => document.querySelectorAll(".dots .dot");
+
+  function showSlides(n){
+    const s = slides(), d = dots();
+    if (n > s.length) slideIndex = 1;
+    if (n < 1) slideIndex = s.length;
+    s.forEach(el => el.classList.remove("is-active"));
+    d.forEach(el => el.classList.remove("is-active"));
+    s[slideIndex-1].classList.add("is-active");
+    if (d[slideIndex-1]) d[slideIndex-1].classList.add("is-active");
+  }
+
+  window.plusSlides = n => showSlides(slideIndex += n);
+  window.currentSlide = n => showSlides(slideIndex = n);
+
+  showSlides(slideIndex);
+})();
+</script>
+
+</body>
+</html>
