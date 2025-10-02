@@ -4,17 +4,16 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Portfolio — IB/PE</title>
-  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="stylesheet" href="styles.clean.css?v=4">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VD0H4VRFHJ');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
 </head>
 <body>
   
@@ -25,109 +24,159 @@
       <span></span><span></span><span></span>
     </button>
     <div class="menu">
-      <a href="index.html" class="">Home</a>
+      <a href="index.html">Home</a>
       <a href="portfolio.html" class="active">Portfolio</a>
-      <a href="blog.html" class="">Blog</a>
-      <a href="contact.html" class="">Contact</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 </div>
 
 <main class="main">
   <div class="container">
-    <h2>Portfolio</h2>
 
+    <!-- HERO sezione -->
+    <p class="eyebrow">CASE STUDIES &amp; MODELS</p>
+    <h1 class="hero-title">Portfolio</h1>
+    <p class="hero-lead">
+      Selected financial modeling projects that mirror real IB/PE deliverables. Each model includes full documentation,
+      assumptions, and sensitivity analysis.
+    </p>
+
+    <!-- Search -->
     <div class="searchbar">
       <input id="search" type="text" placeholder="Search projects (e.g., LBO, DCF, M&A) ..." oninput="filterCards()"/>
     </div>
 
-    <div id="grid" class="grid">
-      <!-- Notion template -->
-      <div class="card" data-tags="notion deal tracker template">
-        <div class="thumb">
-          <img src="immagine notion deal flow.png" alt="Notion Deal Flow Tracker preview" loading="lazy">
-        </div>
-        <div class="body">
-          <h3>Notion Deal Flow Tracker</h3>
-          <p>A simple, ready-to-use template to organize deals, record assumptions, and monitor returns. Built for clarity and decision-making.</p>
-          <div class="actions">
-            <a class="btn sm outline" href="post-notion-dealflow.html">View</a>
-          </div>
-        </div>
-        <div class="tag"></div>
-      </div>
+    <!-- Griglia card -->
+    <div class="cards-grid">
 
-      <!-- LBO Modelling: From Assumptions to IRR -->
-      <div class="card" data-tags="lbo modelling irr buyout">
-        <div class="thumb">
-          <img src="LBOmodelpreviewimage.png" alt="LBO Modelling: From Assumptions to IRR preview" loading="lazy">
-        </div>
-        <div class="body">
-          <h3>LBO Modelling: From Assumptions to IRR</h3>
-          <p>Step-by-step walkthrough of building an LBO model, from assumptions to IRR.</p>
-          <div class="actions">
-            <a class="btn sm outline" href="post-lbo-assumptions-to-irr.html">View</a>
-          </div>
-        </div>
-        <div class="tag"></div>
-      </div>
+      <!-- LBO Modelling -->
+      <article class="card model-card" data-tags="lbo modelling irr buyout private equity">
+        <header class="card-top">
+          <span class="badge-year">2023</span>
+        </header>
+        <h3 class="card-title">LBO Modelling — From Assumptions to IRR</h3>
+        <p class="card-desc">
+          Step-by-step LBO model: Sources &amp; Uses, debt schedule (revolver/TL), cash sweep, equity waterfall, and sensitivities.
+        </p>
+        <ul class="tags">
+          <li class="tag">LBO</li>
+          <li class="tag">PE</li>
+          <li class="tag">IRR</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>8.0× Entry Multiple</li>
+          <li>2.2× MoIC</li>
+          <li>~20–25% IRR</li>
+        </ul>
+        <a class="btn btn-download" href="post-lbo-assumptions-to-irr.html">View</a>
+      </article>
 
-      <!-- Adyen–Nexi Strategic Merger Proposal -->
-      <div class="card" data-tags="equity research dcf comparables consumer">
-        <div class="thumb">
-          <img src="ADYEN-NEXI deal.png" alt="ADYEN-NEXI deal preview" loading="lazy">
-        </div>
-        <div class="body">
-          <h3>Adyen–Nexi Strategic Merger Proposal</h3>
-          <p>case study: Adyen–Nexi, strategic rationale and valuation snapshot.</p>
-          <div class="actions">
-            <a class="btn sm outline" href="post-ADYEN-NEXI-merge.html">View</a>
-          </div>
-        </div>
-        <div class="tag"></div>
-      </div>
+      <!-- Adyen–Nexi M&A -->
+      <article class="card model-card" data-tags="m&a synergy dcf comparables fintech payments">
+        <header class="card-top">
+          <span class="badge-year">2023</span>
+        </header>
+        <h3 class="card-title">M&amp;A Analysis — Tech Acquisition (Adyen × Nexi)</h3>
+        <p class="card-desc">
+          Accretion/dilution for a large-cap tech deal. Synergy modelling, purchase price allocation, pro-forma financials, integration costs.
+        </p>
+        <ul class="tags">
+          <li class="tag">M&amp;A</li>
+          <li class="tag">Technology</li>
+          <li class="tag">Synergies</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>5–8% EPS Accretion</li>
+          <li>€10m Synergies</li>
+          <li>3-year Payback</li>
+        </ul>
+        <a class="btn btn-download" href="post-ADYEN-NEXI-merge.html">View</a>
+      </article>
 
-      <!-- Undergraduate Thesis — Causal Inference in Financial Markets -->
-      <div class="card" data-tags="Master Thesis — Causal Inference in Financial Markets">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3> Undergraduate Thesis — Causal Inference in Financial Markets</h3>
-          <p>Applying causal ML to assess the impact of macroeconomic on financial assets.</p>
-          <div class="actions">
-            <a class="btn sm outline" href="blog.html#thesis" target="_blank" rel="noopener">View</a>
-          </div>
-        </div>
-        <div class="tag"></div>
-      </div>
+      <!-- Notion Deal Flow -->
+      <article class="card model-card" data-tags="notion deal tracker template pipeline">
+        <header class="card-top">
+          <span class="badge-year">2024</span>
+        </header>
+        <h3 class="card-title">Deal Flow Tracker — Notion Template</h3>
+        <p class="card-desc">
+          Ready-to-use template to organize pipeline, record assumptions, and monitor returns. Built for clarity and decisions.
+        </p>
+        <ul class="tags">
+          <li class="tag">Template</li>
+          <li class="tag">Deal Flow</li>
+          <li class="tag">Notion</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>Stages &amp; Priorities</li>
+          <li>Assumption Log</li>
+          <li>Simple Metrics</li>
+        </ul>
+        <a class="btn btn-download" href="post-notion-dealflow.html">View</a>
+      </article>
 
-      <!-- CVHUB -->
-      <div class="card" data-tags="CVHub — Career SaaS Case Study">
-        <div class="thumb">
-          <img src="cvhub_logo_slogan.png" alt="CVHUB Preview" loading="lazy">
-        </div>
-        <div class="body">
-          <h3>CVHub — Career SaaS Case Study</h3>
-          <p>Project developing a complete business plan: market analysis, competitive landscape, financial modelling & market roadmap.</p>
-          <div class="actions">
-            <a class="btn sm outline" href="portfolio-cvhub.html">View</a>
-          </div>
-        </div>
-        <div class="tag"></div>
-      </div>
+      <!-- Thesis -->
+      <article class="card model-card" data-tags="thesis causal inference machine learning sp500 vix gold">
+        <header class="card-top">
+          <span class="badge-year">2025</span>
+        </header>
+        <h3 class="card-title">Undergraduate Thesis — Causal Inference in Financial Markets</h3>
+        <p class="card-desc">
+          Causal ML to assess macro shocks on S&amp;P 500, Gold (XAUUSD), and VIX using DML, PSM, and OLS with back-door adjustment.
+        </p>
+        <ul class="tags">
+          <li class="tag">Causal</li>
+          <li class="tag">ML</li>
+          <li class="tag">Finance</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>9 Experiments</li>
+          <li>Temporal Robustness</li>
+          <li>Sensitivity Tests</li>
+        </ul>
+        <a class="btn btn-download" href="blog.html#thesis" target="_blank" rel="noopener">View</a>
+      </article>
 
-      <!-- LevFin pack -->
-      <div class="card" data-tags="debt levfin covenants debt package">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>LevFin — Covenant Pack</h3>
-          <p>Debt schedule, covenant tests and headroom sensitivity for a sponsor-backed buyout financing.</p>
-          <div class="actions">
-            <a class="btn sm outline" href="post-lbo-assumptions-to-irr.html">View</a>
-          </div>
-        </div>
-        <div class="tag"></div>
-      </div>
-    </div><!-- /#grid -->
+      <!-- CVHub -->
+      <article class="card model-card" data-tags="cvhub saas business plan go-to-market">
+        <header class="card-top">
+          <span class="badge-year">2024</span>
+        </header>
+        <h3 class="card-title">CVHub — Career SaaS Case Study</h3>
+        <p class="card-desc">
+          End-to-end business plan: market analysis, competition, pricing, and financial modelling with product roadmap.
+        </p>
+        <ul class="tags">
+          <li class="tag">SaaS</li>
+          <li class="tag">Strategy</li>
+          <li class="tag">Finance</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>Market Sizing</li>
+          <li>Unit Economics</li>
+          <li>GTM Plan</li>
+        </ul>
+        <a class="btn btn-download" href="portfolio-cvhub.html">View</a>
+      </article>
+
+    </div><!-- /.cards-grid -->
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2 class="cta-title">Need a Custom Model?</h2>
+      <p class="cta-text">
+        I build bespoke valuation models, LBO analyses, and investment memos tailored to your specific deal or learning objectives.
+      </p>
+      <a class="btn btn-primary" href="contact.html">Get in Touch</a>
+    </div>
+
   </div><!-- /.container -->
 </main>
 
@@ -153,7 +202,7 @@
       const title = (c.querySelector('h3')?.innerText||'').toLowerCase();
       const text  = (c.querySelector('p')?.innerText||'').toLowerCase();
       const hit = !q || tags.includes(q) || title.includes(q) || text.includes(q);
-      c.style.display = hit ? 'block' : 'none';
+      c.style.display = hit ? '' : 'none';
     });
   }
 

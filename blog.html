@@ -4,17 +4,16 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Blog — IB/PE</title>
-  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="stylesheet" href="styles.clean.css?v=5">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VD0H4VRFHJ');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
 </head>
 <body>
   
@@ -37,66 +36,117 @@
 
 <main class="main">
   <div class="container">
-    <h2>Latest Articles</h2>
 
-    <div class="list">
+    <!-- HERO -->
+    <p class="eyebrow">INSIGHTS &amp; ANALYSIS</p>
+    <h1 class="hero-title">Blog</h1>
+    <p class="hero-lead">
+      Practical insights on financial modeling, valuation techniques, and deal analysis.
+      Real-world applications that go beyond textbook theory.
+    </p>
 
-      <!-- Notion Deal Flow -->
-      <div class="post">
-        <div class="thumb">
-          <img src="immagine notion deal flow.png" alt="Notion Deal Flow Tracker thumbnail" loading="lazy">
-        </div>
-        <div>
-          <h3><a href="post-notion-dealflow.html">Notion Deal Flow Tracker</a></h3>
-          <p>Lightweight dealflow template built in Notion. Designed to capture opportunities, log assumptions, and track MoM/IRR across deals. Screenshots and template link inside.</p>
-        </div>
-      </div>
+    <!-- FEATURED (primo articolo) -->
+    <article class="featured-card">
+  <div class="feat-media">
+    <img src="foto ESG.png" alt="ESG Regulations research cover">
+    <span class="badge-corner">Featured</span>
+  </div>
+  <div class="feat-body">
+    <span class="pill">ESG</span>
+    <h2 class="feat-title">
+      <a href="post-esg-regulations.html">ESG Regulations — Impact on Valuation & Deal Flow</a>
+    </h2>
+    <p class="feat-excerpt">
+      A clear map of EU/US ESG disclosure rules (CSRD, SFDR, SEC) and how they affect diligence,
+      cost of capital, and exit timing for sponsors and strategics.
+    </p>
+    <div class="feat-meta">Feb 2025 • 7 min read</div>
+    <a class="btn btn-read" href="post-esg-regulations.html">Read more</a>
+  </div>
+</article>
+
+    <!-- GRID 3-col degli altri post -->
+    <div class="post-grid">
 
       <!-- LBO Modelling -->
-      <div class="post">
-        <div class="thumb">
-          <img src="LBOmodelpreviewimage.png" alt="LBO Modelling: From Assumptions to IRR thumbnail" loading="lazy">
+      <article class="post-card">
+        <div class="post-media">
+          <img src="LBOmodelpreviewimage.png" alt="LBO Modelling: From Assumptions to IRR" loading="lazy">
+          <span class="pill pill-float">Valuation</span>
         </div>
-        <div>
-          <h3><a href="post-lbo-assumptions-to-irr.html">LBO Modelling: From Assumptions to IRR</a></h3>
-          <p>A step-by-step walkthrough of building an LBO model, with leverage scenarios, exit multiples, and sensitivity tables.</p>
+        <div class="post-body">
+          <h3 class="post-title"><a href="post-lbo-assumptions-to-irr.html">LBO Modelling: From Assumptions to IRR</a></h3>
+          <p class="post-excerpt">
+            A step-by-step walkthrough of building an LBO model, with leverage scenarios, exit multiples, and sensitivity tables.
+          </p>
+          <div class="post-meta"><span>Jan 10, 2025</span><span>•</span><span>10 min read</span></div>
+          <a class="btn btn-more" href="post-lbo-assumptions-to-irr.html">Read More</a>
         </div>
-      </div>
+      </article>
 
       <!-- AI in Finance -->
-      <div class="post">
-        <div class="thumb">
-          <img src="ai-in-finance-preview.png" alt="AI in Finance blog post preview" loading="lazy">
+      <article class="post-card">
+        <div class="post-media">
+          <img src="ai-in-finance-preview.png" alt="AI in Finance: A Companion, Not a Replacement" loading="lazy">
+          <span class="pill pill-float">AI</span>
         </div>
-        <div>
-          <h3><a href="Post-AI-in-finance.html">AI in Finance: A Companion, Not a Replacement</a></h3>
-          <p>An analysis of how AI is changing private equity and investment banking (and Finance in general): a powerful assistant for repetitive tasks, but not a substitute for judgment.</p>
+        <div class="post-body">
+          <h3 class="post-title"><a href="Post-AI-in-finance.html">AI in Finance: A Companion, Not a Replacement</a></h3>
+          <p class="post-excerpt">
+            How AI is changing PE and IB: a powerful assistant for repetitive tasks—without replacing domain judgment.
+          </p>
+          <div class="post-meta"><span>Jan 5, 2025</span><span>•</span><span>8 min read</span></div>
+          <a class="btn btn-more" href="Post-AI-in-finance.html">Read More</a>
         </div>
-      </div>
+      </article>
 
       <!-- ESG -->
-      <div class="post">
-        <div class="thumb">
-          <img src="foto ESG.png" alt="ESG &amp; M&amp;A article preview" loading="lazy">
+      <article class="post-card">
+        <div class="post-media">
+          <img src="foto ESG.png" alt="ESG & M&A" loading="lazy">
+          <span class="pill pill-float">M&amp;A</span>
         </div>
-        <div>
-          <h3><a href="post-ESG.html">Investment Banking 2.0: The Impact of New ESG Regulations on M&amp;A Transactions</a></h3>
-          <p>How new ESG regulations are reshaping M&amp;A: from due diligence to valuations, deal structures and the evolving role of investment bankers.</p>
+        <div class="post-body">
+          <h3 class="post-title"><a href="post-ESG.html">Investment Banking 2.0: The Impact of New ESG Regulations on M&amp;A Transactions</a></h3>
+          <p class="post-excerpt">
+            How new ESG regulations reshape M&amp;A: due diligence, valuation effects, deal structures, and the evolving role of bankers.
+          </p>
+          <div class="post-meta"><span>Dec 20, 2024</span><span>•</span><span>9 min read</span></div>
+          <a class="btn btn-more" href="post-ESG.html">Read More</a>
         </div>
-      </div>
+      </article>
 
       <!-- Tokenization -->
-      <div class="post">
-        <div class="thumb">
-          <img src="Token_foto.png" alt="Tokenization in IB/PE article preview" loading="lazy">
+      <article class="post-card">
+        <div class="post-media">
+          <img src="Token_foto.png" alt="Tokenization in IB/PE" loading="lazy">
+          <span class="pill pill-float">Markets</span>
         </div>
-        <div>
-          <h3><a href="Post-Tokenization.html">From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</a></h3>
-          <p>Tokenization is no longer theory—it is beginning to influence the strategies of banks and private equity firms in ways that few expected.</p>
+        <div class="post-body">
+          <h3 class="post-title"><a href="Post-Tokenization.html">From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</a></h3>
+          <p class="post-excerpt">
+            Tokenization is leaving the lab: concrete implications for banks and private equity—governance, liquidity, and deal mechanics.
+          </p>
+          <div class="post-meta"><span>Dec 15, 2024</span><span>•</span><span>11 min read</span></div>
+          <a class="btn btn-more" href="Post-Tokenization.html">Read More</a>
         </div>
-      </div>
+      </article>
 
-    </div>
+    </div><!-- /.post-grid -->
+
+    <!-- CTA newsletter -->
+    <section class="subscribe">
+  <h3 class="subscribe-title">Stay Updated</h3>  <!-- non h2 -->
+  <p class="subscribe-sub">
+    Get notified when I publish new analysis, models, and insights on financial modeling and deal analysis.
+  </p>
+  <form class="subscribe-form" action="#" method="post" onsubmit="return false;">
+    <input type="email" class="input" placeholder="Enter your email" required>
+    <button class="btn subscribe-btn" type="submit">Subscribe</button>
+  </form>
+</section>
+
+
   </div>
 </main>
 

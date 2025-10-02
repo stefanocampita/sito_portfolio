@@ -4,17 +4,16 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Home — IB/PE Portfolio</title>
-  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="stylesheet" href="styles.clean.css?v=7">
   <link rel="icon" type="image/png" href="favicon.png"/>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VD0H4VRFHJ');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
 </head>
 <body>
   
@@ -38,36 +37,67 @@
   </div>
 
   <main class="main">
-    <!-- HERO DESKTOP: 2 colonne reali. Mobile resta come prima grazie alle media query -->
-    <section class="hero container hero-desktop">
-      <!-- Colonna sinistra: Nome + Foto -->
+    <!-- HERO: 2 colonne -->
+    <section class="container home-hero">
+      <!-- Colonna sinistra: SOLO foto -->
       <div class="col-left">
-        <h2 class="name-title">Stefano Campita</h2>
-        <div class="photo">
-          <img src="foto_about_me.png" alt="Stefano Campita portrait">
+        <div class="portrait-frame">
+          <div class="portrait">
+            <img src="foto_about_me.png" alt="Stefano Campita portrait">
+          </div>
         </div>
       </div>
 
-      <!-- Colonna destra: Above = About | Below = Headline + testo + CTA -->
+      <!-- Colonna destra: testo + CTA + About (spostato qui) -->
       <div class="col-right">
-        <div class="about card">
-          <h3>About me</h3>
-          <p>I study how capital meets strategy. I build valuation and LBO models, pressure-test assumptions, and write investment memos to sharpen judgment. My approach is rigorous and data-driven, with clear, concise communication.</p>
-          <p>I’m drawn to calculated risk and I like turning noisy financials into quantitative datas. This site collects selected projects — valuations, LBOs, and M&amp;A case studies — that reflect how I think and solve problems. If you like my work, feel free to reach out.</p>
-          <p><span class="highlight-quote">“Without data, you’re just another person with an opinion.” — W. Edwards Deming</span></p>
-        </div>
-        
-        <div class="hero-copy">
-          <h1 class="h1">Financial Modeling &amp; Deal Analysis</h1>
-          <p class="sub">
-            I build clean valuation models (DCF, comps), full LBO models with sensitivities,
-            and concise investment memos. Here is where I collect my projects and case studies
-            that mirror real IB/PE deliverables.
-          </p>
-          <div class="btnrow">
-            <a class="btn primary" href="portfolio.html">View Portfolio</a>
-            <a class="btn outline" href="blog.html">Read Blog</a>
+        <p class="role-eyebrow">FINANCIAL ANALYST</p>
+        <h1 class="display-title">
+          Financial Modeling <span class="amp">&amp;</span> <span class="accent-text">Deal Analysis</span>
+        </h1>
+        <p class="sub">
+          I build clean valuation models (DCF, comps), full LBO models with sensitivities, and concise investment memos.
+          Here is where I collect my projects and case studies that mirror real IB/PE deliverables.
+        </p>
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-value">15+</div>
+            <div class="metric-label">Projects</div>
           </div>
+          <div class="metric">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Years Exp.</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$2B+</div>
+            <div class="metric-label">Analyzed</div>
+          </div>
+        </div>
+
+        <div class="btnrow">
+          <a class="btn primary" href="portfolio.html">View Portfolio</a>
+          <a class="btn accent" href="blog.html">Read Blog</a>
+        </div>
+
+        <div class="pills-row">
+          <a class="pill" href="portfolio.html">Valuation</a>
+          <a class="pill" href="portfolio.html">LBO Models</a>
+          <a class="pill" href="blog.html">Memos</a>
+        </div>
+
+        <!-- 🔶 About me ora è nella colonna destra, visibile senza scroll -->
+        <div class="about card about-inline">
+          <h3>About me</h3>
+          <p>
+            I study how capital meets strategy. I build valuation and LBO models, pressure-test assumptions,
+            and write investment memos to sharpen judgment. My approach is rigorous and data-driven, with clear communication.
+          </p>
+          <p>
+            I’m drawn to calculated risk and I like turning noisy financials into quantitative data.
+            This site collects selected projects — valuations, LBOs, and M&amp;A case studies — that reflect how I think
+            and solve problems.
+          </p>
+          <p><span class="highlight-quote">“Without data, you’re just another person with an opinion.” — W. Edwards Deming</span></p>
         </div>
       </div>
     </section>
