@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Article Builder (Internal)</title>
+
+  <link rel="stylesheet" href="styles.clean.css?v=7">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <style>
+    body {
+      background:#f9fafb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Arial, sans-serif;
+      color:#1a1a1a;
+    }
+
+    .admin-wrapper {
+      max-width:1200px;
+      margin:100px auto 60px;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    @media (max-width:900px){
+      .admin-wrapper {
+        grid-template-columns:1fr;
+      }
+    }
+
+    .card-box {
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:16px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.05);
+      padding:20px 24px 24px;
+    }
+
+    h1 {
+      font-size:20px;
+      font-weight:700;
+      margin:0 0 4px;
+      color:#111827;
+    }
+    .subtext {
+      font-size:14px;
+      color:#6b7280;
+      line-height:1.4;
+      margin:0 0 16px;
+    }
+
+    label {
+      font-size:13px;
+      font-weight:600;
+      color:#111827;
+      display:block;
+      margin-bottom:4px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea,
+    select {
+      width:100%;
+      border:1px solid #d1d5db;
+      border-radius:10px;
+      font-size:14px;
+      padding:10px 12px;
+      line-height:1.4;
+      color:#111827;
+      background-color:#fff;
+      font-family:inherit;
+      box-sizing:border-box;
+    }
+
+    textarea {
+      min-height:80px;
+      resize:vertical;
+    }
+
+    .row-2col {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .section-blocks {
+      border:1px solid #e5e7eb;
+      border-radius:12px;
+      padding:12px;
+      background:#F9FAFB;
+      margin-bottom:16px;
+    }
+
+    .blocks-list {
+      font-size:13px;
+      line-height:1.4;
+      color:#374151;
+      max-height:160px;
+      overflow-y:auto;
+      background:#fff;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      padding:8px 10px;
+      margin-top:8px;
+      white-space:pre-wrap;
+    }
+
+    button {
+      cursor:pointer;
+      appearance:none;
+      border-radius:10px;
+      font-weight:700;
+      font-size:14px;
+      line-height:1.2;
+      padding:10px 14px;
+      border:2px solid #111827;
+      background:#fff;
+      color:#111827;
+      transition:box-shadow .15s, transform .05s;
+    }
+
+    button:hover {
+      box-shadow:0 8px 16px rgba(0,0,0,.08);
+    }
+
+    button:active {
+      transform:translateY(1px);
+    }
+
+    .btn-accent {
+      border-color:#163E64;
+      color:#163E64;
+    }
+
+    .output-box {
+      background:#0f172a;
+      color:#f8fafc;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:12px;
+      line-height:1.5;
+      border-radius:10px;
+      padding:16px;
+      white-space:pre-wrap;
+      word-break:break-word;
+      min-height:200px;
+    }
+
+    .output-label {
+      font-size:12px;
+      font-weight:600;
+      color:#6b7280;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      margin:24px 0 8px;
+    }
+
+    .small-hint {
+      font-size:12px;
+      color:#6b7280;
+      margin-top:4px;
+    }
+
+    hr {
+      border:none;
+      border-top:1px solid #e5e7eb;
+      margin:20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-wrapper">
+
+    <!-- LEFT: FORM INPUT -->
+    <div class="card-box">
+      <h1>New Article</h1>
+      <p class="subtext">Fill this in, then press "Generate". Copy/paste results into articles.json and news.html.</p>
+
+      <label>Article ID (no spaces, use-dashes)</label>
+      <input id="id" type="text" placeholder="hot-cpi-green-equities"/>
+
+      <label style="margin-top:12px;">Tag</label>
+      <select id="tag">
+        <option>Macro</option>
+        <option>Markets</option>
+        <option>Deals &amp; IB</option>
+      </select>
+
+      <label style="margin-top:12px;">Title / Headline</label>
+      <input id="title" type="text" placeholder="Hot CPI, Green Equities: Why Risk Didn’t Panic"/>
+
+      <label style="margin-top:12px;">Subtitle / Dek</label>
+      <textarea id="subtitle" placeholder="Short summary under the headline. Explain the story like you're talking to an analyst on the trading desk."></textarea>
+
+      <div class="row-2col" style="margin-top:12px;">
+        <div>
+          <label>Date (displayed)</label>
+          <input id="date" type="text" placeholder="31 Oct 2025"/>
+        </div>
+        <div>
+          <label>Read time</label>
+          <input id="readTime" type="text" placeholder="3 min read"/>
+        </div>
+      </div>
+
+      <div class="row-2col" style="margin-top:12px;">
+        <div>
+          <label>Author</label>
+          <input id="author" type="text" placeholder="Stefano Campita" value="Stefano Campita"/>
+        </div>
+        <div>
+          <label>Hero image path</label>
+          <input id="heroImage" type="text" placeholder="foto sito web/placeholder_chart.jpg"/>
+        </div>
+      </div>
+
+      <hr/>
+
+      <!-- BLOCKS BUILDER -->
+      <div class="section-blocks">
+        <label>Add content block</label>
+        <select id="blockType">
+          <option value="p">Paragraph</option>
+          <option value="h2">Section heading (h2)</option>
+          <option value="callout">Callout box</option>
+          <option value="listen-box">Listen box (podcast/audio)</option>
+        </select>
+
+        <label style="margin-top:8px;">Block text / title</label>
+        <textarea id="blockText" placeholder="Your text here (for listen-box: this will be the title)."></textarea>
+
+        <label style="margin-top:8px;">Extra description (only for listen-box)</label>
+        <textarea id="blockDesc" placeholder="Short description for the audio block (optional)"></textarea>
+
+        <label style="margin-top:8px;">Audio file path (only for listen-box)</label>
+        <input id="blockAudio" type="text" placeholder="audio/episode01.mp3"/>
+
+        <div style="margin-top:12px;">
+          <button class="btn-accent" id="addBlockBtn" type="button">Add block</button>
+        </div>
+
+        <div class="small-hint">Current blocks (top = first in article):</div>
+        <div class="blocks-list" id="blocksList"></div>
+      </div>
+
+      <div>
+        <button class="btn-accent" id="generateBtn" type="button">Generate JSON + Card</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: OUTPUT -->
+    <div class="card-box">
+      <h1>Output</h1>
+      <p class="subtext">1. Paste JSON object into articles.json (inside the array). 2. Paste Card HTML into news.html under .briefs-grid.</p>
+
+      <div class="output-label">Article JSON object → articles.json</div>
+      <div class="output-box" id="jsonOutput">{}</div>
+
+      <div class="output-label">News card HTML → news.html (.briefs-grid)</div>
+      <div class="output-box" id="cardOutput">&lt;article class="brief-card"&gt;...&lt;/article&gt;</div>
+
+      <div class="small-hint">
+        After pasting both, remember to:
+        <br>- git add .
+        <br>- git commit -m "Add new brief"
+        <br>- git push origin main
+      </div>
+    </div>
+
+  </div>
+
+
+  <script>
+    // we'll store blocks here as objects before generating final output
+    const blocks = [];
+
+    const blocksListEl = document.getElementById("blocksList");
+    const addBlockBtn = document.getElementById("addBlockBtn");
+    const generateBtn = document.getElementById("generateBtn");
+
+    function renderBlocksList() {
+      if (blocks.length === 0) {
+        blocksListEl.textContent = "(no blocks yet)";
+        return;
+      }
+      blocksListEl.textContent = blocks.map((b, i) => {
+        if (b.type === "listen-box") {
+          return (i+1) + ". [listen-box] title=\"" + b.title + "\" audio=" + b.audio;
+        } else {
+          return (i+1) + ". [" + b.type + "] " + b.text;
+        }
+      }).join("\n\n");
+    }
+
+    addBlockBtn.addEventListener("click", () => {
+      const type = document.getElementById("blockType").value;
+      const text = document.getElementById("blockText").value.trim();
+      const desc = document.getElementById("blockDesc").value.trim();
+      const audio = document.getElementById("blockAudio").value.trim();
+
+      if (!text && type !== "listen-box") {
+        alert("Please write something for this block.");
+        return;
+      }
+      if (type === "listen-box" && !audio) {
+        alert("Listen-box needs an audio path.");
+        return;
+      }
+
+      if (type === "listen-box") {
+        blocks.push({
+          type: "listen-box",
+          title: text,
+          desc: desc,
+          audio: audio
+        });
+      } else if (type === "callout") {
+        blocks.push({
+          type: "callout",
+          text: text
+        });
+      } else if (type === "h2") {
+        blocks.push({
+          type: "h2",
+          text: text
+        });
+      } else {
+        // default paragraph
+        blocks.push({
+          type: "p",
+          text: text
+        });
+      }
+
+      // clear inputs for next block
+      document.getElementById("blockText").value = "";
+      document.getElementById("blockDesc").value = "";
+      document.getElementById("blockAudio").value = "";
+
+      renderBlocksList();
+    });
+
+    generateBtn.addEventListener("click", () => {
+      // collect main article fields
+      const id = document.getElementById("id").value.trim();
+      const tag = document.getElementById("tag").value.trim();
+      const title = document.getElementById("title").value.trim();
+      const subtitle = document.getElementById("subtitle").value.trim();
+      const date = document.getElementById("date").value.trim();
+      const readTime = document.getElementById("readTime").value.trim();
+      const author = document.getElementById("author").value.trim();
+      const heroImage = document.getElementById("heroImage").value.trim();
+
+      if (!id || !title) {
+        alert("ID and Title are required.");
+        return;
+      }
+
+      // 1. Build the JSON object for articles.json
+      const articleObject = {
+        id,
+        tag,
+        title,
+        subtitle,
+        date,
+        readTime,
+        author,
+        heroImage,
+        blocks
+      };
+
+      // Pretty JSON
+      const jsonPretty = JSON.stringify(articleObject, null, 2);
+      document.getElementById("jsonOutput").textContent = jsonPretty;
+
+      // 2. Build the card HTML for news.html
+      // We'll match your exact card structure / classes
+      const cardHTML = [
+        `<article class="brief-card">`,
+        `  <div class="brief-media">`,
+        `    <!-- you can customize this line -->`,
+        `    ${tag === "Macro" ? "Chart / CPI" : tag === "Deals & IB" ? "M&amp;A / IB" : "Markets"}`,
+        `    <div class="brief-tag">${tag}</div>`,
+        `  </div>`,
+        `  <div class="brief-body">`,
+        `    <h2 class="brief-title">`,
+        `      <a href="article.html?id=${id}">`,
+        `        ${title.replace(/</g,"&lt;").replace(/>/g,"&gt;")}`,
+        `      </a>`,
+        `    </h2>`,
+        `    <p class="brief-excerpt">`,
+        `      ${subtitle.replace(/</g,"&lt;").replace(/>/g,"&gt;")}`,
+        `    </p>`,
+        `    <div class="brief-meta">`,
+        `      <span>${date}</span>`,
+        `      <span>•</span>`,
+        `      <span>${readTime}</span>`,
+        `    </div>`,
+        `    <a class="btn btn-brief" href="article.html?id=${id}">Read full brief →</a>`,
+        `  </div>`,
+        `</article>`
+      ].join("\n");
+
+      document.getElementById("cardOutput").textContent = cardHTML;
+    });
+
+    // show initial
+    renderBlocksList();
+  </script>
+
+</body>
+</html>
