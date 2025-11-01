@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title id="page-title">The 10 Minutes Brief</title>
+
+  <link rel="stylesheet" href="styles.clean.css?v=7">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <!-- meta -->
+  <meta name="description" content="The 10 Minutes Brief — Decode the Markets in Ten Minutes.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+
+  <style>
+    .article-wrapper{
+      max-width:900px;
+      margin:0 auto;
+    }
+
+    .article-header{
+      padding-top:32px;
+      padding-bottom:16px;
+      border-bottom:1px solid #e5e7eb;
+      margin-bottom:24px;
+    }
+
+    .article-tag{
+      display:inline-block;
+      background:var(--accent);
+      color:#1a1a1a;
+      font-weight:700;
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      line-height:1.3;
+      margin-bottom:12px;
+    }
+
+    .article-headline{
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:clamp(28px, 2vw, 34px);
+      line-height:1.2;
+      color:var(--primary);
+      font-weight:800;
+      margin:0 0 10px;
+    }
+
+    .article-subtitle{
+      font-size:16px;
+      line-height:1.5;
+      color:#4b5563;
+      margin:0 0 16px;
+      max-width:780px;
+    }
+
+    .article-meta-row{
+      font-size:14px;
+      color:#6b7280;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .article-hero-media{
+      border-radius:var(--radius);
+      overflow:hidden;
+      background:#0f1115;
+      box-shadow:0 2px 10px rgba(0,0,0,.04);
+      margin-top:16px;
+    }
+    .article-hero-media img{
+      width:100%;
+      height:clamp(200px,28vw,320px);
+      object-fit:cover;
+      display:block;
+    }
+
+    .article-body.card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:var(--radius);
+      padding:20px 22px;
+      box-shadow:0 2px 10px rgba(0,0,0,.04);
+      max-width:900px;
+    }
+    .article-body p{
+      font-size:16px;
+      line-height:1.65;
+      color:#333;
+      margin:14px 0;
+    }
+    .article-body h2{
+      font-size:20px;
+      font-weight:700;
+      color:var(--primary);
+      margin:24px 0 8px;
+      line-height:1.3;
+      font-family:"Playfair Display", Georgia, serif;
+    }
+    .article-body .callout{
+      background:#F2F4F7;
+      border:1px solid #E7EBF0;
+      border-radius:12px;
+      padding:16px 16px 14px;
+      font-size:15px;
+      line-height:1.5;
+      color:#1a1a1a;
+      box-shadow:0 1px 2px rgba(0,0,0,.03);
+      margin:20px 0;
+      font-weight:600;
+    }
+
+    .listen-box{
+      background:#FAF7EF;
+      border:1px solid #F0E9D9;
+      border-radius:14px;
+      padding:16px 18px;
+      box-shadow:0 2px 10px rgba(0,0,0,.04);
+      margin-top:28px;
+    }
+    .listen-head{
+      font-size:14px;
+      font-weight:800;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin:0 0 6px;
+    }
+    .listen-title{
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:20px;
+      color:var(--primary);
+      font-weight:700;
+      line-height:1.3;
+      margin:0 0 10px;
+    }
+    .listen-desc{
+      font-size:15px;
+      color:#4b5563;
+      line-height:1.5;
+      margin:0 0 12px;
+    }
+    .listen-audio{
+      width:100%;
+      max-width:100%;
+    }
+
+    .back-link-wrap{
+      margin-top:32px;
+      text-align:left;
+    }
+    .back-link{
+      font-weight:800;
+      font-size:14px;
+      color:var(--primary);
+      border:2px solid var(--primary);
+      border-radius:10px;
+      padding:8px 12px;
+      display:inline-block;
+      text-decoration:none;
+      transition:filter .2s, transform .05s;
+      background:#fff;
+    }
+    .back-link:hover{ filter:brightness(1.03); }
+    .back-link:active{ transform:translateY(1px); }
+
+    @media (max-width:900px){
+      .article-wrapper{
+        padding-left:24px;
+        padding-right:24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="foto sito web/logo.png" alt="Logo" class="logo">
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html" class="active">News</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+    <section class="container article-wrapper">
+
+      <!-- ARTICLE HEADER -->
+      <header class="article-header">
+        <div class="article-tag" id="article-tag"></div>
+
+        <h1 class="article-headline" id="article-headline"></h1>
+
+        <p class="article-subtitle" id="article-subtitle"></p>
+
+        <div class="article-meta-row" id="article-meta-row"></div>
+
+        <div class="article-hero-media">
+          <img id="article-hero-img" src="" alt="Market reaction chart">
+        </div>
+      </header>
+
+      <!-- ARTICLE BODY -->
+      <article class="article-body card" id="article-body">
+        <!-- JS will inject content here -->
+      </article>
+
+      <!-- BACK LINK -->
+      <div class="back-link-wrap">
+        <a class="back-link" href="news.html">← Back to all briefs</a>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; 2025 Stefano Campita. All rights reserved.</div>
+        <div>Portfolio for educational and professional presentation — IB &amp; PE focus.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- mobile nav script -->
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
+  <!-- dynamic article loader -->
+  <script>
+    // 1. get ?id=... from the URL
+    const params = new URLSearchParams(window.location.search);
+    const articleId = params.get("id");
+
+    // 2. fetch the database
+    fetch("articles.json")
+      .then(r => r.json())
+      .then(allArticles => {
+        // 3. find the article by id
+        const data = allArticles.find(a => a.id === articleId);
+
+        if (!data) {
+          document.getElementById("article-headline").textContent = "Article not found";
+          document.getElementById("article-body").innerHTML = "<p>Sorry, we couldn't load this brief.</p>";
+          return;
+        }
+
+        // 4. fill page header/meta
+        document.getElementById("page-title").textContent = data.title + " — The 10 Minutes Brief";
+        document.getElementById("article-tag").textContent = data.tag;
+        document.getElementById("article-headline").textContent = data.title;
+        document.getElementById("article-subtitle").textContent = data.subtitle;
+
+        // meta row (date • readTime • by author)
+        const metaRow = document.getElementById("article-meta-row");
+        metaRow.textContent = ""; // clear
+        function addMetaChunk(txt){
+          const span = document.createElement("span");
+          span.textContent = txt;
+          metaRow.appendChild(span);
+        }
+        addMetaChunk(data.date);
+        addMetaChunk("•");
+        addMetaChunk(data.readTime);
+        addMetaChunk("•");
+        addMetaChunk("by " + data.author);
+
+        // hero image
+        const heroImg = document.getElementById("article-hero-img");
+        heroImg.src = data.heroImage || "";
+        heroImg.alt = data.title || "Article hero image";
+
+        // 5. render body blocks
+        const bodyEl = document.getElementById("article-body");
+        bodyEl.innerHTML = ""; // clear before adding
+
+        data.blocks.forEach(block => {
+          if (block.type === "p") {
+            const p = document.createElement("p");
+            p.textContent = block.text;
+            bodyEl.appendChild(p);
+          }
+          else if (block.type === "h2") {
+            const h2 = document.createElement("h2");
+            h2.textContent = block.text;
+            bodyEl.appendChild(h2);
+          }
+          else if (block.type === "callout") {
+            const div = document.createElement("div");
+            div.className = "callout";
+            div.textContent = block.text;
+            bodyEl.appendChild(div);
+          }
+          else if (block.type === "listen-box") {
+            const listen = document.createElement("div");
+            listen.className = "listen-box";
+
+            const head = document.createElement("div");
+            head.className = "listen-head";
+            head.textContent = "Listen";
+            listen.appendChild(head);
+
+            const title = document.createElement("div");
+            title.className = "listen-title";
+            title.textContent = block.title;
+            listen.appendChild(title);
+
+            const desc = document.createElement("div");
+            desc.className = "listen-desc";
+            desc.textContent = block.desc;
+            listen.appendChild(desc);
+
+            const audio = document.createElement("audio");
+            audio.className = "listen-audio";
+            audio.setAttribute("controls", "");
+            const source = document.createElement("source");
+            source.src = block.audio;
+            source.type = "audio/mpeg";
+            audio.appendChild(source);
+            audio.append("Your browser does not support the audio player.");
+            listen.appendChild(audio);
+
+            bodyEl.appendChild(listen);
+          }
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("article-headline").textContent = "Error loading article";
+        document.getElementById("article-body").innerHTML = "<p>There was a problem loading this brief.</p>";
+      });
+  </script>
+
+</body>
+</html>

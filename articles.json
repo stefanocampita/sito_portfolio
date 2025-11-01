@@ -1,0 +1,146 @@
+[
+  {
+    "id": "hot-cpi-green-equities",
+    "tag": "Macro",
+    "title": "Hot CPI, Green Equities: Why Risk Didn’t Panic",
+    "subtitle": "Inflation was higher than expected — normally that kills stocks. But today equities pushed up instead of selling off. Here's how traders explained the move on desks this morning.",
+    "date": "31 Oct 2025",
+    "readTime": "3 min read",
+    "author": "Stefano Campita",
+    "heroImage": "foto sito web/placeholder_chart.jpg",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "CPI came in hotter than expected on both headline and core. Usually that’s an instant “risk off” trigger: yields spike, growth names get hit, banks smile. But instead, equities opened flat and then drifted higher."
+      },
+      {
+        "type": "p",
+        "text": "The desk narrative was simple: yes inflation is sticky, but no one believes the Fed wants to blow up growth to kill the last 0.5% of it. In other words, the market is betting on a “soft landing” story, not a “Volcker 2.0” story. As long as that story survives, dips get bought."
+      },
+      {
+        "type": "h2",
+        "text": "1. Rates are high, but panic is low"
+      },
+      {
+        "type": "p",
+        "text": "Treasury yields moved, but not violently. The move looked more like “repricing the path of cuts” and less like “oh no, regime change.” That matters. When bonds don’t explode, equities don’t have to puke."
+      },
+      {
+        "type": "callout",
+        "text": "The signal: traders are accepting slower disinflation without fully pricing a recession. That’s bullish for risk assets in the short term, but fragile if labor data weakens."
+      },
+      {
+        "type": "h2",
+        "text": "2. Tech didn’t crack, and that sets the mood"
+      },
+      {
+        "type": "p",
+        "text": "If mega-cap tech holds, the index holds. It’s that simple. Today big-cap tech traded like “we can handle slightly higher-for-longer rates.” As long as the earnings story is intact, macro fear doesn’t fully control the tape."
+      },
+      {
+        "type": "h2",
+        "text": "3. What this means for you"
+      },
+      {
+        "type": "p",
+        "text": "For interviews and stock pitches, the line to remember is: “Markets are still pricing a soft landing. Inflation is annoying, not catastrophic. Positioning is defensive, not panicked.”"
+      },
+      {
+        "type": "listen-box",
+        "title": "Episode 01 — CPI Came In Hot, So Why Did Stocks Bounce?",
+        "desc": "8-minute breakdown you can listen to on the way to class / work. We cover inflation, yields, and why equity desks weren't screaming.",
+        "audio": "audio/episode01.mp3"
+      }
+    ]
+  },
+
+  {
+    "id": "merger-rumor-high-rates",
+    "tag": "Deals & IB",
+    "title": "Why This Merger Rumor Actually Makes Sense in a High-Rate World",
+    "subtitle": "We break down the strategic logic behind a rumored acquisition: leverage pressure, revenue synergies vs cost synergies, and why sponsors still care even with expensive debt.",
+    "date": "31 Oct 2025",
+    "readTime": "4 min read",
+    "author": "Stefano Campita",
+    "heroImage": "foto sito web/placeholder_chart.jpg",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "This rumored deal only looks crazy if you’re thinking in 2019 multiples. In a high-rate world, the logic shifts: it’s less about 'growth at all costs' and more about 'who survives the debt wall.'"
+      },
+      {
+        "type": "h2",
+        "text": "1. Debt pressure is forcing strategic combinations"
+      },
+      {
+        "type": "p",
+        "text": "Companies that over-borrowed when money was free are now stuck rolling that debt at rates they never underwrote. Merging lets them refinance with a stronger combined credit story instead of going to the market alone looking weak."
+      },
+      {
+        "type": "h2",
+        "text": "2. Revenue synergies > Cost synergies in this cycle"
+      },
+      {
+        "type": "p",
+        "text": "In a slow economy, cost cutting is already priced in. What still excites equity investors is cross-selling: 'Can you plug my product into your distribution tomorrow?' That hits top line faster than layoffs hit bottom line."
+      },
+      {
+        "type": "callout",
+        "text": "This is why PE sponsors still care. Even with expensive debt, if you can bolt on revenue in 6 months instead of building it in 3 years, you’re buying time."
+      },
+      {
+        "type": "h2",
+        "text": "3. What you should say in an IB/PE interview"
+      },
+      {
+        "type": "p",
+        "text": "The right angle is: 'High rates are killing weak balance sheets and rewarding consolidation. This isn’t just M&A, it’s survival engineering.'"
+      }
+    ]
+  },
+
+  {
+    "id": "gold-vix-stress",
+    "tag": "Markets",
+    "title": "Gold Up, VIX Down: Is Stress Really Gone or Just Hidden?",
+    "subtitle": "Volatility looks dead on paper, but flow data and hedging behavior say something else. We read gold and the VIX as early warning signals.",
+    "date": "31 Oct 2025",
+    "readTime": "3 min read",
+    "author": "Stefano Campita",
+    "heroImage": "foto sito web/placeholder_chart.jpg",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "On the surface it looks calm: VIX is low, equities grinding up. But gold is quietly catching a bid. That combo — strong gold with sleepy vol — usually means 'somebody is quietly hedging tail risk' instead of 'everything is fine.'"
+      },
+      {
+        "type": "h2",
+        "text": "1. VIX is not the whole picture anymore"
+      },
+      {
+        "type": "p",
+        "text": "Large caps are so heavily owned through passive and mega-cap tech that headline index vol can stay low even if under the hood people are scared. You're not seeing single-name hedges in the VIX headline."
+      },
+      {
+        "type": "callout",
+        "text": "Translation: low VIX doesn’t mean 'no fear.' It can also mean 'fear is being expressed in places you’re not looking.'"
+      },
+      {
+        "type": "h2",
+        "text": "2. Gold is acting like quiet insurance"
+      },
+      {
+        "type": "p",
+        "text": "When investors buy gold while they pretend to be chill in equities, that’s stealth risk-off. It’s the 'I’m long risk, but I don’t fully trust this rally' positioning."
+      },
+      {
+        "type": "h2",
+        "text": "3. How to sound smart when someone asks you 'is the market safe right now?'"
+      },
+      {
+        "type": "p",
+        "text": "Say this: 'Vol looks calm, but capital is still paying for insurance. The market is optimistic short-term, but nobody is fully relaxing on tail risk.' That shows you understand behavior, not just prices."
+      }
+    ]
+  }
+]
