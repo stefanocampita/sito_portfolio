@@ -142,5 +142,58 @@
         "text": "Say this: 'Vol looks calm, but capital is still paying for insurance. The market is optimistic short-term, but nobody is fully relaxing on tail risk.' That shows you understand behavior, not just prices."
       }
     ]
-  }
+  },
+  
+  {
+  "id": "ecb-cuts-vs-credit-conditions",
+  "tag": "Macro",
+  "title": "ECB Signals Cuts, But Credit Still Isn’t Cheap",
+  "subtitle": "The central bank is starting to sound softer on inflation and more worried about growth. But the real economy is still paying “expensive money” to roll debt. That gap between narrative and funding cost is what matters for equities and M&A.",
+  "date": "1 Nov 2025",
+  "readTime": "3 min read",
+  "author": "Stefano Campita",
+  "heroImage": "foto sito web/placeholder_chart.jpg",
+  "blocks": [
+    {
+      "type": "p",
+      "text": "The ECB is hinting at future rate cuts because growth is clearly slowing. Everyone on the macro side is already cheering this as “policy support is coming.” But there’s a detail equity investors and dealmakers care about more than the headline: borrowing is still expensive in practice."
+    },
+    {
+      "type": "p",
+      "text": "Even if the policy rate drifts down, companies that loaded up on debt in the zero-rate era are now refinancing at levels that are 2–4 percentage points higher than what’s on their balance sheet. That destroys free cash flow and forces management into defensive decisions: raise equity, sell assets, merge, or cut."
+    },
+    {
+      "type": "h2",
+      "text": "1. Cheap policy ≠ Cheap credit"
+    },
+    {
+      "type": "p",
+      "text": "People love to say “central banks will cut, so debt will be cheap again.” That’s not how it works. Banks and private lenders add their own spread on top. Those spreads are still elevated because default risk is higher, leverage is already high, and growth is soft. So the money that companies actually touch is still expensive."
+    },
+    {
+      "type": "callout",
+      "text": "The story isn’t “rates are going down.” The story is “funding is still painful for anyone who isn’t top tier.”"
+    },
+    {
+      "type": "h2",
+      "text": "2. Why this matters for equities"
+    },
+    {
+      "type": "p",
+      "text": "Equity investors like the rate-cut narrative because lower yields make future earnings look more valuable. But if high funding costs are still choking mid-cap and levered names, you’re going to see weaker capex, slower hiring, and guidance that sounds cautious. That caps how bullish the market can get outside of mega-cap."
+    },
+    {
+      "type": "h2",
+      "text": "3. Why this matters for M&A / PE"
+    },
+    {
+      "type": "p",
+      "text": "This environment creates forced sellers. If you’re a company rolling debt at 8% instead of 4%, suddenly “sell the division” or “merge with a stronger balance sheet” goes from theoretical to necessary. That’s exactly the setup PE and strategic buyers like: stressed assets, still-decent businesses, motivated boards."
+    },
+    {
+      "type": "p",
+      "text": "So when you see headlines like “ECB prepares to cut,” don’t just think rates. Think negotiation power. Who’s now under pressure to sell because their debt reset got brutal? That’s where the deal flow will come from."
+    }
+  ]
+}
 ]
