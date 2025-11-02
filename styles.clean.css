@@ -361,3 +361,20 @@ form .actions{ margin-top:14px; }
 .subscribe-btn{ height:52px; padding:0 18px; border-radius:12px; background:#1F2329; border:2px solid #1F2329; color:#fff; font-weight:800; transition:filter .2s, transform .05s, background .2s, border-color .2s; }
 .subscribe-btn:hover{ filter:brightness(1.05); }
 .subscribe-btn:active{ transform:translateY(1px); }
+
+/* === brief image container === */
+.brief-media {
+  position: relative;
+  height: 180px;          /* same height as other cards */
+  overflow: hidden;       /* crop any overflow */
+  border-bottom: 1px solid #000;  /* keeps a clean separation line */
+}
+
+/* === make the photo fit perfectly === */
+.brief-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* fills the box, keeps proportions */
+  object-position: center; /* centers the focus */
+  display: block;
+}
