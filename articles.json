@@ -145,55 +145,100 @@
   },
   
   {
-  "id": "ecb-cuts-vs-credit-conditions",
-  "tag": "Macro",
-  "title": "ECB Signals Cuts, But Credit Still Isn’t Cheap",
-  "subtitle": "The central bank is starting to sound softer on inflation and more worried about growth. But the real economy is still paying “expensive money” to roll debt. That gap between narrative and funding cost is what matters for equities and M&A.",
-  "date": "1 Nov 2025",
-  "readTime": "3 min read",
-  "author": "Stefano Campita",
-  "heroImage": "foto sito web/placeholder_chart.jpg",
-  "blocks": [
-    {
-      "type": "p",
-      "text": "The ECB is hinting at future rate cuts because growth is clearly slowing. Everyone on the macro side is already cheering this as “policy support is coming.” But there’s a detail equity investors and dealmakers care about more than the headline: borrowing is still expensive in practice."
-    },
-    {
-      "type": "p",
-      "text": "Even if the policy rate drifts down, companies that loaded up on debt in the zero-rate era are now refinancing at levels that are 2–4 percentage points higher than what’s on their balance sheet. That destroys free cash flow and forces management into defensive decisions: raise equity, sell assets, merge, or cut."
-    },
-    {
-      "type": "h2",
-      "text": "1. Cheap policy ≠ Cheap credit"
-    },
-    {
-      "type": "p",
-      "text": "People love to say “central banks will cut, so debt will be cheap again.” That’s not how it works. Banks and private lenders add their own spread on top. Those spreads are still elevated because default risk is higher, leverage is already high, and growth is soft. So the money that companies actually touch is still expensive."
-    },
-    {
-      "type": "callout",
-      "text": "The story isn’t “rates are going down.” The story is “funding is still painful for anyone who isn’t top tier.”"
-    },
-    {
-      "type": "h2",
-      "text": "2. Why this matters for equities"
-    },
-    {
-      "type": "p",
-      "text": "Equity investors like the rate-cut narrative because lower yields make future earnings look more valuable. But if high funding costs are still choking mid-cap and levered names, you’re going to see weaker capex, slower hiring, and guidance that sounds cautious. That caps how bullish the market can get outside of mega-cap."
-    },
-    {
-      "type": "h2",
-      "text": "3. Why this matters for M&A / PE"
-    },
-    {
-      "type": "p",
-      "text": "This environment creates forced sellers. If you’re a company rolling debt at 8% instead of 4%, suddenly “sell the division” or “merge with a stronger balance sheet” goes from theoretical to necessary. That’s exactly the setup PE and strategic buyers like: stressed assets, still-decent businesses, motivated boards."
-    },
-    {
-      "type": "p",
-      "text": "So when you see headlines like “ECB prepares to cut,” don’t just think rates. Think negotiation power. Who’s now under pressure to sell because their debt reset got brutal? That’s where the deal flow will come from."
-    }
-  ]
-}
+    "id": "ecb-cuts-vs-credit-conditions",
+    "tag": "Macro",
+    "title": "ECB Signals Cuts, But Credit Still Isn’t Cheap",
+    "subtitle": "The central bank is starting to sound softer on inflation and more worried about growth. But the real economy is still paying “expensive money” to roll debt. That gap between narrative and funding cost is what matters for equities and M&A.",
+    "date": "1 Nov 2025",
+    "readTime": "3 min read",
+    "author": "Stefano Campita",
+    "heroImage": "foto sito web/placeholder_chart.jpg",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "The ECB is hinting at future rate cuts because growth is clearly slowing. Everyone on the macro side is already cheering this as “policy support is coming.” But there’s a detail equity investors and dealmakers care about more than the headline: borrowing is still expensive in practice."
+      },
+      {
+        "type": "p",
+        "text": "Even if the policy rate drifts down, companies that loaded up on debt in the zero-rate era are now refinancing at levels that are 2–4 percentage points higher than what’s on their balance sheet. That destroys free cash flow and forces management into defensive decisions: raise equity, sell assets, merge, or cut."
+      },
+      {
+        "type": "h2",
+        "text": "1. Cheap policy ≠ Cheap credit"
+      },
+      {
+        "type": "p",
+        "text": "People love to say “central banks will cut, so debt will be cheap again.” That’s not how it works. Banks and private lenders add their own spread on top. Those spreads are still elevated because default risk is higher, leverage is already high, and growth is soft. So the money that companies actually touch is still expensive."
+      },
+      {
+        "type": "callout",
+        "text": "The story isn’t “rates are going down.” The story is “funding is still painful for anyone who isn’t top tier.”"
+      },
+      {
+        "type": "h2",
+        "text": "2. Why this matters for equities"
+      },
+      {
+        "type": "p",
+        "text": "Equity investors like the rate-cut narrative because lower yields make future earnings look more valuable. But if high funding costs are still choking mid-cap and levered names, you’re going to see weaker capex, slower hiring, and guidance that sounds cautious. That caps how bullish the market can get outside of mega-cap."
+      },
+      {
+        "type": "h2",
+        "text": "3. Why this matters for M&A / PE"
+      },
+      {
+        "type": "p",
+        "text": "This environment creates forced sellers. If you’re a company rolling debt at 8% instead of 4%, suddenly “sell the division” or “merge with a stronger balance sheet” goes from theoretical to necessary. That’s exactly the setup PE and strategic buyers like: stressed assets, still-decent businesses, motivated boards."
+      },
+      {
+        "type": "p",
+        "text": "So when you see headlines like “ECB prepares to cut,” don’t just think rates. Think negotiation power. Who’s now under pressure to sell because their debt reset got brutal? That’s where the deal flow will come from."
+      }
+    ]
+  },
+
+  {
+    "id": "esg-regulations-mna",
+    "tag": "Deals & IB",
+    "title": "Investment Banking 2.0: The Impact of New ESG Regulations on M&A Transactions",
+    "subtitle": "How new ESG disclosure rules are reshaping deal structures and valuations in global M&A.",
+    "date": "30 Oct 2025",
+    "readTime": "10 min read",
+    "author": "Stefano Campita",
+    "heroImage": "foto sito web/foto ESG.png",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Environmental, social, and governance (ESG) standards have evolved from buzzwords to core valuation drivers in global finance, reshaping how investment banks approach mergers and acquisitions."
+      },
+      {
+        "type": "p",
+        "text": "ESG and Regulation: A Changing Landscape\nInstitutions are the primary force behind this. Europe: financial institutions are required to reveal how they incorporate sustainability risks into their investments under the EU Taxonomy and SFDR. In the U.S., the SEC is enacting climate disclosure requirements for listed companies. The UK follows the TCFD framework. This means cross-border M&A must consider both local ESG laws and a target’s global compliance capacity."
+      },
+      {
+        "type": "p",
+        "text": "Banks and funds perform due diligence, or a comprehensive evaluation of risks and opportunities, when considering an acquisition. ESG due diligence is now crucial, revealing issues like high emissions, labor rights violations, or governance flaws — once “soft factors,” now deal breakers."
+      },
+      {
+        "type": "p",
+        "text": "Valuation multiples are directly impacted by ESG factors. Sustainable firms often trade at higher multiples; carbon-intensive sectors face discounts. Deal structures increasingly tie financing or earn-outs to sustainability performance."
+      },
+      {
+        "type": "p",
+        "text": "This shift demands new skills from investment banking analysts. Beyond financial modeling, they must understand ESG metrics, reporting frameworks (TCFD, SASB, GRI), and integrate non-financial data into deal analysis."
+      },
+      {
+        "type": "p",
+        "text": "Renewable energy firms enjoy valuation premiums and lower regulatory risk. Conversely, deals have collapsed over hidden environmental liabilities or litigation — proving ESG risks can outweigh EBITDA growth."
+      },
+      {
+        "type": "p",
+        "text": "ESG integration attracts long-term investors, reduces reputational risk, eases post-merger integration, and unlocks cheaper financing through sustainability-linked loans. It also promotes innovation and resilience."
+      },
+      {
+        "type": "p",
+        "text": "ESG is now a true value driver in M&A, not a buzzword. Investment banking 2.0 requires holistic advice — financial, strategic, and sustainable.\nKey takeaways:\n• Valuation multiples are directly impacted by ESG.\n• Analysts must develop sustainability expertise.\n• ESG integration drives credibility and performance."
+      }
+    ]
+  }
 ]
