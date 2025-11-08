@@ -152,6 +152,11 @@ a{ color:var(--primary); text-decoration:none; }
 .card.article-content h2{ font-size:22px; margin:18px 0 8px; }
 .card.article-content p{ font-size:16px; line-height:1.65; margin:10px 0; }
 .card.article-content img{ display:block; width:100%; max-width:520px; margin:12px 0 0 0; border:1px solid #ECECEC; border-radius:8px; }
+/* Eccezione: le immagini dentro lo slideshow non devono essere limitate */
+.slideshow .slide img {
+  max-width:100%;
+  margin:0 auto;
+}
 
 /* ================================
    FORMS
