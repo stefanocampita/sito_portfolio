@@ -378,3 +378,86 @@ form .actions{ margin-top:14px; }
   object-position: center; /* centers the focus */
   display: block;
 }
+/* ================================
+   SLIDESHOW (PowerPoint exhibits)
+================================ */
+.slideshow {
+  width: 100%;
+}
+
+/* contenitore delle slide */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+}
+
+/* ogni slide, di base nascosta */
+.slideshow .slide {
+  display: none;
+}
+
+.slideshow .slide.is-active {
+  display: block;
+}
+
+/* immagine dentro la slide */
+.slideshow .slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+}
+
+/* controlli Previous / Next */
+.slide-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.slide-nav {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid #D1D5DB;
+  background: #F9FAFB;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.slide-nav:hover {
+  background: #E5E7EB;
+}
+
+/* dots (pallini pagination) */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: #D1D5DB;
+  cursor: pointer;
+}
+
+.dot.is-active {
+  background: #111827;
+}
+
+/* effetto fade opzionale */
+.slide.fade.is-active {
+  animation: fadeSlide 0.25s ease-in-out;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
