@@ -66,6 +66,14 @@
       font-weight:600;
     }
 
+    /* Makes image thumbnails fill the media area nicely */
+    .brief-thumb{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
     .brief-tag{
       position:absolute;
       left:10px;
@@ -209,9 +217,9 @@
     .social-btn:active{
       transform:translateY(1px);
     }
-
   </style>
 </head>
+
 <body>
 
   <!-- ===== NAVBAR ===== -->
@@ -258,125 +266,7 @@
 
       <div class="briefs-grid">
 
-        <!-- BRIEF 0 (NEW ESG CARD) -->
-<!-- NEW: ESG / Investment Banking article card with image -->
-<article class="brief-card">
-  <div class="brief-media">
-    <!-- thumbnail image for the card -->
-    <img
-      src="foto sito web/foto ESG.png"
-      alt="ESG regulations and M&A impact"
-      class="brief-thumb"
-    />
-
-    <!-- category pill -->
-    <div class="brief-tag">Deals &amp; IB</div>
-  </div>
-
-  <div class="brief-body">
-    <h2 class="brief-title">
-      <a href="3-9-nov.html">
-        3 - 9 November Weekly Recap
-      </a>
-    </h2>
-    <p class="brief-excerpt">
-      Monetary policy easing, sector rotations, bond yields, currency shifts, commodities.
-    </p>
-    <div class="brief-meta">
-      <span>9 Nov 2025</span>
-      <span>•</span>
-      <span>10 min read</span>
-    </div>
-    <a class="btn btn-brief" href="3-9-nov.html">Read full brief →</a>
-  </div>
-</article>
-<!-- END BRIEF 0 (NEW ESG CARD) -->
-
-
-        <!-- BRIEF 1 (ECB CREDIT CONDITIONS) -->
-        <!-- existing card: ECB / credit conditions -->
-        <article class="brief-card">
-          <div class="brief-media">
-            <!-- NOTE: you may want to change this label from "Chart / CPI" to something like "Rates / Credit" -->
-            Chart / CPI
-            <div class="brief-tag">Macro</div>
-          </div>
-          <div class="brief-body">
-            <h2 class="brief-title">
-              <a href="10-16-nov.html">
-                10 - 16 November Weekly Recap
-              </a>
-            </h2>
-            <p class="brief-excerpt">
-              Shutdown ends, cautious relief rally, mixed macro data, sector rotation.
-            </p>
-            <div class="brief-meta">
-              <span>16 Nov 2025</span>
-              <span>•</span>
-              <span>10 min read</span>
-            </div>
-            <a class="btn btn-brief" href="10-16-nov.html">Read full brief →</a>
-          </div>
-        </article>
-        <!-- END BRIEF 1 (ECB CREDIT CONDITIONS) -->
-
-
-        <!-- BRIEF 2 (HOT CPI / GREEN EQUITIES) -->
-        <!-- existing card: Macro / inflation reaction -->
-        <article class="brief-card">
-          <div class="brief-media">
-            Chart / CPI
-            <div class="brief-tag">Macro</div>
-          </div>
-          <div class="brief-body">
-            <h2 class="brief-title">
-              <a href="17-23-nov.html">
-                17 - 23 November Weekly Recap
-              </a>
-            </h2>
-            <p class="brief-excerpt">
-              Volatility returns, investors reassess AI valuations, gold strengthens, uncertainty persists.
-            </p>
-            <div class="brief-meta">
-              <span>23 November 2025</span>
-              <span>•</span>
-              <span>10 min read</span>
-            </div>
-            <a class="btn btn-brief" href="17-23-nov.html">Read full brief →</a>
-          </div>
-        </article>
-        <!-- END BRIEF 2 (HOT CPI / GREEN EQUITIES) -->
-
-
-        <!-- BRIEF 3 (MERGER RUMOR / HIGH RATES) -->
-        <!-- existing card: M&A strategic logic in a high-rate world -->
-        <article class="brief-card">
-          <div class="brief-media">
-            M&amp;A / IB
-            <div class="brief-tag">Deals &amp; IB</div>
-          </div>
-          <div class="brief-body">
-            <h2 class="brief-title">
-              <a href="24-30-nov.html">
-                24 - 30 November Weekly Recap
-              </a>
-            </h2>
-            <p class="brief-excerpt">
-              Labor slack rises, Fed divided, tech holds, Bitcoin slumps sharply.
-            </p>
-            <div class="brief-meta">
-              <span>30 November 2025</span>
-              <span>•</span>
-              <span>10 min read</span>
-            </div>
-            <a class="btn btn-brief" href="24-30-nov.html">Read full brief →</a>
-          </div>
-        </article>
-        <!-- END BRIEF 3 (MERGER RUMOR / HIGH RATES) -->
-
-
-        <!-- BRIEF 4 (GOLD / VIX STRESS) -->
-        <!-- existing card: Gold vs VIX risk signal -->
+        <!-- BRIEF 1 (GOLD / VIX STRESS) -->
         <article class="brief-card">
           <div class="brief-media">
             VIX / Gold
@@ -384,9 +274,7 @@
           </div>
           <div class="brief-body">
             <h2 class="brief-title">
-              <a href="1-7-dec.html">
-                1 - 7 December Weekly Recap
-              </a>
+              <a href="1-7-dec.html">1 - 7 December Weekly Recap</a>
             </h2>
             <p class="brief-excerpt">
               Holiday sales strong, confidence falls, equities steady, soft-landing narrative persists.
@@ -399,11 +287,107 @@
             <a class="btn btn-brief" href="1-7-dec.html">Read full brief →</a>
           </div>
         </article>
-        <!-- END BRIEF 4 (GOLD / VIX STRESS) -->
+        <!-- END BRIEF 1 -->
+
+        <!-- BRIEF 2 (MERGER RUMOR / HIGH RATES) -->
+        <article class="brief-card">
+          <div class="brief-media">
+            M&amp;A / IB
+            <div class="brief-tag">Deals &amp; IB</div>
+          </div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <a href="24-30-nov.html">24 - 30 November Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">
+              Labor slack rises, Fed divided, tech holds, Bitcoin slumps sharply.
+            </p>
+            <div class="brief-meta">
+              <span>30 November 2025</span>
+              <span>•</span>
+              <span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="24-30-nov.html">Read full brief →</a>
+          </div>
+        </article>
+        <!-- END BRIEF 2 -->
+
+        <!-- BRIEF 3 (HOT CPI / GREEN EQUITIES) -->
+        <article class="brief-card">
+          <div class="brief-media">
+            Chart / CPI
+            <div class="brief-tag">Macro</div>
+          </div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <a href="17-23-nov.html">17 - 23 November Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">
+              Volatility returns, investors reassess AI valuations, gold strengthens, uncertainty persists.
+            </p>
+            <div class="brief-meta">
+              <span>23 November 2025</span>
+              <span>•</span>
+              <span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="17-23-nov.html">Read full brief →</a>
+          </div>
+        </article>
+        <!-- END BRIEF 3 -->
+
+        <!-- BRIEF 4 (ECB CREDIT CONDITIONS) -->
+        <article class="brief-card">
+          <div class="brief-media">
+            Chart / CPI
+            <div class="brief-tag">Macro</div>
+          </div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <a href="10-16-nov.html">10 - 16 November Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">
+              Shutdown ends, cautious relief rally, mixed macro data, sector rotation.
+            </p>
+            <div class="brief-meta">
+              <span>16 Nov 2025</span>
+              <span>•</span>
+              <span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="10-16-nov.html">Read full brief →</a>
+          </div>
+        </article>
+        <!-- END BRIEF 4 -->
+
+        <!-- BRIEF 5 (NEW ESG CARD) -->
+        <article class="brief-card">
+          <div class="brief-media">
+            <img
+              src="foto sito web/foto ESG.png"
+              alt="ESG regulations and M&A impact"
+              class="brief-thumb"
+            />
+            <div class="brief-tag">Deals &amp; IB</div>
+          </div>
+
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <a href="3-9-nov.html">3 - 9 November Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">
+              Monetary policy easing, sector rotations, bond yields, currency shifts, commodities.
+            </p>
+            <div class="brief-meta">
+              <span>9 Nov 2025</span>
+              <span>•</span>
+              <span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="3-9-nov.html">Read full brief →</a>
+          </div>
+        </article>
+        <!-- END BRIEF 5 -->
 
       </div>
     </section>
-
 
     <!-- ===== FOLLOW / CTA BOX ===== -->
     <section class="container">
@@ -447,11 +431,13 @@
       var btn = document.querySelector('.hamburger');
       var menu = document.querySelector('.menu');
       if(!btn || !menu) return;
+
       btn.addEventListener('click', function(){
         var isOpen = menu.classList.toggle('open');
         btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         document.body.classList.toggle('nav-open', isOpen);
       });
+
       menu.querySelectorAll('a').forEach(function(a){
         a.addEventListener('click', function(){
           menu.classList.remove('open');
