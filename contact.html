@@ -55,6 +55,11 @@
         </div>
       </div>
 
+      <div class="actions">
+  <label for="subject">Subject</label><br/>
+  <input id="subject" name="subject" class="input" placeholder="Subject" value="Contact from website">
+</div>
+
       <!-- Message -->
       <div class="actions">
         <label for="msg">Message</label><br/>
@@ -122,6 +127,19 @@
 
   // ===== Email Direct (provider-aware) =====
   const enc = (s) => encodeURIComponent(String(s || ''));
+  // Prefill from URL params (?subject=...&message=...)
+(function(){
+  const params = new URLSearchParams(window.location.search);
+
+  const subjectParam = params.get('subject');
+  const messageParam = params.get('message');
+
+  const subjectEl = document.getElementById('subject');
+  const msgEl = document.getElementById('msg');
+
+  if (subjectParam && subjectEl && !subjectEl.value.trim()) subjectEl.value = subjectParam;
+  if (messageParam && msgEl && !msgEl.value.trim()) msgEl.value = messageParam;
+})();
 
   function buildEmailUrl(provider, to, subject, body) {
     switch (provider) {
@@ -160,7 +178,7 @@
       }
 
       const to = 'stefanocampita2@gmail.com';
-      const subject = 'Contact from website';
+      const subject = (document.getElementById('subject')?.value?.trim() || 'Contact from website');
       const body = `From: ${name} <${email}>\n\n${msg}`;
 
       const url = buildEmailUrl(provider, to, subject, body);
