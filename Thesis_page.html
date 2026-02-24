@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Causal Inference in Financial Markets — Thesis Extract — Blog</title>
+
+  <!-- Social preview (OG) -->
+  <meta name="description" content="Thesis extract: estimating the causal impact of CPI, NFP, and FOMC shocks on S&P 500, Gold (XAUUSD), and VIX using DML, PSM, and DAG-based validation.">
+  <meta property="og:title" content="Causal Inference in Financial Markets — Thesis Extract">
+  <meta property="og:description" content="Estimating causal effects of macro shocks on S&P 500, Gold (XAUUSD), and VIX using DML, PSM, and DAG-based validation.">
+  <meta property="og:type" content="article">
+  <!-- Keep your banner image, or replace with a thesis-specific one -->
+  <meta property="og:image" content="foto sito web/weekly-recap-16-22-feb-2026.png">
+
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="foto sito web/logo.png" alt="Logo" class="logo">
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="container">
+
+      <!-- HERO -->
+      <section class="article-hero">
+        <div class="hero-media">
+          <img src="foto sito web\foto_banner_articoli.png"
+               alt="Causal inference in financial markets — thesis extract"
+               class="hero-img">
+        </div>
+        <h1 class="article-title">Causal Inference in Financial Markets — Thesis Extract</h1>
+        <div class="article-meta">
+          <span>Published: <time datetime="2026-02-24">Feb 24, 2026</time></span>
+          <span>•</span>
+          <span>Reading time: ~9–12 min</span>
+        </div>
+      </section>
+
+      <article class="card article-content">
+
+        <p>
+          This page is an extract of my bachelor thesis,
+          <strong>“Causal AI and Forecasting Models in Financial Markets: A Causal Analysis of Market Dynamics”</strong>,
+          developed within the <strong>Economics and Big Data</strong> program at Roma Tre University.
+        </p>
+
+        <p>
+          Most market models optimize prediction. That is useful, but it is not identification.
+          In finance, variables often look informative because they co-move with prices, not because they structurally
+          drive them. This research focuses on a stricter question: whether key macroeconomic announcements produce
+          statistically measurable <em>causal effects</em> on asset returns once confounding market dynamics are controlled for.
+        </p>
+
+        <h2>Executive overview</h2>
+        <p>
+          The empirical setup treats three macroeconomic announcements as binary treatments:
+          <strong>CPI</strong> (inflation releases), <strong>NFP</strong> (employment reports), and <strong>FOMC</strong> (monetary policy decisions).
+          These treatments are evaluated across three assets: the <strong>S&amp;P 500</strong>, <strong>Gold (XAUUSD)</strong>, and the <strong>VIX</strong>.
+          This yields nine treatment–outcome combinations.
+        </p>
+
+        <h2>1) From prediction to identification</h2>
+        <p>
+          Baseline supervised models highlight a common limitation: predictive performance can be modest in noisy assets
+          even when models are well specified. This work therefore shifts focus from prediction to identification:
+          estimating whether macro announcements generate measurable causal effects on returns.
+        </p>
+
+        <h2>2) Research design</h2>
+        <p>
+          Three macroeconomic announcements are modeled as binary treatments:
+          <strong>CPI</strong> (inflation releases), <strong>NFP</strong> (employment reports), and <strong>FOMC</strong> (monetary policy decisions).
+          Outcomes are daily log-returns for <strong>S&amp;P 500</strong>, <strong>Gold (XAUUSD)</strong>, and <strong>VIX</strong>,
+          for a total of nine treatment–outcome experiments.
+        </p>
+
+        <aside class="callout">
+          <strong>Technical note (ATE):</strong> this means we estimate the average difference in returns between “shock days”
+          and comparable “non-shock days,” after conditioning on pre-treatment market state variables.
+        </aside>
+
+        <h2>3) Methodological framework</h2>
+
+        <p>
+          Identification is approached through estimator triangulation rather than a single model:
+          <strong>Double Machine Learning (DML)</strong>, <strong>Propensity Score Matching (PSM)</strong>, and a
+          <strong>DAG-based back-door OLS</strong> specification with <strong>Newey–West HAC</strong> errors.
+        </p>
+
+        <aside class="callout">
+          <strong>Technical note (DML):</strong> this means we use machine learning to model “nuisance” components
+          (e.g., how controls explain returns and treatment assignment), then estimate the treatment effect on a residualized signal,
+          reducing bias from flexible, high-dimensional controls.
+        </aside>
+
+        <p>
+          Robustness is evaluated by varying model complexity in DML (trees/depth) and by splitting the sample into
+          <strong>2021–2022</strong> vs <strong>2023–2024</strong> to test regime stability.
+        </p>
+
+        <aside class="callout">
+          <strong>Technical note (DAG/back-door):</strong> this means the control set is chosen using an explicit causal graph,
+          restricting adjustment to <em>pre-treatment</em> variables to avoid “over-controlling” through mediators.
+        </aside>
+
+        <h2>4) Empirical evidence</h2>
+
+        <h3>4.1 Baseline dynamics (2021–2024)</h3>
+        <div class="card" style="margin: 16px 0;">
+          <h3 style="margin-top:0;">Figure 3.1 — Normalized trends (S&amp;P 500, Gold, VIX), 2021–2024</h3>
+          <p style="margin: 8px 0 12px 0;">
+            Normalized price paths (base = 100) for the three assets over the sample window.
+          </p>
+          <img
+            src="figure-3-1-normalized.png"
+            alt="Figure 3.1 — Normalized price paths (base=100) for S&P 500, Gold (XAUUSD), and VIX from 2021 to 2024"
+            style="width:100%; border-radius:12px;"
+            loading="lazy">
+        </div>
+
+        <p>
+          Normalized series provide a structural read: equities show trend phases and corrections, gold increases during uncertainty windows,
+          and the VIX displays spikes around shocks and high-volatility episodes.
+        </p>
+
+        <h3>4.2 Visual reaction to shocks</h3>
+        <div class="card" style="margin: 16px 0;">
+          <h3 style="margin-top:0;">Figure 3.3 — Reactions to CPI, NFP, and FOMC shock dates (normalized series)</h3>
+          <p style="margin: 8px 0 12px 0;">
+            Vertical markers indicate event dates for inflation (CPI), employment (NFP), and monetary policy decisions (rates/FOMC).
+          </p>
+          <img
+            src="immagini_tesi/figure-3-3-shocks.png"
+            alt="Figure 3.3 — Normalized asset responses with CPI, NFP, and rates/FOMC shock dates marked for S&P 500, Gold (XAUUSD), and VIX"
+            style="width:100%; border-radius:12px;"
+            loading="lazy">
+        </div>
+
+        <p>
+          A first-pass visual inspection suggests heterogeneous reactions: gold aligns more closely with inflation shock windows,
+          while VIX spikes are more prominent around monetary policy events. Equity responses appear less structurally stable
+          and more regime dependent.
+        </p>
+
+        <h3>4.3 Estimated treatment effects (cross-method comparison)</h3>
+        <div class="card" style="margin: 16px 0;">
+          <h3 style="margin-top:0;">Figure 3.7 — PSM vs DML vs OLS: estimated shock effects (2021–2024)</h3>
+          <p style="margin: 8px 0 12px 0;">
+            Comparison of estimated average effects across methods for each macro shock and asset.
+          </p>
+          <img
+            src="immagini_tesi/figure-3-7-methods.png"
+            alt="Figure 3.7 — Methods comparison (PSM, DML, OLS): estimated average effects of CPI, NFP, and rates shocks on S&P 500, Gold (XAUUSD), and VIX (2021–2024)"
+            style="width:100%; border-radius:12px;"
+            loading="lazy">
+        </div>
+
+        <p>
+          The cross-method comparison isolates a small set of relationships that remain directionally coherent across approaches.
+          Two results emerge as the most robust: <strong>CPI shocks show a positive and relatively stable effect on gold</strong>, and
+          <strong>FOMC shocks produce a pronounced response in the VIX</strong>. In contrast, <strong>NFP effects appear weaker</strong>
+          and less stable across models and sub-periods.
+        </p>
+
+        <h3>4.4 Temporal robustness</h3>
+        <div class="card" style="margin: 16px 0;">
+          <h3 style="margin-top:0;">Figure 3.8 — Temporal robustness (2021–2022 vs 2023–2024)</h3>
+          <p style="margin: 8px 0 12px 0;">
+            Same specifications estimated across two sub-periods to assess regime stability.
+          </p>
+          <img
+            src="immagini_tesi/figure-3-8-robustness.png"
+            alt="Figure 3.8 — Temporal robustness: comparison of estimated effects across 2021–2022 versus 2023–2024 for S&P 500, Gold (XAUUSD), and VIX"
+            style="width:100%; border-radius:12px;"
+            loading="lazy">
+        </div>
+
+        <p>
+          Splitting the sample into two macro regimes highlights time variation: gold’s CPI response is more pronounced
+          during abrupt inflationary phases (notably 2021–2022) and tends to attenuate during stabilization. Meanwhile,
+          the VIX shows clearer sensitivity to policy-related events, with differences in magnitude across periods.
+        </p>
+
+        <h3>4.5 Summary view</h3>
+        <div class="card" style="margin: 16px 0;">
+          <h3 style="margin-top:0;">Figure 3.9 — Summary heatmap (mean across PSM, DML, and OLS)</h3>
+          <p style="margin: 8px 0 12px 0;">
+            A compact synthesis of estimated average effects across methods.
+          </p>
+          <img
+            src="immagini_tesi/figure-3-9-heatmap.png"
+            alt="Figure 3.9 — Summary heatmap of mean estimated effects (average across PSM, DML, and OLS) for CPI, NFP, and rates shocks across S&P 500, Gold (XAUUSD), and VIX"
+            style="width:100%; border-radius:12px;"
+            loading="lazy">
+        </div>
+
+        <p>
+          The heatmap synthesis is consistent with the core narrative: gold responds positively to inflation shocks,
+          the VIX is highly sensitive to interest rate decisions, and NFP effects remain overall weak.
+        </p>
+
+        <h2>5) Interpretation and implications</h2>
+
+        <p>
+          The evidence supports a disciplined distinction between predictive association and structural impact.
+          Two relationships emerge as the most robust across estimators and robustness checks:
+          <strong>CPI → Gold (positive and relatively stable)</strong> and <strong>FOMC → VIX (pronounced response)</strong>.
+          Effects linked to <strong>NFP</strong> appear weaker and less stable across models and periods.
+        </p>
+
+        <p>
+          Practically, this matters because a variable can improve a forecasting model without being a stable causal driver.
+          Causal estimators act as a structural filter: they reduce spurious macro signals, support regime-aware interpretation,
+          and improve risk calibration around event windows.
+        </p>
+
+        <h2>6) Limitations</h2>
+        <p>
+          This is an observational event-study design. Daily frequency may miss intraday dynamics; treated observations are limited by
+          the number of announcement dates; identification rests on structural assumptions; and the causal graph is not validated via
+          causal discovery algorithms. These constraints call for cautious interpretation of magnitudes, while cross-method consistency
+          supports confidence in direction for the most robust cases.
+        </p>
+
+        <h2>Bottom line</h2>
+        <p>
+          This research shows how combining predictive modeling with causal inference can help separate spurious correlation
+          from structural effects in financial markets. The primary contribution is methodological: moving from forecasting outputs to
+          identification-oriented estimates that can be validated across estimators, hyperparameters, and time regimes.
+        </p>
+
+        <aside class="callout">
+          <strong>Key takeaways:</strong>
+          <ul>
+            <li><strong>Identification &gt; accuracy:</strong> good forecasts do not imply causal drivers.</li>
+            <li><strong>Robust cases:</strong> CPI → Gold (positive, stable); FOMC → VIX (pronounced response).</li>
+            <li><strong>Weak case:</strong> NFP effects are smaller and less stable across models and regimes.</li>
+            <li><strong>Triangulation:</strong> DML, PSM, and DAG-based OLS converge on the most robust directions.</li>
+          </ul>
+        </aside>
+
+        <h2>Sources (primary / checkable)</h2>
+        <ul>
+          <li>
+            Campita, S. (2024/2025). <em>Causal AI and Forecasting Models in Financial Markets: A Causal Analysis of Market Dynamics</em>.
+            Bachelor’s thesis, Roma Tre University.
+          </li>
+          <li>
+            Chernozhukov, V. et al. (2018). <em>Double/Debiased Machine Learning for Treatment and Causal Parameters</em>.
+            (Listed in thesis bibliography.)
+          </li>
+          <li>
+            Pearl, J. (2009; 2nd ed.). <em>Causality: Models, Reasoning and Inference</em>. (Listed in thesis bibliography.)
+          </li>
+          <li>
+            Newey, W. &amp; West, K. (1987). HAC standard errors. (Referenced in thesis methods section.)
+          </li>
+        </ul>
+
+        <!-- SHARE -->
+        <div class="article-actions">
+          <span>Share:</span>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://stefanocampita.github.io/sito_portfolio/post-thesis-extract-causal-inference.html"
+             target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://twitter.com/intent/tweet?url=https://stefanocampita.github.io/sito_portfolio/post-thesis-extract-causal-inference.html&text=Causal%20Inference%20in%20Financial%20Markets%20%E2%80%94%20Thesis%20Extract"
+             target="_blank" rel="noopener">X</a>
+        </div>
+
+        <!-- BACK -->
+        <div class="article-actions">
+          <a class="btn outline" href="blog.html">← Back to Blog</a>
+        </div>
+
+      </article>
+
+      <!-- RELATED POSTS -->
+      <section class="read-also">
+        <h3>Read Also</h3>
+        <div class="read-grid">
+          <a class="read-card" href="portfolio.html">
+            <b>Portfolio</b>
+            <span>Selected projects, models, and research notes.</span>
+          </a>
+          <a class="read-card" href="blog.html">
+            <b>Blog</b>
+            <span>Weekly recaps and market notes.</span>
+          </a>
+          <a class="read-card" href="contact.html">
+            <b>Contact</b>
+            <span>Reach out for questions, collaboration, or the full thesis.</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+        <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
