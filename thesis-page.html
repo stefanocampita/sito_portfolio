@@ -6,11 +6,10 @@
   <title>Causal Inference in Financial Markets — Thesis Extract — Blog</title>
 
   <!-- Social preview (OG) -->
-  <meta name="description" content="Thesis extract: estimating the causal impact of CPI, NFP, and FOMC shocks on S&P 500, Gold (XAUUSD), and VIX using DML, PSM, and DAG-based validation.">
+  <meta name="description" content="Thesis extract: estimating the causal impact of CPI, NFP, and FOMC announcement days on S&P 500, Gold (XAUUSD), and VIX using DML, PSM, and DAG-informed back-door OLS.">
   <meta property="og:title" content="Causal Inference in Financial Markets — Thesis Extract">
-  <meta property="og:description" content="Estimating causal effects of macro shocks on S&P 500, Gold (XAUUSD), and VIX using DML, PSM, and DAG-based validation.">
+  <meta property="og:description" content="Estimating causal effects of macro announcement days on S&P 500, Gold (XAUUSD), and VIX using DML, PSM, and DAG-informed back-door OLS.">
   <meta property="og:type" content="article">
-  <!-- Keep your banner image, or replace with a thesis-specific one -->
   <meta property="og:image" content="foto sito web/weekly-recap-16-22-feb-2026.png">
 
   <link rel="stylesheet" href="styles.clean.css?v=1">
@@ -55,7 +54,8 @@
       <!-- HERO -->
       <section class="article-hero">
         <div class="hero-media">
-          <img src="foto sito web\foto_banner_articoli.png"
+          <!-- FIX: use forward slashes on web -->
+          <img src="foto sito web\thesis-photo.png"
                alt="Causal inference in financial markets — thesis extract"
                class="hero-img">
         </div>
@@ -82,6 +82,14 @@
           statistically measurable <em>causal effects</em> on asset returns once confounding market dynamics are controlled for.
         </p>
 
+        <aside class="callout">
+          <strong>Technical note (prediction vs causality):</strong>
+          Predictive models ask “what return is likely, given today’s information?”
+          Causal models ask “what would returns look like if we could change one input (the event) while holding everything else comparable?”
+          <br><br>
+          <strong>This means:</strong> correlation can be informative for forecasting, but it is not sufficient to claim a structural driver.
+        </aside>
+
         <h2>Executive overview</h2>
         <p>
           The empirical setup treats three macroeconomic announcements as binary treatments:
@@ -105,9 +113,53 @@
           for a total of nine treatment–outcome experiments.
         </p>
 
+        <h3>2.1 What the “shock” is (and what it is not)</h3>
+        <p>
+          In this design, a “shock” is defined as the <strong>announcement day</strong> itself (treatment = 1 on release days, 0 otherwise).
+          The estimand is therefore an <strong>announcement-day effect</strong>: the average return difference on announcement days relative to
+          comparable non-announcement days.
+        </p>
+
+        <p>
+          This does <strong>not</strong> isolate the <em>unexpected surprise component</em> of a release (e.g., actual minus survey forecast).
+          Isolating surprises would require forecast data (typically from surveys) and a different treatment construction.
+          <br><br>
+          <strong>What this captures instead:</strong> information arrival and interpretation, liquidity repricing around known event times,
+          and risk-premia adjustments that tend to cluster on scheduled macro dates.
+        </p>
+
         <aside class="callout">
-          <strong>Technical note (ATE):</strong> this means we estimate the average difference in returns between “shock days”
-          and comparable “non-shock days,” after conditioning on pre-treatment market state variables.
+          <strong>Technical note (boundary of identification):</strong>
+          <strong>This means</strong> the results describe how markets behave <em>on scheduled release days</em> after controlling for pre-event market state.
+          They should not be read as “pure surprise effects.”
+        </aside>
+
+        <h3>2.2 Timing and return measurement</h3>
+        <p>
+          Returns are computed as <strong>daily logarithmic returns</strong> from daily price series.
+          <strong>This means</strong> the estimated effects reflect same-day repricing at the daily frequency and may combine
+          (i) anticipation into the release and (ii) the reaction after the release, within the same daily window.
+        </p>
+
+        <aside class="callout">
+          <strong>Technical note (daily frequency):</strong>
+          Daily data make the analysis transparent and replicable, but they can smooth intraday dynamics.
+          A stricter intraday event study would require high-frequency data and a different identification setup.
+        </aside>
+
+        <h3>2.3 Identification assumption</h3>
+        <p>
+          Identification relies on a conditional independence assumption:
+          <strong>conditional on pre-treatment market variables</strong> (e.g., lagged returns and lagged VIX),
+          announcement timing is treated as <strong>as-good-as-random</strong> with respect to same-day returns.
+          Practically, this is implemented through matching / residualization and a DAG-informed back-door adjustment set
+          built only from <em>pre-treatment</em> covariates.
+        </p>
+
+        <aside class="callout">
+          <strong>Technical note (why “pre-treatment” matters):</strong>
+          <strong>This means</strong> we avoid controlling for variables that could be affected by the event on the same day,
+          because that would remove part of the causal pathway (over-control) or introduce bias (e.g., conditioning on colliders).
         </aside>
 
         <h2>3) Methodological framework</h2>
@@ -115,13 +167,13 @@
         <p>
           Identification is approached through estimator triangulation rather than a single model:
           <strong>Double Machine Learning (DML)</strong>, <strong>Propensity Score Matching (PSM)</strong>, and a
-          <strong>DAG-based back-door OLS</strong> specification with <strong>Newey–West HAC</strong> errors.
+          <strong>DAG-informed back-door OLS</strong> specification with <strong>Newey–West HAC</strong> errors.
         </p>
 
         <aside class="callout">
-          <strong>Technical note (DML):</strong> this means we use machine learning to model “nuisance” components
-          (e.g., how controls explain returns and treatment assignment), then estimate the treatment effect on a residualized signal,
-          reducing bias from flexible, high-dimensional controls.
+          <strong>Technical note (DML):</strong>
+          <strong>This means</strong> machine learning is used to model “nuisance” components (how controls explain returns and treatment assignment),
+          then the treatment effect is estimated on a residualized signal to reduce bias when controls are high-dimensional or nonlinear.
         </aside>
 
         <p>
@@ -130,8 +182,9 @@
         </p>
 
         <aside class="callout">
-          <strong>Technical note (DAG/back-door):</strong> this means the control set is chosen using an explicit causal graph,
-          restricting adjustment to <em>pre-treatment</em> variables to avoid “over-controlling” through mediators.
+          <strong>Technical note (DAG/back-door):</strong>
+          <strong>This means</strong> the control set is chosen using an explicit causal graph so that we adjust only for variables
+          that block non-causal paths between the announcement and returns (and avoid “bad controls”).
         </aside>
 
         <h2>4) Empirical evidence</h2>
@@ -142,8 +195,9 @@
           <p style="margin: 8px 0 12px 0;">
             Normalized price paths (base = 100) for the three assets over the sample window.
           </p>
+          <!-- FIX: correct <img> tag syntax -->
           <img
-            src="immagini_tesi/figure-3-1-normalized.png">
+            src="immagini_tesi/figure-3-1-normalized.png"
             alt="Figure 3.1 — Normalized price paths (base=100) for S&P 500, Gold (XAUUSD), and VIX from 2021 to 2024"
             style="width:100%; border-radius:12px;"
             loading="lazy">
@@ -158,38 +212,38 @@
         <div class="card" style="margin: 16px 0;">
           <h3 style="margin-top:0;">Figure 3.3 — Reactions to CPI, NFP, and FOMC shock dates (normalized series)</h3>
           <p style="margin: 8px 0 12px 0;">
-            Vertical markers indicate event dates for inflation (CPI), employment (NFP), and monetary policy decisions (rates/FOMC).
+            Vertical markers indicate event dates for inflation (CPI), employment (NFP), and monetary policy decisions (FOMC / rates).
           </p>
           <img
             src="immagini_tesi/figure-3-3-shocks.png"
-            alt="Figure 3.3 — Normalized asset responses with CPI, NFP, and rates/FOMC shock dates marked for S&P 500, Gold (XAUUSD), and VIX"
+            alt="Figure 3.3 — Normalized asset responses with CPI, NFP, and FOMC shock dates marked for S&P 500, Gold (XAUUSD), and VIX"
             style="width:100%; border-radius:12px;"
             loading="lazy">
         </div>
 
         <p>
-          A first-pass visual inspection suggests heterogeneous reactions: gold aligns more closely with inflation shock windows,
-          while VIX spikes are more prominent around monetary policy events. Equity responses appear less structurally stable
+          A first-pass visual inspection suggests heterogeneous reactions: gold aligns more closely with inflation announcement windows,
+          while VIX spikes are more prominent around monetary policy decisions. Equity responses appear less structurally stable
           and more regime dependent.
         </p>
 
         <h3>4.3 Estimated treatment effects (cross-method comparison)</h3>
         <div class="card" style="margin: 16px 0;">
-          <h3 style="margin-top:0;">Figure 3.7 — PSM vs DML vs OLS: estimated shock effects (2021–2024)</h3>
+          <h3 style="margin-top:0;">Figure 3.7 — PSM vs DML vs OLS: estimated announcement-day effects (2021–2024)</h3>
           <p style="margin: 8px 0 12px 0;">
-            Comparison of estimated average effects across methods for each macro shock and asset.
+            Comparison of estimated average effects across methods for each macro announcement and asset.
           </p>
           <img
             src="immagini_tesi/figure-3-7-methods.png"
-            alt="Figure 3.7 — Methods comparison (PSM, DML, OLS): estimated average effects of CPI, NFP, and rates shocks on S&P 500, Gold (XAUUSD), and VIX (2021–2024)"
+            alt="Figure 3.7 — Methods comparison (PSM, DML, OLS): estimated average effects of CPI, NFP, and FOMC announcement days on S&P 500, Gold (XAUUSD), and VIX (2021–2024)"
             style="width:100%; border-radius:12px;"
             loading="lazy">
         </div>
 
         <p>
           The cross-method comparison isolates a small set of relationships that remain directionally coherent across approaches.
-          Two results emerge as the most robust: <strong>CPI shocks show a positive and relatively stable effect on gold</strong>, and
-          <strong>FOMC shocks produce a pronounced response in the VIX</strong>. In contrast, <strong>NFP effects appear weaker</strong>
+          Two results emerge as the most robust: <strong>CPI announcement days show a positive and relatively stable effect on gold</strong>, and
+          <strong>FOMC announcement days produce a pronounced response in the VIX</strong>. In contrast, <strong>NFP effects appear weaker</strong>
           and less stable across models and sub-periods.
         </p>
 
@@ -208,8 +262,8 @@
 
         <p>
           Splitting the sample into two macro regimes highlights time variation: gold’s CPI response is more pronounced
-          during abrupt inflationary phases (notably 2021–2022) and tends to attenuate during stabilization. Meanwhile,
-          the VIX shows clearer sensitivity to policy-related events, with differences in magnitude across periods.
+          during abrupt inflationary phases and tends to attenuate during stabilization. Meanwhile, the VIX shows clearer sensitivity
+          to policy-related events, with differences in magnitude across periods.
         </p>
 
         <h3>4.5 Summary view</h3>
@@ -220,14 +274,14 @@
           </p>
           <img
             src="immagini_tesi/figure-3-9-heatmap.png"
-            alt="Figure 3.9 — Summary heatmap of mean estimated effects (average across PSM, DML, and OLS) for CPI, NFP, and rates shocks across S&P 500, Gold (XAUUSD), and VIX"
+            alt="Figure 3.9 — Summary heatmap of mean estimated effects (average across PSM, DML, and OLS) for CPI, NFP, and FOMC announcement days across S&P 500, Gold (XAUUSD), and VIX"
             style="width:100%; border-radius:12px;"
             loading="lazy">
         </div>
 
         <p>
-          The heatmap synthesis is consistent with the core narrative: gold responds positively to inflation shocks,
-          the VIX is highly sensitive to interest rate decisions, and NFP effects remain overall weak.
+          The heatmap synthesis is consistent with the core narrative: gold responds positively to CPI announcement days,
+          the VIX is highly sensitive to monetary policy announcement days, and NFP effects remain overall weaker.
         </p>
 
         <h2>5) Interpretation and implications</h2>
@@ -239,19 +293,44 @@
           Effects linked to <strong>NFP</strong> appear weaker and less stable across models and periods.
         </p>
 
+        <h3>5.1 Economic magnitude (not just direction)</h3>
+        <p>
+          Beyond sign and robustness, magnitude matters. In the results table reported in the thesis, the estimated average effect on
+          <strong>gold (XAUUSD)</strong> around CPI announcement days is in the order of
+          <strong>+13 to +15 bps</strong> (PSM ≈ +13.2 bps; DML ≈ +14.6 bps).
+          For the <strong>VIX</strong>, the corresponding estimated effect reported for one specification is around
+          <strong>−19 to −21 bps</strong> (PSM ≈ −18.9 bps; DML ≈ −20.6 bps).
+        </p>
+
+        <p>
+          <strong>Interpretation:</strong> these magnitudes are statistically detectable in the thesis setup, but they remain
+          moderate in economic terms and should not be interpreted as standalone trading signals.
+          Their value is mainly analytical: they help discriminate between “macro variables that correlate with markets”
+          and “macro events that appear to shift returns in a way that survives controls and robustness checks.”
+        </p>
+
+        <aside class="callout">
+          <strong>Technical note (bps):</strong>
+          1 basis point (bp) = 0.01%. So +15 bps corresponds to an average effect of about +0.15% on the daily return metric used.
+        </aside>
+
         <p>
           Practically, this matters because a variable can improve a forecasting model without being a stable causal driver.
           Causal estimators act as a structural filter: they reduce spurious macro signals, support regime-aware interpretation,
           and improve risk calibration around event windows.
         </p>
 
-        <h2>6) Limitations</h2>
+        <h2>6) Limitations (stated plainly)</h2>
         <p>
-          This is an observational event-study design. Daily frequency may miss intraday dynamics; treated observations are limited by
-          the number of announcement dates; identification rests on structural assumptions; and the causal graph is not validated via
-          causal discovery algorithms. These constraints call for cautious interpretation of magnitudes, while cross-method consistency
-          supports confidence in direction for the most robust cases.
+          This is an observational, scheduled-event design and has structural limits:
         </p>
+        <ul>
+          <li><strong>Limited treated days:</strong> the number of announcement days is small relative to non-announcement days, which can weaken overlap and matching quality.</li>
+          <li><strong>Daily frequency:</strong> daily returns can smooth intraday reactions and mix anticipation with post-release repricing.</li>
+          <li><strong>Binary treatment:</strong> treating announcements as 0/1 ignores the magnitude of the surprise component (actual vs forecast).</li>
+          <li><strong>Omitted concurrent shocks:</strong> global risk events (geopolitics, liquidity stress, idiosyncratic crises) can coincide with macro dates and are hard to fully control for.</li>
+          <li><strong>Unobserved confounding:</strong> conditional independence is an assumption; results should be read with that boundary in mind.</li>
+        </ul>
 
         <h2>Bottom line</h2>
         <p>
@@ -263,10 +342,10 @@
         <aside class="callout">
           <strong>Key takeaways:</strong>
           <ul>
-            <li><strong>Identification &gt; accuracy:</strong> good forecasts do not imply causal drivers.</li>
-            <li><strong>Robust cases:</strong> CPI → Gold (positive, stable); FOMC → VIX (pronounced response).</li>
-            <li><strong>Weak case:</strong> NFP effects are smaller and less stable across models and regimes.</li>
-            <li><strong>Triangulation:</strong> DML, PSM, and DAG-based OLS converge on the most robust directions.</li>
+            <li><strong>Announcement-day effects ≠ surprise effects:</strong> this design estimates the average difference on scheduled release days, not the unexpected component.</li>
+            <li><strong>Identification assumption matters:</strong> conditional on pre-treatment market variables, timing is treated as as-good-as-random for same-day returns.</li>
+            <li><strong>Economic magnitude:</strong> CPI → Gold is on the order of +13 to +15 bps in the thesis table; VIX shows larger sensitivity in the reported specification.</li>
+            <li><strong>Triangulation:</strong> DML, PSM, and DAG-informed OLS converge most clearly on the robust directions.</li>
           </ul>
         </aside>
 
