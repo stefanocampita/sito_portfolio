@@ -143,8 +143,20 @@ a{ color:var(--primary); text-decoration:none; }
 /* ================================
    BLOG: ARTICLE PAGE (dettaglio)
 ================================ */
-.article-hero .hero-media{ border-radius:var(--radius); overflow:hidden; background:#0f1115; }
-.article-hero .hero-media img{ width:100%; height:clamp(200px,28vw,320px); object-fit:cover; display:block; border-radius:var(--radius); }
+.article-hero .hero-media{
+  aspect-ratio: 16 / 6;
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:#0f1115;
+}
+
+.article-hero .hero-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position: 55% 30%;
+  display:block;
+}
 .article-title{ font-size:28px; margin:12px 0 2px; }
 .article-meta{ color:#6b7280; font-size:14px; display:flex; gap:8px; align-items:center; }
 .article-hero{ padding-bottom:8px; margin-bottom:18px; border-bottom:1px solid #e5e7eb; }
@@ -164,7 +176,67 @@ a{ color:var(--primary); text-decoration:none; }
   max-width:100%;
   margin:0 auto;
 }
+/* ================================
+   ARTICLE: READ ALSO
+================================ */
+.read-also{
+  margin-top: 34px;
+}
 
+.read-also h3{
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.read-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width:1024px){
+  .read-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width:680px){
+  .read-grid{ grid-template-columns: 1fr; }
+}
+
+.read-card{
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  padding: 16px 16px 14px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.read-card b{
+  display:block;
+  color: var(--primary);
+  font-size: 16px;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.read-card span{
+  display:block;
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.read-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+  border-color: #D1D5DB;
+}
+
+.read-card:hover b{
+  color: var(--accent);
+}
 /* ================================
    FORMS
 ================================ */
@@ -387,7 +459,7 @@ form .actions{ margin-top:14px; }
   width: 100%;
   height: 100%;
   object-fit: cover;       /* fills the box, keeps proportions */
-  object-position: center; /* centers the focus */
+  object-position: center;
   display: block;
 }
 /* ================================
