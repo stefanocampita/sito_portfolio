@@ -557,3 +557,10 @@ form .actions{ margin-top:14px; }
   display: block;
   margin-top: 1rem;
 }
+/* === FIX MOBILE: slideshow images full width === */
+@media (max-width: 680px) {
+  .slideshow .slide img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
