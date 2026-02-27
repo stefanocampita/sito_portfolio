@@ -6,6 +6,7 @@
   <title>Blog — Stefano Campita | Finance & Markets</title>
   <link rel="stylesheet" href="styles.clean.css?v=5">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
   <script>
@@ -16,173 +17,189 @@
   </script>
 </head>
 <body>
-  
-<div class="nav">
-  <div class="inner">
-    <div class="brand">
-      <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+      </div>
     </div>
-    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="menu">
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="blog.html" class="active">Blog</a>
-      <a href="contact.html">Contact</a>
-      <a href="news.html">News</a>
-    </div>
   </div>
-</div>
 
-<main class="main">
-  <div class="container">
+  <main class="main">
+    <div class="container">
 
-    <!-- HERO -->
-    <p class="eyebrow">INSIGHTS &amp; ANALYSIS</p>
-    <h1 class="hero-title">Blog</h1>
-    <p class="hero-lead">
-      Practical insights on financial modeling, valuation techniques, and deal analysis.
-      Real-world applications that go beyond textbook theory.
-    </p>
+      <!-- HERO -->
+      <p class="eyebrow">INSIGHTS &amp; ANALYSIS</p>
+      <h1 class="hero-title">Blog</h1>
+      <p class="hero-lead">
+        Practical insights on financial modeling, valuation techniques, and deal analysis.
+        Real-world applications that go beyond textbook theory.
+      </p>
 
-    <!-- FEATURED (primo articolo) -->
-    <article class="featured-card">
-  <div class="feat-media">
-    <img src="foto sito web/foto ESG.png" alt="ESG Regulations research cover">
-    <span class="badge-corner">Featured</span>
-  </div>
-  <div class="feat-body">
-    <span class="pill">ESG</span>
-    <h2 class="feat-title">
-      <a href="post-ESG.html">ESG Regulations — Impact on Valuation & Deal Flow</a>
-    </h2>
-    <p class="feat-excerpt">
-      A clear map of EU/US ESG disclosure rules (CSRD, SFDR, SEC) and how they affect diligence,
-      cost of capital, and exit timing for sponsors and strategics.
-    </p>
-    <div class="feat-meta">Feb 2025 • 7 min read</div>
-    <a class="btn btn-read" href="post-ESG.html">Read more</a>
-  </div>
-</article>
-
-    <!-- GRID 3-col degli altri post -->
-    <div class="post-grid">
-
-      <!-- LBO Modelling -->
-      <article class="post-card">
-        <div class="post-media">
-          <img src="foto sito web/LBOmodelpreviewimage.png" alt="LBO Modelling: From Assumptions to IRR" loading="lazy">
-          <span class="pill pill-float">Valuation</span>
+      <!-- FEATURED (NEW) -->
+      <article class="featured-card">
+        <div class="feat-media">
+          <img src="foto sito web\M&A_Deal_Post_Photo.png" alt="Inside an M&A Deal cover">
+          <span class="badge-corner">Featured</span>
         </div>
-        <div class="post-body">
-          <h3 class="post-title"><a href="post-lbo-assumptions-to-irr.html">LBO Modelling: From Assumptions to IRR</a></h3>
-          <p class="post-excerpt">
-            A step-by-step walkthrough of building an LBO model, with leverage scenarios, exit multiples, and sensitivity tables.
+        <div class="feat-body">
+          <span class="pill">M&amp;A</span>
+          <h2 class="feat-title">
+            <a href="M&A_structure_post.html">Inside an M&amp;A Deal — What Really Happens Between the First Call and Closing</a>
+          </h2>
+          <p class="feat-excerpt">
+            A practical inside look at how a transaction is structured, where time is really spent,
+            what makes deals fail, and which parts AI is likely to automate.
           </p>
-          <div class="post-meta"><span>Jan 10, 2025</span><span>•</span><span>10 min read</span></div>
-          <a class="btn btn-more" href="post-lbo-assumptions-to-irr.html">Read More</a>
+          <div class="feat-meta">Feb 27, 2026 • 9 min read</div>
+          <a class="btn btn-read" href="M&A_structure_post.html">Read more</a>
         </div>
       </article>
 
-      <!-- AI in Finance -->
-      <article class="post-card">
-        <div class="post-media">
-          <img src="foto sito web/ai-in-finance-preview.png" alt="AI in Finance: A Companion, Not a Replacement" loading="lazy">
-          <span class="pill pill-float">AI</span>
-        </div>
-        <div class="post-body">
-          <h3 class="post-title"><a href="Post-AI-in-finance.html">AI in Finance: A Companion, Not a Replacement</a></h3>
-          <p class="post-excerpt">
-            How AI is changing PE and IB: a powerful assistant for repetitive tasks—without replacing domain judgment.
-          </p>
-          <div class="post-meta"><span>Jan 5, 2025</span><span>•</span><span>8 min read</span></div>
-          <a class="btn btn-more" href="Post-AI-in-finance.html">Read More</a>
-        </div>
-      </article>
+      <!-- GRID 3-col degli altri post -->
+      <div class="post-grid">
 
-      <!-- ESG -->
-      <article class="post-card">
-        <div class="post-media">
-          <img src="foto sito web/foto ESG.png" alt="ESG & M&A" loading="lazy">
-          <span class="pill pill-float">M&amp;A</span>
-        </div>
-        <div class="post-body">
-          <h3 class="post-title"><a href="post-ESG.html">Investment Banking 2.0: The Impact of New ESG Regulations on M&amp;A Transactions</a></h3>
-          <p class="post-excerpt">
-            How new ESG regulations reshape M&amp;A: due diligence, valuation effects, deal structures, and the evolving role of bankers.
-          </p>
-          <div class="post-meta"><span>Dec 20, 2024</span><span>•</span><span>9 min read</span></div>
-          <a class="btn btn-more" href="post-ESG.html">Read More</a>
-        </div>
-      </article>
+        <!-- ESG Regulations (moved from Featured) -->
+        <article class="post-card">
+          <div class="post-media">
+            <img src="foto sito web/foto ESG.png" alt="ESG Regulations research cover" loading="lazy">
+            <span class="pill pill-float">ESG</span>
+          </div>
+          <div class="post-body">
+            <h3 class="post-title"><a href="post-ESG.html">ESG Regulations — Impact on Valuation &amp; Deal Flow</a></h3>
+            <p class="post-excerpt">
+              A clear map of EU/US ESG disclosure rules (CSRD, SFDR, SEC) and how they affect diligence,
+              cost of capital, and exit timing for sponsors and strategics.
+            </p>
+            <div class="post-meta"><span>Feb 2025</span><span>•</span><span>7 min read</span></div>
+            <a class="btn btn-more" href="post-ESG.html">Read More</a>
+          </div>
+        </article>
 
-      <!-- Tokenization -->
-      <article class="post-card">
-        <div class="post-media">
-          <img src="foto sito web/Token_foto.png" alt="Tokenization in IB/PE" loading="lazy">
-          <span class="pill pill-float">Markets</span>
-        </div>
-        <div class="post-body">
-          <h3 class="post-title"><a href="Post-Tokenization.html">From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</a></h3>
-          <p class="post-excerpt">
-            Tokenization is leaving the lab: concrete implications for banks and private equity—governance, liquidity, and deal mechanics.
-          </p>
-          <div class="post-meta"><span>Dec 15, 2024</span><span>•</span><span>11 min read</span></div>
-          <a class="btn btn-more" href="Post-Tokenization.html">Read More</a>
-        </div>
-      </article>
+        <!-- LBO Modelling -->
+        <article class="post-card">
+          <div class="post-media">
+            <img src="foto sito web/LBOmodelpreviewimage.png" alt="LBO Modelling: From Assumptions to IRR" loading="lazy">
+            <span class="pill pill-float">Valuation</span>
+          </div>
+          <div class="post-body">
+            <h3 class="post-title"><a href="post-lbo-assumptions-to-irr.html">LBO Modelling: From Assumptions to IRR</a></h3>
+            <p class="post-excerpt">
+              A step-by-step walkthrough of building an LBO model, with leverage scenarios, exit multiples, and sensitivity tables.
+            </p>
+            <div class="post-meta"><span>Jan 10, 2025</span><span>•</span><span>10 min read</span></div>
+            <a class="btn btn-more" href="post-lbo-assumptions-to-irr.html">Read More</a>
+          </div>
+        </article>
 
-    </div><!-- /.post-grid -->
+        <!-- AI in Finance -->
+        <article class="post-card">
+          <div class="post-media">
+            <img src="foto sito web/ai-in-finance-preview.png" alt="AI in Finance: A Companion, Not a Replacement" loading="lazy">
+            <span class="pill pill-float">AI</span>
+          </div>
+          <div class="post-body">
+            <h3 class="post-title"><a href="Post-AI-in-finance.html">AI in Finance: A Companion, Not a Replacement</a></h3>
+            <p class="post-excerpt">
+              How AI is changing PE and IB: a powerful assistant for repetitive tasks, without replacing domain judgment.
+            </p>
+            <div class="post-meta"><span>Jan 5, 2025</span><span>•</span><span>8 min read</span></div>
+            <a class="btn btn-more" href="Post-AI-in-finance.html">Read More</a>
+          </div>
+        </article>
 
-    <!-- CTA newsletter -->
-    <section class="subscribe">
-  <h3 class="subscribe-title">Stay Updated</h3>  <!-- non h2 -->
-  <p class="subscribe-sub">
-    Get notified when I publish new analysis, models, and insights on financial modeling and deal analysis.
-  </p>
-  <form class="subscribe-form" action="#" method="post" onsubmit="return false;">
-    <input type="email" class="input" placeholder="Enter your email" required>
-    <button class="btn subscribe-btn" type="submit">Subscribe</button>
-  </form>
-</section>
+        <!-- ESG & M&A (older post pointing to same ESG page) -->
+        <article class="post-card">
+          <div class="post-media">
+            <img src="foto sito web/foto ESG.png" alt="ESG & M&A" loading="lazy">
+            <span class="pill pill-float">M&amp;A</span>
+          </div>
+          <div class="post-body">
+            <h3 class="post-title"><a href="post-ESG.html">Investment Banking 2.0: The Impact of New ESG Regulations on M&amp;A Transactions</a></h3>
+            <p class="post-excerpt">
+              How new ESG regulations reshape M&amp;A: due diligence, valuation effects, deal structures, and the evolving role of bankers.
+            </p>
+            <div class="post-meta"><span>Dec 20, 2024</span><span>•</span><span>9 min read</span></div>
+            <a class="btn btn-more" href="post-ESG.html">Read More</a>
+          </div>
+        </article>
 
+        <!-- Tokenization -->
+        <article class="post-card">
+          <div class="post-media">
+            <img src="foto sito web/Token_foto.png" alt="Tokenization in IB/PE" loading="lazy">
+            <span class="pill pill-float">Markets</span>
+          </div>
+          <div class="post-body">
+            <h3 class="post-title"><a href="Post-Tokenization.html">From Blockchain to the Boardroom: How Tokenization is Reshaping Private Equity and Investment Banking</a></h3>
+            <p class="post-excerpt">
+              Tokenization is leaving the lab: concrete implications for banks and private equity, governance, liquidity, and deal mechanics.
+            </p>
+            <div class="post-meta"><span>Dec 15, 2024</span><span>•</span><span>11 min read</span></div>
+            <a class="btn btn-more" href="Post-Tokenization.html">Read More</a>
+          </div>
+        </article>
 
-  </div>
-</main>
+      </div><!-- /.post-grid -->
 
-<footer class="site-footer">
-  <div class="inner">
-    <div class="left">
-      <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
-      <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      <!-- CTA newsletter -->
+      <section class="subscribe">
+        <h3 class="subscribe-title">Stay Updated</h3>
+        <p class="subscribe-sub">
+          Get notified when I publish new analysis, models, and insights on financial modeling and deal analysis.
+        </p>
+        <form class="subscribe-form" action="#" method="post" onsubmit="return false;">
+          <input type="email" class="input" placeholder="Enter your email" required>
+          <button class="btn subscribe-btn" type="submit">Subscribe</button>
+        </form>
+      </section>
+
     </div>
-    <div class="right">
-      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
-      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
-    </div>
-  </div>
-</footer>
+  </main>
 
-<script>
-  (function(){
-    var btn = document.querySelector('.hamburger');
-    var menu = document.querySelector('.menu');
-    if(!btn || !menu) return;
-    btn.addEventListener('click', function(){
-      var isOpen = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.classList.toggle('nav-open', isOpen);
-    });
-    menu.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        menu.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        btn.setAttribute('aria-expanded','false');
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+        <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
       });
-    });
-  })();
-</script>
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
