@@ -564,3 +564,16 @@ form .actions{ margin-top:14px; }
     height: auto;
   }
 }
+/* ===== 3 cards layout: desktop 3 colonne, mobile stack ===== */
+.tri-cards{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+@media (max-width: 680px){
+  .tri-cards{
+    grid-template-columns: 1fr;
+  }
+}
