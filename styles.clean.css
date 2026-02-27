@@ -171,11 +171,6 @@ a{ color:var(--primary); text-decoration:none; }
   border:1px solid #ECECEC;
   border-radius:8px;
 }
-/* Eccezione: le immagini dentro lo slideshow non devono essere limitate */
-.slideshow .slide img {
-  max-width:100%;
-  margin:0 auto;
-}
 /* ================================
    ARTICLE: READ ALSO
 ================================ */
@@ -487,8 +482,10 @@ form .actions{ margin-top:14px; }
 /* immagine dentro la slide */
 .slideshow .slide img {
   width: 100%;
+  max-width: 620px;   /* limite desktop */
   height: auto;
   display: block;
+  margin: 0 auto;
   border-radius: 8px;
   border: 1px solid #E5E7EB;
 }
@@ -545,11 +542,6 @@ form .actions{ margin-top:14px; }
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-.slideshow .slide img {
-  max-width:620px;    /* o 400px, scegli tu in base all’effetto visivo */
-  margin:0 auto;
-  display:block;
-}
 .highlight-quote {
   color: var(--accent);
   font-style: italic;
@@ -562,5 +554,13 @@ form .actions{ margin-top:14px; }
   .slideshow .slide img {
     width: 100%;
     max-width: 100%;
+  }
+}
+/* FIX MOBILE: immagini dentro gli articoli a tutta larghezza */
+@media (max-width: 680px) {
+  .card.article-content img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 }
