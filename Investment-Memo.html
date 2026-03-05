@@ -1,7 +1,3 @@
-
-Equity siemens schneider · HTML
-Copy
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -532,46 +528,47 @@ Copy
           </figure>
         </div>
 
-        <section class="card slideshow slideshow--in-grid" style="max-width:100%;margin:0;">
+        <!-- SLIDESHOW (fixed) -->
+        <section class="card slideshow slideshow--in-grid" style="max-width:100%;margin:0;" data-slideshow>
           <h3 style="margin:0 0 8px;">Slide Deck</h3>
 
           <div class="slideshow-container" aria-label="PPT slideshow" role="region">
             <div class="slide fade is-active">
-              <img src="FOTO PRESENTAZIONE EQUITY/Deck_page-0001.jpg" alt="Cover slide" loading="lazy" />
+              <img src="Deck_page-0001.jpg" alt="Cover slide" loading="lazy" />
             </div>
             <div class="slide fade">
-              <img src="FOTO PRESENTAZIONE EQUITY/Deck_page-0002.jpg" alt="Sector rationale" loading="lazy" />
+              <img src="Deck_page-0002.jpg" alt="Sector rationale" loading="lazy" />
             </div>
             <div class="slide fade">
-              <img src="FOTO PRESENTAZIONE EQUITY/Deck_page-0003.jpg" alt="Company selection" loading="lazy" />
+              <img src="Deck_page-0003.jpg" alt="Company selection" loading="lazy" />
             </div>
             <div class="slide fade">
-              <img src="FOTO PRESENTAZIONE EQUITY/Deck_page-0004.jpg" alt="Financial analysis" loading="lazy" />
+              <img src="Deck_page-0004.jpg" alt="Financial analysis" loading="lazy" />
             </div>
             <div class="slide fade">
-              <img src="FOTO PRESENTAZIONE EQUITY/Deck_page-0005.jpg" alt="DCF & valuation" loading="lazy" />
+              <img src="Deck_page-0005.jpg" alt="DCF & valuation" loading="lazy" />
             </div>
             <div class="slide fade">
-              <img src="FOTO PRESENTAZIONE EQUITY/Deck_page-0006.jpg" alt="Sensitivity" loading="lazy" />
+              <img src="Deck_page-0006.jpg" alt="Sensitivity" loading="lazy" />
             </div>
             <div class="slide fade">
-              <img src="FOTO PRESENTAZIONE EQUITY/Deck_page-0007.jpg" alt="Conclusion" loading="lazy" />
+              <img src="Deck_page-0007.jpg" alt="Conclusion" loading="lazy" />
             </div>
           </div>
 
           <div class="slide-controls">
-            <button class="slide-nav prev" aria-label="Previous" onclick="plusSlides(-1)">Previous</button>
-            <button class="slide-nav next" aria-label="Next" onclick="plusSlides(1)">Next</button>
+            <button class="slide-nav prev" type="button" aria-label="Previous" data-prev>Previous</button>
+            <button class="slide-nav next" type="button" aria-label="Next" data-next>Next</button>
           </div>
 
           <div class="dots" aria-label="Pagination">
-            <button class="dot is-active" onclick="currentSlide(1)"></button>
-            <button class="dot" onclick="currentSlide(2)"></button>
-            <button class="dot" onclick="currentSlide(3)"></button>
-            <button class="dot" onclick="currentSlide(4)"></button>
-            <button class="dot" onclick="currentSlide(5)"></button>
-            <button class="dot" onclick="currentSlide(6)"></button>
-            <button class="dot" onclick="currentSlide(7)"></button>
+            <button class="dot is-active" type="button" data-dot="1" aria-label="Slide 1"></button>
+            <button class="dot" type="button" data-dot="2" aria-label="Slide 2"></button>
+            <button class="dot" type="button" data-dot="3" aria-label="Slide 3"></button>
+            <button class="dot" type="button" data-dot="4" aria-label="Slide 4"></button>
+            <button class="dot" type="button" data-dot="5" aria-label="Slide 5"></button>
+            <button class="dot" type="button" data-dot="6" aria-label="Slide 6"></button>
+            <button class="dot" type="button" data-dot="7" aria-label="Slide 7"></button>
           </div>
         </section>
       </div>
@@ -693,26 +690,45 @@ Copy
   })();
 </script>
 
-<!-- SLIDESHOW JS -->
+<!-- SLIDESHOW JS (scoped, robust) -->
 <script>
 (function(){
+  const root = document.querySelector('[data-slideshow]');
+  if(!root) return;
+
   let slideIndex = 1;
-  const slides = () => document.querySelectorAll(".slideshow .slide");
-  const dots   = () => document.querySelectorAll(".dots .dot");
+
+  const slides = () => root.querySelectorAll(".slide");
+  const dots   = () => root.querySelectorAll(".dot");
+  const prevBtn = root.querySelector("[data-prev]");
+  const nextBtn = root.querySelector("[data-next]");
 
   function showSlides(n){
-    const s = slides(), d = dots();
+    const s = slides();
+    const d = dots();
     if (!s.length) return;
+
     if (n > s.length) slideIndex = 1;
     if (n < 1) slideIndex = s.length;
+
     s.forEach(el => el.classList.remove("is-active"));
     d.forEach(el => el.classList.remove("is-active"));
-    s[slideIndex-1].classList.add("is-active");
-    if (d[slideIndex-1]) d[slideIndex-1].classList.add("is-active");
+
+    s[slideIndex - 1].classList.add("is-active");
+    if (d[slideIndex - 1]) d[slideIndex - 1].classList.add("is-active");
   }
 
-  window.plusSlides = n => showSlides(slideIndex += n);
-  window.currentSlide = n => showSlides(slideIndex = n);
+  if(prevBtn) prevBtn.addEventListener("click", () => showSlides(slideIndex += -1));
+  if(nextBtn) nextBtn.addEventListener("click", () => showSlides(slideIndex +=  1));
+
+  dots().forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const n = parseInt(btn.getAttribute("data-dot"), 10);
+      if (!Number.isFinite(n)) return;
+      slideIndex = n;
+      showSlides(slideIndex);
+    });
+  });
 
   showSlides(slideIndex);
 })();
