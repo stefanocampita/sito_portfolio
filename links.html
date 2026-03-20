@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Links — Stefano Campita</title>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <meta property="og:title" content="Stefano Campita — Links"/>
+  <meta property="og:description" content="IB/PE portfolio — contacts and quick links"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="foto sito web/logo.png"/>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+
+  <style>
+  /* Page-only: uses your tokens from styles.clean.css */
+  body{
+    background:
+      radial-gradient(900px 280px at 20% -10%, rgba(231,200,115,.18), transparent 55%),
+      radial-gradient(700px 240px at 90% 0%, rgba(43,47,54,.08), transparent 55%),
+      var(--secondary);
+  }
+
+  .hub-wrap{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 34px 20px 0;
+  }
+
+  .hub-card{
+    background:#fff;
+    border:1px solid #ECECEC;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(17,24,39,.10);
+    overflow:hidden;
+  }
+
+  .hub-hero{
+    padding: 34px 26px 22px;
+    text-align:center;
+    border-bottom: 1px solid #E5E7EB;
+    background:
+      radial-gradient(860px 220px at 50% -20%, rgba(231,200,115,.18), transparent 55%),
+      #fff;
+  }
+
+  .hub-eyebrow{
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 900;
+    margin: 0 0 10px;
+  }
+  .hub-eyebrow::after{
+    content:"";
+    display:block;
+    width:120px;
+    height:3px;
+    background:var(--accent);
+    margin:8px auto 0;
+    border-radius:2px;
+  }
+
+  .hub-title{
+    font-family:"Playfair Display", Georgia, serif;
+    font-size: clamp(34px, 5vw, 46px);
+    line-height:1.12;
+    color: var(--primary);
+    margin: 0 0 10px;
+    font-weight: 800;
+  }
+
+  .hub-lead{
+    max-width: 720px;
+    margin: 0 auto 18px;
+    color:#6b7280;
+    line-height:1.6;
+    font-size: 15.5px;
+  }
+
+  .hub-cta{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top: 6px;
+  }
+  .hub-cta .btn{
+    min-width: 180px;
+    text-align:center;
+  }
+
+  .hub-body{
+    padding: 22px 26px 26px;
+  }
+
+  .hub-section{
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:900;
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin: 0 0 14px;
+  }
+  .hub-section::after{
+    content:"";
+    flex:1;
+    height:2px;
+    border-radius:2px;
+    background: linear-gradient(90deg, rgba(231,200,115,.85), rgba(231,200,115,.10));
+  }
+
+  .hub-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap:14px;
+    align-items:stretch;
+  }
+
+  .hub-tile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:16px;
+    border-radius:16px;
+    border:1px solid #E5E7EB;
+    background:#fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.03);
+    transition: transform .12s, box-shadow .18s, border-color .18s;
+    text-decoration:none;
+    color:var(--primary);
+    min-height: 86px;
+  }
+  .hub-tile:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0,0,0,.08);
+    border-color: rgba(231,200,115,.55);
+  }
+
+  .hub-ic{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    background:#F2F4F7;
+    border:1px solid #E5E7EB;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex: 0 0 auto;
+  }
+  .hub-svg{
+    width:18px; height:18px;
+    stroke: var(--primary);
+  }
+
+  .hub-meta h3{
+    margin:0;
+    font-weight:900;
+    font-size:15.5px;
+    line-height:1.2;
+  }
+  .hub-meta p{
+    margin:6px 0 0;
+    color:#6b7280;
+    font-size:13.5px;
+    line-height:1.45;
+  }
+
+  .hub-arrow{
+    margin-left:auto;
+    font-weight:900;
+    color: rgba(43,47,54,.55);
+  }
+
+  .hub-micro{
+    margin: 14px 0 0;
+    text-align:center;
+    color:#6b7280;
+    font-size:13.5px;
+    line-height:1.55;
+  }
+  .hub-micro a{
+    color:var(--primary);
+    font-weight:800;
+    border-bottom:1px solid rgba(231,200,115,.65);
+    text-decoration:none;
+  }
+  .hub-micro a:hover{ border-bottom-color: rgba(231,200,115,.95); }
+
+  @media (max-width: 900px){
+    .hub-grid{ grid-template-columns: 1fr; }
+    .hub-cta .btn{ width: 100%; min-width: unset; }
+  }
+</style>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+        <a href="tools.html">Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+  <div class="hub-wrap">
+    <div class="hub-card">
+
+      <div class="hub-hero">
+        <div class="hub-eyebrow">Links</div>
+        <h1 class="hub-title">Stefano Campita</h1>
+        <div class="hub-lead">
+          Financial Modeling, Valuation, Market Analysis & Weekly Recap.
+        </div>
+
+        <div class="hub-cta">
+          <a class="btn accent" href="portfolio.html">View Portfolio</a>
+          <a class="btn outline" href="blog.html">Read Blog</a>
+          <a class="btn outline" href="news.html">10 Minutes Brief</a>
+        </div>
+      </div>
+
+      <div class="hub-body">
+        <div class="hub-section">Connect</div>
+
+        <div class="hub-grid">
+          <a class="hub-tile" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" rel="noopener">
+            <div class="hub-ic" aria-hidden="true">
+              <svg class="hub-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="hub-meta">
+              <h3>LinkedIn</h3>
+              <p>Professional profile, experience, and updates.</p>
+            </div>
+            <div class="hub-arrow" aria-hidden="true">→</div>
+          </a>
+
+          <a class="hub-tile" href="mailto:stefanocampita2@gmail.com">
+            <div class="hub-ic" aria-hidden="true">
+              <svg class="hub-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z"/>
+                <path d="m22 6-10 7L2 6"/>
+              </svg>
+            </div>
+            <div class="hub-meta">
+              <h3>Email</h3>
+              <p>For collaborations, feedback, or questions.</p>
+            </div>
+            <div class="hub-arrow" aria-hidden="true">→</div>
+          </a>
+
+          <a class="hub-tile" href="contact.html">
+            <div class="hub-ic" aria-hidden="true">
+              <svg class="hub-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </div>
+            <div class="hub-meta">
+              <h3>Contact page</h3>
+              <p>Structured form + background details.</p>
+            </div>
+            <div class="hub-arrow" aria-hidden="true">→</div>
+          </a>
+
+          <a class="hub-tile" href="news.html">
+            <div class="hub-ic" aria-hidden="true">
+              <svg class="hub-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14"/>
+                <path d="M4 19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9h-4"/>
+                <path d="M8 7h8"/>
+                <path d="M8 11h8"/>
+                <path d="M8 15h6"/>
+              </svg>
+            </div>
+            <div class="hub-meta">
+              <h3>The 10 Minutes Brief</h3>
+              <p>Weekly market recap cards & short takes.</p>
+            </div>
+            <div class="hub-arrow" aria-hidden="true">→</div>
+          </a>
+        </div>
+
+        <div class="hub-micro">
+          Want the “wow” first? Start from <a href="news.html">The 10 Minutes Brief</a>.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+        <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+      });
+
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

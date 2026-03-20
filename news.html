@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>The 10 Minutes Brief — Decode the Markets in Ten Minutes</title>
+
+  <link rel="stylesheet" href="styles.clean.css?v=7">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <!-- meta -->
+  <meta name="description" content="Short, practical market takes for students and young finance professionals. The 10 Minutes Brief — Decode the Markets in Ten Minutes.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+
+  <style>
+    /* ---- page-specific tweaks (keeps your main palette) ---- */
+
+    /* "Latest briefs" grid for the news page (similar to blog cards) */
+    .briefs-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:20px;
+      margin-top:8px;
+      align-items:stretch;
+    }
+    @media (max-width:1024px){
+      .briefs-grid{ grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:680px){
+      .briefs-grid{ grid-template-columns:1fr; }
+    }
+
+    .brief-card{
+      background:#fff;
+      border:1px solid #000000;
+      border-radius:14px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 2px 10px rgba(0,0,0,.03);
+      height:100%;
+      transition:transform .15s, box-shadow .15s;
+    }
+    .brief-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 22px rgba(0,0,0,.08);
+    }
+
+    .brief-media{
+      position:relative;
+      height:180px;
+      background:#0f1115;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    /* Makes image thumbnails fill the media area nicely */
+    .brief-thumb{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .brief-tag{
+      position:absolute;
+      left:10px;
+      top:10px;
+      background:var(--accent);
+      color:#1a1a1a;
+      font-weight:800;
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+    }
+
+    .brief-body{
+      padding:12px 14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      flex:1;
+    }
+
+    .brief-title{
+      margin:2px 0 0;
+      font-size:18px;
+      line-height:1.35;
+      font-weight:700;
+      color:var(--primary);
+      font-family:"Playfair Display", Georgia, serif;
+    }
+    .brief-title a{
+      color:var(--primary);
+      text-decoration:none;
+    }
+    .brief-title a:hover{
+      text-decoration:underline;
+    }
+
+    .brief-excerpt{
+      color:#4b5563;
+      margin:0;
+      line-height:1.55;
+      font-size:15px;
+    }
+
+    .brief-meta{
+      color:#6b7280;
+      font-size:14px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .btn.btn-brief{
+      margin-top:auto;
+      align-self:flex-start;
+      background:#fff;
+      color:var(--primary);
+      border:2px solid var(--primary);
+      border-radius:10px;
+      padding:8px 12px;
+      font-weight:800;
+      font-size:14px;
+      transition:filter .2s, transform .05s;
+    }
+    .btn.btn-brief:hover{
+      filter:brightness(1.03);
+    }
+    .btn.btn-brief:active{
+      transform:translateY(1px);
+    }
+
+    /* small divider headline "Latest Briefs" */
+    .section-headline{
+      font-size:14px;
+      font-weight:800;
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:24px 0 12px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
+    .section-headline::after{
+      content:"";
+      flex:1;
+      height:2px;
+      background:var(--accent);
+      border-radius:2px;
+      min-width:60px;
+    }
+
+    /* newsletter / follow box reuse from .subscribe but slightly tuned text */
+    .follow-box{
+      background:#F2F4F7;
+      border:1px solid #E7EBF0;
+      border-radius:16px;
+      padding:32px 24px;
+      margin:32px 0 0;
+      text-align:center;
+    }
+    .follow-title{
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:28px;
+      line-height:1.2;
+      margin:0 0 10px;
+      color:var(--primary);
+      font-weight:800;
+    }
+    .follow-text{
+      max-width:760px;
+      margin:0 auto 18px;
+      color:#4b5563;
+      line-height:1.6;
+      font-size:15.5px;
+    }
+    .follow-row{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+    }
+    .social-btn{
+      display:inline-block;
+      background:#fff;
+      border:2px solid var(--accent);
+      border-radius:12px;
+      color:var(--primary);
+      font-weight:800;
+      font-size:14px;
+      padding:10px 14px;
+      min-width:140px;
+      text-align:center;
+      text-decoration:none;
+      box-shadow:0 1px 0 rgba(0,0,0,.03);
+      transition:box-shadow .15s, transform .05s, border-color .15s;
+    }
+    .social-btn:hover{
+      box-shadow:0 8px 16px rgba(0,0,0,.08);
+      border-color:var(--accent-600);
+    }
+    .social-btn:active{
+      transform:translateY(1px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="foto sito web/logo.png" alt="Logo" class="logo">
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html" class="active">News</a>
+        <a href="tools.html">Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="container">
+      <div class="eyebrow">The 10 Minutes Brief</div>
+
+      <h1 class="hero-title" style="margin-bottom:4px;">
+        Decode the Markets in Ten Minutes
+      </h1>
+
+      <div class="hero-lead" style="max-width:780px;">
+        Short, practical market takes for students and young finance professionals.
+        We explain what actually moved prices — inflation surprises, deal rumors,
+        liquidity stress, central bank noise — helping you get a clear overview of the week!
+      </div>
+    </section>
+
+    <!-- ===== LATEST BRIEFS GRID ===== -->
+    <section class="container">
+      <div class="section-headline">Latest Briefs</div>
+
+      <div class="briefs-grid">
+
+        <!-- ===== NEW WEEKS (Dec 2025 → Jan 2026) ===== -->
+<!-- BRIEF (9–5 Mar 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <!-- TODO: replace href with your real article file -->
+              <a href="#">9 - 15 March 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>15 March 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="9-15-mar.html">Read full brief →</a>
+          </div>
+        </article>
+<!-- BRIEF (2–8 Mar 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <!-- TODO: replace href with your real article file -->
+              <a href="#">2 - 8 March 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>8 March 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="2-8-mar.html">Read full brief →</a>
+          </div>
+        </article>
+<!-- BRIEF (23–1 Mar 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <!-- TODO: replace href with your real article file -->
+              <a href="#">23 - 1 March 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>1 March 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="23-1-mar.html">Read full brief →</a>
+          </div>
+        </article>
+<!-- BRIEF (16–22 Feb 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <!-- TODO: replace href with your real article file -->
+              <a href="#">16 - 22 February 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>22 February 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="16-22-feb.html">Read full brief →</a>
+          </div>
+        </article>
+<!-- BRIEF (09–15 Feb 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <!-- TODO: replace href with your real article file -->
+              <a href="#">09 - 15 February 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>15 February 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="9-15-feb.html">Read full brief →</a>
+          </div>
+        </article>
+<!-- BRIEF (02–08 Feb 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <!-- TODO: replace href with your real article file -->
+              <a href="#">02 - 08 February 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>08 February 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="2-8-feb.html">Read full brief →</a>
+          </div>
+        </article>
+<!-- BRIEF (26–01 Feb 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <!-- TODO: replace href with your real article file -->
+              <a href="#">26 - 01 February 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>01 February 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="26-1-feb.html">Read full brief →</a>
+          </div>
+        </article>
+
+        <!-- BRIEF (19–25 Jan 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <!-- TODO: replace href with your real article file -->
+              <a href="#">19 - 25 January 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>25 January 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="19-25-gen.html">Read full brief →</a>
+          </div>
+        </article>
+
+        <!-- BRIEF (12–18 Jan 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <a href="#">12 - 18 January 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>18 January 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="12-18-gen.html">Read full brief →</a>
+          </div>
+        </article>
+
+        <!-- BRIEF (5–11 Jan 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <a href="#">5 - 11 January 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>11 January 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="5-11-gen.html">Read full brief →</a>
+          </div>
+        </article>
+
+        <!-- BRIEF (29 Dec 2025 – 4 Jan 2026) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <a href="#">29 December 2025 - 4 January 2026 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>4 January 2026</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="29-04-gen.html">Read full brief →</a>
+          </div>
+        </article>
+
+        <!-- BRIEF (22–28 Dec 2025) -->
+        <article class="brief-card">
+          <div class="brief-media">
+  <img class="brief-thumb" src="foto sito web\Weekly_Recap_image.png" alt="Weekly Market Recap thumbnail">
+  <div class="brief-tag">Markets</div>
+</div>
+          <div class="brief-body">
+            <h2 class="brief-title">
+              <a href="#">22 - 28 December 2025 Weekly Recap</a>
+            </h2>
+            <p class="brief-excerpt">What actually moved markets and why it mattered.</p>
+            <div class="brief-meta">
+              <span>28 December 2025</span><span>•</span><span>10 min read</span>
+            </div>
+            <a class="btn btn-brief" href="22-28-dec.html">Read full brief →</a>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- ===== FOLLOW / CTA BOX ===== -->
+    <section class="container">
+      <div class="follow-box">
+        <div class="follow-title">Stay in the loop</div>
+        <div class="follow-text">
+          Soon: short audio recaps (10-minute podcast) + visual breakdowns on social.
+          Follow now so you’re there from Episode 1. This is built for students,
+          IB interns, and anyone who wants to sound sharp in 1/10th of the time.
+          <br><br>
+      <strong>Previous weekly recaps are available upon request via the contact page.</strong>
+        </div>
+        <div class="follow-row">
+          <a class="social-btn" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" rel="noopener noreferrer">
+            Follow on LinkedIn
+          </a>
+          <a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">
+            Follow on Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MOBILE NAV SCRIPT ===== -->
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+      });
+
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

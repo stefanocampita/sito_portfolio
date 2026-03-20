@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DCF Calculator — Stefano Campita | Finance & Markets</title>
+  <meta name="description" content="Free DCF Calculator. Calculate the intrinsic value of any company using Discounted Cash Flow analysis. Built for finance students and analysts.">
+  <link rel="stylesheet" href="styles.clean.css?v=7">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+  <style>
+    .page-header { background: var(--primary); padding: 40px 20px 36px; text-align: center; border-bottom: 3px solid var(--accent); }
+    .page-header .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: 12px; color: var(--accent); font-weight: 800; margin: 0 0 10px; }
+    .page-header h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(32px, 5vw, 52px); color: #fff; margin: 0 0 12px; line-height: 1.1; }
+    .page-header h1 span { color: var(--accent); }
+    .page-header p { color: #adb5bd; font-size: 16px; max-width: 640px; margin: 0 auto; line-height: 1.65; }
+
+    .tool-grid { display: grid; grid-template-columns: 380px 1fr; gap: 24px; margin-top: 28px; align-items: start; }
+    @media (max-width: 1024px) { .tool-grid { grid-template-columns: 1fr; } }
+
+    .tool-card { background: #fff; border: 1px solid #ECECEC; border-radius: var(--radius); padding: 22px 20px; margin-bottom: 20px; }
+    .card-title { font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 800; color: var(--primary); margin: 0 0 18px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-200); }
+
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 700; color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+    .field .hint { font-size: 11px; color: #9ca3af; font-weight: 400; margin-left: 6px; text-transform: none; letter-spacing: 0; }
+    .field input, .field select { width: 100%; padding: 11px 14px; border: 1px solid #E5E7EB; border-radius: 10px; background: #fff; font-size: 15px; color: var(--text); transition: border-color .2s, box-shadow .2s; font-family: inherit; }
+    .field input:focus, .field select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(231,200,115,.25); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .section-label { font-size: 11px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--accent-200); }
+
+    .btn-calc { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid var(--primary); background: var(--primary); color: #fff; font-size: 16px; font-weight: 800; cursor: pointer; transition: filter .2s, transform .05s, box-shadow .2s; font-family: inherit; margin-top: 8px; }
+    .btn-calc:hover { filter: brightness(1.12); box-shadow: 0 4px 14px rgba(43,47,54,.25); }
+    .btn-calc:active { transform: translateY(1px); }
+
+    .results-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 320px; color: #9ca3af; text-align: center; gap: 12px; }
+    .results-empty svg { opacity: .3; }
+    .results-empty p { font-size: 15px; margin: 0; }
+    .results-panel { display: none; }
+
+    .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+    @media (max-width: 680px) { .kpi-row { grid-template-columns: 1fr 1fr; } }
+    .kpi { background: #fff; border: 1px solid #ECECEC; border-radius: 12px; padding: 16px; text-align: center; position: relative; overflow: hidden; }
+    .kpi::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+    .kpi-label { font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+    .kpi-value { font-size: 26px; font-weight: 800; color: var(--primary); font-family: "Playfair Display", Georgia, serif; }
+    .kpi-value.positive { color: #16a34a; }
+    .kpi-value.negative { color: #dc2626; }
+    .kpi-sub { font-size: 12px; color: #9ca3af; margin-top: 4px; }
+
+    .verdict { border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; font-weight: 700; }
+    .verdict.undervalued { background: #f0fdf4; border: 1.5px solid #86efac; color: #15803d; }
+    .verdict.overvalued  { background: #fef2f2; border: 1.5px solid #fca5a5; color: #dc2626; }
+    .verdict.fair        { background: #fffbeb; border: 1.5px solid #fde68a; color: #92400e; }
+    .verdict-icon { font-size: 22px; flex-shrink: 0; }
+    .verdict-text { font-size: 15px; line-height: 1.4; }
+    .verdict-text b { display: block; font-size: 16px; margin-bottom: 2px; }
+
+    .chart-wrap { position: relative; height: 260px; }
+
+    .sens-title { font-size: 14px; font-weight: 800; color: var(--primary); margin: 0 0 4px; }
+    .wacc-label { font-size: 11px; color: #9ca3af; margin-bottom: 10px; }
+    .sens-wrap { overflow-x: auto; }
+    table.sens { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 440px; }
+    table.sens th, table.sens td { padding: 8px 10px; text-align: center; border: 1px solid #E5E7EB; }
+    table.sens thead th { background: var(--primary); color: #fff; font-weight: 700; }
+    table.sens thead th:first-child { background: #1a1a1a; }
+    table.sens tbody td { background: #fff; }
+    table.sens tbody td.highlight { background: var(--accent-200); font-weight: 800; color: var(--primary); }
+    table.sens tbody td.green { background: #f0fdf4; color: #15803d; font-weight: 700; }
+    table.sens tbody td.red   { background: #fef2f2; color: #dc2626; font-weight: 700; }
+
+    .assumptions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    @media (max-width: 500px) { .assumptions { grid-template-columns: 1fr; } }
+    .assumption-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #F9FAFB; border-radius: 8px; font-size: 13px; }
+    .assumption-item .key { color: #6b7280; }
+    .assumption-item .val { font-weight: 700; color: var(--primary); }
+
+    .info-box { background: var(--accent-200); border: 1px solid var(--accent-600); border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; color: #5a4a1e; }
+    .info-box strong { display: block; margin-bottom: 4px; color: var(--primary); }
+    details summary { cursor: pointer; font-size: 13px; font-weight: 700; color: var(--accent-600); list-style: none; display: flex; align-items: center; gap: 6px; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: "▶"; font-size: 10px; transition: transform .2s; }
+    details[open] summary::before { transform: rotate(90deg); }
+    details p { margin: 10px 0 0; font-size: 13px; line-height: 1.65; color: #555; }
+    .formula { background: var(--primary); color: var(--accent); font-family: "Courier New", monospace; font-size: 13px; padding: 12px 16px; border-radius: 8px; margin: 10px 0; overflow-x: auto; white-space: nowrap; }
+    .disclaimer { font-size: 12px; color: #9ca3af; line-height: 1.55; margin-top: 8px; padding: 10px 14px; background: #F9FAFB; border-radius: 8px; border: 1px solid #E5E7EB; }
+
+    .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    @media (max-width: 680px) { .how-grid { grid-template-columns: 1fr; } }
+    .how-step .step-title { font-weight: 800; margin: 0 0 6px; font-size: 15px; }
+    .how-step .step-body { font-size: 14px; color: #4b5563; margin: 0; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+        <a href="tools.html" class="active">Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+
+    <div class="page-header">
+      <p class="eyebrow">Free Finance Tool</p>
+      <h1>DCF <span>Calculator</span></h1>
+      <p>Estimate the intrinsic value of any company using Discounted Cash Flow analysis. Built for finance students, analysts, and investors.</p>
+    </div>
+
+    <div class="container">
+
+      <div class="info-box">
+        <strong>📐 How DCF works</strong>
+        A DCF model estimates a company's value by projecting future free cash flows and discounting them back to present value using the Weighted Average Cost of Capital (WACC). The terminal value captures all cash flows beyond the projection period.
+        <details>
+          <summary>See the formula</summary>
+          <div class="formula">DCF Value = Σ [FCF_t / (1+WACC)^t] + Terminal Value / (1+WACC)^n</div>
+          <p>Terminal Value = FCF_n × (1 + g) / (WACC − g) — where g = perpetual growth rate</p>
+        </details>
+      </div>
+
+      <div class="tool-grid">
+
+        <!-- INPUTS -->
+        <div>
+          <div class="tool-card">
+            <h2 class="card-title">Inputs</h2>
+
+            <p class="section-label">Company Financials</p>
+            <div class="field">
+              <label>Revenue (last 12M) <span class="hint">in millions $</span></label>
+              <input type="number" id="revenue" value="5000" min="0" step="100">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>EBIT Margin <span class="hint">%</span></label>
+                <input type="number" id="ebitMargin" value="20" min="-100" max="100" step="0.5">
+              </div>
+              <div class="field">
+                <label>Tax Rate <span class="hint">%</span></label>
+                <input type="number" id="taxRate" value="25" min="0" max="60" step="0.5">
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>D&amp;A <span class="hint">% of revenue</span></label>
+                <input type="number" id="da" value="5" min="0" max="30" step="0.5">
+              </div>
+              <div class="field">
+                <label>Capex <span class="hint">% of revenue</span></label>
+                <input type="number" id="capex" value="6" min="0" max="30" step="0.5">
+              </div>
+            </div>
+            <div class="field">
+              <label>Change in Working Capital <span class="hint">% of revenue</span></label>
+              <input type="number" id="wcChange" value="1" min="-20" max="20" step="0.5">
+            </div>
+
+            <p class="section-label">Growth Assumptions</p>
+            <div class="field">
+              <label>Revenue Growth — Years 1–5 <span class="hint">%/year</span></label>
+              <input type="number" id="growth1" value="12" min="-50" max="100" step="0.5">
+            </div>
+            <div class="field">
+              <label>Revenue Growth — Years 6–10 <span class="hint">%/year</span></label>
+              <input type="number" id="growth2" value="7" min="-50" max="100" step="0.5">
+            </div>
+            <div class="field">
+              <label>Terminal Growth Rate <span class="hint">%</span></label>
+              <input type="number" id="terminalGrowth" value="2.5" min="0" max="5" step="0.1">
+            </div>
+
+            <p class="section-label">Discount Rate &amp; Capital Structure</p>
+            <div class="field-row">
+              <div class="field">
+                <label>WACC <span class="hint">%</span></label>
+                <input type="number" id="wacc" value="10" min="1" max="30" step="0.1">
+              </div>
+              <div class="field">
+                <label>Projection Years</label>
+                <select id="years">
+                  <option value="5">5 years</option>
+                  <option value="10" selected>10 years</option>
+                </select>
+              </div>
+            </div>
+
+            <p class="section-label">Share Data (Optional)</p>
+            <div class="field-row">
+              <div class="field">
+                <label>Net Debt <span class="hint">$M</span></label>
+                <input type="number" id="netDebt" value="500" step="50">
+              </div>
+              <div class="field">
+                <label>Shares Outstanding <span class="hint">M</span></label>
+                <input type="number" id="shares" value="250" min="0" step="1">
+              </div>
+            </div>
+            <div class="field">
+              <label>Current Share Price <span class="hint">$</span></label>
+              <input type="number" id="sharePrice" value="85" min="0" step="0.5">
+            </div>
+
+            <button class="btn-calc" onclick="calculate()">Calculate Intrinsic Value →</button>
+          </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div>
+          <div id="emptyState" class="results-empty">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+            <p>Fill in the inputs and click<br><strong>Calculate Intrinsic Value</strong></p>
+          </div>
+
+          <div id="resultsPanel" class="results-panel">
+            <div class="kpi-row" id="kpiRow"></div>
+            <div class="verdict" id="verdictBox">
+              <span class="verdict-icon" id="verdictIcon"></span>
+              <div class="verdict-text" id="verdictText"></div>
+            </div>
+            <div class="tool-card">
+              <h3 class="card-title">Free Cash Flow Projection</h3>
+              <div class="chart-wrap">
+                <canvas id="fcfChart"></canvas>
+              </div>
+            </div>
+            <div class="tool-card">
+              <p class="sens-title">📊 Sensitivity Analysis — Intrinsic Value per Share ($)</p>
+              <p class="wacc-label">WACC (columns) vs Terminal Growth Rate (rows)</p>
+              <div class="sens-wrap">
+                <table class="sens" id="sensTable"></table>
+              </div>
+            </div>
+            <div class="tool-card">
+              <h3 class="card-title">Model Assumptions</h3>
+              <div class="assumptions" id="assumptionsList"></div>
+            </div>
+            <p class="disclaimer">⚠️ This tool is for educational and illustrative purposes only. DCF models are highly sensitive to input assumptions. This is not financial advice. Always conduct your own research.</p>
+          </div>
+        </div>
+
+      </div><!-- /.tool-grid -->
+
+      <div class="tool-card">
+        <h3 class="card-title">How to Use This Calculator</h3>
+        <div class="how-grid">
+          <div class="how-step">
+            <p class="step-title">1. Enter Financials</p>
+            <p class="step-body">Input the company's revenue, margins, and capital expenditures. You can find these in the latest 10-K or earnings release.</p>
+          </div>
+          <div class="how-step">
+            <p class="step-title">2. Set Your Assumptions</p>
+            <p class="step-body">Growth rates and WACC are the most impactful inputs. Use the sensitivity table to understand how they affect the valuation.</p>
+          </div>
+          <div class="how-step">
+            <p class="step-title">3. Interpret Results</p>
+            <p class="step-body">Compare intrinsic value to the current share price. A margin of safety of 20–30% is recommended before considering any investment.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; 2026 Stefano Campita. All rights reserved.</div>
+        <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger
+    (function(){
+      var btn  = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        document.body.classList.toggle('nav-open', open);
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    var fcfChartInstance = null;
+
+    function fmt(n, d) {
+      d = (d === undefined) ? 1 : d;
+      if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(d) + 'B';
+      return '$' + n.toFixed(d) + 'M';
+    }
+    function fmtPct(n) { return (n >= 0 ? '+' : '') + n.toFixed(1) + '%'; }
+    function fmtShare(n) { return '$' + n.toFixed(2); }
+
+    function computeDCF(revenue, ebitMargin, taxRate, da, capex, wcChange, g1, g2, tg, wacc, years) {
+      var rev = revenue, fcfs = [], pv = 0;
+      for (var t = 1; t <= years; t++) {
+        var g   = t <= 5 ? g1 : g2;
+        rev     = rev * (1 + g / 100);
+        var fcf = rev * (ebitMargin / 100) * (1 - taxRate / 100)
+                + rev * (da / 100)
+                - rev * (capex / 100)
+                - rev * (wcChange / 100);
+        fcfs.push(fcf);
+        pv += fcf / Math.pow(1 + wacc / 100, t);
+      }
+      var tv  = fcfs[fcfs.length - 1] * (1 + tg / 100) / (wacc / 100 - tg / 100);
+      var pvT = tv / Math.pow(1 + wacc / 100, years);
+      return { fcfs: fcfs, pv: pv, pvTerminal: pvT, enterpriseValue: pv + pvT };
+    }
+
+    function calculate() {
+      var revenue    = parseFloat(document.getElementById('revenue').value)        || 0;
+      var ebitMargin = parseFloat(document.getElementById('ebitMargin').value)     || 0;
+      var taxRate    = parseFloat(document.getElementById('taxRate').value)        || 25;
+      var da         = parseFloat(document.getElementById('da').value)             || 0;
+      var capex      = parseFloat(document.getElementById('capex').value)          || 0;
+      var wcChange   = parseFloat(document.getElementById('wcChange').value)       || 0;
+      var g1         = parseFloat(document.getElementById('growth1').value)        || 0;
+      var g2         = parseFloat(document.getElementById('growth2').value)        || 0;
+      var tg         = parseFloat(document.getElementById('terminalGrowth').value) || 2;
+      var wacc       = parseFloat(document.getElementById('wacc').value)           || 10;
+      var years      = parseInt(document.getElementById('years').value)            || 10;
+      var netDebt    = parseFloat(document.getElementById('netDebt').value)        || 0;
+      var shares     = parseFloat(document.getElementById('shares').value)         || 1;
+      var sharePrice = parseFloat(document.getElementById('sharePrice').value)     || 0;
+
+      if (wacc <= tg) { alert('WACC must be greater than the terminal growth rate.'); return; }
+
+      var res            = computeDCF(revenue, ebitMargin, taxRate, da, capex, wcChange, g1, g2, tg, wacc, years);
+      var intrinsicValue = (res.enterpriseValue - netDebt) / shares;
+      var upside         = sharePrice > 0 ? ((intrinsicValue - sharePrice) / sharePrice) * 100 : 0;
+      var tvPct          = (res.pvTerminal / res.enterpriseValue) * 100;
+
+      // KPIs
+      document.getElementById('kpiRow').innerHTML =
+        '<div class="kpi"><div class="kpi-label">Enterprise Value</div><div class="kpi-value">' + fmt(res.enterpriseValue, 0) + '</div><div class="kpi-sub">PV FCFs + Terminal Value</div></div>' +
+        '<div class="kpi"><div class="kpi-label">Intrinsic Value / Share</div><div class="kpi-value ' + (intrinsicValue >= sharePrice ? 'positive' : 'negative') + '">' + fmtShare(intrinsicValue) + '</div><div class="kpi-sub">vs current ' + fmtShare(sharePrice) + '</div></div>' +
+        '<div class="kpi"><div class="kpi-label">Upside / Downside</div><div class="kpi-value ' + (upside >= 0 ? 'positive' : 'negative') + '">' + fmtPct(upside) + '</div><div class="kpi-sub">Terminal Value = ' + tvPct.toFixed(0) + '% of EV</div></div>';
+
+      // Verdict
+      var box = document.getElementById('verdictBox');
+      box.className = 'verdict';
+      if (upside > 15) {
+        box.classList.add('undervalued');
+        document.getElementById('verdictIcon').textContent = '✅';
+        document.getElementById('verdictText').innerHTML = '<b>Potentially Undervalued</b>Your DCF suggests ' + fmtPct(upside) + ' upside vs the current price.';
+      } else if (upside < -15) {
+        box.classList.add('overvalued');
+        document.getElementById('verdictIcon').textContent = '⚠️';
+        document.getElementById('verdictText').innerHTML = '<b>Potentially Overvalued</b>Your DCF suggests ' + fmtPct(upside) + ' downside on these assumptions.';
+      } else {
+        box.classList.add('fair');
+        document.getElementById('verdictIcon').textContent = '⚖️';
+        document.getElementById('verdictText').innerHTML = '<b>Roughly Fair Valued</b>Your DCF is within ±15% of the current price.';
+      }
+
+      // Chart
+      if (fcfChartInstance) { fcfChartInstance.destroy(); fcfChartInstance = null; }
+      fcfChartInstance = new Chart(document.getElementById('fcfChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: res.fcfs.map(function(_, i){ return 'Year ' + (i + 1); }),
+          datasets: [{
+            label: 'FCF ($M)',
+            data: res.fcfs.map(function(f){ return parseFloat(f.toFixed(1)); }),
+            backgroundColor: res.fcfs.map(function(f){ return f >= 0 ? 'rgba(231,200,115,0.85)' : 'rgba(220,38,38,0.7)'; }),
+            borderColor:     res.fcfs.map(function(f){ return f >= 0 ? '#DDBF66' : '#dc2626'; }),
+            borderWidth: 1.5, borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function(c){ return ' $' + c.parsed.y.toFixed(1) + 'M'; } } }
+          },
+          scales: {
+            y: { grid: { color: '#F3F4F6' }, ticks: { callback: function(v){ return '$' + v + 'M'; }, font: { size: 11 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 11 } } }
+          }
+        }
+      });
+
+      // Sensitivity table
+      var waccRange = [-2,-1,0,1,2].map(function(d){ return wacc + d; });
+      var tgRange   = [-1,-0.5,0,0.5,1].map(function(d){ return tg + d; });
+      var html = '<thead><tr><th>TGR \\ WACC</th>';
+      waccRange.forEach(function(w){ html += '<th>' + w.toFixed(1) + '%</th>'; });
+      html += '</tr></thead><tbody>';
+      tgRange.forEach(function(t){
+        html += '<tr><th>' + t.toFixed(1) + '%</th>';
+        waccRange.forEach(function(w){
+          if (w <= t) { html += '<td>—</td>'; return; }
+          var r  = computeDCF(revenue, ebitMargin, taxRate, da, capex, wcChange, g1, g2, t, w, years);
+          var iv = (r.enterpriseValue - netDebt) / shares;
+          var cl = (w === wacc && t === tg) ? 'highlight' : (iv >= sharePrice ? 'green' : 'red');
+          html += '<td class="' + cl + '">' + fmtShare(iv) + '</td>';
+        });
+        html += '</tr>';
+      });
+      document.getElementById('sensTable').innerHTML = html + '</tbody>';
+
+      // Assumptions
+      var pairs = [
+        ['Base Revenue', fmt(revenue, 0)], ['EBIT Margin', ebitMargin + '%'],
+        ['Tax Rate', taxRate + '%'],       ['D&A (% Rev)', da + '%'],
+        ['Capex (% Rev)', capex + '%'],    ['Growth Yr 1–5', g1 + '%/yr'],
+        ['Growth Yr 6–10', g2 + '%/yr'],  ['Terminal Growth', tg + '%'],
+        ['WACC', wacc + '%'],              ['Net Debt', fmt(netDebt, 0)],
+        ['Shares Out.', shares + 'M'],     ['Current Price', fmtShare(sharePrice)]
+      ];
+      document.getElementById('assumptionsList').innerHTML = pairs.map(function(p){
+        return '<div class="assumption-item"><span class="key">' + p[0] + '</span><span class="val">' + p[1] + '</span></div>';
+      }).join('');
+
+      // Show results
+      document.getElementById('emptyState').style.display = 'none';
+      document.getElementById('resultsPanel').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

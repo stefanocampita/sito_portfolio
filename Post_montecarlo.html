@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Monte Carlo Portfolio Risk Engine: Model Documentation &amp; Results</title>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+
+  <style>
+    .tbl-wrap {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+    .tbl-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+    .tbl-wrap thead tr { background: #f3f4f6; }
+    .tbl-wrap thead th {
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .tbl-wrap tbody tr { border-bottom: 1px solid #f0f0f0; }
+    .tbl-wrap tbody tr:last-child { border-bottom: none; }
+    .tbl-wrap tbody tr:hover { background: #fafafa; }
+    .tbl-wrap tbody td {
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #1f2937;
+    }
+    .tbl-wrap tbody td:first-child { color: #4b5563; font-size: 13px; }
+    .tbl-caption { font-size: 13px; color: #6b7280; margin-top: 6px; }
+    .stress-val { color: #dc2626; font-weight: 600; }
+    code {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 13px;
+      font-family: 'Courier New', monospace;
+      color: #374151;
+    }
+    .formula-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #94a3b8;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #334155;
+      margin: 12px 0;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="article-hero">
+      <div class="hero-media">
+        <img src="foto sito web\Monte-Carlo-RiskEngine.png" alt="Monte Carlo Portfolio Risk Engine cover">
+      </div>
+
+      <h1 class="article-title">Monte Carlo Portfolio Risk Engine</h1>
+      <p style="margin:6px 0 0;color:#4b5563;">
+        A Python-based risk simulation framework for a three-asset portfolio. It quantifies tail risk across market regimes using VaR, Expected Shortfall, and scenario analysis, built from scratch on historical data with a full parameter estimation pipeline.
+      </p>
+
+      <div class="article-meta">
+        <span>Published: <time datetime="2026-03-16">Mar 16, 2026</time></span>
+        <span>•</span>
+        <span>Reading time: ~8–10 min</span>
+      </div>
+
+      <div class="meta-bar" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;">
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Project type: Quantitative Risk</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Assets: S&amp;P 500 · Gold · VIX</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Simulations: 10,000</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Horizon: 252 days</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Methods: VaR · ES · Scenario Analysis</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Tools: Python · NumPy · pandas</span>
+      </div>
+    </section>
+
+    <!-- KEY TAKEAWAYS -->
+    <article class="card article-content">
+      <h2><strong>Key Takeaways</strong></h2>
+      <div class="tri-cards">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">What the model does</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Runs 10,000 correlated return paths for a 60/25/15 portfolio of S&amp;P 500, Gold, and VIX over a one-year horizon.</li>
+            <li>Computes VaR and Expected Shortfall at 95% and 99% confidence, then stress-tests those figures across three distinct market regimes.</li>
+            <li>Includes a full parameter estimation script that reads the historical dataset and calibrates all inputs from scratch.</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Main finding</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Under base conditions, VaR 95% is only &minus;4.1%. In the stress scenario it reaches &minus;68.9%, a 17× deterioration driven purely by regime change.</li>
+            <li>The average loss in the worst 5% of base-case simulations is nearly <strong>six times</strong> the VaR 95% threshold, revealing a tail structure that summary statistics miss entirely.</li>
+            <li>VIX is the dominant driver of both the portfolio's extreme upside and its fat-tailed downside.</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Downloads</h3>
+          <div class="btnrow" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
+            <a class="btn outline sm" href="downloads/portfolio_monte_carlo_simulation.py" target="_blank" rel="noopener">Simulation script (.py)</a>
+            <a class="btn outline sm" href="downloads/portfolio_scenarios_simulation.py" target="_blank" rel="noopener">Scenario script (.py)</a>
+            <a class="btn outline sm" href="downloads/estimate_params.py" target="_blank" rel="noopener">Parameter estimation (.py)</a>
+            <a class="btn outline sm" href="downloads/test_metrics.py" target="_blank" rel="noopener">Unit tests (.py)</a>
+            <a class="btn outline sm" href="downloads/financial_data_merged.xlsx" target="_blank" rel="noopener">Dataset (.xlsx)</a>
+            <a class="btn outline sm" href="downloads/Portfolio_Risk_Model_Documentation_final.docx" target="_blank" rel="noopener">Full documentation (.docx)</a>
+          </div>
+        </div>
+      </div>
+      <p class="callout" style="margin-top:12px;padding:10px 12px;border:1px dashed #cbd5e1;border-radius:10px;background:#f8fafc;font-weight:700;">
+        Disclaimer: this is an educational project and does not constitute investment advice.
+      </p>
+    </article>
+
+    <!-- OVERVIEW -->
+    <article class="card article-content">
+      <h2><strong>Overview: Why This Portfolio, Why This Model</strong></h2>
+      <p>
+        Most discussions of portfolio risk stop at annualized volatility. It is a useful number, but it tells you nothing about
+        the shape of the distribution: whether tail losses are symmetric or skewed, moderate or catastrophic, and how much the
+        picture changes when market conditions shift. This project was built to answer exactly those questions.
+      </p>
+      <p>
+        The portfolio chosen for the analysis, 60% S&amp;P 500, 25% Gold and 15% VIX, is deliberately unconventional.
+        Including VIX as a direct portfolio component creates a risk profile that is genuinely difficult to read from static
+        statistics. VIX is mean-reverting, highly non-normal, and dominated by spike behavior during crises. A Monte Carlo
+        simulation run across multiple regimes is one of the few tools that makes this kind of distribution visible in a
+        meaningful way.
+      </p>
+      <p>
+        The model is built end to end in Python. It starts from raw historical price data, runs a parameter estimation step
+        to calibrate all inputs, and generates 10,000 correlated return paths using a multivariate normal distribution.
+        Both central tendency and tail risk metrics are then derived from the resulting distribution. Scenario analysis tests
+        whether the conclusions hold when market conditions change. As the results show, they do not hold at all.
+      </p>
+    </article>
+
+    <!-- DATA & INPUTS -->
+    <article class="card article-content">
+      <h2><strong>Part 1: Data and Inputs</strong></h2>
+      <p>
+        The simulation is calibrated on daily historical price data covering January 2015 through late 2024, approximately
+        2,140 trading days in total. Returns are computed as simple daily percentage changes. Mean returns and the full
+        covariance matrix are estimated from this sample using <code>estimate_params.py</code>, which reads the Excel dataset
+        and exports all parameters to CSV for verification before the simulation runs.
+      </p>
+
+      <h3 style="margin-top:18px;">Estimated Daily Parameters</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Asset</th><th>Daily Mean Return</th><th>Daily Volatility</th><th>Role in Portfolio</th><th>Weight</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>S&amp;P 500</td><td>0.14%</td><td>~4.4%</td><td>Core equity exposure</td><td>60%</td></tr>
+            <tr><td>Gold</td><td>0.15%</td><td>~4.7%</td><td>Defensive layer</td><td>25%</td></tr>
+            <tr><td>VIX</td><td>2.25%</td><td>~25.5%</td><td>Volatility overlay / tail hedge</td><td>15%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-caption">The 2.25% daily mean for VIX is a statistical artifact of large historical spikes, not a genuine return expectation. See Part 4 for a full discussion.</p>
+
+      <h3 style="margin-top:20px;">Correlation Structure</h3>
+      <p>
+        The covariance matrix is the most consequential input. It governs how asset returns move together and ultimately shapes
+        the tail risk profile more than any individual asset's mean return. Two figures stand out.
+      </p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Pair</th><th>Correlation</th><th>Implication</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S&amp;P 500 / Gold</td><td>+0.39</td>
+              <td>Moderate positive. Gold provides less diversification than most investors assume. The defensive benefit exists, but it is partial.</td>
+            </tr>
+            <tr>
+              <td>S&amp;P 500 / VIX</td><td>&minus;0.54</td>
+              <td>Strong inverse. VIX reliably gains when equities fall, which is the structural hedge the allocation is built around.</td>
+            </tr>
+            <tr>
+              <td>Gold / VIX</td><td>+0.002</td>
+              <td>Essentially uncorrelated. The two defensive assets provide independent risk contributions within the portfolio.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-caption">All correlations estimated from the full 2015–2024 sample. Daily figures.</p>
+
+      <p style="margin-top:14px;">
+        The +0.39 correlation between S&amp;P 500 and Gold is worth pausing on. Many investors treat Gold as a near-zero or
+        negative correlation asset relative to equities. Over this sample period, that assumption does not hold. The relationship
+        is meaningfully positive, which reduces the diversification benefit from the Gold allocation compared to what a naive
+        assumption would suggest. The VIX correlation behaves exactly as expected: strongly negative and consistent throughout.
+      </p>
+    </article>
+
+    <!-- METHODOLOGY -->
+    <article class="card article-content">
+      <h2><strong>Part 2: Methodology</strong></h2>
+
+      <h3>2.1 Multivariate Normal Simulation</h3>
+      <p>
+        The simulation draws 10,000 joint return scenarios from a multivariate normal distribution parameterized by the estimated
+        mean vector and covariance matrix. For each scenario, 252 daily return vectors are generated, one per trading day,
+        preserving the full correlation structure at every step. Portfolio daily returns are the weighted sum of asset returns,
+        and portfolio value paths are built by compounding from a normalized starting value of 1.0.
+      </p>
+
+      <div class="formula-block">
+        V_t = V_0 × ∏(1 + r_p,t)&nbsp;&nbsp; for t = 1 … 252<br>
+        r_p,t = w_SP500 × r_SP500,t + w_Gold × r_Gold,t + w_VIX × r_VIX,t<br>
+        [r_SP500,t, r_Gold,t, r_VIX,t] ~ N(μ, Σ)
+      </div>
+
+      <p>
+        The final portfolio value at day 252 is recorded for each of the 10,000 paths, producing the distribution from which
+        all risk metrics are derived. Using 10,000 paths ensures that even the 1st-percentile estimates are based on 100 data
+        points, making VaR 99% numerically stable. This is a meaningful improvement over the 100-path Excel prototype built
+        earlier in the project, where a single outlier path could move the VaR 99% figure by several percentage points.
+      </p>
+
+      <h3 style="margin-top:20px;">2.2 Scenario Construction</h3>
+      <p>
+        Three scenarios are tested by modifying the simulation inputs. Rather than imposing arbitrary price shocks, the approach
+        models changes to the statistical properties of returns directly, which is more consistent with how risk regimes
+        actually shift in financial markets.
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Scenario</th><th>Covariance scaling</th><th>Mean return adjustment</th><th>Implied volatility change</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Base</strong></td><td>1.0× (unchanged)</td><td>None</td><td>Baseline</td></tr>
+            <tr><td><strong>High Volatility</strong></td><td>1.5×</td><td>None</td><td>+22% (= √1.5)</td></tr>
+            <tr><td><strong>Stress</strong></td><td>2.0×</td><td>&minus;0.2 pp/day</td><td>+41% (= √2)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-caption">
+        Scaling the covariance matrix by k increases variances by k, so volatilities increase by √k. A 1.5× covariance scale means
+        roughly +22% volatility, not +50%.
+      </p>
+
+      <p style="margin-top:14px;">
+        The mean return adjustment in the stress scenario (&minus;0.2 pp/day) is aggressive by design. Over 252 trading days
+        it represents roughly &minus;40 percentage points of annualized expected return, consistent with a prolonged
+        deterioration in fundamentals rather than a short-term shock. Combined with doubled covariances, this is what produces
+        the near-total drawdown scenarios visible at the left tail of the stress distribution.
+      </p>
+
+      <h3 style="margin-top:20px;">2.3 Risk Metrics</h3>
+      <p>
+        Two families of tail risk metrics are computed at both 95% and 99% confidence levels.
+      </p>
+      <p>
+        <strong>Value at Risk (VaR)</strong> is the percentile threshold of the final return distribution. VaR 95% is the 5th
+        percentile, the level below which only 5% of simulated outcomes fall. It answers one question: what is the minimum loss
+        in the worst 5% of scenarios? It says nothing about how bad things get once you are inside that tail.
+      </p>
+      <p>
+        <strong>Expected Shortfall (ES)</strong>, also called Conditional VaR, is the average return across all simulations
+        that fall below the VaR threshold. Given that you are in the worst 5% of scenarios, ES tells you how bad it is on
+        average. It is the more conservative and more informative measure for portfolios with fat-tailed distributions.
+        A large gap between VaR and ES is itself a risk signal: the tail is not just long, it is heavy.
+      </p>
+    </article>
+
+    <!-- RESULTS -->
+    <article class="card article-content">
+      <h2><strong>Part 3: Results</strong></h2>
+
+      <h3>3.1 Full Results Table</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Base</th><th>High Volatility</th><th>Stress</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mean Final Return</td><td>+217.4%</td><td>+217.9%</td><td>+93.0%</td></tr>
+            <tr><td>Median Final Return</td><td>+164.9%</td><td>+141.8%</td><td>+33.0%</td></tr>
+            <tr><td>Std of Final Return</td><td>213.1%</td><td>271.7%</td><td>203.8%</td></tr>
+            <tr><td>Min Final Return</td><td>&minus;76.8%</td><td>&minus;84.8%</td><td><span class="stress-val">&minus;94.8%</span></td></tr>
+            <tr><td>Max Final Return</td><td>+2,716.6%</td><td>+4,510.6%</td><td>+2,808.2%</td></tr>
+            <tr><td>VaR 95%</td><td>&minus;4.1%</td><td>&minus;29.4%</td><td><span class="stress-val">&minus;68.9%</span></td></tr>
+            <tr><td>VaR 99%</td><td>&minus;35.8%</td><td>&minus;54.5%</td><td><span class="stress-val">&minus;82.3%</span></td></tr>
+            <tr><td>ES 95%</td><td>&minus;23.9%</td><td>&minus;45.0%</td><td><span class="stress-val">&minus;77.1%</span></td></tr>
+            <tr><td>ES 99%</td><td>&minus;47.7%</td><td>&minus;63.3%</td><td><span class="stress-val">&minus;86.5%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-caption">All figures represent final portfolio returns after 252 trading days. Stress scenario values highlighted in red.</p>
+
+      <h3 style="margin-top:22px;">3.2 Base Scenario</h3>
+      <p>
+        The base scenario produces a mean final return of +217.4% and a median of +164.9% over the year. The gap between
+        these two figures is the first diagnostic signal: the distribution is right-skewed, with a small number of extreme
+        upside paths pulling the mean well above the central outcome. The standard deviation of 213.1% reflects an
+        exceptionally wide distribution. It does not look like a bell curve, even though the simulation draws from a normal
+        at the daily level. A year of compounding transforms daily normality into annual non-normality.
+      </p>
+      <p>
+        Annualized portfolio volatility implied by the simulation is approximately 60.8%, well above the 12–20% range typical
+        of diversified equity portfolios. The driver is VIX. With a daily standard deviation of roughly 25.5%, it dominates
+        the portfolio's variance even at a 15% weight because its volatility is nearly six times that of the equity component.
+      </p>
+      <p>
+        The base case VaR 95% of &minus;4.1% sounds reassuring: 95% of simulations end without losing more than 4.1% over
+        the year. The ES 95% of &minus;23.9% immediately qualifies that reading. Once you are in the worst 5% of outcomes,
+        the average loss is nearly 24%. <strong>The average tail loss is nearly six times the entry point of the tail.</strong>
+        That gap is the clearest sign of a fat-tailed distribution, and it is a direct consequence of holding VIX.
+      </p>
+
+      <h3 style="margin-top:22px;">3.3 High Volatility and Stress Scenarios</h3>
+      <p>
+        The high-volatility scenario makes the regime-dependence of VaR impossible to ignore. Scaling covariances by 1.5×
+        without touching expected returns pushes VaR 95% from &minus;4.1% to &minus;29.4%, more than seven times larger.
+        ES 95% moves from &minus;23.9% to &minus;45.0%. The base-case risk figure offers almost no useful guidance once
+        market volatility rises. This is the core limitation of VaR as a risk measure: it is calibrated to a specific regime
+        and breaks down the moment that regime changes.
+      </p>
+      <p>
+        The stress scenario compounds the problem further. Adding a daily return penalty of &minus;0.2 pp on top of doubled
+        covariances pushes VaR 95% to &minus;68.9% and ES 95% to &minus;77.1%. The worst simulated outcome across 10,000
+        paths is &minus;94.8%, near-total capital loss. Mean final return falls to +93% and the median collapses to +33%.
+        Even the central outcome becomes modest and uncertain. The maximum of +2,808% confirms the distribution remains
+        right-skewed; the issue is that the entire left tail has shifted dramatically to the downside.
+      </p>
+      <p>
+        The progression from base to stress illustrates the core principle this model was built to demonstrate.
+        <strong>VaR is not a fixed number. It is a function of the market environment.</strong> A portfolio that looks
+        reasonably hedged under normal conditions can carry extreme tail exposure once volatility rises, especially when it
+        holds assets whose own volatility is regime-dependent.
+      </p>
+    </article>
+
+    <!-- VIX -->
+    <article class="card article-content">
+      <h2><strong>Part 4: The Role of VIX</strong></h2>
+      <p>
+        VIX is the unconventional element of this model and deserves its own discussion. It is not a conventional asset.
+        You cannot buy it directly, its returns are mean-reverting, it exhibits strong jump behavior, and its historical
+        mean return of +2.25% per day is a statistical artifact of large crisis spikes rather than a genuine drift.
+        Knowing why it is included and what it actually contributes is essential to reading the results correctly.
+      </p>
+      <p>
+        The structural role of VIX in the portfolio is that of a convex hedge. It spikes sharply when equity markets fall,
+        providing positive returns precisely when the 60% equity allocation is losing value. The &minus;0.54 correlation with
+        S&amp;P 500 captures this relationship. In calm markets, VIX mean-reverts downward and acts as a drag on returns.
+        In a crisis, it can more than offset equity losses. That asymmetric payoff structure is what makes the allocation
+        defensible from a tail risk management perspective.
+      </p>
+      <p>
+        The practical limitation is significant. Modeling VIX returns with a multivariate normal distribution understates
+        how extreme real-world spikes can be. During March 2020, VIX moved from roughly 15 to 85 in a matter of weeks, a
+        move of more than 20 historical standard deviations. A normal simulation simply cannot generate that. The model
+        produces plausible tail scenarios under ordinary stress, but will underestimate the severity of genuine market
+        dislocations, which is exactly when the VIX allocation is most active. A Student-t copula or a regime-switching
+        model for VIX would be the most impactful methodological extension of this framework.
+      </p>
+      <p>
+        Despite this limitation, the model correctly captures the structural effect. VIX is the primary source of both the
+        portfolio's extreme upside scenarios (max final return of +2,716% in the base case) and its heavy-tailed downside
+        distribution. The combination of a high observed mean and high variance produces the right-skewed, fat-tailed
+        return distribution that appears consistently across all three scenarios.
+      </p>
+    </article>
+
+    <!-- PROJECT FILES -->
+    <article class="card article-content">
+      <h2><strong>Part 5: Project Files</strong></h2>
+      <p>
+        The project is structured as a pipeline: parameter estimation feeds the simulation scripts, and unit tests verify
+        the core risk functions independently of the simulation results. All scripts run from the same directory as the dataset.
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>File</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>estimate_params.py</code></td>
+              <td>Reads <code>financial_data_merged.xlsx</code> and estimates mean returns, volatilities, and the full covariance matrix from the historical data. Exports all parameters to CSV. Run this first to verify inputs before executing the simulation scripts.</td>
+            </tr>
+            <tr>
+              <td><code>portfolio_monte_carlo_simulation.py</code></td>
+              <td>Core simulation: generates 10,000 correlated return paths, builds portfolio value paths via compound growth, and computes VaR and ES at 95% and 99% confidence. Outputs a formatted summary table.</td>
+            </tr>
+            <tr>
+              <td><code>portfolio_scenarios_simulation.py</code></td>
+              <td>Extends the simulation across Base, High Volatility, and Stress regimes. Runs all three scenarios sequentially and generates two comparison charts: distribution of final returns and risk metrics by scenario.</td>
+            </tr>
+            <tr>
+              <td><code>test_metrics.py</code></td>
+              <td>Unit tests for the VaR and ES functions. Verifies that VaR 99% ≤ VaR 95%, ES ≤ VaR at both confidence levels, and that base-case VaR is negative. No test framework required; run directly with Python.</td>
+            </tr>
+            <tr>
+              <td><code>financial_data_merged.xlsx</code></td>
+              <td>Historical daily prices for S&amp;P 500, Gold, and VIX from January 2015 through late 2024. Includes pre-computed returns, summary statistics, and the Excel-based prototype (100 paths) built as an exploratory tool before the Python model was developed.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:14px;">
+        Recommended execution order: <code>estimate_params.py</code> → <code>portfolio_monte_carlo_simulation.py</code>
+        → <code>portfolio_scenarios_simulation.py</code>. Unit tests can be run at any point independently.
+      </p>
+    </article>
+
+    <!-- LIMITATIONS -->
+    <article class="card article-content">
+      <h2><strong>Part 6: Limitations and Extensions</strong></h2>
+      <p>
+        Three assumptions in the current model are meaningful simplifications of real market dynamics. They do not undermine
+        the model's core purpose, but they are worth understanding clearly before extending the framework.
+      </p>
+
+      <div class="tri-cards">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 8px;color:#1f2937;font-size:17px;">Distributional assumption</h3>
+          <p style="margin:0;line-height:1.6;font-size:14px;">
+            The multivariate normal assumption is a poor fit for VIX, which exhibits jump behavior and strong non-normality.
+            A Student-t distribution or a copula-based approach would capture tail dependence more accurately and is the
+            single most impactful methodological extension available.
+          </p>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 8px;color:#1f2937;font-size:17px;">Static covariance matrix</h3>
+          <p style="margin:0;line-height:1.6;font-size:14px;">
+            The covariance matrix is estimated from the full sample and held constant. In practice, volatility and correlation
+            are time-varying, compressing in bull markets and spiking in crises. A DCC-GARCH framework would produce more
+            realistic stress scenarios.
+          </p>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 8px;color:#1f2937;font-size:17px;">Fixed weights, no rebalancing</h3>
+          <p style="margin:0;line-height:1.6;font-size:14px;">
+            Weights are held at 60/25/15 throughout with no rebalancing and no transaction costs. The model is a buy-and-hold
+            benchmark. Adding threshold-based rebalancing rules would be a straightforward and meaningful extension.
+          </p>
+        </div>
+      </div>
+
+      <p style="margin-top:16px;">
+        These are real constraints, but they do not undermine what the model is designed to show. The simulation makes visible
+        how correlation structure shapes diversification, how tail metrics differ from central tendency measures, and how
+        dramatically risk estimates change across volatility regimes. The specific numbers matter less than the structural
+        relationships they reveal.
+      </p>
+    </article>
+
+    <!-- DOWNLOADS -->
+    <article class="card article-content">
+      <h2><strong>Downloads</strong></h2>
+      <p>All files used to build the project:</p>
+      <div class="btnrow" style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn outline sm" href="downloads/portfolio_monte_carlo_simulation.py" target="_blank" rel="noopener">Simulation script (.py)</a>
+        <a class="btn outline sm" href="downloads/portfolio_scenarios_simulation.py" target="_blank" rel="noopener">Scenario script (.py)</a>
+        <a class="btn outline sm" href="downloads/estimate_params.py" target="_blank" rel="noopener">Parameter estimation (.py)</a>
+        <a class="btn outline sm" href="downloads/test_metrics.py" target="_blank" rel="noopener">Unit tests (.py)</a>
+        <a class="btn outline sm" href="downloads/financial_data_merged.xlsx" target="_blank" rel="noopener">Dataset (.xlsx)</a>
+        <a class="btn outline sm" href="downloads/Portfolio_Risk_Model_Documentation_final.docx" target="_blank" rel="noopener">Full documentation (.docx)</a>
+      </div>
+    </article>
+
+    <!-- READ ALSO -->
+    <section class="read-also">
+      <h3>Read Also</h3>
+      <div class="read-grid">
+        <a class="read-card" href="post-schneider-siemens.html">
+          <b>Schneider Electric vs. Siemens</b>
+          <span>A structured equity analysis of the European industrial sector.</span>
+        </a>
+        <a class="read-card" href="post-lbo-assumptions-to-irr.html">
+          <b>LBO Modelling: From Assumptions to IRR</b>
+          <span>Step-by-step build and drivers behind returns.</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

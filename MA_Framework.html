@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MA Framework: Deal Sourcing & Acquisition Screening Engine</title>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+
+  <style>
+    .tbl-wrap {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+    .tbl-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+    .tbl-wrap thead tr { background: #f3f4f6; }
+    .tbl-wrap thead th {
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .tbl-wrap tbody tr { border-bottom: 1px solid #f0f0f0; }
+    .tbl-wrap tbody tr:last-child { border-bottom: none; }
+    .tbl-wrap tbody tr:hover { background: #fafafa; }
+    .tbl-wrap tbody td {
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #1f2937;
+    }
+    .tbl-wrap tbody td:first-child { color: #4b5563; font-size: 13px; }
+    .tbl-caption { font-size: 13px; color: #6b7280; margin-top: 6px; }
+    .green-val { color: #16a34a; font-weight: 600; }
+    .amber-val { color: #d97706; font-weight: 600; }
+    .red-val   { color: #dc2626; font-weight: 600; }
+    code {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 13px;
+      font-family: 'Courier New', monospace;
+      color: #374151;
+    }
+    .formula-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #94a3b8;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #334155;
+      margin: 12px 0;
+      line-height: 1.8;
+    }
+    .screenshot-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px 0;
+      background: #f9fafb;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+    .screenshot-block img {
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      max-width: 100% !important;
+    }
+    .screenshot-caption {
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <section class="article-hero">
+      <div class="hero-media">
+        <img src="foto sito web/ma-framework-cover.png" alt="MA Framework Deal Sourcing Engine">
+      </div>
+
+      <h1 class="article-title">MA Framework: Deal Sourcing &amp; Acquisition Screening Engine</h1>
+      <p style="margin:6px 0 0;color:#4b5563;">
+        A modular Python framework for identifying, screening, and prioritising acquisition targets in the Italian mid-market.
+        Built for family offices and holding companies, it combines financial analysis, proprietary signals, and deal feasibility
+        into a structured decision-support system with a local Streamlit dashboard.
+      </p>
+
+      <div class="article-meta">
+        <span>Published: <time datetime="2026-03-21">Mar 21, 2026</time></span>
+        <span>&#8226;</span>
+        <span>Reading time: ~10-12 min</span>
+      </div>
+
+      <div class="meta-bar" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;">
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Project type: M&amp;A Analytics</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Market: Italian Mid-Market</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">EBITDA Target: €2M - €15M</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Sectors: Manufacturing · Food &amp; Agri · Distribution</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Tools: Python · SQLite · Streamlit · ReportLab</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Output: BUY · WATCH · PASS</span>
+      </div>
+    </section>
+
+    <article class="card article-content">
+      <h2><strong>Key Takeaways</strong></h2>
+      <div class="tri-cards">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">What the framework does</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Reads company financials from a structured Excel template and computes a full KPI set: revenue CAGR, EBITDA margin, cash conversion, PFN/EBITDA, revenue per head.</li>
+            <li>Runs five proprietary scoring modules, including a Succession Signal Detector and an Owner Dependency Score, that no commercial tool in this segment offers.</li>
+            <li>Produces a BUY / WATCH / PASS decision, a valuation range, a deal feasibility assessment, and a PDF report in under 10 seconds per target.</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Why it matters</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>The Italian mid-market is one of the most information-inefficient M&amp;A segments in Europe. Most deals are still sourced through personal networks and managed with Excel.</li>
+            <li>Over the next 5-10 years, more than 70,000 Italian companies with revenues above €5M will face ownership transitions driven by generational change. A systematic approach to sourcing is the only way to stay ahead of that wave.</li>
+            <li>The framework runs entirely locally, with no cloud dependency and no recurring cost, making it viable for small teams and individual investors.</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Project files</h3>
+          <div class="btnrow" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
+            <a class="btn outline sm" href="downloads/ma_framework_v6.zip" target="_blank" rel="noopener">Full framework (.zip)</a>
+            <a class="btn outline sm" href="downloads/company_template.xlsx" target="_blank" rel="noopener">Company template (.xlsx)</a>
+            <a class="btn outline sm" href="downloads/acquirer_template.xlsx" target="_blank" rel="noopener">Acquirer template (.xlsx)</a>
+          </div>
+        </div>
+      </div>
+      <p class="callout" style="margin-top:12px;padding:10px 12px;border:1px dashed #cbd5e1;border-radius:10px;background:#f8fafc;font-weight:700;">
+        Disclaimer: this framework is an analytical tool and does not constitute investment advice. All outputs should be verified against primary sources before any investment decision is made.
+      </p>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Overview: The Problem This Solves</strong></h2>
+      <p>
+        Most M&amp;A analytics tools are built for large-cap, liquid markets. Capital IQ covers millions of companies globally
+        but offers thin data on Italian SMEs below €50M in revenue. Midaxo and DealCloud manage pipeline CRM at enterprise
+        prices that start in the tens of thousands per year. Neither is calibrated to the specific dynamics of the Italian
+        mid-market: family-owned businesses, founder dependency, informal succession processes, financial statements that
+        require careful reading.
+      </p>
+      <p>
+        The MA Framework starts from the opposite direction. The core question it tries to answer is the one a family office
+        or holding company actually asks: <em>is this company worth spending time on, and is now the right moment to approach it?</em>
+        Everything in the system is built around that.
+      </p>
+      <p>
+        The pipeline has six layers: data ingestion, KPI calculation, scoring, valuation, feasibility assessment, and output
+        generation. Each layer is modular and independently testable. The whole thing runs on a local machine with no external
+        API dependencies, which keeps sensitive deal information off third-party servers and the cost of operation at zero.
+      </p>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 1: Architecture</strong></h2>
+      <p>
+        The framework is built in Python and structured around ten modules. The entry point is a structured Excel template,
+        one file per target company, which feeds the ingestion layer and propagates through the full pipeline.
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Module</th><th>Function</th><th>Output</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>ingestion.py</code></td><td>Reads Excel template, validates data, computes completeness score</td><td>Structured data dict + completeness score /100</td></tr>
+            <tr><td><code>kpi.py</code></td><td>Calculates financial KPIs from historical financials</td><td>Revenue CAGR, EBITDA margin, cash conversion, PFN/EBITDA, rev/head</td></tr>
+            <tr><td><code>scoring.py</code></td><td>Multi-dimensional scoring with configurable weights</td><td>Score /100 + BUY / WATCH / PASS decision</td></tr>
+            <tr><td><code>valuation.py</code></td><td>EV range from sector-calibrated EBITDA multiples</td><td>EV min/max, equity min/max, multiple range</td></tr>
+            <tr><td><code>feasibility.py</code></td><td>Deal structure and leverage sustainability assessment</td><td>FEASIBLE / STRETCHED / HARD + debt capacity</td></tr>
+            <tr><td><code>succession.py</code></td><td>Detects generational transition signals from available data</td><td>Score /10 + signal list</td></tr>
+            <tr><td><code>owner_dependency.py</code></td><td>Estimates founder dependency risk</td><td>Score /10 + risk signals</td></tr>
+            <tr><td><code>integration_complexity.py</code></td><td>Preliminary integration difficulty index</td><td>Score /10 + complexity drivers</td></tr>
+            <tr><td><code>acquirer_readiness.py</code></td><td>Scores the acquirer's own readiness across 5 dimensions</td><td>Score /100 + PRONTO / QUASI PRONTO / NON PRONTO</td></tr>
+            <tr><td><code>pdf_report.py</code></td><td>Generates executive summary or full report in PDF</td><td>Professional PDF with charts and tables</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-caption">All modules are independently testable. The pipeline can be run from CLI via <code>main.py</code> or through the Streamlit dashboard.</p>
+
+      <p style="margin-top:14px;">
+        The data layer uses SQLite as a local database. Every target analysed can be saved to the pipeline, which enables
+        persistent ranking, filtering, and comparison across sessions. The schema stores KPIs and scores as both flat columns
+        for fast querying and JSON blobs for full detail retrieval.
+      </p>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 2: The KPI Layer</strong></h2>
+      <p>
+        Financial data is entered through a three-sheet Excel template: anagrafica (company profile), three years of income
+        statement and balance sheet data, and qualitative inputs. The KPI layer reads rows by label rather than by position,
+        so the template can be modified without touching the code.
+      </p>
+
+      <h3 style="margin-top:18px;">Core KPIs Computed</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>KPI</th><th>Formula</th><th>Why It Matters for Italian SMEs</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Revenue CAGR</td><td>(Rev_n / Rev_0)^(1/n) - 1, dynamic n</td><td>Organic growth signal; distinguishes structural growth from one-off gains</td></tr>
+            <tr><td>EBITDA Margin (avg)</td><td>Mean(EBITDA / Revenue) over period</td><td>Pricing power proxy; benchmarks vary significantly across manufacturing sub-sectors</td></tr>
+            <tr><td>EBITDA Margin Trend</td><td>Last margin - First margin</td><td>Expansion or compression signal; more informative than the average in isolation</td></tr>
+            <tr><td>Cash Conversion</td><td>(EBITDA - Capex - DCCN) / EBITDA</td><td>Italian SMEs often show inflated EBITDA; cash conversion separates real from accounting earnings</td></tr>
+            <tr><td>PFN / EBITDA</td><td>(Debt - Cash) / EBITDA_last</td><td>Primary leverage metric; negative values indicate net cash, which affects deal structure</td></tr>
+            <tr><td>Revenue per Head</td><td>Revenue_last / Employees_last</td><td>Operational productivity proxy; useful for within-sector peer comparisons</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="screenshot-block">
+        <img src="foto sito web/ma-framework-kpi-cards.png" alt="KPI summary cards in the dashboard">
+        <div class="screenshot-caption">The KPI summary row in the dashboard. The five cards give an immediate read on growth, margins, leverage, and cash quality before diving into the detail.</div>
+      </div>
+
+      <p>
+        The completeness score runs at ingestion and ranges from 0 to 100. Missing fields are penalised proportionally,
+        with financial data weighted more heavily than qualitative inputs. Every output in the dashboard shows the
+        completeness score of the underlying data, so it is always clear how much to trust the result. A target with 60%
+        completeness produces a valid score, but the decision label is flagged as provisional.
+      </p>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 3: The Scoring Model</strong></h2>
+      <p>
+        The scoring model assigns a composite score from 0 to 100 and maps it to one of three labels: BUY, WATCH, or PASS.
+        Thresholds and weights are configurable via a YAML settings file. The model can be recalibrated for different
+        acquirer strategies without touching the codebase.
+      </p>
+
+      <h3 style="margin-top:18px;">Scoring Dimensions</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Dimension</th><th>Max Points</th><th>Key Drivers</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Business Quality</td><td>70</td><td>Revenue CAGR, EBITDA margin (avg + trend), leverage, cash conversion, revenue per head (level + trend)</td></tr>
+            <tr><td>Market / Qualitative</td><td>20</td><td>Competitive position (1-5), client concentration, export exposure</td></tr>
+            <tr><td>Acquisition Signal</td><td>10</td><td>Owner age and succession context, treated as an acquisibility signal rather than a quality penalty</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-caption">Decision thresholds: BUY &ge; 72, WATCH &ge; 38, PASS &lt; 38. Both are configurable in <code>config/settings.yaml</code>.</p>
+
+      <p style="margin-top:14px;">
+        One design choice worth explaining is the treatment of founder age. In most screening tools, an older founder reduces
+        a company's score as a risk factor. Here it works the other way: an older founder without identified successors is
+        treated as a positive acquisibility signal, because it increases the probability the owner is open to a conversation.
+        Business quality and ownership context are scored separately and combined transparently.
+      </p>
+
+      <div class="screenshot-block">
+        <img src="foto sito web/ma-framework-signals.png" alt="Proprietary signals: Succession Signal, Owner Dependency, Integration Complexity">
+        <div class="screenshot-caption">The three proprietary signal modules in the dashboard. Each produces a score out of 10, a label, and a list of specific signals detected from the input data.</div>
+      </div>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 4: The Proprietary Modules</strong></h2>
+      <p>
+        The three proprietary modules are the most analytically distinctive part of the framework. None of them exist as
+        structured outputs in any comparable commercial tool for this market segment.
+      </p>
+
+      <h3 style="margin-top:18px;">4.1 Succession Signal Detector</h3>
+      <p>
+        The Italian mid-market over the next decade will be shaped primarily by generational transitions. According to
+        Cerved and Unioncamere estimates, more than 70,000 companies with revenues above €5M will face ownership changes
+        driven by founders reaching retirement age without clear successors. The Succession Signal module quantifies this
+        opportunity systematically from inputs that are either publicly available or easily obtained.
+      </p>
+      <div class="formula-block">
+        Score inputs: founder age · family members in governance · company age · stated motivation for sale<br>
+        Output: score /10 + label (ALTO / MEDIO / BASSO) + signal list<br>
+        Example: founder age 68, no family in board, company founded 1988, motivation = succession → Score: 10/10, ALTO
+      </div>
+      <p>
+        A target with a high succession signal and a strong financial profile is the ideal entry point for a proactive
+        approach before the company reaches the formal M&amp;A market, where competition and pricing will both be higher.
+      </p>
+
+      <h3 style="margin-top:20px;">4.2 Owner Dependency Score</h3>
+      <p>
+        Many Italian SMEs appear profitable on paper but carry hidden fragility. Commercial relationships, technical knowledge,
+        and supplier agreements are often concentrated in a single person: the founder. Post-acquisition, this translates
+        into revenue risk and integration complexity that the financials do not reveal. The module scores this risk from
+        available inputs including founder age and succession context, client concentration, export exposure, and competitive
+        positioning.
+      </p>
+      <p>
+        The distinction between Succession Signal and Owner Dependency is intentional. A high Succession Signal means the
+        owner is likely ready to sell. A high Owner Dependency Score means the business may be hard to run without them.
+        A target can score high on both, and that combination is exactly where deal structure and earnout mechanics matter most.
+      </p>
+
+      <h3 style="margin-top:20px;">4.3 Integration Complexity Index</h3>
+      <p>
+        Most M&amp;A failures do not happen at screening. They happen post-close, when operational and commercial
+        incompatibilities surface that were visible in advance but never measured. The Integration Complexity Index produces
+        a preliminary estimate of how difficult an integration is likely to be, based on sector, client concentration,
+        export footprint, and competitive positioning.
+      </p>
+      <p>
+        It is not a due diligence substitute. It is a prioritisation tool: a target with a high financial score and a high
+        integration complexity score deserves more scrutiny before proceeding, not less.
+      </p>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 5: Valuation and Deal Feasibility</strong></h2>
+      <p>
+        The valuation layer applies sector-calibrated EV/EBITDA multiples to produce a preliminary enterprise value range.
+        Multiples are defined in the settings file and updated as market conditions change. The current calibration reflects
+        observed transaction multiples in the Italian mid-market for the three target sectors.
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Sector</th><th>EV/EBITDA Range</th><th>EBITDA Margin Benchmark</th><th>Max Sustainable Leverage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Manufacturing</td><td>4.5x - 8.0x</td><td>10%</td><td>3.5x EBITDA</td></tr>
+            <tr><td>Food &amp; Agri</td><td>5.5x - 9.0x</td><td>12%</td><td>3.0x EBITDA</td></tr>
+            <tr><td>Distribution / Logistics</td><td>4.0x - 7.5x</td><td>7%</td><td>4.0x EBITDA</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:14px;">
+        The feasibility module takes the EV midpoint and estimates how the transaction could be financed given the target's
+        current leverage position. It outputs three debt capacity scenarios based on 2.5x, 3.5x, and 4.5x EBITDA, derives
+        the corresponding equity required, and classifies the deal as FEASIBLE, STRETCHED, or HARD. One design decision
+        worth noting: a negative PFN (net cash position) is treated as a structural positive rather than a penalty.
+      </p>
+
+      <div class="screenshot-block">
+        <img src="foto sito web/ma-framework-valuation.png" alt="Valuation range and deal feasibility output">
+        <div class="screenshot-caption">Valuation and feasibility section in the dashboard. The left card shows the EV range and implied equity value. The right card shows the feasibility classification, current leverage, and the three debt capacity scenarios.</div>
+      </div>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 6: Acquirer Readiness Score</strong></h2>
+      <p>
+        Most deal screening tools evaluate the target. Almost none evaluate the acquirer. This is a real gap: an attractive
+        target approached by an unprepared acquirer produces a failed process, a broken relationship, or a deal that closes
+        but destroys value. The Acquirer Readiness Score addresses this directly.
+      </p>
+      <p>
+        The module uses a separate Excel template completed by or for the acquirer and scores readiness across five dimensions.
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Dimension</th><th>Max Points</th><th>Key Inputs</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Financial Capacity</td><td>30</td><td>Available equity, current leverage vs. maximum, covenant position, undrawn credit lines</td></tr>
+            <tr><td>Operational Capacity</td><td>25</td><td>Dedicated deal team size, integration experience, management bandwidth, ERP compatibility, synergy potential</td></tr>
+            <tr><td>M&amp;A Track Record</td><td>20</td><td>Number of completed acquisitions, recency, historical outcome quality (1-5 scale)</td></tr>
+            <tr><td>Strategic Coherence</td><td>15</td><td>Sector focus definition, EBITDA target range, brand and reputation in the sector</td></tr>
+            <tr><td>Timing</td><td>10</td><td>Investment horizon, preferred deal structure flexibility</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:14px;">
+        The output is a score from 0 to 100 with one of four labels: PRONTO (&ge;75), QUASI PRONTO (&ge;50), NON ANCORA
+        PRONTO (&ge;30), or NON PRONTO (&lt;30). The module also generates a list of positive signals and warnings to
+        help identify which gaps should be addressed before approaching a target.
+      </p>
+      <p>
+        Used together, the target score and the acquirer readiness score produce a complete picture. Not just whether a
+        company is worth acquiring, but whether this acquirer is actually ready to do it right now.
+      </p>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 7: Pipeline Management and Dashboard</strong></h2>
+      <p>
+        All analysed targets can be saved to a local SQLite database and managed through the Streamlit dashboard. The
+        dashboard has four sections: target analysis, acquirer readiness, pipeline, and shortlist.
+      </p>
+
+      <div class="screenshot-block">
+        <img src="foto sito web/ma-framework-pipeline.png" alt="Pipeline view with filters and ranking table">
+        <div class="screenshot-caption">The pipeline section with interactive filters for decision label, feasibility status, minimum score, and succession signal. The ranking table shows all key metrics alongside each target so comparison is immediate.</div>
+      </div>
+
+      <p>
+        The shortlist section has three views. Top Priority surfaces BUY + FEASIBLE targets. Succession Signal shows all
+        targets with a succession score above 5/10, regardless of their financial rating, which is useful for proactive
+        sourcing before companies reach the open market. The Confronto tab lets you place multiple targets side by side
+        across all metrics.
+      </p>
+
+      <div class="screenshot-block">
+        <img src="foto sito web/ma-framework-shortlist.png" alt="Shortlist comparison view with multiple targets side by side">
+        <div class="screenshot-caption">The comparison tab in the Shortlist section. Multiple targets can be selected and compared across all scoring dimensions in a single table.</div>
+      </div>
+
+      <p>
+        The dashboard generates PDF reports in two formats. The executive summary is one page, designed for rapid review.
+        The full report is multi-page and includes KPI tables, proprietary signal outputs, valuation ranges, feasibility
+        assessment, and a free-text notes field. Both can be downloaded directly from the dashboard after analysis.
+      </p>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 8: Project Files and Setup</strong></h2>
+      <p>
+        The framework runs locally on Windows, macOS, or Linux with Python 3.10+. Four libraries to install, one command to run.
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>File / Folder</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>app.py</code></td><td>Streamlit dashboard with four sections: Analisi Target, Acquirente, Pipeline, Shortlist</td></tr>
+            <tr><td><code>main.py</code></td><td>CLI entry point for batch processing multiple targets</td></tr>
+            <tr><td><code>modules/</code></td><td>Ten analytical modules: ingestion, kpi, scoring, valuation, feasibility, succession, owner_dependency, integration_complexity, acquirer_readiness, pdf_report</td></tr>
+            <tr><td><code>config/settings.yaml</code></td><td>All scoring weights, decision thresholds, sector multiples, and feasibility parameters, editable without touching code</td></tr>
+            <tr><td><code>data/ma_pipeline.db</code></td><td>Local SQLite database, auto-created on first run, persists across sessions</td></tr>
+            <tr><td><code>company_template.xlsx</code></td><td>Input template: Anagrafica, Financials (3 years), Qualitativo sheets</td></tr>
+            <tr><td><code>acquirer_template.xlsx</code></td><td>Acquirer input template: Anagrafica, Capacita Finanziaria, Capacita Operativa, Storico M&amp;A sheets</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula-block">
+        # Install dependencies<br>
+        pip install streamlit pandas openpyxl pyyaml reportlab<br>
+        <br>
+        # Launch dashboard<br>
+        cd ma_framework<br>
+        python -m streamlit run app.py
+      </div>
+
+      <div class="btnrow" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+        <a class="btn outline sm" href="downloads/ma_framework_v6.zip" target="_blank" rel="noopener">Full framework (.zip)</a>
+        <a class="btn outline sm" href="downloads/company_template.xlsx" target="_blank" rel="noopener">Company template (.xlsx)</a>
+        <a class="btn outline sm" href="downloads/acquirer_template.xlsx" target="_blank" rel="noopener">Acquirer template (.xlsx)</a>
+      </div>
+    </article>
+
+    <article class="card article-content">
+      <h2><strong>Part 9: Limitations and Next Steps</strong></h2>
+
+      <div class="tri-cards">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 8px;color:#1f2937;font-size:17px;">Data entry is still manual</h3>
+          <p style="margin:0;line-height:1.6;font-size:14px;">
+            The current version requires manual compilation of the Excel template. An enrichment module that scrapes public
+            sources such as CCIAA, company websites, and XrayFinance and pre-fills the template is planned as the next
+            development phase.
+          </p>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 8px;color:#1f2937;font-size:17px;">Scoring needs more calibration data</h3>
+          <p style="margin:0;line-height:1.6;font-size:14px;">
+            The thresholds are calibrated on sector benchmarks and a small number of real test cases. Running the framework
+            on 30-50 real targets and comparing outputs against experienced deal judgment would produce more reliable
+            calibration and surface any systematic biases in the current weights.
+          </p>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 8px;color:#1f2937;font-size:17px;">No return engine yet</h3>
+          <p style="margin:0;line-height:1.6;font-size:14px;">
+            The valuation layer produces an EV range but does not yet model the expected return across holding period
+            scenarios. A Monte Carlo return engine modelling EBITDA evolution, exit multiple scenarios, and leverage
+            paydown is the most analytically significant planned extension.
+          </p>
+        </div>
+      </div>
+
+      <p style="margin-top:16px;">
+        These are real constraints. They do not limit the framework's current utility for first-pass screening and pipeline
+        management. The system produces consistent, comparable, and documented outputs across targets, which is precisely
+        what the Italian mid-market M&amp;A process currently lacks.
+      </p>
+    </article>
+
+    <section class="read-also">
+      <h3>Read Also</h3>
+      <div class="read-grid">
+        <a class="read-card" href="post-monte-carlo-risk.html">
+          <b>Monte Carlo Portfolio Risk Engine</b>
+          <span>A Python-based risk simulation framework for a three-asset portfolio.</span>
+        </a>
+        <a class="read-card" href="post-lbo-assumptions-to-irr.html">
+          <b>LBO Modelling: From Assumptions to IRR</b>
+          <span>Step-by-step build and drivers behind returns.</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website - valuation, corporate finance, markets, and weekly recaps.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

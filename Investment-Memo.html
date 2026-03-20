@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Schneider Electric vs Siemens — Structured Equity Analysis</title>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="article-hero">
+      <div class="hero-media">
+        <img src="foto sito web\equity_siemens_schneider_cover.png" alt="Schneider Electric vs Siemens — cover">
+      </div>
+
+      <h1 class="article-title">Schneider Electric vs. Siemens</h1>
+      <p style="margin:6px 0 0;color:#4b5563;">
+        A structured equity analysis of the European Industrial sector — built to demonstrate a replicable analyst workflow.
+      </p>
+
+      <div class="article-meta">
+        <span>Published: <time datetime="2026-03-04">Mar 4, 2026</time></span>
+        <span>•</span>
+        <span>Reading time: ~7–10 min</span>
+      </div>
+
+      <!-- META PILLS -->
+      <div class="meta-bar" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;">
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Project type: Equity Research</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Sector: European Industrials</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Companies: Schneider · Siemens</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Period: FY2018–FY2024</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Methods: DCF · Multiples · ROIC</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border:1px solid #E5E7EB;border-radius:999px;font-size:13px;color:#374151;background:#fff;">Tools: Excel</span>
+      </div>
+    </section>
+
+    <!-- KEY TAKEAWAYS -->
+    <article class="card article-content">
+      <h2><strong>Key Takeaways</strong></h2>
+
+      <div class="tri-cards">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Conclusion (ref. date)</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li><strong>Siemens</strong> offers the more attractive risk/reward profile: DCF implies ~+20% upside vs. current market cap, with a conclusion that holds across most stress scenarios.</li>
+            <li><strong>Schneider</strong> is an exceptional business, but trades at a premium where the entire investment case depends on above-average growth continuing. Limited margin of safety.</li>
+          </ul>
+        </div>
+
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">What this project shows</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>A repeatable equity research workflow applicable to any sector</li>
+            <li>How to separate reported figures from comparable business economics</li>
+            <li>DCF (anchor) + multiples (cross-check) + sensitivity (robustness testing)</li>
+            <li>ROIC vs. WACC as the bridge between operating performance and valuation</li>
+          </ul>
+        </div>
+
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Downloads</h3>
+          <div class="btnrow" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
+            <a class="btn outline sm" href="downloads/Schneider_vs_Siemens_Model.xlsx" target="_blank" rel="noopener">Excel Model (.xlsx)</a>
+            <a class="btn outline sm" href="downloads/Investment_Memo_Schneider_vs_Siemens.pdf" target="_blank" rel="noopener">Investment Memo (.pdf)</a>
+            <a class="btn outline sm" href="downloads/Deck_Schneider_vs_Siemens.pdf" target="_blank" rel="noopener">Slides (.pdf)</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="callout" style="margin-top:12px;padding:10px 12px;border:1px dashed #cbd5e1;border-radius:10px;background:#f8fafc;font-weight:700;">
+        Disclaimer: this is an educational research project and does not constitute investment advice.
+      </p>
+    </article>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <article class="card article-content">
+      <h2><strong>Executive Summary — From Noise to Process</strong></h2>
+      <p>
+        Most retail investors approach the market without a repeatable framework: they react to news, follow tips, and build portfolios on
+        narratives that cannot be stress-tested or improved. The core issue is not access to data — financial information has never been more
+        accessible — but the absence of structure, especially at two key decision points: <strong>where to look</strong> (sector selection)
+        and <strong>what to buy</strong> (company-level valuation).
+      </p>
+      <p>
+        This project applies a professional analyst workflow to a real case: European industrials in late 2024, when a shifting rate
+        environment after two years of ECB tightening, increasing selectivity within the energy transition, and compressed valuations
+        relative to US peers created the conditions for disciplined stock selection to identify genuine mispricing. Two companies —
+        Schneider Electric and Siemens — were selected as the ideal comparison pair: same sector, same structural tailwinds, same reporting
+        currency, but fundamentally different financial profiles and market valuations.
+      </p>
+      <p>
+        The goal is not prediction. It is a replicable framework for identifying <strong>mispricing</strong>, defining
+        <strong>margin of safety</strong>, and stating clearly <strong>what would need to be true</strong> for each thesis to hold.
+      </p>
+    </article>
+
+    <!-- FRAMEWORK -->
+    <article class="card article-content">
+      <h2><strong>Analytical Framework</strong></h2>
+      <p>Equity selection is treated as a sequential, replicable workflow:</p>
+
+      <div style="border:1px solid #ececec;border-radius:12px;background:#fafafa;padding:14px;line-height:1.8;">
+        <strong>1) Sector rationale</strong> → identify the right hunting ground<br>
+        <strong>2) Company selection</strong> → choose comparable firms (same tailwinds/exposure)<br>
+        <strong>3) Financial analysis</strong> → growth, margins, cash conversion, balance sheet<br>
+        <strong>4) Valuation</strong> → DCF (anchor) + multiples cross-check<br>
+        <strong>5) Sensitivity</strong> → test robustness across key assumptions<br>
+        <strong>6) Investment conclusion</strong> → risk/reward + conditions for thesis change
+      </div>
+    </article>
+
+    <!-- PART 1: SECTOR RATIONALE -->
+    <article class="card article-content">
+      <h2><strong>Part 1 — Investment Universe &amp; Sector Rationale</strong></h2>
+      <h3>Why European Industrials, Why Now (late 2024)</h3>
+      <p>
+        As of late 2024, three dynamics were converging to make European industrials a compelling hunting ground for bottom-up investors:
+      </p>
+      <p>
+        <strong>Macro backdrop.</strong> The ECB had begun cutting rates after two years of aggressive tightening. Historically, early-phase
+        rate normalization benefits companies with strong pricing power and high capital intensity: lower financing costs improve the
+        economics of customer capex decisions, which flows directly into order intake for industrial equipment and automation suppliers.
+        European industrial franchises sit squarely in that category.
+      </p>
+      <p>
+        <strong>Thematic selectivity.</strong> The broad enthusiasm around the energy transition of 2021–2022 had given way to a more
+        discriminating market. Investors were no longer rewarding generic thematic exposure. The market was starting to distinguish
+        companies with genuine structural positioning in electrification, grid infrastructure, and industrial automation from those with
+        more peripheral or commoditized exposure — precisely the environment where fundamental analysis can surface valuation gaps that
+        narrative-driven investing had obscured.
+      </p>
+      <p>
+        <strong>Valuation.</strong> European industrials traded at a meaningful discount to their US peers. Years of macro uncertainty
+        and energy cost concerns had compressed multiples across the sector, leaving several high-quality franchises priced below what
+        their underlying earnings power and return profiles would justify.
+      </p>
+
+      <div class="exhibits-split">
+        <div class="exhibits-left">
+          <figure>
+            <img src="FOTO PRESENTAZIONE EQUITY\exhibit_eu_vs_us_industrials_valuation.png" alt="Exhibit — EU vs US Industrials valuation">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+              EU vs US industrial valuation gap at reference date.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="exhibits-right">
+          <figure>
+            <img src="FOTO PRESENTAZIONE EQUITY\exhibit_ecb_rate_context.png" alt="Exhibit — ECB rate context">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+              ECB rate backdrop — early normalization cycle at late 2024.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- PART 2: COMPANY SELECTION -->
+    <article class="card article-content">
+      <h2><strong>Part 2 — Company Selection</strong></h2>
+      <h3>Why Schneider Electric and Siemens</h3>
+      <p>
+        The pair is intentional. Both companies operate in the European industrial space, both are exposed to the same structural tailwinds
+        (electrification, automation, digitalization of industrial infrastructure), and both report in euros — removing currency distortion
+        from the comparison. That overlap is deliberate: when two companies share the same macro exposure and end markets, any valuation
+        difference has to be explained by something fundamental — growth trajectory, capital efficiency, earnings quality, or management
+        discipline. Finding that explanation is what the analysis sets out to do.
+      </p>
+      <p>
+        Both are large-cap and widely covered, which means any mispricing requires a specific, defensible argument rather than a simple
+        "cheap vs expensive" observation. The more interesting reason for choosing these two, however, is their contrasting financial profiles
+        despite operating in the same sector: Schneider is a growth-oriented compounder, Siemens a capital-discipline and cash-generation
+        story. That contrast makes the comparison analytically rich.
+      </p>
+
+      <h3 style="margin-top:14px;">Peer Snapshot (FY2024)</h3>
+      <table>
+        <thead><tr><th>Metric</th><th>Schneider</th><th>Siemens</th></tr></thead>
+        <tbody>
+          <tr><td>Revenue</td><td>€38.2B</td><td>€75.9B</td></tr>
+          <tr><td>EBIT</td><td>€6.4B</td><td>€13.0B</td></tr>
+          <tr><td>EBIT margin</td><td>16.9%</td><td>17.1%</td></tr>
+          <tr><td>Free cash flow</td><td>€4.2B</td><td>€9.7B</td></tr>
+          <tr><td>FCF margin</td><td>11.0%</td><td>12.8%</td></tr>
+          <tr><td>Market cap (ref. date)</td><td>~€129B</td><td>~€198B</td></tr>
+          <tr><td>EV / EBIT</td><td>21.3×</td><td>18.2×</td></tr>
+          <tr><td>P/E</td><td>30.3×</td><td>22.0×</td></tr>
+          <tr><td>FCF yield</td><td>3.3%</td><td>4.9%</td></tr>
+        </tbody>
+      </table>
+      <p style="color:#6b7280;font-size:14px;margin-top:8px;">
+        Note: market data as of late 2024 reference date. All figures in euros.
+      </p>
+    </article>
+
+    <!-- PART 3: FINANCIAL ANALYSIS -->
+    <article class="card article-content">
+      <h2><strong>Part 3 — Financial Analysis (FY2018–FY2024)</strong></h2>
+      <p>
+        Seven years of audited financials were analyzed for both companies. A key objective throughout is to separate reported headline
+        figures from comparable underlying business economics — particularly for Siemens, where portfolio reshaping creates significant
+        noise in the historical numbers.
+      </p>
+
+      <!-- 3.1 Revenue -->
+      <h3 style="margin-top:16px;">3.1 — Revenue &amp; Growth Profile</h3>
+      <p>
+        <strong>Schneider</strong> grew revenue from €27.2B (2019) to €38.2B (2024), a CAGR of ~7%. Growth was broad-based and consistent
+        across years, accompanied by margin expansion simultaneously — a combination that points to genuine operating leverage rather than
+        volume-driven inflation.
+      </p>
+      <p>
+        <strong>Siemens</strong> shows a headline revenue CAGR of approximately <strong>−2.6%</strong> over the same period (€86.8B in 2019
+        to €75.9B in 2024). This figure is misleading. It reflects two deliberate portfolio decisions — the spin-off of Siemens Energy in
+        September 2020 and the gradual separation of other non-core businesses — rather than any organic contraction. On a continuing
+        operations basis, the underlying industrial business grew steadily throughout the period. Reading the headline CAGR without this
+        context leads to the wrong conclusion: a negative CAGR driven by portfolio reshaping is fundamentally different from one driven by
+        market share loss.
+      </p>
+
+      <!-- 3.2 Margins -->
+      <h3 style="margin-top:16px;">3.2 — Profitability &amp; Margin Expansion</h3>
+      <p>
+        <strong>Schneider</strong>: EBIT grew from €3.4B (2019) to €6.4B (2024), a CAGR of ~13.5% — nearly double the revenue growth rate.
+        EBIT margin expanded from 12.5% to 16.9%, an improvement of <strong>+440 basis points</strong> over five years. This was a
+        sustained trend driven by pricing power, a gradual mix shift toward higher-margin software and services, and operational efficiency
+        improvements.
+      </p>
+      <p>
+        <strong>Siemens</strong>: EBIT on a continuing operations basis grew from €8.6B (2019) to €13.0B (2024), with margin expanding
+        from ~9.9% to 17.1% — an improvement of over <strong>+700 basis points</strong>. Crucially, this expansion happened while the
+        company was simultaneously divesting businesses, absorbing restructuring costs, and navigating supply chain disruptions. Margins
+        improving through that level of operational complexity points to genuine structural progress in the quality of the remaining
+        portfolio, not just the removal of low-margin divisions.
+      </p>
+      <p>
+        By 2024, both companies are operating at <strong>broadly similar EBIT margin levels (~17%)</strong>. That convergence is one of
+        the most analytically interesting findings: if margins have come together, any valuation premium one company carries relative to the
+        other has to be justified by something other than current profitability.
+      </p>
+
+      <!-- 3.3 Cash Flow -->
+      <h3 style="margin-top:16px;">3.3 — Cash Flow &amp; Capital Discipline</h3>
+      <p>
+        Reported earnings can be shaped by accounting choices. Free cash flow is the most direct measure of what a business actually
+        generates, and FCF conversion (FCF / net income) is one of the most revealing numbers in any fundamental analysis.
+      </p>
+      <p>
+        <strong>Schneider</strong>: FCF grew from €3.5B (2019) to €4.2B (2024), FCF margin expanded from 12.8% to 11.0%, and
+        conversion relative to net income stayed consistently above 100% in most years — confirming reported earnings are backed by real
+        cash. Capex intensity remained disciplined at roughly 3.5–4.0% of revenue.
+      </p>
+      <p>
+        <strong>Siemens</strong>: FCF grew from €5.1B (2019) to €9.7B (2024), a CAGR of ~14%. FCF margin expanded from 5.9% to
+        <strong>12.8%</strong> — nearly 13 cents of every revenue euro converted to free cash by 2024, a level that compares well against
+        the best industrial franchises globally. In absolute terms, <strong>Siemens generates more than twice Schneider's free cash flow</strong>,
+        a gap that has been consistent and widening.
+      </p>
+      <p>
+        A market cap of ~€198B against €9.7B in annual FCF implies an <strong>FCF yield of ~4.9%</strong> for Siemens, versus
+        <strong>~3.3%</strong> for Schneider — a more attractive return floor even before considering growth.
+      </p>
+
+      <div class="tri-cards" style="margin-top:16px;">
+        <div class="col" style="background:#fff;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <figure style="margin:0;">
+            <img src="foto sito web/chart_revenue_2018_2024.png" alt="Revenue — Schneider vs Siemens (2018–2024)">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">Revenue trajectory FY2018–FY2024.</figcaption>
+          </figure>
+        </div>
+        <div class="col" style="background:#fff;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <figure style="margin:0;">
+            <img src="foto sito web/chart_ebit_margin_2018_2024.png" alt="EBIT margin — Schneider vs Siemens (2018–2024)">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">EBIT margin evolution: both converge toward ~17% by 2024.</figcaption>
+          </figure>
+        </div>
+        <div class="col" style="background:#fff;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <figure style="margin:0;">
+            <img src="foto sito web/chart_fcf_2018_2024.png" alt="Free cash flow — Schneider vs Siemens (2018–2024)">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">FCF absolute (€B): Siemens generates 2× Schneider by 2024.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 3.4 Balance sheet -->
+      <h3 style="margin-top:16px;">3.4 — Balance Sheet Notes</h3>
+      <p>
+        <strong>Schneider</strong> carried net debt of ~€7.9B at end-2024 (net debt / adj. EBITA ~1.2×), a conservative leverage level
+        for a company of this cash generation capacity. The balance sheet was more stretched in 2022 following the full Aveva acquisition
+        but has since normalized.
+      </p>
+      <p>
+        <strong>Siemens</strong> requires additional care due to the consolidation of Siemens Financial Services, a captive financial arm
+        that holds significant financial assets and liabilities. On a group basis, net debt stood at ~€38.8B at end-2024 — a large number
+        in absolute terms, but sitting alongside nearly €10B in annual FCF generation. The capacity to deleverage, if prioritized, is
+        significant. Neither company carries a balance sheet that represents a near-term financial risk.
+      </p>
+    </article>
+
+    <!-- PART 4: VALUATION -->
+    <article class="card article-content">
+      <h2><strong>Part 4 — Valuation</strong></h2>
+
+      <h3>Approach</h3>
+      <p>
+        Valuation is treated as a structured judgement, not a calculation. The primary anchor is a discounted cash flow model with explicit
+        assumptions on growth, margins, and cost of capital. This is cross-checked using market multiples (EV/EBIT, P/E, FCF yield), then
+        stress-tested through a sensitivity analysis. No single lens is sufficient on its own — used together, they produce a range of
+        reasonable values rather than a false-precision point estimate.
+      </p>
+
+      <!-- WACC -->
+      <h3 style="margin-top:14px;">Cost of Capital (WACC)</h3>
+      <table>
+        <thead><tr><th>Company</th><th>Beta</th><th>Cost of Equity</th><th>Cost of Debt</th><th>WACC</th></tr></thead>
+        <tbody>
+          <tr><td>Schneider</td><td>1.10</td><td>10.6%</td><td>3.5%</td><td><strong>~9.3%</strong></td></tr>
+          <tr><td>Siemens</td><td>1.18</td><td>8.9%</td><td>3.7%</td><td><strong>~6.1%</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="color:#6b7280;font-size:14px;margin-top:8px;">
+        Risk-free rate: 10Y German Bund at reference date (4.0% for Schneider, 2.7% for Siemens). Equity risk premium: 6.0% and 5.25% respectively.
+        The ~320bps gap in discount rates has a material impact on DCF outputs and is a structural reason the two stocks trade at different multiples.
+      </p>
+
+      <!-- DCF Results -->
+      <h3 style="margin-top:16px;">DCF Results — 5-Year Free Cash Flow Model</h3>
+      <p>
+        The model projects five years of free cash flow for each company, applies a terminal value (perpetuity growth at 2.0%), discounts the
+        full stream at the respective WACC, and subtracts net debt to arrive at implied equity value vs. current market capitalization.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Input / Output</th>
+            <th>Schneider</th>
+            <th>Siemens</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>FCF base (2024)</td><td>€4.2B</td><td>€9.7B</td></tr>
+          <tr><td>FCF growth assumption (5Y)</td><td>~4% (base case)</td><td>~14%</td></tr>
+          <tr><td>Terminal growth rate</td><td>2.0%</td><td>2.0%</td></tr>
+          <tr><td>WACC applied</td><td>9.3%</td><td>6.1%</td></tr>
+          <tr><td>Net debt subtracted</td><td>€7.9B</td><td>€38.8B</td></tr>
+          <tr><td>Implied equity value</td><td>~€49B</td><td>~€237B</td></tr>
+          <tr><td>Current market cap</td><td>~€129B</td><td>~€198B</td></tr>
+          <tr><td><strong>Upside / (downside) vs. market cap</strong></td><td><strong style="color:#dc2626;">−62%</strong></td><td><strong style="color:#16a34a;">+20%</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="color:#6b7280;font-size:14px;margin-top:8px;">
+        The base case DCF suggests Schneider trades at a significant premium to intrinsic value, while Siemens trades at a discount. The
+        conclusion is not that Schneider is a "sell" — quality businesses often trade above DCF fair value — but that the investment case
+        is entirely growth-dependent, with very limited margin of safety.
+      </p>
+
+      <!-- Multiples -->
+      <h3 style="margin-top:16px;">Multiples Cross-Check</h3>
+      <table>
+        <thead><tr><th>Multiple</th><th>Schneider</th><th>Siemens</th></tr></thead>
+        <tbody>
+          <tr><td>EV / EBIT</td><td>21.3×</td><td>18.2×</td></tr>
+          <tr><td>P/E</td><td>30.3×</td><td>22.0×</td></tr>
+          <tr><td>FCF yield</td><td>3.3%</td><td>4.9%</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;">
+        Schneider's 30× P/E and 3.3% FCF yield signal that the market has priced in a significant amount of future growth. The premium is
+        not irrational — it reflects genuine quality — but it is demanding and leaves little room for execution risk. Siemens' FCF yield of
+        4.9% provides a meaningful return floor even in a scenario where growth disappoints, which limits the downside case in a way that
+        Schneider's valuation does not.
+      </p>
+
+      <div class="exhibits-split" style="margin-top:12px;">
+        <div class="exhibits-left">
+          <figure>
+            <img src="foto sito web/exhibit_dcf_value_vs_price.png" alt="Exhibit — DCF value vs market price">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+              Intrinsic value vs. market price — Schneider and Siemens.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="exhibits-right">
+          <figure>
+            <img src="foto sito web/exhibit_multiples_comparison.png" alt="Exhibit — Multiples comparison">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+              Multiples snapshot: P/E, EV/EBIT, FCF yield.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- ROIC -->
+      <h3 style="margin-top:16px;">ROIC vs. WACC — Value Creation Analysis</h3>
+      <p>
+        A company creates value only when its return on invested capital exceeds its cost of capital. The spread between the two is the
+        most important indicator of whether a business is compounding shareholder wealth or eroding it — and it is the bridge between
+        operating performance and valuation.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Schneider (avg. 2019–2024)</th>
+            <th>Siemens (avg. 2019–2024)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ROIC (incl. goodwill)</td><td>~9.6%</td><td>~10.5%</td></tr>
+          <tr><td>ROIC (excl. goodwill)</td><td>~25.1%</td><td>~18.5%</td></tr>
+          <tr><td>WACC</td><td>9.3%</td><td>6.1%</td></tr>
+          <tr><td>ROIC − WACC spread (avg.)</td><td><strong style="color:#dc2626;">−0.5%</strong></td><td><strong style="color:#16a34a;">+2.6%</strong></td></tr>
+          <tr><td>Incremental ROIC (latest 3Y)</td><td><strong>~51%</strong></td><td><strong>~81%</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:10px;">
+        The distinction here is analytically important. <strong>Siemens has maintained a positive ROIC−WACC spread consistently</strong>
+        across the period, meaning it has been creating value on its existing capital stock. Schneider's average spread is slightly
+        negative on a fully-loaded basis (a consequence of significant goodwill from acquisitions, particularly Aveva), though the trend
+        is turning positive in recent years. Where Schneider stands out is its <strong>incremental ROIC of ~51%</strong> on the latest
+        three-year calculation — suggesting that new investment is highly accretive even if legacy goodwill weighs on the headline figure.
+        Both metrics are relevant; neither tells the full story alone.
+      </p>
+
+      <figure style="margin-top:12px;">
+        <img src="foto sito web/exhibit_roic_vs_wacc.png" alt="Exhibit — ROIC vs WACC">
+        <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+          ROIC vs. WACC spread over time — Schneider and Siemens.
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- SENSITIVITY -->
+    <article class="card article-content">
+      <h2><strong>Sensitivity Analysis — How Robust is the Conclusion?</strong></h2>
+      <p>
+        The sensitivity analysis varies the two most important DCF inputs — FCF growth rate and WACC — by ±50–100 basis points simultaneously,
+        producing a matrix of implied upside/downside scenarios. This tests whether the conclusion is fragile (dependent on optimistic
+        assumptions) or robust (holds under stress cases).
+      </p>
+      <p>
+        <strong>Schneider</strong>: the conclusion is relatively stable under changes to the discount rate but highly sensitive to the growth
+        assumption. If FCF growth decelerates to ~10% rather than the base case, the implied upside disappears and the stock looks fully
+        valued or stretched. This confirms that Schneider is a <em>growth-dependent investment</em>.
+      </p>
+      <p>
+        <strong>Siemens</strong>: the conclusion holds across nearly every scenario in the matrix. Even under a combination of higher WACC
+        and lower growth, the model continues to suggest the stock trades at or below intrinsic value. That kind of robustness —
+        limited downside in stress cases and meaningful upside in base and bull cases — is what makes the risk/reward asymmetry compelling.
+      </p>
+
+      <div class="exhibits-split">
+        <div class="exhibits-left">
+          <figure>
+            <img src="foto sito web/sensitivity_schneider.png" alt="Sensitivity — Schneider">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+              Schneider: valuation is highly sensitive to the FCF growth assumption. Base case shows ~−62% downside to DCF value.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="exhibits-right">
+          <figure>
+            <img src="foto sito web/sensitivity_siemens.png" alt="Sensitivity — Siemens">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+              Siemens: positive upside holds across most stress scenarios. Base case shows ~+20% upside to DCF value.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXHIBITS + SLIDESHOW -->
+    <article class="card article-content">
+      <h2><strong>Exhibits &amp; Slides</strong></h2>
+      <p>
+        Selected exhibits and the slide deck used to present the project. Visuals are designed to summarize the key logic quickly:
+        sector rationale → financial quality → valuation → conclusion.
+      </p>
+
+      <div class="exhibits-split">
+        <div class="exhibits-left">
+          <figure>
+            <img src="foto sito web/one_page_summary_siemens_vs_schneider.png" alt="One-page summary">
+            <figcaption style="color:#6b7280;font-size:14px;margin-top:6px;">
+              One-page summary: investment conclusion + valuation snapshot + key charts.
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- SLIDESHOW (fixed) -->
+        <section class="card slideshow slideshow--in-grid" style="max-width:100%;margin:0;" data-slideshow>
+          <h3 style="margin:0 0 8px;">Slide Deck</h3>
+
+          <div class="slideshow-container" aria-label="PPT slideshow" role="region">
+            <div class="slide fade is-active">
+              <img src="FOTO PRESENTAZIONE EQUITY\Deck_page-0001.jpg" alt="Cover slide" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO PRESENTAZIONE EQUITY\Deck_page-0002.jpg" alt="Sector rationale" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO PRESENTAZIONE EQUITY\Deck_page-0003.jpg" alt="Company selection" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO PRESENTAZIONE EQUITY\Deck_page-0004.jpg" alt="Financial analysis" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO PRESENTAZIONE EQUITY\Deck_page-0005.jpg" alt="DCF & valuation" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO PRESENTAZIONE EQUITY\Deck_page-0006.jpg" alt="Sensitivity" loading="lazy" />
+            </div>
+            <div class="slide fade">
+              <img src="FOTO PRESENTAZIONE EQUITY\Deck_page-0007.jpg" alt="Conclusion" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="slide-controls">
+            <button class="slide-nav prev" type="button" aria-label="Previous" data-prev>Previous</button>
+            <button class="slide-nav next" type="button" aria-label="Next" data-next>Next</button>
+          </div>
+
+          <div class="dots" aria-label="Pagination">
+            <button class="dot is-active" type="button" data-dot="1" aria-label="Slide 1"></button>
+            <button class="dot" type="button" data-dot="2" aria-label="Slide 2"></button>
+            <button class="dot" type="button" data-dot="3" aria-label="Slide 3"></button>
+            <button class="dot" type="button" data-dot="4" aria-label="Slide 4"></button>
+            <button class="dot" type="button" data-dot="5" aria-label="Slide 5"></button>
+            <button class="dot" type="button" data-dot="6" aria-label="Slide 6"></button>
+            <button class="dot" type="button" data-dot="7" aria-label="Slide 7"></button>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <!-- PART 5: CONCLUSION -->
+    <article class="card article-content">
+      <h2><strong>Part 5 — Investment Conclusion</strong></h2>
+
+      <p>
+        The conclusion is <strong>Siemens over Schneider</strong> on risk/reward at the reference date — not because Siemens is inherently
+        the better business, but because the market price does not yet reflect the quality of what the business has become. Schneider
+        remains exceptional, but at a valuation where the investment case is growth-dependent and less forgiving of any execution miss.
+      </p>
+
+      <div class="tri-cards">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;font-size:18px;">Schneider (at ref. price)</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Exceptional business quality and earnings visibility</li>
+            <li>P/E ~30×, FCF yield ~3.3% — premium multiples imply demanding growth assumptions</li>
+            <li>DCF base case implies ~−62% vs. current market cap</li>
+            <li>Becomes interesting ~20–25% below current price, where FCF yield approaches 4.5%</li>
+          </ul>
+        </div>
+
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;font-size:18px;">Siemens (at ref. price)</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Improving earnings quality, €9.7B FCF, consistently positive ROIC−WACC spread</li>
+            <li>P/E ~22×, FCF yield ~4.9% — more conservative vs. fundamentals</li>
+            <li>DCF base case implies ~+20% upside vs. current market cap</li>
+            <li>Conclusion holds across most sensitivity scenarios</li>
+          </ul>
+        </div>
+
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 6px;font-size:18px;">What would change the view?</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li><strong>Siemens thesis breaks</strong> if: sustained FCF deterioration below ~€8B/year + WACC re-rating above 7.5%. Most plausibly: prolonged industrial recession + ECB rate reversal.</li>
+            <li><strong>Schneider becomes interesting</strong> if: entry price ~20–25% lower, where FCF yield reaches ~4.5% and P/E compresses to ~22–23×.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="margin-top:16px;">
+        The conclusion matters less than the process that produced it. The same framework — sector rationale, structured company selection,
+        rigorous financial statement analysis, ROIC-based value creation assessment, DCF with sensitivity testing — is replicable across
+        any sector, any market, any time period. The specific stocks are the illustration. The method is the point.
+      </p>
+
+      <p style="margin-top:8px;color:#6b7280;font-size:14px;">
+        Analysis conducted in late 2024 / early 2025 using publicly available annual report data for FY2018–FY2024. All figures in euros.
+      </p>
+    </article>
+
+    <!-- DOWNLOADS -->
+    <article class="card article-content">
+      <h2><strong>Downloads</strong></h2>
+      <p>Files used to build the project:</p>
+
+      <div class="btnrow" style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn outline sm" href="downloads/Schneider_vs_Siemens_Model.xlsx" target="_blank" rel="noopener">Excel Model (.xlsx)</a>
+        <a class="btn outline sm" href="downloads/Investment_Memo_Schneider_vs_Siemens.pdf" target="_blank" rel="noopener">Investment Memo (.pdf)</a>
+        <a class="btn outline sm" href="downloads/Deck_Schneider_vs_Siemens.pptx" target="_blank" rel="noopener">Slide Deck (.pptx)</a>
+        <a class="btn outline sm" href="downloads/Deck_Schneider_vs_Siemens.pdf" target="_blank" rel="noopener">Slide Deck (.pdf)</a>
+      </div>
+    </article>
+
+    <!-- READ ALSO -->
+    <section class="read-also">
+      <h3>Read Also</h3>
+      <div class="read-grid">
+        <a class="read-card" href="post-lbo-assumptions-to-irr.html">
+          <b>LBO Modelling: From Assumptions to IRR</b>
+          <span>Step-by-step build and drivers behind returns.</span>
+        </a>
+        <a class="read-card" href="post-notion-dealflow.html">
+          <b>Notion Deal Flow Tracker</b>
+          <span>Capture deals, track assumptions, and monitor MoM/IRR.</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MENU JS -->
+<script>
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+<!-- SLIDESHOW JS (scoped, robust) -->
+<script>
+(function(){
+  const root = document.querySelector('[data-slideshow]');
+  if(!root) return;
+
+  let slideIndex = 1;
+
+  const slides = () => root.querySelectorAll(".slide");
+  const dots   = () => root.querySelectorAll(".dot");
+  const prevBtn = root.querySelector("[data-prev]");
+  const nextBtn = root.querySelector("[data-next]");
+
+  function showSlides(n){
+    const s = slides();
+    const d = dots();
+    if (!s.length) return;
+
+    if (n > s.length) slideIndex = 1;
+    if (n < 1) slideIndex = s.length;
+
+    s.forEach(el => el.classList.remove("is-active"));
+    d.forEach(el => el.classList.remove("is-active"));
+
+    s[slideIndex - 1].classList.add("is-active");
+    if (d[slideIndex - 1]) d[slideIndex - 1].classList.add("is-active");
+  }
+
+  if(prevBtn) prevBtn.addEventListener("click", () => showSlides(slideIndex += -1));
+  if(nextBtn) nextBtn.addEventListener("click", () => showSlides(slideIndex +=  1));
+
+  dots().forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const n = parseInt(btn.getAttribute("data-dot"), 10);
+      if (!Number.isFinite(n)) return;
+      slideIndex = n;
+      showSlides(slideIndex);
+    });
+  });
+
+  showSlides(slideIndex);
+})();
+</script>
+
+</body>
+</html>

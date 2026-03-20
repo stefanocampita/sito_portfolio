@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Home — Stefano Campita | Finance & Markets</title>
+  <meta name="description" content="Stefano Campita — Financial Analyst. Portfolio in valuation, corporate finance, financial modeling, and weekly market recaps.">
+  <link rel="stylesheet" href="styles.clean.css?v=7">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Stefano Campita — Finance & Markets",
+  "alternateName": "Stefano Campita",
+  "url": "https://stefanocampita.github.io/sito_portfolio/"
+}
+</script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+</head>
+<body>
+  
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="foto sito web/logo.png" alt="Logo" class="logo">
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+        <a href="tools.html">Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+    <!-- HERO: 2 colonne -->
+    <section class="container home-hero">
+      <!-- Colonna sinistra: SOLO foto -->
+      <div class="col-left">
+        <div class="portrait-frame">
+          <div class="portrait">
+            <img src="foto sito web/foto_about_me.png" alt="Stefano Campita portrait">
+          </div>
+        </div>
+      </div>
+
+      <!-- Colonna destra: testo + CTA + About (spostato qui) -->
+      <div class="col-right">
+        <p class="role-eyebrow">FINANCIAL ANALYST</p>
+        <h1 class="display-title">
+          Financial Modeling <span class="amp">&amp;</span> <span class="accent-text">Deal Analysis</span>
+        </h1>
+        <p class="sub">
+          I focus on valuation, corporate finance, and markets, combining structured analysis with clear writing.
+          Here I share selected projects, case studies, and weekly recaps built to show how I think and communicate.
+        </p>
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-value">15+</div>
+            <div class="metric-label">Projects</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Years Exp.</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$2B+</div>
+            <div class="metric-label">Analyzed</div>
+          </div>
+        </div>
+
+        <div class="btnrow">
+          <a class="btn primary" href="portfolio.html">View Portfolio</a>
+          <a class="btn accent" href="blog.html">Read Blog</a>
+        </div>
+
+        <div class="pills-row">
+          <a class="pill" href="portfolio.html">Valuation</a>
+          <a class="pill" href="portfolio.html">LBO Models</a>
+          <a class="pill" href="blog.html">Memos</a>
+        </div>
+
+        <!-- About me ora è nella colonna destra, visibile senza scroll -->
+        <div class="about card about-inline">
+          <h3>About me</h3>
+          <p>
+            I study how capital meets strategy, how businesses create value, how markets price it, and what drives decisions under uncertainty. 
+            My approach is rigorous and data-driven, with a strong focus on clarity and communication.
+          </p>
+          <p>
+            I like turning noisy financial information into structured analysis: 
+            valuation work, case studies, and weekly market recaps that connect fundamentals to real-world outcomes. 
+            This site is a curated collection of projects and briefs designed to show how I think, analyse, and explain.
+          </p>
+          <p><span class="highlight-quote">“Without data, you’re just another person with an opinion.” — W. Edwards Deming</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+        <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

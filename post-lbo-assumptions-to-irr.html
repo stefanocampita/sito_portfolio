@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>LBO Modelling: From Assumptions to IRR — IB/PE Blog</title>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VD0H4VRFHJ');
+</script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand"><a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a></div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+        <a href="tools.html">Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+    <div class="container">
+
+      <!-- HERO (immagine + titolo) -->
+<section class="article-hero">
+  <div class="hero-media">
+    <img src="foto sito web/LBOmodelpreviewimage.png" alt="LBO Modelling cover">
+  </div>
+  <h1 class="article-title">LBO Modelling: From Assumptions to IRR</h1>
+  <div class="article-meta">
+    <span>Published: <time datetime="2025-08-20">Aug 20, 2025</time></span>
+    <span>•</span>
+    <span>Reading time: ~5–6 min</span>
+  </div>
+</section>
+
+
+      <!-- CONTENT -->
+      <article class="card article-content">
+        <p>A Leveraged Buyout (LBO) is one of the most iconic transactions in finance: acquiring a company through a combination of debt and equity. The purpose of this page is to walk through a complete LBO model — from base assumptions to IRR.</p>
+
+        <h2><strong>Starting Assumptions</strong></h2>
+        <p>These are the starting assumptions given (no calculations here):</p>
+        <ul>
+          <li><b>Revenues (LTM)</b>: 100 M$</li>
+          <li><b>Annual Revenue Growth</b>: 10% (constant for 5 years)</li>
+          <li><b>EBITDA (LTM)</b>: 50 M$</li>
+          <li><b>EBITDA Margin</b>: constant</li>
+          <li><b>D&amp;A + Capex</b>: 5% of annual revenues</li>
+          <li><b>NWC</b>: unchanged</li>
+          <li><b>Tax Rate</b>: 25%</li>
+          <li><b>Entry Multiple</b>: 10x EBITDA</li>
+          <li><b>Exit Multiple</b>: 10x EBITDA after 5 years</li>
+          <li><b>Projection Period</b>: 5 years</li>
+          <li><b>Initial Leverage</b>: 6x EBITDA</li>
+          <li><b>Debt Interest Rate</b>: 8%</li>
+          <li>No capital amortization until maturity</li>
+        </ul>
+
+        <h2><strong>TEV &amp; Capital Structure</strong></h2>
+        <p>Now we start calculating the purchase TEV and the initial capital structure (Debt &amp; Equity).</p>
+        <ul>
+          <li><b>EBITDA LTM</b> = 50</li>
+          <li><b>Entry Multiple</b> = 10x</li>
+          <li><b>TEV_in</b> = 50 × 10 = 500</li>
+          <li><b>Initial Leverage</b> = 6 × EBITDA ⇒ <b>Debt</b> = 6 × 50 = 300</li>
+          <li><b>Equity</b> = 500 − 300 = 200</li>
+        </ul>
+        <p><b>Result</b>: TEV_in = 500; Initial Debt = 300 (60%); Equity Sponsor = 200 (40%).</p>
+
+        <h2><strong>Interest Expense on Debt</strong></h2>
+        <p>Debt is not amortized during the 5-year period, so interest is flat each year.</p>
+        <ul>
+          <li><b>Total Debt</b> = 300</li>
+          <li><b>Interest Rate</b> = 8%</li>
+          <li><b>Annual Interest Expense</b> = 300 × 8% = 24</li>
+        </ul>
+
+        <h2><strong>Projection over 5 Years</strong></h2>
+        <p>We project P&amp;L down to (levered) free cash flow over five years.</p>
+        <img src="foto sito web/lbo projection.PNG" alt="LBO Projection over 5 years">
+
+        <h2><strong>Exit TEV &amp; Returns</strong></h2>
+        <p><b>Step 1 — Exit TEV</b></p>
+        <ul>
+          <li><b>EBITDA Y5</b> = 80.5</li>
+          <li><b>Exit Multiple</b> = 10x</li>
+          <li><b>TEV_out</b> = 80.5 × 10 = 805</li>
+        </ul>
+        <p><b>Step 2 — Exit Equity Value</b></p>
+        <ul>
+          <li><b>TEV_out</b> = 805</li>
+          <li><b>Net Debt</b> = 300</li>
+          <li><b>Equity Exit Value</b> = 805 − 300 = 505</li>
+        </ul>
+        <p><b>Step 3 — Returns</b></p>
+        <ul>
+          <li><b>Invested Equity</b> = 200</li>
+          <li><b>Exit Equity</b> = 505</li>
+          <li><b>MoM</b> = 505 / 200 = <b>2.53x</b></li>
+        </ul>
+        <p>I estimated the IRR by intuition: ~20% for ~2.5x in 5 years (rule-of-thumb: 2x in 5y ≈ 15%; 3x in 5y ≈ 25%).</p>
+
+        <aside class="callout">
+          <strong>Note:</strong> Debt is bullet (no amortization). The company pays interest annually and repays the full principal at exit; therefore FCF does not reduce the outstanding debt, which remains 300 until year five.
+          <p></p>
+        </aside>
+
+        <div class="article-actions">
+          <a class="btn outline" href="blog.html">← Back to Blog</a>
+        </div>
+      </article>
+
+      <!-- READ ALSO -->
+      <section class="read-also">
+        <h3>Read Also</h3>
+        <div class="read-grid">
+          <a class="read-card" href="post-notion-dealflow.html">
+            <b>Notion Deal Flow Tracker</b>
+            <span>Capture deals, track assumptions, and monitor MoM/IRR.</span>
+          </a>
+          <a class="read-card" href="Post-Tokenization.html">
+            <b>Tokenization &amp; IB/PE</b>
+            <span>What it is, why it matters, examples and challenges.</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>The Formulas That Move Markets — Blog</title>
+
+  <!-- Social preview (OG) -->
+  <meta name="description" content="Black-Scholes, CAPM, WACC, VaR and beyond: the mathematical models that underpin global financial markets, explained for practitioners.">
+  <meta property="og:title" content="The Formulas That Move Markets">
+  <meta property="og:description" content="Black-Scholes, CAPM, WACC, VaR and beyond: the mathematical models that underpin global financial markets, explained for practitioners.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="foto sito web/foto_banner_articoli.png">
+
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+
+  <style>
+    /* Formula blocks — self-contained, won't conflict with existing CSS */
+    .formula-block {
+      background: #0f0f0f;
+      border-left: 3px solid #b8953a;
+      border-radius: 2px;
+      padding: 1.4rem 1.6rem;
+      margin: 1.8rem 0;
+      overflow-x: auto;
+    }
+    .formula-label {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #b8953a;
+      margin-bottom: 0.7rem;
+    }
+    .formula-main {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.97rem;
+      color: #e8d9b8;
+      line-height: 1.8;
+      margin-bottom: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .formula-vars {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid rgba(184,149,58,0.2);
+      padding-top: 0.7rem;
+    }
+    .formula-vars li {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: rgba(232,217,184,0.6);
+      line-height: 1.9;
+    }
+    .formula-vars li strong {
+      color: rgba(232,217,184,0.85);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="foto sito web/logo.png" alt="Logo" class="logo">
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+        <a href="tools.html">Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="container">
+
+      <!-- HERO -->
+      <section class="article-hero">
+        <div class="hero-media">
+          <img src="foto sito web\financial_formulas_cover.png"
+               alt="The Formulas That Move Markets"
+               class="hero-img">
+        </div>
+        <h1 class="article-title">The Formulas That Move Markets</h1>
+        <div class="article-meta">
+          <span>Published: <time datetime="2026-03-05">Mar 5, 2026</time></span>
+          <span>•</span>
+          <span>Reading time: ~18 min</span>
+        </div>
+      </section>
+
+      <article class="card article-content">
+
+        <p>
+          Most people who work in finance have at some point memorised a formula without really understanding what it was doing.
+          You plug in the numbers, you get the output, and you move on. That works fine until it doesn't.
+        </p>
+
+        <p>
+          This article goes through the nine formulas that matter most at a professional level. Not as a textbook exercise,
+          but with a focus on where each one comes from, what assumptions it makes, and where those assumptions tend to break down.
+          From options pricing to credit risk, these models are used every day across trading desks, risk departments, and valuation teams worldwide.
+        </p>
+
+        <h2>1. Black-Scholes Model</h2>
+
+        <p>
+          In 1973, Fischer Black and Myron Scholes published what would become the most influential equation in financial history.
+          The model gives a closed-form solution for pricing European call and put options, which are derivatives that give the holder the right,
+          but not the obligation, to buy or sell an asset at a predetermined price.
+        </p>
+
+        <p>
+          Before Black-Scholes, options were priced largely by intuition and negotiation. The model changed that completely.
+          It gave traders a rigorous, replicable framework and a way to extract one key quantity from market prices: implied volatility.
+          The formula is still the reference benchmark across equity, FX, and rates derivatives desks worldwide.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">Black-Scholes — European Call Option</div>
+          <div class="formula-main">C = S₀ · N(d₁) − K · e⁻ʳᵀ · N(d₂)
+
+d₁ = [ ln(S₀/K) + (r + σ²/2) · T ] / (σ · √T)
+d₂ = d₁ − σ · √T</div>
+          <ul class="formula-vars">
+            <li><strong>S₀</strong> — current price of the underlying asset</li>
+            <li><strong>K</strong> — strike price of the option</li>
+            <li><strong>r</strong> — risk-free interest rate (annualised)</li>
+            <li><strong>T</strong> — time to expiration (in years)</li>
+            <li><strong>σ</strong> — volatility of the underlying asset (annualised)</li>
+            <li><strong>N(·)</strong> — cumulative standard normal distribution function</li>
+          </ul>
+        </div>
+
+        <p>
+          The elegance of Black-Scholes lies in one counterintuitive insight: a correctly priced option requires no knowledge of
+          the asset's expected return. Only volatility matters. This is the principle of risk-neutral pricing, one of the
+          cornerstones of modern quantitative finance.
+        </p>
+
+        <p>
+          In practice, almost every assumption the model makes gets violated at some point. Markets have fat tails.
+          Volatility is not constant and it certainly does not behave like a fixed input. Yet Black-Scholes remains the
+          common language of derivatives markets. Even traders using more sophisticated models like Heston or SABR
+          still quote prices in Black-Scholes implied volatility, because everyone understands what that number means.
+        </p>
+
+        <h2>2. Capital Asset Pricing Model (CAPM)</h2>
+
+        <p>
+          Developed by William Sharpe in the 1960s, and independently by Lintner and Mossin around the same time, the Capital Asset Pricing Model
+          addresses a question that sounds simple but isn't: how much return should you demand for holding a risky asset?
+          The model's answer comes down to one variable: how much that asset tends to move with the broader market.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">CAPM — Expected Return</div>
+          <div class="formula-main">E[Rᵢ] = Rf + βᵢ · (E[Rm] − Rf)
+
+β = Cov(Rᵢ, Rm) / Var(Rm)</div>
+          <ul class="formula-vars">
+            <li><strong>E[Rᵢ]</strong> — expected return of asset i</li>
+            <li><strong>Rf</strong> — risk-free rate (typically a government bond yield)</li>
+            <li><strong>βᵢ</strong> — sensitivity of asset i to market movements</li>
+            <li><strong>E[Rm] − Rf</strong> — equity risk premium (ERP)</li>
+          </ul>
+        </div>
+
+        <p>
+          Beta is the critical variable. A stock with a beta of 1.5 is expected to rise 15% when the market rises 10%, and fall proportionally
+          in downturns. Low-beta stocks in sectors like utilities or consumer staples offer lower expected returns in exchange for stability.
+          High-beta names in technology or growth demand higher expected returns as compensation for that volatility.
+        </p>
+
+        <p>
+          CAPM underpins virtually every cost-of-equity calculation in corporate finance. When a CFO evaluates a capital allocation decision
+          or an investment bank builds a DCF, CAPM is the starting point for the discount rate, even when analysts make significant
+          adjustments for company-specific risk. The model's simplicity is both what makes it useful and what limits it.
+        </p>
+
+        <h2>3. Weighted Average Cost of Capital (WACC)</h2>
+
+        <p>
+          If CAPM answers how much equity costs, WACC answers how much the entire capital structure costs.
+          It is the blended rate a company must earn on its assets to satisfy both debt and equity holders.
+          In a discounted cash flow valuation, WACC sits in the denominator of every calculation, and a 50 basis point
+          difference can move a large-cap valuation by billions.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">WACC — Weighted Average Cost of Capital</div>
+          <div class="formula-main">WACC = (E/V) · Re + (D/V) · Rd · (1 − Tc)</div>
+          <ul class="formula-vars">
+            <li><strong>E</strong> — market value of equity</li>
+            <li><strong>D</strong> — market value of debt</li>
+            <li><strong>V</strong> — total capital (E + D)</li>
+            <li><strong>Re</strong> — cost of equity (from CAPM)</li>
+            <li><strong>Rd</strong> — cost of debt (yield on corporate bonds)</li>
+            <li><strong>Tc</strong> — corporate tax rate (interest is tax-deductible)</li>
+          </ul>
+        </div>
+
+        <p>
+          The tax shield in the formula reflects a basic feature of most tax systems: interest payments on debt reduce taxable income,
+          which makes debt cheaper than equity on an after-tax basis. This is the classic tension in capital structure theory.
+          More debt lowers WACC but increases financial risk. Modigliani and Miller formalized the tradeoff theoretically;
+          real-world CFOs navigate it under constraints that don't appear in textbooks.
+        </p>
+
+        <p>
+          In M&A, WACC becomes part of the negotiation. Buyers tend to use a higher rate to compress the implied valuation;
+          sellers argue for something lower. In a leveraged buyout the cost of debt dominates, which makes the outcome
+          particularly sensitive to credit market conditions at the time of financing.
+        </p>
+
+        <h2>4. Discounted Cash Flow (DCF)</h2>
+
+        <p>
+          The DCF is not a single formula so much as a framework built on one foundational idea: a dollar today is worth more
+          than a dollar tomorrow. All future cash flows get discounted back to present value at a rate that reflects the
+          riskiness of those flows. In theory it is the most rigorous valuation method available. In practice, it is only
+          as good as the assumptions feeding into it.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">DCF — Enterprise Value</div>
+          <div class="formula-main">EV = Σ [ FCFt / (1 + WACC)ᵗ ] + TV / (1 + WACC)ⁿ
+
+TV = FCFn · (1 + g) / (WACC − g)</div>
+          <ul class="formula-vars">
+            <li><strong>FCFt</strong> — free cash flow in year t</li>
+            <li><strong>WACC</strong> — discount rate</li>
+            <li><strong>n</strong> — explicit forecast period (typically 5–10 years)</li>
+            <li><strong>TV</strong> — terminal value (Gordon Growth approach)</li>
+            <li><strong>g</strong> — long-term growth rate (must be less than WACC)</li>
+          </ul>
+        </div>
+
+        <p>
+          The terminal value is worth spending a moment on. In most DCF models it accounts for somewhere between 60 and 80%
+          of the total implied enterprise value, which means the entire analysis is driven by two numbers that are genuinely
+          hard to estimate: the long-term growth rate and the discount rate applied to cash flows that are years away.
+        </p>
+
+        <p>
+          Good analysts treat DCF outputs as a range rather than a point estimate. Running a sensitivity table that varies
+          WACC and growth by 25 to 50 basis points quickly shows how much the implied value can move. A model that looks
+          precise on the surface often reveals substantial uncertainty once you start stress-testing the inputs.
+        </p>
+
+        <h2>5. Gordon Growth Model</h2>
+
+        <p>
+          The Gordon Growth Model is a simplified DCF for businesses with stable, predictable dividend streams.
+          Utilities, mature consumer companies, and dividend-paying financial institutions are the natural candidates.
+          It also shows up as the basis for terminal value calculations in most full DCF models, so even analysts
+          who never use it directly are usually relying on it implicitly.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">Gordon Growth Model — Intrinsic Value</div>
+          <div class="formula-main">P₀ = D₁ / (r − g)</div>
+          <ul class="formula-vars">
+            <li><strong>P₀</strong> — intrinsic value of the stock today</li>
+            <li><strong>D₁</strong> — expected dividend next period</li>
+            <li><strong>r</strong> — required rate of return (cost of equity)</li>
+            <li><strong>g</strong> — constant dividend growth rate (in perpetuity)</li>
+          </ul>
+        </div>
+
+        <p>
+          The model's structural constraint is also its most interesting feature. As the denominator (r minus g) approaches zero,
+          meaning growth nearly equals the required return, the implied value approaches infinity. That mathematical singularity
+          reflects something real: a business that grows as fast as investors require it to return is theoretically worth an
+          unlimited amount. This is part of why high-growth companies trade at multiples that look absurd on conventional metrics
+          until their growth slows and the math starts behaving normally.
+        </p>
+
+        <h2>6. Value at Risk (VaR)</h2>
+
+        <p>
+          Value at Risk is the global standard for measuring portfolio risk across banks, asset managers, and hedge funds.
+          It answers one question: what is the maximum loss you might expect over a given time horizon, at a given confidence level?
+          It says nothing about what happens beyond that threshold, only what falls within the normal range of outcomes.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">Parametric VaR & Expected Shortfall</div>
+          <div class="formula-main">VaR = μ − z · σ · √T · W
+
+CVaR (Expected Shortfall) = E[ Loss | Loss > VaR ]</div>
+          <ul class="formula-vars">
+            <li><strong>μ</strong> — expected portfolio return over period T</li>
+            <li><strong>z</strong> — z-score for confidence level (1.645 for 95%, 2.326 for 99%)</li>
+            <li><strong>σ</strong> — standard deviation of portfolio returns</li>
+            <li><strong>T</strong> — holding period (in trading days)</li>
+            <li><strong>W</strong> — portfolio value</li>
+          </ul>
+        </div>
+
+        <p>
+          VaR was at the center of the 2008 financial crisis debate. Many institutions reported low figures right up until
+          markets collapsed, largely because their models were calibrated on a period of unusually low volatility and assumed
+          normal return distributions that had no room for the kind of tail events that actually occurred. The problem was
+          not VaR itself but the confidence placed in it. The lesson, in hindsight, is that any risk measure needs to be
+          paired with proper stress testing and scenario analysis.
+        </p>
+
+        <p>
+          Basel III addressed this by mandating Expected Shortfall, or CVaR, for bank capital calculations. Unlike VaR,
+          which simply reports a threshold, CVaR asks what the average loss looks like when things go beyond that threshold.
+          The shift is significant and reflects how much the regulatory framework changed after 2008.
+        </p>
+
+        <h2>7. Sharpe Ratio</h2>
+
+        <p>
+          Developed by William Sharpe, the Sharpe Ratio is the most widely used measure of risk-adjusted return.
+          The core question it addresses is one that raw return figures cannot answer: how much return are you generating
+          per unit of risk taken? Two funds with identical annual returns can look very different once you account for
+          the volatility required to achieve them.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">Sharpe Ratio — Risk-Adjusted Return</div>
+          <div class="formula-main">S = (Rp − Rf) / σp</div>
+          <ul class="formula-vars">
+            <li><strong>Rp</strong> — portfolio return (annualised)</li>
+            <li><strong>Rf</strong> — risk-free rate</li>
+            <li><strong>σp</strong> — standard deviation of portfolio excess returns</li>
+          </ul>
+        </div>
+
+        <p>
+          A ratio above 1.0 is generally considered acceptable. Above 2.0 is strong, and above 3.0 is rare outside
+          very specific strategies. The number is also highly time-period dependent. A fund that looks excellent
+          over a three-year bull run can look considerably worse once you extend the window to cover a full cycle,
+          including a meaningful drawdown period.
+        </p>
+
+        <p>
+          Some practitioners prefer alternative measures for specific use cases. The Sortino Ratio only penalises
+          downside volatility, which is useful when upside deviation is not actually a problem. The Calmar Ratio
+          uses maximum drawdown in the denominator, making it more relevant for strategies where capital preservation is the priority.
+        </p>
+
+        <h2>8. Duration &amp; DV01</h2>
+
+        <p>
+          Duration measures how sensitive a bond's price is to changes in interest rates. More precisely, it approximates
+          the percentage change in price for a 100 basis point parallel shift in yields. In fixed income, this is the
+          number that risk managers and portfolio managers look at first when rates start moving.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">Modified Duration &amp; DV01</div>
+          <div class="formula-main">Dmod = Dmac / (1 + y/m)
+
+ΔP/P ≈ − Dmod · Δy
+
+DV01 = (Dmod · P) / 10,000</div>
+          <ul class="formula-vars">
+            <li><strong>Dmac</strong> — Macaulay duration (weighted average time to cash flows)</li>
+            <li><strong>y</strong> — yield to maturity</li>
+            <li><strong>m</strong> — compounding frequency per year</li>
+            <li><strong>DV01</strong> — dollar value of a 1 basis point move in yield</li>
+            <li><strong>P</strong> — bond price</li>
+          </ul>
+        </div>
+
+        <p>
+          DV01, or Dollar Value of 01, is the version traders actually use day to day. It converts duration into a
+          P&amp;L number: specifically, how much the position gains or loses for a single basis point move in yield.
+          That makes it easy to size trades, compare positions across different maturities, and hedge rate exposure
+          without needing to think in percentage terms.
+        </p>
+
+        <p>
+          Duration is a linear approximation, and for large rate moves that approximation starts to break down.
+          Convexity provides the second-order correction. Bonds with high convexity, particularly zero-coupon bonds,
+          benefit more than duration predicts when rates fall and lose less than duration predicts when rates rise.
+          In a volatile rate environment, ignoring convexity can lead to meaningful hedging errors.
+        </p>
+
+        <h2>9. Merton Model</h2>
+
+        <p>
+          Robert Merton's contribution was to reframe corporate default as an options problem. The idea is that equity is essentially
+          a call option on the firm's assets. If the asset value exceeds the debt at maturity, shareholders receive what's left.
+          If assets fall below the debt level, shareholders walk away with nothing and creditors absorb the loss.
+          Default, in this framework, is just the option finishing out of the money.
+        </p>
+
+        <div class="formula-block">
+          <div class="formula-label">Merton Model — Equity as a Call Option on Firm Assets</div>
+          <div class="formula-main">E = V · N(d₁) − D · e⁻ʳᵀ · N(d₂)
+
+d₁ = [ ln(V/D) + (r + σᵥ²/2) · T ] / (σᵥ · √T)
+d₂ = d₁ − σᵥ · √T
+
+PD ≈ N(−d₂)</div>
+          <ul class="formula-vars">
+            <li><strong>E</strong> — market value of equity</li>
+            <li><strong>V</strong> — market value of firm assets (unobserved)</li>
+            <li><strong>D</strong> — face value of debt (default barrier)</li>
+            <li><strong>σᵥ</strong> — volatility of firm assets</li>
+            <li><strong>PD</strong> — risk-neutral probability of default</li>
+          </ul>
+        </div>
+
+        <p>
+          The Merton model is the theoretical foundation for structural credit models, including the approach used by Moody's KMV.
+          One useful feature is that it directly links equity volatility to credit risk. During stress periods this connection
+          becomes very visible: CDS spreads and equity implied volatility tend to move together in ways that the model predicts.
+        </p>
+
+        <p>
+          The practical difficulty is that firm asset value and asset volatility are not directly observable. They have to be
+          inferred from equity market data through iterative methods. That adds a layer of complexity compared to reduced-form
+          credit models, but the structural approach gives you something the alternatives don't: a clear economic story for
+          why a company defaults and when.
+        </p>
+
+        <h2>A common thread</h2>
+
+        <p>
+          These nine formulas are not independent of each other. CAPM feeds into WACC, which sits in the denominator of the DCF.
+          Black-Scholes and Merton are built on the same mathematical foundation, both relying on the normal distribution and
+          risk-neutral pricing. VaR and duration are linear approximations to non-linear realities, each requiring second-order
+          corrections when the moves get large enough to matter.
+        </p>
+
+        <p>
+          What actually separates good practitioners from average ones is not knowing the formulas. Most people with a finance
+          education know the formulas. It is understanding the assumptions behind them, knowing when those assumptions are
+          reasonable and when they are not, and being able to interpret the outputs critically rather than just accepting them.
+        </p>
+
+        <p>
+          The 2008 crisis, the LTCM collapse, the volatility dislocations of 2018: none of these were failures of mathematics.
+          They were failures of the judgment surrounding the mathematics. Every model in this article is a simplification of reality,
+          and that is fine as long as you remember it.
+        </p>
+
+        <!-- SHARE -->
+        <div class="article-actions">
+          <span>Share:</span>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://stefanocampita.github.io/sito_portfolio/financial_formulas_post.html"
+             target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://twitter.com/intent/tweet?url=https://stefanocampita.github.io/sito_portfolio/financial_formulas_post.html&text=The%20Formulas%20That%20Move%20Markets"
+             target="_blank" rel="noopener">X</a>
+        </div>
+
+        <!-- BACK -->
+        <div class="article-actions">
+          <a class="btn outline" href="blog.html">← Back to Blog</a>
+        </div>
+
+      </article>
+
+      <!-- RELATED POSTS -->
+      <section class="read-also">
+        <h3 class="read-title">Read Also</h3>
+        <div class="read-grid">
+
+          <a class="read-card" href="M&A_structure_post.html">
+            <div class="read-card-content">
+              <h4>Inside an M&A Deal</h4>
+              <p>What really happens between the first call and closing, from due diligence to signing.</p>
+            </div>
+          </a>
+
+          <a class="read-card" href="post-ADYEN-NEXI-merge.html">
+            <div class="read-card-content">
+              <h4>Adyen and Nexi: A Potential Acquisition</h4>
+              <p>A deal-style analysis of the strategic rationale, synergies, and what would need to be true for it to work.</p>
+            </div>
+          </a>
+
+          <a class="read-card" href="blog.html">
+            <div class="read-card-content">
+              <h4>More Posts</h4>
+              <p>Browse the full archive including valuation notes, corporate finance, and weekly market recaps.</p>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left">
+        <div>&copy; 2026 Stefano Campita. All rights reserved.</div>
+        <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+      </div>
+      <div class="right">
+        <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

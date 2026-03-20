@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Portfolio — Stefano Campita | Finance & Markets</title>
+  <link rel="stylesheet" href="styles.clean.css?v=4">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+</head>
+<body>
+  
+<div class="nav">
+  <div class="inner">
+    <div class="brand"><a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a></div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <!-- HERO sezione -->
+    <p class="eyebrow">CASE STUDIES &amp; MODELS</p>
+    <h1 class="hero-title">Portfolio</h1>
+    <p class="hero-lead">
+      Selected projects in valuation, corporate finance, and market analysis — built to show how I think, structure problems, and communicate results.
+    </p>
+
+    <!-- Search -->
+    <div class="searchbar">
+      <input id="search" type="text" placeholder="Search projects (e.g., LBO, DCF, M&A) ..." oninput="filterCards()"/>
+    </div>
+
+    <!-- Griglia card -->
+    <div class="cards-grid">
+      <!-- Monte Carlo -->
+      <article class="card model-card" data-tags="Monte-carlo-cover">
+        <header class="card-top">
+          <span class="badge-year">2026</span>
+        </header>
+        <h3 class="card-title">Monte Carlo Portfolio Risk Engine</h3>
+        <p class="card-desc">
+          A Python-based risk simulation framework for a three-asset portfolio: VaR, Expected Shortfall, and scenario analysis across market regimes.
+        </p>
+        <ul class="tags">
+          <li class="tag">Quantitative Risk</li>
+          <li class="tag">Python</li>
+          <li class="tag">Investments</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>10,000 Simulations (S&P 500 · Gold · VIX)</li>
+          <li>VaR & Expected Shortfall (95% / 99%)</li>
+          <li>Base · High Volatility · Stress Scenarios</li>
+        </ul>
+        <a class="btn btn-download" href="Post_montecarlo.html">View</a>
+      </article>
+      <!-- Equity Project -->
+      <article class="card model-card" data-tags="cvhub saas business plan go-to-market">
+        <header class="card-top">
+          <span class="badge-year">2026</span>
+        </header>
+        <h3 class="card-title">Schneider Electric vs Siemens — Equity Research</h3>
+        <p class="card-desc">
+          Structured equity analysis: financial quality, ROIC vs WACC, DCF + multiples cross-check, sensitivity testing.
+        </p>
+        <ul class="tags">
+          <li class="tag">Equity Research</li>
+          <li class="tag">Valuation</li>
+          <li class="tag">Investments</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>Financial Analysis (FY2018–FY2024)</li>
+          <li>DCF + Multiples Cross-Check</li>
+          <li>Sensitivity & Thesis Breakers</li>
+        </ul>
+        <a class="btn btn-download" href="Investment-Memo.html">View</a>
+      </article>
+
+      <!-- Adyen–Nexi M&A -->
+      <article class="card model-card" data-tags="m&a synergy dcf comparables fintech payments">
+        <header class="card-top">
+          <span class="badge-year">2025</span>
+        </header>
+        <h3 class="card-title">M&amp;A Analysis — Tech Acquisition (Adyen × Nexi)</h3>
+        <p class="card-desc">
+          Accretion/dilution for a large-cap tech deal. Synergy modelling, purchase price allocation, pro-forma financials, integration costs.
+        </p>
+        <ul class="tags">
+          <li class="tag">M&amp;A</li>
+          <li class="tag">Technology</li>
+          <li class="tag">Synergies</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>5–8% EPS Accretion</li>
+          <li>€10m Synergies</li>
+          <li>3-year Payback</li>
+        </ul>
+        <a class="btn btn-download" href="post-ADYEN-NEXI-merge.html">View</a>
+      </article>
+
+      <!-- Thesis -->
+      <article class="card model-card" data-tags="thesis causal inference machine learning sp500 vix gold">
+        <header class="card-top">
+          <span class="badge-year">2025</span>
+        </header>
+        <h3 class="card-title">Undergraduate Thesis — Causal Inference in Financial Markets</h3>
+        <p class="card-desc">
+          Causal ML to assess macro shocks on S&amp;P 500, Gold (XAUUSD), and VIX using DML, PSM, and OLS with back-door adjustment.
+        </p>
+        <ul class="tags">
+          <li class="tag">Causal</li>
+          <li class="tag">ML</li>
+          <li class="tag">Finance</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>9 Experiments</li>
+          <li>Temporal Robustness</li>
+          <li>Sensitivity Tests</li>
+        </ul>
+        <a class="btn btn-download" href="thesis-page.html">View</a>
+      </article>
+
+      <!-- CVHub -->
+      <article class="card model-card" data-tags="cvhub saas business plan go-to-market">
+        <header class="card-top">
+          <span class="badge-year">2024</span>
+        </header>
+        <h3 class="card-title">CVHub — Career SaaS Case Study</h3>
+        <p class="card-desc">
+          End-to-end business plan: market analysis, competition, pricing, and financial modelling with product roadmap.
+        </p>
+        <ul class="tags">
+          <li class="tag">SaaS</li>
+          <li class="tag">Strategy</li>
+          <li class="tag">Finance</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>Market Sizing</li>
+          <li>Unit Economics</li>
+          <li>GTM Plan</li>
+        </ul>
+        <a class="btn btn-download" href="portfolio-cvhub.html">View</a>
+      </article>
+
+      <!-- LBO Modelling -->
+      <article class="card model-card" data-tags="lbo modelling irr buyout private equity">
+        <header class="card-top">
+          <span class="badge-year">2023</span>
+        </header>
+        <h3 class="card-title">LBO Modelling — From Assumptions to IRR</h3>
+        <p class="card-desc">
+          Step-by-step LBO model: Sources &amp; Uses, debt schedule (revolver/TL), cash sweep, equity waterfall, and sensitivities.
+        </p>
+        <ul class="tags">
+          <li class="tag">LBO</li>
+          <li class="tag">PE</li>
+          <li class="tag">IRR</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>8.0× Entry Multiple</li>
+          <li>2.2× MoIC</li>
+          <li>~20–25% IRR</li>
+        </ul>
+        <a class="btn btn-download" href="post-lbo-assumptions-to-irr.html">View</a>
+      </article>
+
+      <!-- Notion Deal Flow -->
+      <article class="card model-card" data-tags="notion deal tracker template pipeline">
+        <header class="card-top">
+          <span class="badge-year">2023</span>
+        </header>
+        <h3 class="card-title">Deal Flow Tracker — Notion Template</h3>
+        <p class="card-desc">
+          Ready-to-use template to organize pipeline, record assumptions, and monitor returns. Built for clarity and decisions.
+        </p>
+        <ul class="tags">
+          <li class="tag">Template</li>
+          <li class="tag">Deal Flow</li>
+          <li class="tag">Notion</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>Stages &amp; Priorities</li>
+          <li>Assumption Log</li>
+          <li>Simple Metrics</li>
+        </ul>
+        <a class="btn btn-download" href="post-notion-dealflow.html">View</a>
+      </article>
+
+    </div><!-- /.cards-grid -->
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2 class="cta-title">Need a Custom Model?</h2>
+      <p class="cta-text">
+        I build bespoke valuation models, LBO analyses, and investment memos tailored to your specific deal or learning objectives.
+      </p>
+      <a class="btn btn-primary" href="contact.html">Get in Touch</a>
+    </div>
+
+  </div><!-- /.container -->
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function filterCards(){
+    const q = document.getElementById('search').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(c => {
+      const tags = (c.getAttribute('data-tags')||'').toLowerCase();
+      const title = (c.querySelector('h3')?.innerText||'').toLowerCase();
+      const text  = (c.querySelector('p')?.innerText||'').toLowerCase();
+      const hit = !q || tags.includes(q) || title.includes(q) || text.includes(q);
+      c.style.display = hit ? '' : 'none';
+    });
+  }
+
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

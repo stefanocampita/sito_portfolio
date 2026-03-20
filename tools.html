@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Tools — Stefano Campita | Finance & Markets</title>
+  <meta name="description" content="Free financial tools by Stefano Campita — DCF Calculator, WACC Calculator, and more. Built for finance students and analysts.">
+  <link rel="stylesheet" href="styles.clean.css?v=4">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="inner">
+    <div class="brand"><a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a></div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="news.html">News</a>
+      <a href="tools.html" class="active">Tools</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <!-- HERO -->
+    <p class="eyebrow">FREE FINANCE TOOLS</p>
+    <h1 class="hero-title">Tools</h1>
+    <p class="hero-lead">
+      Interactive calculators and models built for finance students, analysts, and investors. Free to use, no sign-up required.
+    </p>
+
+    <!-- Search -->
+    <div class="searchbar">
+      <input id="search" type="text" placeholder="Search tools (e.g., DCF, WACC, valuation) ..." oninput="filterCards()"/>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards-grid">
+
+      <article class="card model-card" data-tags="dcf valuation intrinsic value free cash flow wacc terminal">
+        <header class="card-top">
+          <span class="badge-year">Free</span>
+        </header>
+        <h3 class="card-title">DCF Calculator</h3>
+        <p class="card-desc">
+          Estimate the intrinsic value of any company. Two-stage growth model, sensitivity analysis on WACC × terminal growth rate, and upside/downside vs current price.
+        </p>
+        <ul class="tags">
+          <li class="tag">Valuation</li>
+          <li class="tag">DCF</li>
+          <li class="tag">Equity</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>Two-stage FCF projection</li>
+          <li>Sensitivity table (WACC × TGR)</li>
+          <li>Intrinsic value per share</li>
+        </ul>
+        <a class="btn btn-download" href="DCF-Calculator.html">Open Tool →</a>
+      </article>
+
+      <!-- Placeholder — WACC Calculator (coming soon) -->
+      <article class="card model-card" data-tags="wacc cost of capital debt equity beta">
+        <header class="card-top">
+          <span class="badge-year">Soon</span>
+        </header>
+        <h3 class="card-title">WACC Calculator</h3>
+        <p class="card-desc">
+          Calculate the Weighted Average Cost of Capital for any company. Input debt, equity, cost of debt, cost of equity, and tax rate.
+        </p>
+        <ul class="tags">
+          <li class="tag">WACC</li>
+          <li class="tag">Cost of Capital</li>
+          <li class="tag">Valuation</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>CAPM-based cost of equity</li>
+          <li>After-tax cost of debt</li>
+          <li>Capital structure breakdown</li>
+        </ul>
+        <a class="btn btn-download" style="opacity:.45; pointer-events:none; cursor:default;">Coming Soon</a>
+      </article>
+
+      <!-- Placeholder — LBO Returns Calculator (coming soon) -->
+      <article class="card model-card" data-tags="lbo irr moic private equity buyout returns">
+        <header class="card-top">
+          <span class="badge-year">Soon</span>
+        </header>
+        <h3 class="card-title">LBO Returns Calculator</h3>
+        <p class="card-desc">
+          Quick IRR and MoIC calculator for leveraged buyout scenarios. Entry multiple, exit multiple, debt paydown, and holding period.
+        </p>
+        <ul class="tags">
+          <li class="tag">LBO</li>
+          <li class="tag">IRR</li>
+          <li class="tag">Private Equity</li>
+        </ul>
+        <hr class="card-sep">
+        <ul class="card-bullets">
+          <li>IRR & MoIC output</li>
+          <li>Debt paydown schedule</li>
+          <li>Entry/exit multiple sensitivity</li>
+        </ul>
+        <a class="btn btn-download" style="opacity:.45; pointer-events:none; cursor:default;">Coming Soon</a>
+      </article>
+
+    </div><!-- /.cards-grid -->
+
+  </div><!-- /.container -->
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function filterCards(){
+    const q = document.getElementById('search').value.toLowerCase().trim();
+    document.querySelectorAll('.card').forEach(c => {
+      const tags  = (c.getAttribute('data-tags') || '').toLowerCase();
+      const title = (c.querySelector('h3')?.innerText || '').toLowerCase();
+      const text  = (c.querySelector('p')?.innerText  || '').toLowerCase();
+      c.style.display = (!q || tags.includes(q) || title.includes(q) || text.includes(q)) ? '' : 'none';
+    });
+  }
+
+  (function(){
+    var btn  = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

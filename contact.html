@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact — Stefano Campita | Finance & Markets</title>
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VD0H4VRFHJ');
+</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+    <h2>Get in Touch</h2>
+
+    <!-- Nota: su GitHub Pages il submit è solo demo. Usa "Email Direct". -->
+    <form id="contactForm" onsubmit="event.preventDefault(); const s=document.getElementById('formStatus'); s.hidden=false; s.textContent='This is a static site on GitHub Pages. Use Email Direct below to compose your message.';">
+      <!-- Row: Name + Email -->
+      <div class="row">
+        <div>
+          <label for="name">Name</label><br/>
+          <input id="name" name="name" class="input" placeholder="Your name" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label><br/>
+          <input id="email" name="email" type="email" class="input" placeholder="your@email.com" autocomplete="email" required>
+        </div>
+      </div>
+
+      <div class="actions">
+  <label for="subject">Subject</label><br/>
+  <input id="subject" name="subject" class="input" placeholder="Subject" value="Contact from website">
+</div>
+
+      <!-- Message -->
+      <div class="actions">
+        <label for="msg">Message</label><br/>
+        <textarea id="msg" name="message" class="input" placeholder="Write your message..." rows="6" required></textarea>
+      </div>
+
+      <!-- Actions verticali -->
+      <div class="actions">
+        <!-- Selettore provider -->
+        <div class="email-actions">
+          <select id="mailProvider" class="input">
+            <option value="default">Default mail app (mailto)</option>
+            <option value="gmail">Gmail (web)</option>
+            <option value="outlook_live">Outlook.com / Hotmail (web)</option>
+            <option value="outlook_office">Outlook 365 (web)</option>
+            <option value="yahoo">Yahoo Mail (web)</option>
+          </select>
+        </div>
+
+        <!-- Bottone Direct Email -->
+         <p></p>
+        <a id="emailDirectBtn" class="btn accent" href="#">Email Direct</a>
+
+        <!-- Bottone LinkedIn -->
+        <a class="btn outline" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" rel="noopener">LinkedIn</a>
+
+        <p id="formStatus" aria-live="polite" hidden></p>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav hamburger
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+
+  // ===== Email Direct (provider-aware) =====
+  const enc = (s) => encodeURIComponent(String(s || ''));
+  // Prefill from URL params (?subject=...&message=...)
+(function(){
+  const params = new URLSearchParams(window.location.search);
+
+  const subjectParam = params.get('subject');
+  const messageParam = params.get('message');
+
+  const subjectEl = document.getElementById('subject');
+  const msgEl = document.getElementById('msg');
+
+  if (subjectParam && subjectEl && !subjectEl.value.trim()) subjectEl.value = subjectParam;
+  if (messageParam && msgEl && !msgEl.value.trim()) msgEl.value = messageParam;
+})();
+
+  function buildEmailUrl(provider, to, subject, body) {
+    switch (provider) {
+      case 'gmail':
+        return `https://mail.google.com/mail/?view=cm&fs=1&to=${enc(to)}&su=${enc(subject)}&body=${enc(body)}`;
+      case 'outlook_live':
+        return `https://outlook.live.com/mail/0/deeplink/compose?to=${enc(to)}&subject=${enc(subject)}&body=${enc(body)}`;
+      case 'outlook_office':
+        return `https://outlook.office.com/mail/deeplink/compose?to=${enc(to)}&subject=${enc(subject)}&body=${enc(body)}`;
+      case 'yahoo':
+        return `https://compose.mail.yahoo.com/?to=${enc(to)}&subject=${enc(subject)}&body=${enc(body)}`;
+      default:
+        return `mailto:${to}?subject=${enc(subject)}&body=${enc(body)}`;
+    }
+  }
+
+  (function(){
+    const btn = document.getElementById('emailDirectBtn');
+    if (!btn) return;
+
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+
+      const name = document.getElementById('name')?.value?.trim() || '';
+      const email = document.getElementById('email')?.value?.trim() || '';
+      const msg = document.getElementById('msg')?.value?.trim() || '';
+      const provider = document.getElementById('mailProvider')?.value || 'default';
+
+      const statusEl = document.getElementById('formStatus');
+
+      // Validazione email base (solo se compilata)
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        statusEl.hidden = false;
+        statusEl.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      const to = 'stefanocampita2@gmail.com';
+      const subject = (document.getElementById('subject')?.value?.trim() || 'Contact from website');
+      const body = `From: ${name} <${email}>\n\n${msg}`;
+
+      const url = buildEmailUrl(provider, to, subject, body);
+
+      const webProviders = ['gmail', 'outlook_live', 'outlook_office', 'yahoo'];
+      if (webProviders.includes(provider)) {
+        const w = window.open(url, '_blank', 'noopener');
+        if (!w) window.location.href = buildEmailUrl('default', to, subject, body);
+      } else {
+        window.location.href = url; // mailto
+      }
+
+      statusEl.hidden = false;
+      statusEl.textContent = 'Opening your email composer...';
+    });
+  })();
+</script>
+
+</body>
+</html>
