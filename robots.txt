@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stefanocampita.github.io/sito_portfolio/sitemap.xml
