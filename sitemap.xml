@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/index.html</loc><priority>1.0</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/portfolio.html</loc><priority>0.9</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/blog.html</loc><priority>0.9</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/news.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/contact.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/tools.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/links.html</loc><priority>0.6</priority></url>
+
+  <!-- Portfolio articles -->
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/Post_montecarlo.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/post-ADYEN-NEXI-merge.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/Post-AI-in-finance.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/post-ESG.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/post-lbo-assumptions-to-irr.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/post-notion-dealflow.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/post-on-formulas.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/Post-Tokenization.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/MA_Framework.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/Investment-Memo.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/M&amp;A_structure_post.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/How-to-choose-an-investment-area.html</loc><priority>0.8</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/portfolio-cvhub.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/thesis-page.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/DCF-Calculator.html</loc><priority>0.7</priority></url>
+
+  <!-- Weekly recaps -->
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/16-22-mar.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/9-15-mar.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/23-1-mar.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/2-8-mar.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/26-1-feb.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/16-22-feb.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/9-15-feb.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/2-8-feb.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/29-04-gen.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/19-25-gen.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/12-18-gen.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/5-11-gen.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/22-28-dec.html</loc><priority>0.7</priority></url>
+  <url><loc>https://stefanocampita.github.io/sito_portfolio/15-21-dec.html</loc><priority>0.7</priority></url>
+
+</urlset>
