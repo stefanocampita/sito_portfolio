@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Flow Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#2B2F36;
+      --secondary:#F9FAFB;
+      --accent:#E7C873;
+      --accent-600:#DDBF66;
+      --accent-200:#F3E6B6;
+      --text:#333333;
+      --max-w:1360px;
+      --radius:12px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ min-height:100%; margin:0; padding:0; }
+    body{
+      display:flex; flex-direction:column; min-height:100vh;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text); background:var(--secondary);
+    }
+
+    .main{ flex:1 0 auto; }
+    .container{ max-width:var(--max-w); margin:0 auto; padding:24px 20px; }
+
+    .card{
+      background:#fff;
+      border:1px solid #ECECEC;
+      border-radius:var(--radius);
+      padding:16px 18px;
+      transition:box-shadow .2s ease, transform .2s;
+    }
+
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      color:var(--accent);
+      text-align:center;
+      margin:6px 0 10px;
+      position:relative;
+    }
+
+    .eyebrow::after{
+      content:"";
+      display:block;
+      width:120px;
+      height:3px;
+      background:var(--accent);
+      margin:8px auto 0;
+      border-radius:2px;
+    }
+
+    .hero-title{
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:clamp(28px, 4vw, 40px);
+      line-height:1.15;
+      text-align:center;
+      color:var(--primary);
+      margin:0 0 8px;
+    }
+
+    .hero-lead{
+      max-width:720px;
+      margin:0 auto 22px;
+      text-align:center;
+      color:#6b7280;
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    label{
+      font-size:13px;
+      color:#555;
+      display:block;
+      margin-bottom:5px;
+    }
+
+    .input{
+      width:100%;
+      padding:12px 14px;
+      border:1px solid #E5E7EB;
+      border-radius:10px;
+      background:#fff;
+      font-size:14px;
+      color:var(--text);
+      transition:border-color .2s, box-shadow .2s;
+    }
+
+    .input:focus{
+      outline:none;
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(231,200,115,.25);
+    }
+
+    .btn{
+      border-radius:10px;
+      padding:12px 16px;
+      font-weight:700;
+      border:2px solid var(--primary);
+      display:inline-block;
+      cursor:pointer;
+      font-family:inherit;
+      font-size:14px;
+      transition:.15s;
+    }
+
+    .btn.primary{ background:var(--primary); color:#fff; }
+    .btn.primary:hover{ background:#1e2229; }
+    .btn.primary:active{ transform:translateY(1px); }
+    .btn.primary:disabled{ opacity:.5; cursor:not-allowed; transform:none; }
+
+    .controls-panel{
+      display:grid;
+      grid-template-columns:1fr 1fr auto;
+      gap:16px;
+      align-items:end;
+      margin-bottom:18px;
+    }
+
+    @media(max-width:680px){
+      .controls-panel{ grid-template-columns:1fr 1fr; }
+      .controls-panel .btn-wrap{ grid-column:1/-1; }
+    }
+
+    @media(max-width:460px){
+      .controls-panel{ grid-template-columns:1fr; }
+    }
+
+    .app-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(330px, .85fr);
+      gap:18px;
+      align-items:start;
+    }
+
+    @media(max-width:980px){
+      .app-grid{ grid-template-columns:1fr; }
+    }
+
+    .left-stack,
+    .right-stack{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .progress-wrap{
+      height:4px;
+      background:#E5E7EB;
+      border-radius:2px;
+      margin-bottom:16px;
+      overflow:hidden;
+    }
+
+    .progress-bar{
+      height:100%;
+      background:var(--accent);
+      border-radius:2px;
+      width:0%;
+      transition:width .6s ease;
+    }
+
+    .step-dots{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+      padding:0 2px;
+    }
+
+    .step-dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#E5E7EB;
+      transition:background .4s, transform .3s;
+    }
+
+    .step-dot.done{ background:var(--accent); }
+    .step-dot.current{
+      background:var(--accent);
+      transform:scale(1.4);
+      box-shadow:0 0 0 3px rgba(231,200,115,.35);
+    }
+
+    .step-dot.failed{
+      background:#ef4444;
+      transform:scale(1.4);
+    }
+
+    .flow-wrap{
+      overflow-x:auto;
+      padding-bottom:4px;
+    }
+
+    .flow-wrap svg{
+      min-width:760px;
+      width:100%;
+      height:auto;
+    }
+
+    .node-rect{
+      transition:fill .5s, stroke .5s, filter .5s;
+    }
+
+    .node-rect.idle{ fill:#fff; stroke:#ECECEC; }
+    .node-rect.current{
+      fill:var(--accent-200);
+      stroke:var(--accent-600);
+      filter:drop-shadow(0 0 8px rgba(231,200,115,.5));
+    }
+    .node-rect.active{ fill:#d1fae5; stroke:#059669; }
+    .node-rect.declined{ fill:#fee2e2; stroke:#dc2626; }
+
+    .arrow-line{
+      fill:none;
+      stroke:#E5E7EB;
+      stroke-width:2.5;
+      transition:stroke .5s, opacity .4s;
+      stroke-dasharray:200;
+      stroke-dashoffset:200;
+    }
+
+    .arrow-line.flowing{
+      stroke:var(--accent-600);
+      animation:flowDash .8s ease forwards;
+    }
+
+    .arrow-line.active{
+      stroke:#059669;
+      stroke-dashoffset:0;
+    }
+
+    .arrow-line.declined{
+      stroke:#ef4444;
+      stroke-dashoffset:0;
+    }
+
+    @keyframes flowDash{
+      from{ stroke-dashoffset:200; }
+      to{ stroke-dashoffset:0; }
+    }
+
+    @keyframes nodePulse{
+      0%,100%{ filter:drop-shadow(0 0 6px rgba(231,200,115,.4)); }
+      50%{ filter:drop-shadow(0 0 14px rgba(231,200,115,.75)); }
+    }
+
+    .node-rect.current{
+      animation:nodePulse 1.4s ease-in-out infinite;
+    }
+
+    .legend{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-top:12px;
+      font-size:13px;
+      color:#6b7280;
+    }
+
+    .legend-item{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .legend-line{
+      width:28px;
+      height:0;
+      border-top:3px solid #E5E7EB;
+      border-radius:2px;
+    }
+
+    .legend-line.flow{ border-color:var(--accent-600); }
+    .legend-line.approved{ border-color:#059669; }
+    .legend-line.declined-c{ border-color:#ef4444; }
+
+    .section-title{
+      font-size:15px;
+      font-weight:800;
+      color:var(--primary);
+      margin:0 0 12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .notif-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:160px;
+      max-height:540px;
+      overflow:auto;
+      padding-right:2px;
+    }
+
+    .notif-empty{
+      color:#9ca3af;
+      font-size:13px;
+      padding:8px 0;
+    }
+
+    .notif-item{
+      background:#F9FAFB;
+      border:1px solid #E5E7EB;
+      border-radius:10px;
+      padding:12px 14px;
+      border-left:3px solid #E5E7EB;
+      animation:slideDown .4s ease;
+    }
+
+    @keyframes slideDown{
+      from{ opacity:0; transform:translateY(-10px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    .notif-item.amber{ border-left-color:var(--accent-600); }
+    .notif-item.green{ border-left-color:#059669; background:#f0fdf4; }
+    .notif-item.red{ border-left-color:#ef4444; background:#fef2f2; }
+
+    .notif-actor{
+      font-size:11px;
+      font-weight:800;
+      color:#6b7280;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:3px;
+    }
+
+    .notif-text{
+      font-size:13px;
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    .summary-box{
+      background:#F9FAFB;
+      border:1px solid #E5E7EB;
+      border-radius:10px;
+      padding:14px;
+      min-height:140px;
+    }
+
+    .summary-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      padding:9px 0;
+      border-bottom:1px solid #F0F0F0;
+      font-size:14px;
+    }
+
+    .summary-row:last-child{ border-bottom:none; }
+
+    .summary-label{
+      color:#6b7280;
+      font-weight:600;
+    }
+
+    .summary-value{
+      font-weight:800;
+      color:var(--primary);
+      text-align:right;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:4px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+    .badge.approved{ background:#d1fae5; color:#065f46; }
+    .badge.declined{ background:#fee2e2; color:#991b1b; }
+
+    .footer-note{
+      color:#9ca3af;
+      font-size:12px;
+      margin-top:18px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+<div class="main">
+<div class="container">
+
+  <div class="eyebrow">Pagamenti</div>
+  <h1 class="hero-title">Payment Flow Explorer</h1>
+  <p class="hero-lead">Simulatore interattivo del flusso di autorizzazione di un pagamento con carta. Imposta importo e saldo, poi avvia la simulazione.</p>
+
+  <div class="app-grid">
+
+    <div class="left-stack">
+      <div class="card">
+        <div class="controls-panel">
+          <div>
+            <label for="amt">Importo pagamento (€)</label>
+            <input class="input" type="number" id="amt" min="1" step="0.01" value="120" />
+          </div>
+          <div>
+            <label for="bal">Saldo disponibile (€)</label>
+            <input class="input" type="number" id="bal" min="0" step="0.01" value="200" />
+          </div>
+          <div class="btn-wrap">
+            <button class="btn primary" id="simBtn" onclick="runSimulation()">▶ Simula</button>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="step-dots" id="stepDots"></div>
+
+        <div class="flow-wrap">
+          <svg viewBox="0 0 820 235" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="ah-default" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M2 2L8 5L2 8" fill="none" stroke="#CBCBCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+              <marker id="ah-flow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M2 2L8 5L2 8" fill="none" stroke="#DDBF66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+              <marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M2 2L8 5L2 8" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+              <marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M2 2L8 5L2 8" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+
+            <!-- request -->
+            <line id="arr-0" class="arrow-line" x1="120" y1="82" x2="166" y2="82" marker-end="url(#ah-default)"/>
+            <line id="arr-1" class="arrow-line" x1="280" y1="82" x2="326" y2="82" marker-end="url(#ah-default)"/>
+            <line id="arr-2" class="arrow-line" x1="440" y1="82" x2="486" y2="82" marker-end="url(#ah-default)"/>
+            <line id="arr-3" class="arrow-line" x1="600" y1="82" x2="646" y2="82" marker-end="url(#ah-default)"/>
+
+            <!-- response -->
+            <line id="arr-7" class="arrow-line" x1="646" y1="120" x2="600" y2="120" marker-end="url(#ah-default)"/>
+            <line id="arr-6" class="arrow-line" x1="486" y1="120" x2="440" y2="120" marker-end="url(#ah-default)"/>
+            <line id="arr-5" class="arrow-line" x1="326" y1="120" x2="280" y2="120" marker-end="url(#ah-default)"/>
+            <line id="arr-4" class="arrow-line" x1="166" y1="120" x2="120" y2="120" marker-end="url(#ah-default)"/>
+
+            <!-- settlement -->
+            <line id="arr-8" class="arrow-line" x1="706" y1="144" x2="706" y2="184" marker-end="url(#ah-default)"/>
+
+            <!-- nodes -->
+            <g>
+              <rect id="nr-0" class="node-rect idle" x="10" y="56" width="110" height="68" rx="12" stroke-width="1.5"/>
+              <text font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2B2F36" x="65" y="82" text-anchor="middle" dominant-baseline="central">Customer</text>
+              <text font-family="Inter,sans-serif" font-size="11" fill="#6b7280" x="65" y="100" text-anchor="middle" dominant-baseline="central">Titolare carta</text>
+            </g>
+
+            <g>
+              <rect id="nr-1" class="node-rect idle" x="168" y="56" width="110" height="68" rx="12" stroke-width="1.5"/>
+              <text font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2B2F36" x="223" y="79" text-anchor="middle" dominant-baseline="central">Merchant</text>
+              <text font-family="Inter,sans-serif" font-size="11" fill="#6b7280" x="223" y="97" text-anchor="middle" dominant-baseline="central">POS terminale</text>
+            </g>
+
+            <g>
+              <rect id="nr-2" class="node-rect idle" x="328" y="56" width="110" height="68" rx="12" stroke-width="1.5"/>
+              <text font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2B2F36" x="383" y="79" text-anchor="middle" dominant-baseline="central">Acquirer</text>
+              <text font-family="Inter,sans-serif" font-size="11" fill="#6b7280" x="383" y="97" text-anchor="middle" dominant-baseline="central">Banca acquirente</text>
+            </g>
+
+            <g>
+              <rect id="nr-3" class="node-rect idle" x="488" y="56" width="110" height="68" rx="12" stroke-width="1.5"/>
+              <text font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2B2F36" x="543" y="79" text-anchor="middle" dominant-baseline="central">Scheme</text>
+              <text font-family="Inter,sans-serif" font-size="11" fill="#6b7280" x="543" y="97" text-anchor="middle" dominant-baseline="central">Visa / Mastercard</text>
+            </g>
+
+            <g>
+              <rect id="nr-4" class="node-rect idle" x="648" y="56" width="116" height="68" rx="12" stroke-width="1.5"/>
+              <text font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2B2F36" x="706" y="79" text-anchor="middle" dominant-baseline="central">Issuer Bank</text>
+              <text font-family="Inter,sans-serif" font-size="11" fill="#6b7280" x="706" y="97" text-anchor="middle" dominant-baseline="central">Banca emittente</text>
+            </g>
+
+            <g>
+              <rect id="nr-5" class="node-rect idle" x="648" y="186" width="116" height="40" rx="12" stroke-width="1.5"/>
+              <text font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#2B2F36" x="706" y="206" text-anchor="middle" dominant-baseline="central">Settlement</text>
+            </g>
+
+            <!-- labels moved OUTSIDE nodes -->
+            <text font-family="Inter,sans-serif" font-size="11" fill="#9ca3af" x="387" y="34" text-anchor="middle">Richiesta autorizzazione</text>
+            <text font-family="Inter,sans-serif" font-size="11" fill="#9ca3af" x="387" y="145" text-anchor="middle">Risposta autorizzazione</text>
+          </svg>
+        </div>
+
+        <div class="legend">
+          <div class="legend-item"><div class="legend-line"></div><span>Inattivo</span></div>
+          <div class="legend-item"><div class="legend-line flow"></div><span>In transito</span></div>
+          <div class="legend-item"><div class="legend-line approved"></div><span>Approvato</span></div>
+          <div class="legend-item"><div class="legend-line declined-c"></div><span>Declinato</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-stack">
+      <div class="card">
+        <h3 class="section-title">Notifiche in tempo reale</h3>
+        <div class="notif-list" id="notifList">
+          <div class="notif-empty">Nessuna simulazione avviata.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="section-title">Riepilogo esito</h3>
+        <div class="summary-box" id="summaryBox">
+          <div class="notif-empty" style="padding:8px 0">In attesa della simulazione…</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">Simulatore semplificato: l'autorizzazione è basata esclusivamente sul saldo disponibile.</div>
+</div>
+</div>
+
+<script>
+  const STEPS_APPROVED = [
+    { node:0, arrowFwd:null,  arrowBack:null, label:'Customer',    text:'Avvio pagamento con carta di <strong>{amt}</strong>.', color:'amber' },
+    { node:1, arrowFwd:0,     arrowBack:null, label:'Merchant',    text:'Richiesta ricevuta. Invio al acquiring bank per l\'autorizzazione.', color:'amber' },
+    { node:2, arrowFwd:1,     arrowBack:null, label:'Acquirer',    text:'Richiesta di autorizzazione instradata allo scheme.', color:'amber' },
+    { node:3, arrowFwd:2,     arrowBack:null, label:'Scheme',      text:'Transazione instradata alla banca emittente del titolare.', color:'amber' },
+    { node:4, arrowFwd:3,     arrowBack:null, label:'Issuer Bank', text:'Verifica saldo… saldo disponibile <strong>{bal}</strong> &ge; importo <strong>{amt}</strong>. <strong>Pagamento APPROVATO.</strong>', color:'green' },
+    { node:3, arrowFwd:null,  arrowBack:7,    label:'Scheme',      text:'Risposta positiva ricevuta dall\'issuer. Inoltro all\'acquirer.', color:'green' },
+    { node:2, arrowFwd:null,  arrowBack:6,    label:'Acquirer',    text:'Autorizzazione approvata. Notifica al merchant.', color:'green' },
+    { node:1, arrowFwd:null,  arrowBack:5,    label:'Merchant',    text:'Pagamento accettato. Transazione completata con successo.', color:'green' },
+    { node:0, arrowFwd:null,  arrowBack:4,    label:'Customer',    text:'Il tuo pagamento di <strong>{amt}</strong> è stato approvato. Fondi prenotati.', color:'green' },
+    { node:5, arrowFwd:8,     arrowBack:null, label:'Settlement',  text:'Avvio processo di compensazione e regolamento fondi tra le banche.', color:'green' },
+  ];
+
+  const STEPS_DECLINED = [
+    { node:0, arrowFwd:null,  arrowBack:null, label:'Customer',    text:'Avvio pagamento con carta di <strong>{amt}</strong>.', color:'amber' },
+    { node:1, arrowFwd:0,     arrowBack:null, label:'Merchant',    text:'Richiesta ricevuta. Invio al acquiring bank per l\'autorizzazione.', color:'amber' },
+    { node:2, arrowFwd:1,     arrowBack:null, label:'Acquirer',    text:'Richiesta di autorizzazione instradata allo scheme.', color:'amber' },
+    { node:3, arrowFwd:2,     arrowBack:null, label:'Scheme',      text:'Transazione instradata alla banca emittente del titolare.', color:'amber' },
+    { node:4, arrowFwd:3,     arrowBack:null, label:'Issuer Bank', text:'Verifica saldo… saldo disponibile <strong>{bal}</strong> &lt; importo <strong>{amt}</strong>. <strong>Pagamento DECLINATO.</strong>', color:'red' },
+    { node:3, arrowFwd:null,  arrowBack:7,    label:'Scheme',      text:'Risposta negativa ricevuta dall\'issuer. Inoltro codice di rifiuto all\'acquirer.', color:'red' },
+    { node:2, arrowFwd:null,  arrowBack:6,    label:'Acquirer',    text:'Autorizzazione declinata. Notifica al merchant.', color:'red' },
+    { node:1, arrowFwd:null,  arrowBack:5,    label:'Merchant',    text:'Pagamento declinato. Comunicazione al titolare di usare un altro metodo.', color:'red' },
+    { node:0, arrowFwd:null,  arrowBack:4,    label:'Customer',    text:'Il tuo pagamento di <strong>{amt}</strong> è stato rifiutato. Fondi insufficienti.', color:'red' },
+  ];
+
+  const STEP_DELAY = 5000;
+  let simRunning = false;
+  let simTimers  = [];
+  let firstNotif = true;
+
+  function euro(v) {
+    return new Intl.NumberFormat('it-IT', { style:'currency', currency:'EUR' }).format(v);
+  }
+
+  function fill(t, amt, bal) {
+    return t.replace(/\{amt\}/g, euro(amt)).replace(/\{bal\}/g, euro(bal));
+  }
+
+  function buildDots(total) {
+    const el = document.getElementById('stepDots');
+    el.innerHTML = '';
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('div');
+      d.className = 'step-dot';
+      el.appendChild(d);
+    }
+  }
+
+  function updateDots(current, approved) {
+    const dots = document.querySelectorAll('.step-dot');
+    dots.forEach((d, i) => {
+      d.className = 'step-dot';
+      if (i < current) d.classList.add('done');
+      else if (i === current) {
+        if (!approved && i === 4) d.classList.add('failed');
+        else d.classList.add('current');
+      }
+    });
+  }
+
+  function resetAll() {
+    simTimers.forEach(clearTimeout);
+    simTimers = [];
+
+    for (let i = 0; i < 6; i++) {
+      const r = document.getElementById('nr-' + i);
+      if (r) {
+        r.className = 'node-rect idle';
+        r.style.animation = '';
+      }
+    }
+
+    for (let i = 0; i < 9; i++) {
+      const a = document.getElementById('arr-' + i);
+      if (a) {
+        a.className = 'arrow-line';
+        a.setAttribute('marker-end', 'url(#ah-default)');
+        a.style.strokeDashoffset = '200';
+      }
+    }
+
+    document.getElementById('notifList').innerHTML = '<div class="notif-empty">Avvio simulazione…</div>';
+    document.getElementById('summaryBox').innerHTML = '<div class="notif-empty" style="padding:8px 0">Calcolo in corso…</div>';
+    document.getElementById('progressBar').style.width = '0%';
+    buildDots(0);
+  }
+
+  function setArrow(idx, state) {
+    const a = document.getElementById('arr-' + idx);
+    if (!a) return;
+
+    const markerMap = {
+      active:'url(#ah-green)',
+      declined:'url(#ah-red)',
+      flowing:'url(#ah-flow)'
+    };
+
+    a.className = 'arrow-line flowing';
+    a.setAttribute('marker-end', markerMap[state] || 'url(#ah-default)');
+
+    const t = setTimeout(() => {
+      a.className = 'arrow-line ' + state;
+      a.setAttribute('marker-end', markerMap[state] || 'url(#ah-default)');
+    }, 800);
+
+    simTimers.push(t);
+  }
+
+  function setNode(idx, state) {
+    const r = document.getElementById('nr-' + idx);
+    if (r) r.className = 'node-rect ' + state;
+  }
+
+  function addNotif(label, text, color) {
+    const list = document.getElementById('notifList');
+    if (firstNotif) {
+      list.innerHTML = '';
+      firstNotif = false;
+    }
+
+    const item = document.createElement('div');
+    item.className = 'notif-item ' + color;
+    item.innerHTML = `<div class="notif-actor">${label}</div><div class="notif-text">${text}</div>`;
+    list.insertBefore(item, list.firstChild);
+  }
+
+  function showSummary(amt, bal, approved) {
+    const badge = approved
+      ? '<span class="badge approved">Approvato</span>'
+      : '<span class="badge declined">Declinato</span>';
+
+    const rows = [
+      ['Rail', 'Pagamento con carta'],
+      ['Importo', euro(amt)],
+      ['Saldo', euro(bal)],
+      ['Autorizzazione', badge],
+      ['Motivo', approved ? 'Fondi sufficienti' : 'Fondi insufficienti'],
+      ['Settlement', approved ? 'Avviato' : 'Non avviato'],
+    ];
+
+    document.getElementById('summaryBox').innerHTML = rows.map(([l, v]) => `
+      <div class="summary-row">
+        <span class="summary-label">${l}</span>
+        <span class="summary-value">${v}</span>
+      </div>
+    `).join('');
+  }
+
+  function runSimulation() {
+    if (simRunning) return;
+
+    const amt = parseFloat(document.getElementById('amt').value);
+    const bal = parseFloat(document.getElementById('bal').value);
+
+    if (isNaN(amt) || isNaN(bal) || amt <= 0 || bal < 0) {
+      document.getElementById('summaryBox').innerHTML = `
+        <div class="summary-row">
+          <span class="summary-label">Errore</span>
+          <span class="summary-value">Input non valido</span>
+        </div>
+      `;
+      document.getElementById('notifList').innerHTML = `
+        <div class="notif-item red">
+          <div class="notif-actor">System</div>
+          <div class="notif-text">Inserisci valori numerici validi per importo e saldo.</div>
+        </div>
+      `;
+      return;
+    }
+
+    resetAll();
+    firstNotif = true;
+    simRunning = true;
+
+    const btn = document.getElementById('simBtn');
+    btn.textContent = '⏳ In corso…';
+    btn.disabled = true;
+
+    const approved = bal >= amt;
+    const steps = approved ? STEPS_APPROVED : STEPS_DECLINED;
+
+    buildDots(steps.length);
+
+    steps.forEach((step, i) => {
+      const delay = i * STEP_DELAY;
+
+      const t = setTimeout(() => {
+        setNode(step.node, 'current');
+
+        if (step.arrowFwd !== null && step.arrowFwd !== undefined) {
+          const state = (!approved && i >= 4) ? 'declined' : 'active';
+          setArrow(step.arrowFwd, state);
+        }
+
+        if (step.arrowBack !== null && step.arrowBack !== undefined) {
+          const state = !approved ? 'declined' : 'active';
+          setArrow(step.arrowBack, state);
+        }
+
+        addNotif(step.label, fill(step.text, amt, bal), step.color);
+        updateDots(i, approved);
+
+        document.getElementById('progressBar').style.width =
+          Math.round(((i + 1) / steps.length) * 100) + '%';
+
+        const settle = setTimeout(() => {
+          const finalState = (!approved && i >= 4) ? 'declined' : 'active';
+          setNode(step.node, finalState);
+        }, 600);
+        simTimers.push(settle);
+
+        if (i === steps.length - 1) {
+          const end = setTimeout(() => {
+            const ns = approved ? 'active' : 'declined';
+            [0, 1, 2, 3, 4].forEach(n => setNode(n, ns));
+            setNode(5, approved ? 'active' : 'idle');
+
+            document.querySelectorAll('.step-dot').forEach(d => {
+              d.className = 'step-dot ' + (approved ? 'done' : 'failed');
+            });
+
+            showSummary(amt, bal, approved);
+            simRunning = false;
+            btn.textContent = '▶ Simula';
+            btn.disabled = false;
+          }, 800);
+          simTimers.push(end);
+        }
+      }, delay);
+
+      simTimers.push(t);
+    });
+  }
+</script>
+</body>
+</html>
