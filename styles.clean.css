@@ -136,10 +136,73 @@ a{ color:var(--primary); text-decoration:none; }
 .about-inline p{ line-height:1.65; }
 
 @media (max-width:1024px){
-  .home-hero{ grid-template-columns:1fr; gap:24px; }
-  .col-right{ padding-top:0; }
+  .home-hero{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .col-left{
+    order:2;
+  }
+
+  .col-right{
+    order:1;
+    padding-top:0;
+  }
+
+  .portrait-frame{
+    max-width:520px;
+    margin:0 auto;
+  }
 }
 
+@media (max-width:768px){
+  .home-hero{
+    gap:20px;
+    padding:24px 0 12px;
+  }
+
+  .display-title{
+    font-size:clamp(32px, 9vw, 44px);
+    line-height:1.12;
+  }
+
+  .metrics{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .portrait-frame{
+    padding:10px;
+    max-width:100%;
+  }
+
+  .portrait{
+  max-height:420px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#EDEFF3;
+}
+
+.portrait img{
+  width:auto;
+  height:100%;
+  max-height:420px;
+  object-fit:contain;
+}
+
+  .btnrow{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .btnrow .btn{
+    width:100%;
+    text-align:center;
+  }
+}
 /* ================================
    BLOG: ARTICLE PAGE (dettaglio)
 ================================ */
