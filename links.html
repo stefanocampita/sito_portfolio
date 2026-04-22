@@ -22,7 +22,6 @@
   </script>
 
   <style>
-  /* Page-only: uses your tokens from styles.clean.css */
   body{
     background:
       radial-gradient(900px 280px at 20% -10%, rgba(231,200,115,.18), transparent 55%),
@@ -123,6 +122,10 @@
     background: linear-gradient(90deg, rgba(231,200,115,.85), rgba(231,200,115,.10));
   }
 
+  .hub-section-gap{
+    margin-top: 28px;
+  }
+
   .hub-grid{
     display:grid;
     grid-template-columns: repeat(2, minmax(0,1fr));
@@ -150,6 +153,13 @@
     border-color: rgba(231,200,115,.55);
   }
 
+  /* featured tile — full width with subtle accent border */
+  .hub-tile-featured{
+    grid-column: 1 / -1;
+    border-color: rgba(231,200,115,.45);
+    background: linear-gradient(135deg, #fffdf7 0%, #fff 60%);
+  }
+
   .hub-ic{
     width:42px;
     height:42px;
@@ -161,11 +171,19 @@
     justify-content:center;
     flex: 0 0 auto;
   }
+  .hub-ic-accent{
+    background: rgba(231,200,115,.15);
+    border-color: rgba(231,200,115,.4);
+  }
   .hub-svg{
     width:18px; height:18px;
     stroke: var(--primary);
   }
 
+  .hub-meta{
+    flex: 1;
+    min-width: 0;
+  }
   .hub-meta h3{
     margin:0;
     font-weight:900;
@@ -179,10 +197,25 @@
     line-height:1.45;
   }
 
+  .hub-badge{
+    display:inline-block;
+    margin-top: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(231,200,115,.18);
+    color: var(--primary);
+    border: 1px solid rgba(231,200,115,.45);
+  }
+
   .hub-arrow{
     margin-left:auto;
     font-weight:900;
     color: rgba(43,47,54,.55);
+    flex-shrink: 0;
   }
 
   .hub-micro{
@@ -203,8 +236,10 @@
   @media (max-width: 900px){
     .hub-grid{ grid-template-columns: 1fr; }
     .hub-cta .btn{ width: 100%; min-width: unset; }
+    .hub-tile-featured{ grid-column: unset; }
   }
-</style>
+  </style>
+</head>
 
 <body>
 
@@ -236,9 +271,8 @@
         <div class="hub-eyebrow">Links</div>
         <h1 class="hub-title">Stefano Campita</h1>
         <div class="hub-lead">
-          Financial Modeling, Valuation, Market Analysis & Weekly Recap.
+          Financial analyst &amp; researcher. Valuation, machine learning applied to finance, digital payments.
         </div>
-
         <div class="hub-cta">
           <a class="btn accent" href="portfolio.html">View Portfolio</a>
           <a class="btn outline" href="blog.html">Read Blog</a>
@@ -247,9 +281,56 @@
       </div>
 
       <div class="hub-body">
-        <div class="hub-section">Connect</div>
 
+        <!-- PROJECTS -->
+        <div class="hub-section">Projects</div>
         <div class="hub-grid">
+
+          <!-- Savion Systems — featured -->
+          <a class="hub-tile hub-tile-featured" href="https://savionsystems.it" target="_blank" rel="noopener">
+            <div class="hub-ic hub-ic-accent" aria-hidden="true">
+              <svg class="hub-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div class="hub-meta">
+              <h3>Savion Systems</h3>
+              <p>Research &amp; advisory on the digital euro ecosystem — Level 3 services for PSPs, merchants, and SMEs.</p>
+              <span class="hub-badge">savionsystems.it</span>
+            </div>
+            <div class="hub-arrow" aria-hidden="true">→</div>
+          </a>
+
+        </div>
+
+        <div class="hub-grid" style="display:flex; justify-content:center; margin-top:14px;">
+
+          <!-- Published research -->
+          <a class="hub-tile" href="https://journal.privietlab.org/download.php?id=9497" target="_blank" rel="noopener" style="max-width:520px; width:100%;">
+            <div class="hub-ic" aria-hidden="true">
+              <svg class="hub-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div class="hub-meta">
+              <h3>Published Research</h3>
+              <p>Causal analysis of macroeconomic shocks on financial markets via machine learning. JEBL, 2026.</p>
+              <span class="hub-badge">Peer-reviewed · Roma Tre</span>
+            </div>
+            <div class="hub-arrow" aria-hidden="true">→</div>
+          </a>
+
+        </div>
+
+        <!-- CONNECT -->
+        <div class="hub-section hub-section-gap">Connect</div>
+        <div class="hub-grid">
+
           <a class="hub-tile" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" rel="noopener">
             <div class="hub-ic" aria-hidden="true">
               <svg class="hub-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -292,37 +373,21 @@
             <div class="hub-arrow" aria-hidden="true">→</div>
           </a>
 
-          <a class="hub-tile" href="news.html">
-            <div class="hub-ic" aria-hidden="true">
-              <svg class="hub-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14"/>
-                <path d="M4 19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9h-4"/>
-                <path d="M8 7h8"/>
-                <path d="M8 11h8"/>
-                <path d="M8 15h6"/>
-              </svg>
-            </div>
-            <div class="hub-meta">
-              <h3>The 10 Minutes Brief</h3>
-              <p>Weekly market recap cards & short takes.</p>
-            </div>
-            <div class="hub-arrow" aria-hidden="true">→</div>
-          </a>
         </div>
 
         <div class="hub-micro">
-          Want the “wow” first? Start from <a href="news.html">The 10 Minutes Brief</a>.
+          For a quick overview, start with <a href="news.html">10 Minutes Brief</a>.
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</main>
+  </main>
 
   <footer class="site-footer">
     <div class="inner">
       <div class="left">
-        <div>&copy; © 2026 Stefano Campita. All rights reserved.</div>
+        <div>&copy; 2026 Stefano Campita. All rights reserved.</div>
         <div>Personal finance website — valuation, corporate finance, markets, and weekly recaps.</div>
       </div>
       <div class="right">
