@@ -9,6 +9,7 @@
   --accent-600:#DDBF66;    /* hover/border */
   --accent-200:#F3E6B6;    /* sfondi tenui */
   --text:#333333;
+  --surface-border:#000000;
 
   --max-w:1280px;
   --radius:12px;
@@ -84,7 +85,7 @@ a{ color:var(--primary); text-decoration:none; }
 ================================ */
 .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
 .card{
-  background:#fff; border:1px solid #ECECEC; border-radius:var(--radius);
+  background:#fff; border:1px solid var(--surface-border); border-radius:var(--radius);
   padding:14px 16px; margin-bottom:20px; transition:box-shadow .2s ease, transform .2s;
 }
 .card:hover{ box-shadow:0 6px 16px rgba(0,0,0,.08); transform:translateY(-1px); }
@@ -299,7 +300,7 @@ a{ color:var(--primary); text-decoration:none; }
    FORMS
 ================================ */
 label{ font-size:13px; color:#555; }
-.input,textarea{ width:100%; padding:12px 14px; border:1px solid #E5E7EB; border-radius:10px; background:#fff; font-size:14px; }
+.input,textarea{ width:100%; padding:12px 14px; border:1px solid var(--surface-border); border-radius:10px; background:#fff; font-size:14px; }
 textarea{ min-height:140px; resize:vertical; }
 form .row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 form .actions{ margin-top:14px; }
@@ -307,7 +308,7 @@ form .actions{ margin-top:14px; }
 /* Searchbar */
 .searchbar{ display:flex; align-items:center; gap:10px; margin:20px 0 28px; }
 .searchbar input{
-  flex:1; padding:12px 16px; border-radius:10px; border:1px solid #E5E7EB; background:#fff;
+  flex:1; padding:12px 16px; border-radius:10px; border:1px solid var(--surface-border); background:#fff;
   font-size:15px; color:var(--text); transition:border-color .2s, box-shadow .2s;
 }
 .searchbar input:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(231,200,115,.25); }
@@ -389,12 +390,12 @@ form .actions{ margin-top:14px; }
 @media (max-width:680px){ .cards-grid{ grid-template-columns: 1fr; } }
 
 .card.model-card{
-  background:#fff; border:1px solid #ECECEC; border-radius:14px;
+  background:#fff; border:1px solid var(--surface-border); border-radius:14px;
   padding:18px 18px 16px;
   transition:transform .2s, box-shadow .2s, border-color .2s;
   display:flex; flex-direction:column; height:100%;
 }
-.card.model-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.08); border-color:#E6E6E6; }
+.card.model-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.08); border-color:var(--surface-border); }
 .model-card .card-top{ display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px; }
 .model-card .badge-year{ font-size:12px; color:#111; background:#fff; border:1px solid #E6E6E6; padding:4px 10px; border-radius:999px; box-shadow:0 1px 0 rgba(0,0,0,.02); }
 .model-card .card-title{
