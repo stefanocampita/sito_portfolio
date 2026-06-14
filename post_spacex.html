@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>IPO Access Is Not the Same as IPO Opportunity: SpaceX, Bending Spoons and the Risk of Buying Too Late</title>
+
+  <meta name="description" content="SpaceX listed at over 90x revenue. Bending Spoons targets a $20 billion valuation. Getting access to a famous IPO is not the same as getting an attractive entry price.">
+  <meta property="og:title" content="IPO Access Is Not the Same as IPO Opportunity">
+  <meta property="og:description" content="SpaceX listed at over 90x revenue. Bending Spoons targets a $20 billion valuation. Getting access to a famous IPO is not the same as getting an attractive entry price.">
+  <meta property="og:type" content="article">
+
+  <link rel="stylesheet" href="styles.clean.css?v=1">
+  <link rel="icon" type="image/png" href="foto sito web/favicon.png"/>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+
+  <style>
+    .article-title {
+      font-size: 30px;
+      line-height: 1.2;
+      margin: 12px 0 4px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .meta-bar .pill {
+      background: #fff !important;
+      color: #374151 !important;
+      border: 1px solid #E5E7EB !important;
+      font-weight: 700;
+    }
+
+    .lead-drop {
+      font-size: 18px !important;
+      line-height: 1.75 !important;
+      color: #374151;
+    }
+
+    .lead-drop::first-letter {
+      float: left;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 5.2rem;
+      line-height: .82;
+      padding-right: .12em;
+      padding-top: .04em;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .section-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 800;
+      margin: 18px 0 8px;
+    }
+
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 980px) { .number-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 680px) { .number-grid { grid-template-columns: 1fr; } }
+
+    .number-card {
+      background: #fafafa;
+      border: 1px solid #ececec;
+      border-radius: 10px;
+      padding: 14px 12px;
+    }
+
+    .number-card b {
+      display: block;
+      color: var(--accent);
+      font-size: 26px;
+      line-height: 1.1;
+      margin-bottom: 5px;
+      font-weight: 900;
+    }
+
+    .number-card span {
+      display: block;
+      color: #4b5563;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .number-card.bearish b { color: #dc2626; }
+    .number-card.neutral b { color: #d97706; }
+
+    .quote-soft {
+      margin: 14px 0;
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent);
+      background: #fffaf0;
+      border-radius: 10px;
+      color: #374151;
+      font-weight: 700;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      overflow: hidden;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .article-content th,
+    .article-content td {
+      border: 1px solid #E5E7EB;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .article-content th {
+      background: #fafafa;
+      color: #1f2937;
+      font-weight: 800;
+    }
+
+    .article-content td { background: #fff; color: #374151; }
+
+    .source-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .source-list a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 3px;
+    }
+
+    /* Chart container */
+    .chart-wrap {
+      margin: 16px 0;
+      background: #fafafa;
+      border: 1px solid #ececec;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .chart-wrap h4 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #6b7280;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* Bar chart */
+    .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+
+    .bar-row { display: grid; grid-template-columns: 160px 1fr 60px; gap: 10px; align-items: center; }
+
+    @media (max-width: 560px) {
+      .bar-row { grid-template-columns: 120px 1fr 50px; }
+    }
+
+    .bar-label { font-size: 13px; color: #374151; font-weight: 700; }
+
+    .bar-track {
+      background: #e5e7eb;
+      border-radius: 6px;
+      height: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width .6s ease;
+    }
+
+    .bar-val { font-size: 13px; color: #374151; font-weight: 800; text-align: right; }
+
+    /* Lock-up timeline */
+    .lockup-timeline {
+      display: flex;
+      gap: 0;
+      margin: 14px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    .lockup-phase {
+      flex: 1;
+      padding: 12px 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .lockup-phase span {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      opacity: .85;
+      margin-top: 4px;
+    }
+
+    .phase-ipo   { background: #2563eb; }
+    .phase-lock  { background: #7c3aed; }
+    .phase-expiry{ background: #dc2626; }
+    .phase-post  { background: #6b7280; }
+
+    @media (max-width: 600px) {
+      .lockup-timeline { flex-direction: column; }
+    }
+
+    /* Two-col scenario grid */
+    .tri-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 780px) { .tri-cards { grid-template-columns: 1fr; } }
+
+    .col { padding: 12px; border-radius: 10px; }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="inner">
+    <div class="brand">
+      <a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="article-hero">
+      <h1 class="article-title">IPO Access Is Not the Same as IPO Opportunity</h1>
+      <p style="margin:6px 0 0;color:#4b5563;">
+        SpaceX, Bending Spoons, and the risk of buying too late: public investors are increasingly invited after private markets have already captured a large part of the upside.
+      </p>
+      <div class="article-meta">
+        <span>Published: <time datetime="2026-06-16">June 16, 2026</time></span>
+        <span>•</span>
+        <span>Reading time: ~12 min</span>
+        <span>•</span>
+        <span><strong>Author: Stefano Campita</strong></span>
+      </div>
+      <div class="meta-bar" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;">
+        <span class="pill" style="display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;">Type: Market Analysis</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;">Topic: IPO &amp; Valuation</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;">Focus: SpaceX · Bending Spoons · Private Markets</span>
+        <span class="pill" style="display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;">Level: Intermediate</span>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER + KEY TAKEAWAYS -->
+    <article class="card article-content">
+      <p class="callout" style="margin:0 0 16px;padding:10px 12px;border:1px dashed #cbd5e1;border-radius:10px;background:#f8fafc;font-weight:700;">
+        Disclaimer: this article is for informational and analytical purposes only. It does not constitute financial advice, investment advice, or a recommendation to buy, sell, or hold any security.
+      </p>
+
+      <h2><strong>Key Takeaways</strong></h2>
+      <div class="tri-cards">
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">The structural shift</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>The strongest private companies often capture a large part of their value creation before listing.</li>
+            <li>Public investors are increasingly invited at the end of the private-market re-rating, not the beginning.</li>
+            <li>IPO access and IPO opportunity are not the same thing.</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">SpaceX: generational company, extreme price</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>At IPO: roughly 94x trailing revenue. After day one: above 100x.</li>
+            <li>Morningstar's fair value estimate: $63 per share, 53% below the IPO price.</li>
+            <li>Lock-up expiry and low float create significant supply risk after 180 days.</li>
+          </ul>
+        </div>
+        <div class="col" style="background:#fafafa;border:1px solid #ececec;">
+          <h3 style="margin:0 0 6px;color:#1f2937;font-size:18px;">Bending Spoons: more grounded, not risk-free</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.6;">
+            <li>Revenue multiples range from roughly 8x to 15x, depending on which revenue base you use.</li>
+            <li>The roll-up model adds execution, integration and capital-allocation risk.</li>
+            <li>Profitable and improving, but the future depends on acquisitions that still need to happen.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- INTRO -->
+    <article class="card article-content">
+      <h2><strong>Introduction: The Democratization Story Has a Catch</strong></h2>
+      <p class="lead-drop">
+        The IPO market is often presented as a democratization story. A private company grows, builds a strong business, reaches scale, and eventually allows public investors to participate in the next phase of its expansion. In theory, that sounds fair. In practice, the picture is more complicated.
+      </p>
+      <p>
+        The recent SpaceX IPO and the proposed Bending Spoons listing point to a broader shift in how public markets interact with high-growth private companies. Public investors are not always entering early. In many cases, they arrive after years of private-market value creation have already been capitalized into the price.
+      </p>
+      <p>
+        The point is not that these companies are weak businesses. SpaceX is arguably one of the most strategically important companies in the world. Bending Spoons is one of Europe's most interesting technology stories, with a disciplined acquisition-led model and improving profitability.
+      </p>
+      <p>
+        Still, business quality and entry price are two different questions. Mixing them up is expensive.
+      </p>
+    </article>
+
+    <!-- STRUCTURAL SHIFT -->
+    <article class="card article-content">
+      <h2><strong>The Core Problem: Public Investors Often Enter After the Re-Rating</strong></h2>
+      <p>
+        For many companies, the IPO used to be the moment when public investors could access a growth story while a meaningful part of that growth was still ahead. Today, for the strongest private companies, much of the value creation often happens before the IPO.
+      </p>
+      <p>
+        Venture funds, private equity investors, founders, employees and early institutional backers participate while the company is still private. By the time the company lists, the valuation may already reflect years of expected growth. The public market is then asked to validate that private-market valuation.
+      </p>
+      <p>
+        That is the main issue with some high-profile IPOs. They are not necessarily designed to give new investors an attractive entry point. They are often designed to transform private value into public liquidity, public visibility and public comparability.
+      </p>
+
+      <p class="quote-soft">
+        The question is no longer: "Is this a great company?" The question becomes: "How much of the future is already priced in?"
+      </p>
+    </article>
+
+    <!-- SPACEX SECTION -->
+    <article class="card article-content">
+      <h2><strong>SpaceX: A Generational Company at a Very Aggressive Valuation</strong></h2>
+      <p>
+        SpaceX is not an ordinary company. It combines launch services, satellite communications, defense exposure, Starlink, AI infrastructure ambitions, and the strategic premium attached to Elon Musk. That makes it difficult to value. But "difficult to value" does not mean "impossible to overpay for."
+      </p>
+      <p>
+        According to Reuters, SpaceX set its IPO price at $135 per share in an offering reported as all-primary, meaning the proceeds go to the company rather than directly to selling shareholders. Reuters explicitly confirmed this structure in its pre-IPO reporting, which makes the offering cleaner than a classic exit-driven listing. It still leaves the same valuation question for new buyers. SpaceX raised $75 billion at a valuation of roughly $1.75 trillion, against 2025 revenue of $18.67 billion and a net loss of $4.94 billion.
+      </p>
+
+      <div class="number-grid">
+        <div class="number-card bearish">
+          <b>~94x</b>
+          <span>Price-to-revenue multiple at the $135 IPO price, based on 2025 revenue of $18.67bn.</span>
+        </div>
+        <div class="number-card bearish">
+          <b>~112x</b>
+          <span>Price-to-revenue after day one close at $160.95, with market cap above $2.1 trillion.</span>
+        </div>
+        <div class="number-card bearish">
+          <b>$63</b>
+          <span>Morningstar's fair-value estimate per share, roughly 53% below the IPO price of $135.</span>
+        </div>
+        <div class="number-card neutral">
+          <b>7%</b>
+          <span>Probability Morningstar assigned to its most optimistic "Moonshot" scenario, which valued SpaceX at $154/share.</span>
+        </div>
+      </div>
+
+      <h3 class="section-eyebrow">The Bull Case, and Why It Is Not Enough by Itself</h3>
+      <p>
+        A reasonable bullish argument is that revenue multiples are too narrow for a company like SpaceX. The argument goes like this: Starlink has near-monopoly-level network effects in some markets, the launch business has structural cost advantages that incumbents cannot replicate quickly, and Starship, if it becomes reliably reusable at scale, could transform the economics of orbital access entirely. Viewed through that lens, revenue today understates the terminal value, and traditional multiples miss the point.
+      </p>
+      <p>
+        That argument deserves attention. SpaceX is not a weak speculative business. Its strategic position is real, its technology is real, and the market potential across Starlink, defense, cargo, and eventually crewed missions is genuinely large.
+      </p>
+      <p>
+        The problem is that the valuation already appears to price in much of that upside. Morningstar's analysis shows that even in its most optimistic scenario, to which it assigned only a 7% probability, SpaceX is worth $154 per share. That is marginally above the IPO price of $135, and well below the first-day close of $160.95. That means the first-day market price was already above Morningstar's most optimistic scenario. Saying "revenue multiples are the wrong metric" does not solve the valuation problem. It moves the debate to future execution, which has to be even stronger than the current price already assumes.
+      </p>
+
+      <h3 class="section-eyebrow">The Lock-Up Risk That Most Retail Buyers Ignore</h3>
+      <p>
+        A second risk receives less attention than the valuation: lock-up expiration. In a typical IPO, existing shareholders, including founders, employees, early venture investors and late-stage private backers, are restricted from selling for roughly 180 days after listing. A small relative float can amplify this dynamic.
+      </p>
+
+      <div class="lockup-timeline">
+        <div class="lockup-phase phase-ipo">
+          IPO Day
+          <span>Shares list. Small float. High demand relative to available supply drives price up.</span>
+        </div>
+        <div class="lockup-phase phase-lock">
+          Days 1-180
+          <span>Lock-up period. Insiders and early investors cannot sell. Float remains constrained.</span>
+        </div>
+        <div class="lockup-phase phase-expiry">
+          ~Day 180
+          <span>Lock-up expires. A larger volume of shares may become eligible for sale. Supply can increase sharply.</span>
+        </div>
+        <div class="lockup-phase phase-post">
+          Post-expiry
+          <span>Price often reprices as market absorbs new supply. Retail buyers who entered near IPO levels may face pressure if new supply is absorbed at lower prices.</span>
+        </div>
+      </div>
+
+      <p>
+        When insider shares become available after lock-up expiry, the market may need to absorb a much larger supply of stock. If the price at expiry is still far above fundamental fair value, early investors have strong incentives to sell. That selling pressure can reprice the stock sharply. A retail buyer who paid $160 at listing and holds through lock-up expiry may see the market test lower levels, not because SpaceX failed as a business, but because supply dynamics normalized.
+      </p>
+      <p>
+        Reuters reported that analysts and portfolio managers warned investors to expect volatility, citing both the high valuation and the small float. Those are not just abstract warnings. They describe a visible mechanical risk around future supply.
+      </p>
+
+      <h3 class="section-eyebrow">The Short-Term Trade Is the Most Dangerous Position</h3>
+      <p>
+        Many retail investors may simplify the trade: SpaceX is finally public, demand is high, so buying immediately should produce a quick gain. That logic is fragile.
+      </p>
+      <p>
+        At more than 90x trailing revenue at IPO and above 100x revenue after the first trading day, SpaceX is not priced like a traditional aerospace or telecom company. A short-term buyer is not underwriting cash flows. They are underwriting sentiment, effectively betting that someone else will pay an even higher price in the near future. Momentum can reverse quickly, especially when the float expands.
+      </p>
+      <p>
+        A long-term investor who believes in SpaceX's 10 to 20 year strategic role can construct a coherent thesis. A short-term trader who buys because "it just listed" is taking an entirely different risk, one that is mostly about momentum and the scarcity premium on a constrained float.
+      </p>
+
+      <h3 class="section-eyebrow">Existing Shareholders Benefit Without Selling</h3>
+      <p>
+        One nuance worth noting: even in an all-primary offering, existing holders still benefit materially. The IPO creates a public mark for their shares. A private stake becomes easier to value, easier to finance against, and easier to sell once lock-up restrictions expire. The benefit to early investors is valuation crystallization: the ability to use a public reference price, not just immediate cash. For new investors, that same public reference price can be dangerous if it already assumes most of the upside.
+      </p>
+    </article>
+
+    <!-- VALUATION COMPARISON CHART -->
+    <article class="card article-content">
+      <h2><strong>SpaceX: What Different Scenarios Imply</strong></h2>
+      <p>
+        Morningstar's scenario analysis illustrates how much optimism is required to justify the IPO price. The chart below shows Morningstar's valuation estimates across scenarios, compared to the IPO price and the first-day close.
+      </p>
+
+      <div class="chart-wrap">
+        <h4>Implied share price by scenario (Morningstar) vs. market prices</h4>
+        <div class="bar-chart" id="spacex-chart">
+          <!-- filled by JS -->
+        </div>
+        <p style="margin:10px 0 0;font-size:12px;color:#9ca3af;">Source: Morningstar analysis; Reuters (IPO price and first-day close). All figures in USD per share.</p>
+      </div>
+
+      <p>
+        The base case fair value at $63 implies that, at the IPO price, investors are paying more than twice what Morningstar considers a reasonable central estimate. The "Moonshot" scenario at $154 per share assumes reliably reusable Starship, aggressive Starlink scaling, and a real commercial market for orbital infrastructure. It barely clears the IPO price and does not justify the first-day close. Morningstar assigned that scenario a 7% probability.
+      </p>
+    </article>
+
+    <!-- BENDING SPOONS SECTION -->
+    <article class="card article-content">
+      <h2><strong>Bending Spoons: A More Grounded Story, But Not Simple</strong></h2>
+      <p>
+        Bending Spoons is a different type of IPO. It is not a moonshot aerospace and AI infrastructure narrative. It is a software and digital-products platform built around acquisitions, operational restructuring and monetization improvement. The company acquires digital businesses such as WeTransfer, Vimeo, Evernote, AOL, Eventbrite and others, transforms them, and reinvests into additional acquisitions.
+      </p>
+      <p>
+        According to Reuters, Bending Spoons filed for a Nasdaq IPO targeting a valuation of at least $20 billion. The company reported $601 million in revenue and $27.5 million in net income for Q1 2026, compared with $259 million in revenue and a $112.2 million net loss one year earlier. That is a significant operational improvement, and unlike SpaceX, Bending Spoons is already profitable.
+      </p>
+
+      <h3 class="section-eyebrow">Why the Revenue Multiple Depends on Which Period You Use</h3>
+      <p>
+        When assessing the valuation, you can calculate the revenue multiple two ways, and the result changes substantially depending on which figure you choose. Both are useful, but they answer different questions. A company could emphasize whichever one makes the valuation look more attractive. The table below shows both explicitly.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Revenue base</th>
+            <th>Figure used</th>
+            <th>Implied P/S at $20bn</th>
+            <th>What it reflects</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Full year 2025</strong></td>
+            <td>~$1.31bn</td>
+            <td>~15x</td>
+            <td>Historical annual run rate. More conservative, less flattering.</td>
+          </tr>
+          <tr>
+            <td><strong>Q1 2026 annualized</strong></td>
+            <td>$601m × 4 = ~$2.4bn</td>
+            <td>~8.3x</td>
+            <td>Current growth trajectory. More favorable, forward-looking.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:12px;">
+        Neither number is wrong. The 15x figure anchors the valuation to what the company delivered over a full year. The 8.3x figure reflects the current growth rate and gives credit for rapid improvement. A disciplined investor looks at both, understands the difference, and asks whether the current trajectory is sustainable enough to justify the forward multiple.
+      </p>
+
+      <div class="chart-wrap">
+        <h4>Bending Spoons: revenue growth and path to profitability</h4>
+        <div class="bar-chart" id="bs-chart"></div>
+        <p style="margin:10px 0 0;font-size:12px;color:#9ca3af;">Source: Reuters (company filings). Q1 2026 figures; 2025 and 2024 are full-year comparisons.</p>
+      </div>
+
+      <h3 class="section-eyebrow">The Roll-Up Risk That the Revenue Growth Does Not Capture</h3>
+      <p>
+        Bending Spoons is not a standard SaaS company with organic growth. It is a capital-allocation machine. Its future depends on a chain of assumptions: finding attractive acquisition targets, acquiring them at reasonable prices, improving them operationally, retaining users after restructuring, managing debt and integration complexity, and convincing public markets that the model is repeatable at larger scale.
+      </p>
+      <p>
+        Each of those assumptions is individually reasonable. Together they create compounding execution risk. Roll-up models often work well at smaller scale, and become harder to manage as the asset base grows. Public investors are not only buying the existing portfolio. They are buying the company's future ability to keep compounding through acquisitions.
+      </p>
+      <p>
+        Reuters also reported that both the company and some stockholders plan to sell shares in the offering, making the liquidity component more direct than in SpaceX's all-primary structure. That does not automatically make the deal problematic, but it means incentives are less neutral.
+      </p>
+    </article>
+
+    <!-- COMPARISON TABLE -->
+    <article class="card article-content">
+      <h2><strong>SpaceX vs. Bending Spoons: A Side-by-Side View</strong></h2>
+      <p>
+        These two IPOs should not be treated as the same type of investment. The risks, valuation anchors and analytical approach are different.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>SpaceX</th>
+            <th>Bending Spoons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Business model</strong></td>
+            <td>Launch services, Starlink satellite internet, defense, future orbital infrastructure.</td>
+            <td>Acquisition-led software platform: buy, restructure, monetize, repeat.</td>
+          </tr>
+          <tr>
+            <td><strong>Revenue (latest)</strong></td>
+            <td>$18.67bn (2025 full year). Net loss of $4.94bn.</td>
+            <td>$601m (Q1 2026). Net income of $27.5m. Profitable.</td>
+          </tr>
+          <tr>
+            <td><strong>Valuation at IPO</strong></td>
+            <td>~$1.75 trillion at $135/share. ~$2.1 trillion after day-one close.</td>
+            <td>Target of at least $20 billion. Price range not yet set at time of filing.</td>
+          </tr>
+          <tr>
+            <td><strong>Revenue multiple</strong></td>
+            <td>~94x at IPO price. Above 100x post day-one.</td>
+            <td>~15x on 2025 revenue. ~8.3x on Q1 2026 annualized.</td>
+          </tr>
+          <tr>
+            <td><strong>Offering structure</strong></td>
+            <td>Reported as all-primary (confirmed by Reuters). Proceeds go to company.</td>
+            <td>Company and some existing shareholders selling. Secondary component present.</td>
+          </tr>
+          <tr>
+            <td><strong>Key risk</strong></td>
+            <td>Valuation assumes very optimistic multi-decade scenarios. Lock-up expiry could add supply risk.</td>
+            <td>Roll-up execution risk. Replicability at scale. Integration complexity.</td>
+          </tr>
+          <tr>
+            <td><strong>Analytical approach</strong></td>
+            <td>Scenario-based; traditional multiples understate optionality but also cannot justify current price.</td>
+            <td>Comparable P/S and P/E multiples are more applicable, but roll-up quality is the key variable.</td>
+          </tr>
+          <tr>
+            <td><strong>Retail investor risk</strong></td>
+            <td>Very high. Valuation extreme. Momentum-driven. Lock-up creates structural supply event.</td>
+            <td>Medium-high. More measurable, but roll-up model is not self-evident without deep diligence.</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <!-- CONCLUSION -->
+    <article class="card article-content">
+      <h2><strong>The IPO Is Not the Opportunity. The Price Is.</strong></h2>
+      <p>
+        The main lesson from SpaceX and Bending Spoons is clear: IPO access is not the same as IPO opportunity. Getting access to a famous company does not automatically mean getting an attractive investment.
+      </p>
+      <p>
+        SpaceX may become one of the most important companies of the next century. But buying it at more than 90x revenue, or above 100x revenue after the first trading day, is not a simple short-term trade. It is a high-expectation bet where much of the future already seems priced in, and where lock-up expiry could create a supply event that current buyers need to consider.
+      </p>
+      <p>
+        Bending Spoons may be one of Europe's strongest software stories. But if it lists at around $20 billion, investors still need to ask whether they are buying a compounding machine or paying upfront for years of successful acquisitions that still need to happen. The revenue multiple looks more reasonable than SpaceX's, but it depends significantly on which revenue period you use. The roll-up model also adds execution risk that a simple revenue comparison does not capture.
+      </p>
+      <p>
+        The IPO market is changing. Public investors are increasingly invited later, at higher valuations, after private investors have captured much of the initial upside. Public investors can still make money, but the discipline required is higher.
+      </p>
+
+      <p class="quote-soft">
+        The question should never be: "Is this a great company?" The question should be: "At this valuation, is this still a great investment?"
+      </p>
+    </article>
+
+    <!-- SOURCES -->
+    <article class="card article-content">
+      <h2><strong>Sources and Further Reading</strong></h2>
+      <ul class="source-list">
+        <li><a href="https://www.reuters.com/business/media-telecom/spacex-plans-raise-75-billion-ipo-135-per-share-source-says-2026-06-03/" target="_blank" rel="noopener">Reuters</a>: SpaceX IPO pricing, all-primary structure, and $75 billion raise.</li>
+        <li><a href="https://www.reuters.com/business/media-telecom/spacex-surges-past-2-trillion-nasdaq-debut-2026-06-12/" target="_blank" rel="noopener">Reuters</a>: SpaceX Nasdaq debut, day-one close at $160.95 and $2.1 trillion market value.</li>
+        <li><a href="https://www.reuters.com/legal/transactional/italys-bending-spoons-files-us-ipo-2026-06-08/" target="_blank" rel="noopener">Reuters</a>: Bending Spoons Nasdaq IPO filing, $20 billion valuation target, Q1 2026 financials.</li>
+        <li><a href="https://www.morningstar.com/business/insights/research/spacex-ipo-analysis" target="_blank" rel="noopener">Morningstar</a>: SpaceX fair value estimate at $63/share; scenario analysis including "Moonshot" case at $154/share.</li>
+      </ul>
+    </article>
+
+    <!-- READ ALSO -->
+    <section class="read-also">
+      <h3>Read Also</h3>
+      <div class="read-grid">
+        <a class="read-card" href="8-14-giu.html">
+          <b>Weekly Market Recap - 8-14 June 2026</b>
+          <span>CPI above 4%, SpaceX's IPO debut, Thursday's Iran relief rally, and the setup into the Fed meeting.</span>
+        </a>
+        <a class="read-card" href="Investment-Memo.html">
+          <b>Schneider Electric vs. Siemens</b>
+          <span>Structured equity analysis, DCF, multiples and ROIC applied to European industrials.</span>
+        </a>
+        <a class="read-card" href="post-lbo-assumptions-to-irr.html">
+          <b>LBO Modelling: From Assumptions to IRR</b>
+          <span>Step-by-step build and the drivers behind private equity returns.</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="left">
+      <div>&copy; 2026 Stefano Campita. All rights reserved.</div>
+      <div>Personal finance website - valuation, corporate finance, markets, and weekly recaps.</div>
+    </div>
+    <div class="right">
+      <a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a>
+      <a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* NAV */
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.menu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+
+  /* SPACEX CHART */
+  (function(){
+    var data = [
+      { label: 'Morningstar base case', val: 63,  max: 200, color: '#16a34a' },
+      { label: 'Morningstar bull case', val: 154, max: 200, color: '#d97706' },
+      { label: 'IPO price ($135)',       val: 135, max: 200, color: '#2563eb' },
+      { label: 'Day-one close ($160.95)',val: 161, max: 200, color: '#dc2626' },
+    ];
+    var wrap = document.getElementById('spacex-chart');
+    if(!wrap) return;
+    data.forEach(function(d){
+      var pct = Math.round((d.val / d.max) * 100);
+      wrap.innerHTML += '<div class="bar-row">'
+        + '<div class="bar-label">' + d.label + '</div>'
+        + '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%;background:' + d.color + ';"></div></div>'
+        + '<div class="bar-val">$' + d.val + '</div>'
+        + '</div>';
+    });
+  })();
+
+  /* BENDING SPOONS CHART */
+  (function(){
+    var data = [
+      { label: 'Q1 2025 Revenue', val: 259,  max: 620, color: '#93c5fd', suffix: 'm' },
+      { label: 'Q1 2026 Revenue', val: 601,  max: 620, color: '#2563eb', suffix: 'm' },
+      { label: 'Q1 2025 Net Income', val: -112, max: 620, color: '#fca5a5', suffix: 'm (loss)', abs: true },
+      { label: 'Q1 2026 Net Income', val: 27.5, max: 620, color: '#16a34a', suffix: 'm' },
+    ];
+    var wrap = document.getElementById('bs-chart');
+    if(!wrap) return;
+    data.forEach(function(d){
+      var pct = Math.round((Math.abs(d.val) / d.max) * 100);
+      var displayVal = (d.val < 0 ? '−' : '') + '$' + Math.abs(d.val) + d.suffix;
+      wrap.innerHTML += '<div class="bar-row">'
+        + '<div class="bar-label">' + d.label + '</div>'
+        + '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%;background:' + d.color + ';"></div></div>'
+        + '<div class="bar-val">' + displayVal + '</div>'
+        + '</div>';
+    });
+  })();
+</script>
+
+</body>
+</html>
