@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>LBO Returns Calculator - Stefano Campita | Finance & Markets</title>
+  <meta name="description" content="Free LBO Returns Calculator. Estimate sponsor IRR, MoIC, debt paydown, and exit equity value for leveraged buyout scenarios.">
+  <link rel="stylesheet" href="styles.clean.css?v=8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+  <style>
+    .page-header { background: var(--primary); padding: 40px 20px 36px; text-align: center; border-bottom: 3px solid var(--accent); }
+    .page-header .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: 12px; color: var(--accent); font-weight: 800; margin: 0 0 10px; }
+    .page-header h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(32px, 5vw, 52px); color: #fff; margin: 0 0 12px; line-height: 1.1; }
+    .page-header h1 span { color: var(--accent); }
+    .page-header p { color: #adb5bd; font-size: 16px; max-width: 680px; margin: 0 auto; line-height: 1.65; }
+    .tool-grid { display: grid; grid-template-columns: 380px 1fr; gap: 24px; margin-top: 28px; align-items: start; }
+    @media (max-width: 1024px) { .tool-grid { grid-template-columns: 1fr; } }
+    .tool-card { background: #fff; border: 1px solid #ECECEC; border-radius: var(--radius); padding: 22px 20px; margin-bottom: 20px; }
+    .tool-title { font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 800; color: var(--primary); margin: 0 0 18px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-200); }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 700; color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+    .field .hint { font-size: 11px; color: #9ca3af; font-weight: 400; margin-left: 6px; text-transform: none; letter-spacing: 0; }
+    .field input { width: 100%; padding: 11px 14px; border: 1px solid #E5E7EB; border-radius: 10px; background: #fff; font-size: 15px; color: var(--text); transition: border-color .2s, box-shadow .2s; font-family: inherit; }
+    .field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(231,200,115,.25); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+    .section-label { font-size: 11px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--accent-200); }
+    .btn-calc { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid var(--primary); background: var(--primary); color: #fff; font-size: 16px; font-weight: 800; cursor: pointer; transition: filter .2s, transform .05s, box-shadow .2s; font-family: inherit; margin-top: 8px; }
+    .btn-calc:hover { filter: brightness(1.12); box-shadow: 0 4px 14px rgba(43,47,54,.25); }
+    .btn-calc:active { transform: translateY(1px); }
+    .info-box { background: var(--accent-200); border: 1px solid var(--accent-600); border-radius: 10px; padding: 14px 16px; margin: 24px 0 20px; font-size: 14px; line-height: 1.6; color: #5a4a1e; }
+    .info-box strong { display: block; margin-bottom: 4px; color: var(--primary); }
+    details summary { cursor: pointer; font-size: 13px; font-weight: 700; color: var(--accent-600); list-style: none; display: flex; align-items: center; gap: 6px; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: ">"; font-size: 12px; transition: transform .2s; }
+    details[open] summary::before { transform: rotate(90deg); }
+    details p { margin: 10px 0 0; font-size: 13px; line-height: 1.65; color: #555; }
+    .formula { background: var(--primary); color: var(--accent); font-family: "Courier New", monospace; font-size: 13px; padding: 12px 16px; border-radius: 8px; margin: 10px 0; overflow-x: auto; white-space: nowrap; }
+    .results-panel { display: none; }
+    .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+    @media (max-width: 900px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .kpi-row { grid-template-columns: 1fr; } }
+    .kpi { background: #fff; border: 1px solid #ECECEC; border-radius: 12px; padding: 16px; text-align: center; position: relative; overflow: hidden; min-height: 116px; }
+    .kpi::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+    .kpi-label { font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+    .kpi-value { font-size: 28px; font-weight: 800; color: var(--primary); font-family: "Playfair Display", Georgia, serif; }
+    .kpi-value.positive { color: #16a34a; }
+    .kpi-value.warning { color: #b45309; }
+    .kpi-sub { font-size: 12px; color: #9ca3af; margin-top: 4px; line-height: 1.35; }
+    .waterfall { display: grid; gap: 10px; }
+    .bar-row { display: grid; grid-template-columns: 145px 1fr 80px; gap: 12px; align-items: center; font-size: 13px; }
+    @media (max-width: 540px) { .bar-row { grid-template-columns: 1fr; gap: 6px; } }
+    .bar-track { height: 14px; background: #F3F4F6; border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 999px; transition: width .25s; }
+    .bar-fill.dark { background: var(--primary); }
+    .bar-fill.green { background: #16a34a; }
+    .bar-label { color: #4b5563; font-weight: 700; }
+    .bar-value { color: var(--primary); font-weight: 800; text-align: right; }
+    @media (max-width: 540px) { .bar-value { text-align: left; } }
+    .table-wrap { overflow-x: auto; }
+    table.model { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+    table.model th, table.model td { padding: 8px 10px; text-align: right; border: 1px solid #E5E7EB; }
+    table.model th:first-child, table.model td:first-child { text-align: left; font-weight: 700; }
+    table.model thead th { background: var(--primary); color: #fff; }
+    table.model tbody tr:nth-child(even) td { background: #F9FAFB; }
+    table.sens { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 440px; }
+    table.sens th, table.sens td { padding: 8px 10px; text-align: center; border: 1px solid #E5E7EB; }
+    table.sens thead th { background: var(--primary); color: #fff; font-weight: 700; }
+    table.sens thead th:first-child { background: #1a1a1a; }
+    table.sens tbody td.highlight { background: var(--accent-200); font-weight: 800; color: var(--primary); }
+    .assumptions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    @media (max-width: 560px) { .assumptions { grid-template-columns: 1fr; } }
+    .assumption-item { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 12px; background: #F9FAFB; border-radius: 8px; font-size: 13px; }
+    .assumption-item .key { color: #6b7280; }
+    .assumption-item .val { font-weight: 700; color: var(--primary); text-align: right; }
+    .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    @media (max-width: 680px) { .how-grid { grid-template-columns: 1fr; } }
+    .how-step .step-title { font-weight: 800; margin: 0 0 6px; font-size: 15px; }
+    .how-step .step-body { font-size: 14px; color: #4b5563; margin: 0; line-height: 1.6; }
+    .disclaimer { font-size: 12px; color: #9ca3af; line-height: 1.55; margin-top: 8px; padding: 10px 14px; background: #F9FAFB; border-radius: 8px; border: 1px solid #E5E7EB; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="inner">
+      <div class="brand"><a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a></div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+        <a href="tools.html" class="active">Tools</a>
+      </div>
+    </div>
+  </div>
+  <main class="main">
+    <div class="page-header">
+      <p class="eyebrow">Free Finance Tool</p>
+      <h1>LBO Returns <span>Calculator</span></h1>
+      <p>Estimate sponsor returns from a leveraged buyout using purchase price, financing mix, EBITDA growth, debt paydown, and exit multiple assumptions.</p>
+    </div>
+    <div class="container">
+      <div class="info-box">
+        <strong>How LBO returns work</strong>
+        An LBO return depends on the entry equity check, operating growth, debt paydown, and exit valuation. The sponsor wins when exit equity value grows faster than the initial equity invested.
+        <details>
+          <summary>See the formula</summary>
+          <div class="formula">MoIC = Exit Equity Value / Initial Sponsor Equity</div>
+          <p>IRR is the annualized return that links the initial equity investment to the exit equity proceeds over the holding period.</p>
+        </details>
+      </div>
+      <div class="tool-grid">
+        <div>
+          <div class="tool-card">
+            <h2 class="tool-title">Inputs</h2>
+            <p class="section-label">Entry Assumptions</p>
+            <div class="field-row">
+              <div class="field"><label>Entry EBITDA <span class="hint">$M</span></label><input type="number" id="entryEbitda" value="250" min="0" step="10"></div>
+              <div class="field"><label>Entry Multiple <span class="hint">x</span></label><input type="number" id="entryMultiple" value="10" min="0" step="0.25"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Debt Multiple <span class="hint">x EBITDA</span></label><input type="number" id="debtMultiple" value="5.5" min="0" step="0.25"></div>
+              <div class="field"><label>Cash to Balance Sheet <span class="hint">$M</span></label><input type="number" id="cashToBalanceSheet" value="50" min="0" step="10"></div>
+            </div>
+            <div class="field"><label>Transaction Fees <span class="hint">% of purchase EV</span></label><input type="number" id="feesPct" value="2" min="0" step="0.25"></div>
+            <p class="section-label">Operating Assumptions</p>
+            <div class="field-row">
+              <div class="field"><label>EBITDA Growth <span class="hint">% / year</span></label><input type="number" id="ebitdaGrowth" value="6" step="0.5"></div>
+              <div class="field"><label>Cash Conversion <span class="hint">% of EBITDA</span></label><input type="number" id="cashConversion" value="45" min="0" max="100" step="1"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Interest Rate <span class="hint">%</span></label><input type="number" id="interestRate" value="8" min="0" step="0.25"></div>
+              <div class="field"><label>Holding Period <span class="hint">years</span></label><input type="number" id="holdingPeriod" value="5" min="1" max="10" step="1"></div>
+            </div>
+            <p class="section-label">Exit Assumptions</p>
+            <div class="field"><label>Exit Multiple <span class="hint">x EBITDA</span></label><input type="number" id="exitMultiple" value="10" min="0" step="0.25"></div>
+            <button class="btn-calc" onclick="calculateLbo()">Calculate LBO Returns -&gt;</button>
+          </div>
+        </div>
+        <div>
+          <div id="resultsPanel" class="results-panel">
+            <div class="kpi-row" id="kpiRow"></div>
+            <div class="tool-card"><h3 class="tool-title">Value Creation Bridge</h3><div class="waterfall" id="waterfall"></div></div>
+            <div class="tool-card"><h3 class="tool-title">Debt Paydown Schedule</h3><div class="table-wrap"><table class="model" id="scheduleTable"></table></div></div>
+            <div class="tool-card"><h3 class="tool-title">Entry / Exit Multiple Sensitivity</h3><div class="table-wrap"><table class="sens" id="sensTable"></table></div></div>
+            <div class="tool-card"><h3 class="tool-title">Model Assumptions</h3><div class="assumptions" id="assumptionsList"></div></div>
+            <p class="disclaimer">This tool is for educational and illustrative purposes only. LBO outputs are simplified and assumption-sensitive. This is not financial advice.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <h3 class="tool-title">How to Use This Calculator</h3>
+        <div class="how-grid">
+          <div class="how-step"><p class="step-title">1. Set Entry Value</p><p class="step-body">Start with EBITDA and an entry multiple to estimate purchase enterprise value.</p></div>
+          <div class="how-step"><p class="step-title">2. Size the Debt</p><p class="step-body">Use a debt multiple and cash conversion assumptions to model deleveraging during the hold.</p></div>
+          <div class="how-step"><p class="step-title">3. Check Exit Returns</p><p class="step-body">Compare MoIC and IRR across multiple scenarios to see what drives the sponsor return.</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left"><div>&copy; 2026 Stefano Campita. All rights reserved.</div><div>Personal finance website - valuation, corporate finance, markets, and weekly recaps.</div></div>
+      <div class="right"><a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a><a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a></div>
+    </div>
+  </footer>
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', open);
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+    function val(id) {
+      var n = parseFloat(document.getElementById(id).value);
+      return isNaN(n) ? 0 : n;
+    }
+    function fmtMoney(n) {
+      if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(1) + 'B';
+      return '$' + n.toFixed(0) + 'M';
+    }
+    function fmtPct(n) { return n.toFixed(1) + '%'; }
+    function fmtX(n) { return n.toFixed(2) + 'x'; }
+    function calcScenario(entryEbitda, entryMultiple, debtMultiple, cashToBalanceSheet, feesPct, growth, cashConversion, interestRate, years, exitMultiple) {
+      var purchaseEV = entryEbitda * entryMultiple;
+      var fees = purchaseEV * feesPct / 100;
+      var openingDebt = entryEbitda * debtMultiple;
+      var sponsorEquity = Math.max(0, purchaseEV + fees + cashToBalanceSheet - openingDebt);
+      var debt = openingDebt;
+      var ebitda = entryEbitda;
+      var schedule = [];
+      for (var year = 1; year <= years; year++) {
+        ebitda = ebitda * (1 + growth / 100);
+        var interest = debt * interestRate / 100;
+        var cashFlowBeforeInterest = ebitda * cashConversion / 100;
+        var debtPaydown = Math.max(0, cashFlowBeforeInterest - interest);
+        debtPaydown = Math.min(debt, debtPaydown);
+        debt = Math.max(0, debt - debtPaydown);
+        schedule.push({ year: year, ebitda: ebitda, interest: interest, paydown: debtPaydown, debt: debt });
+      }
+      var exitEV = ebitda * exitMultiple;
+      var exitEquity = Math.max(0, exitEV - debt);
+      var moic = sponsorEquity > 0 ? exitEquity / sponsorEquity : 0;
+      var irr = sponsorEquity > 0 && years > 0 ? (Math.pow(moic, 1 / years) - 1) * 100 : 0;
+      return { purchaseEV: purchaseEV, fees: fees, openingDebt: openingDebt, sponsorEquity: sponsorEquity, finalEbitda: ebitda, endingDebt: debt, exitEV: exitEV, exitEquity: exitEquity, moic: moic, irr: irr, schedule: schedule };
+    }
+    function buildSchedule(rows) {
+      var html = '<thead><tr><th>Year</th><th>EBITDA</th><th>Interest</th><th>Debt Paydown</th><th>Ending Debt</th></tr></thead><tbody>';
+      rows.forEach(function(r){
+        html += '<tr><td>Year ' + r.year + '</td><td>' + fmtMoney(r.ebitda) + '</td><td>' + fmtMoney(r.interest) + '</td><td>' + fmtMoney(r.paydown) + '</td><td>' + fmtMoney(r.debt) + '</td></tr>';
+      });
+      html += '</tbody>';
+      return html;
+    }
+    function buildSensitivity(inputs) {
+      var entrySteps = [inputs.entryMultiple - 1, inputs.entryMultiple - 0.5, inputs.entryMultiple, inputs.entryMultiple + 0.5, inputs.entryMultiple + 1].map(function(x){ return Math.max(0, x); });
+      var exitSteps = [inputs.exitMultiple - 1, inputs.exitMultiple - 0.5, inputs.exitMultiple, inputs.exitMultiple + 0.5, inputs.exitMultiple + 1].map(function(x){ return Math.max(0, x); });
+      var html = '<thead><tr><th>Exit / Entry</th>';
+      entrySteps.forEach(function(e){ html += '<th>' + fmtX(e) + '</th>'; });
+      html += '</tr></thead><tbody>';
+      exitSteps.forEach(function(exitM){
+        html += '<tr><th>' + fmtX(exitM) + '</th>';
+        entrySteps.forEach(function(entryM){
+          var res = calcScenario(inputs.entryEbitda, entryM, inputs.debtMultiple, inputs.cashToBalanceSheet, inputs.feesPct, inputs.growth, inputs.cashConversion, inputs.interestRate, inputs.years, exitM);
+          var cls = (Math.abs(entryM - inputs.entryMultiple) < 0.001 && Math.abs(exitM - inputs.exitMultiple) < 0.001) ? ' class="highlight"' : '';
+          html += '<td' + cls + '>' + fmtPct(res.irr) + '</td>';
+        });
+        html += '</tr>';
+      });
+      html += '</tbody>';
+      return html;
+    }
+    function calculateLbo() {
+      var inputs = {
+        entryEbitda: val('entryEbitda'),
+        entryMultiple: val('entryMultiple'),
+        debtMultiple: val('debtMultiple'),
+        cashToBalanceSheet: val('cashToBalanceSheet'),
+        feesPct: val('feesPct'),
+        growth: val('ebitdaGrowth'),
+        cashConversion: val('cashConversion'),
+        interestRate: val('interestRate'),
+        years: Math.max(1, Math.round(val('holdingPeriod'))),
+        exitMultiple: val('exitMultiple')
+      };
+      var res = calcScenario(inputs.entryEbitda, inputs.entryMultiple, inputs.debtMultiple, inputs.cashToBalanceSheet, inputs.feesPct, inputs.growth, inputs.cashConversion, inputs.interestRate, inputs.years, inputs.exitMultiple);
+      document.getElementById('resultsPanel').style.display = 'block';
+      document.getElementById('kpiRow').innerHTML =
+        '<div class="kpi"><div class="kpi-label">Sponsor IRR</div><div class="kpi-value positive">' + fmtPct(res.irr) + '</div><div class="kpi-sub">' + inputs.years + '-year annualized return</div></div>' +
+        '<div class="kpi"><div class="kpi-label">MoIC</div><div class="kpi-value">' + fmtX(res.moic) + '</div><div class="kpi-sub">Exit proceeds / entry equity</div></div>' +
+        '<div class="kpi"><div class="kpi-label">Initial Equity</div><div class="kpi-value">' + fmtMoney(res.sponsorEquity) + '</div><div class="kpi-sub">Sponsor equity check</div></div>' +
+        '<div class="kpi"><div class="kpi-label">Exit Equity</div><div class="kpi-value">' + fmtMoney(res.exitEquity) + '</div><div class="kpi-sub">Exit EV less remaining debt</div></div>';
+      var maxBar = Math.max(res.sponsorEquity, res.exitEquity, res.openingDebt, res.openingDebt - res.endingDebt, 1);
+      document.getElementById('waterfall').innerHTML =
+        '<div class="bar-row"><span class="bar-label">Initial Equity</span><div class="bar-track"><div class="bar-fill" style="width:' + (res.sponsorEquity / maxBar * 100) + '%"></div></div><span class="bar-value">' + fmtMoney(res.sponsorEquity) + '</span></div>' +
+        '<div class="bar-row"><span class="bar-label">Opening Debt</span><div class="bar-track"><div class="bar-fill dark" style="width:' + (res.openingDebt / maxBar * 100) + '%"></div></div><span class="bar-value">' + fmtMoney(res.openingDebt) + '</span></div>' +
+        '<div class="bar-row"><span class="bar-label">Debt Paydown</span><div class="bar-track"><div class="bar-fill green" style="width:' + ((res.openingDebt - res.endingDebt) / maxBar * 100) + '%"></div></div><span class="bar-value">' + fmtMoney(res.openingDebt - res.endingDebt) + '</span></div>' +
+        '<div class="bar-row"><span class="bar-label">Exit Equity</span><div class="bar-track"><div class="bar-fill" style="width:' + (res.exitEquity / maxBar * 100) + '%"></div></div><span class="bar-value">' + fmtMoney(res.exitEquity) + '</span></div>';
+      document.getElementById('scheduleTable').innerHTML = buildSchedule(res.schedule);
+      document.getElementById('sensTable').innerHTML = buildSensitivity(inputs);
+      document.getElementById('assumptionsList').innerHTML =
+        '<div class="assumption-item"><span class="key">Purchase EV</span><span class="val">' + fmtMoney(res.purchaseEV) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Transaction Fees</span><span class="val">' + fmtMoney(res.fees) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Entry Debt</span><span class="val">' + fmtMoney(res.openingDebt) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Ending Debt</span><span class="val">' + fmtMoney(res.endingDebt) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Exit EV</span><span class="val">' + fmtMoney(res.exitEV) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Exit EBITDA</span><span class="val">' + fmtMoney(res.finalEbitda) + '</span></div>';
+    }
+    calculateLbo();
+  </script>
+</body>
+</html>

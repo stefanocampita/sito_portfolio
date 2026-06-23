@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>WACC Calculator - Stefano Campita | Finance & Markets</title>
+  <meta name="description" content="Free WACC Calculator. Estimate cost of equity, after-tax cost of debt, capital structure weights, and weighted average cost of capital.">
+  <link rel="stylesheet" href="styles.clean.css?v=8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD0H4VRFHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VD0H4VRFHJ');
+  </script>
+  <style>
+    .page-header { background: var(--primary); padding: 40px 20px 36px; text-align: center; border-bottom: 3px solid var(--accent); }
+    .page-header .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: 12px; color: var(--accent); font-weight: 800; margin: 0 0 10px; }
+    .page-header h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(32px, 5vw, 52px); color: #fff; margin: 0 0 12px; line-height: 1.1; }
+    .page-header h1 span { color: var(--accent); }
+    .page-header p { color: #adb5bd; font-size: 16px; max-width: 680px; margin: 0 auto; line-height: 1.65; }
+    .tool-grid { display: grid; grid-template-columns: 380px 1fr; gap: 24px; margin-top: 28px; align-items: start; }
+    @media (max-width: 1024px) { .tool-grid { grid-template-columns: 1fr; } }
+    .tool-card { background: #fff; border: 1px solid #ECECEC; border-radius: var(--radius); padding: 22px 20px; margin-bottom: 20px; }
+    .tool-title { font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 800; color: var(--primary); margin: 0 0 18px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-200); }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 700; color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+    .field .hint { font-size: 11px; color: #9ca3af; font-weight: 400; margin-left: 6px; text-transform: none; letter-spacing: 0; }
+    .field input { width: 100%; padding: 11px 14px; border: 1px solid #E5E7EB; border-radius: 10px; background: #fff; font-size: 15px; color: var(--text); transition: border-color .2s, box-shadow .2s; font-family: inherit; }
+    .field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(231,200,115,.25); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+    .section-label { font-size: 11px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--accent-200); }
+    .btn-calc { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid var(--primary); background: var(--primary); color: #fff; font-size: 16px; font-weight: 800; cursor: pointer; transition: filter .2s, transform .05s, box-shadow .2s; font-family: inherit; margin-top: 8px; }
+    .btn-calc:hover { filter: brightness(1.12); box-shadow: 0 4px 14px rgba(43,47,54,.25); }
+    .btn-calc:active { transform: translateY(1px); }
+    .info-box { background: var(--accent-200); border: 1px solid var(--accent-600); border-radius: 10px; padding: 14px 16px; margin: 24px 0 20px; font-size: 14px; line-height: 1.6; color: #5a4a1e; }
+    .info-box strong { display: block; margin-bottom: 4px; color: var(--primary); }
+    details summary { cursor: pointer; font-size: 13px; font-weight: 700; color: var(--accent-600); list-style: none; display: flex; align-items: center; gap: 6px; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: ">"; font-size: 12px; transition: transform .2s; }
+    details[open] summary::before { transform: rotate(90deg); }
+    details p { margin: 10px 0 0; font-size: 13px; line-height: 1.65; color: #555; }
+    .formula { background: var(--primary); color: var(--accent); font-family: "Courier New", monospace; font-size: 13px; padding: 12px 16px; border-radius: 8px; margin: 10px 0; overflow-x: auto; white-space: nowrap; }
+    .results-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; color: #9ca3af; text-align: center; gap: 12px; }
+    .results-empty svg { opacity: .35; }
+    .results-empty p { font-size: 15px; margin: 0; }
+    .results-panel { display: none; }
+    .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+    @media (max-width: 760px) { .kpi-row { grid-template-columns: 1fr; } }
+    .kpi { background: #fff; border: 1px solid #ECECEC; border-radius: 12px; padding: 16px; text-align: center; position: relative; overflow: hidden; min-height: 116px; }
+    .kpi::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+    .kpi-label { font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+    .kpi-value { font-size: 30px; font-weight: 800; color: var(--primary); font-family: "Playfair Display", Georgia, serif; }
+    .kpi-sub { font-size: 12px; color: #9ca3af; margin-top: 4px; line-height: 1.35; }
+    .mix-grid { display: grid; grid-template-columns: 260px 1fr; gap: 20px; align-items: center; }
+    @media (max-width: 720px) { .mix-grid { grid-template-columns: 1fr; } }
+    .donut-wrap { display: flex; justify-content: center; align-items: center; }
+    .donut { width: 210px; height: 210px; border-radius: 50%; background: conic-gradient(var(--accent) 0deg, var(--accent) var(--equity-deg), var(--primary) var(--equity-deg), var(--primary) 360deg); position: relative; flex: 0 0 auto; }
+    .donut::after { content: ""; position: absolute; inset: 42px; border-radius: 50%; background: #fff; border: 1px solid #ECECEC; }
+    .donut-center { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; z-index: 1; flex-direction: column; pointer-events: none; }
+    .donut-center strong { font-family: "Playfair Display", Georgia, serif; font-size: 24px; color: var(--primary); }
+    .donut-center span { font-size: 12px; color: #6b7280; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .legend { display: grid; gap: 10px; }
+    .legend-item { display: grid; grid-template-columns: 14px 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 10px; font-size: 14px; }
+    .swatch { width: 14px; height: 14px; border-radius: 4px; background: var(--accent); }
+    .swatch.debt { background: var(--primary); }
+    .legend-name { color: #4b5563; }
+    .legend-value { font-weight: 800; color: var(--primary); }
+    .breakdown { display: grid; gap: 10px; }
+    .break-row { display: grid; grid-template-columns: 150px 1fr 70px; gap: 12px; align-items: center; font-size: 13px; }
+    @media (max-width: 540px) { .break-row { grid-template-columns: 1fr; gap: 6px; } }
+    .bar-track { height: 12px; background: #F3F4F6; border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 999px; transition: width .25s; }
+    .bar-fill.debt { background: var(--primary); }
+    .break-label { color: #4b5563; font-weight: 700; }
+    .break-value { color: var(--primary); font-weight: 800; text-align: right; }
+    @media (max-width: 540px) { .break-value { text-align: left; } }
+    .sens-title { font-size: 14px; font-weight: 800; color: var(--primary); margin: 0 0 4px; }
+    .sens-sub { font-size: 11px; color: #9ca3af; margin: 0 0 10px; }
+    .sens-wrap { overflow-x: auto; }
+    table.sens { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 440px; }
+    table.sens th, table.sens td { padding: 8px 10px; text-align: center; border: 1px solid #E5E7EB; }
+    table.sens thead th { background: var(--primary); color: #fff; font-weight: 700; }
+    table.sens thead th:first-child { background: #1a1a1a; }
+    table.sens tbody td { background: #fff; }
+    table.sens tbody td.highlight { background: var(--accent-200); font-weight: 800; color: var(--primary); }
+    .assumptions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    @media (max-width: 560px) { .assumptions { grid-template-columns: 1fr; } }
+    .assumption-item { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 12px; background: #F9FAFB; border-radius: 8px; font-size: 13px; }
+    .assumption-item .key { color: #6b7280; }
+    .assumption-item .val { font-weight: 700; color: var(--primary); text-align: right; }
+    .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    @media (max-width: 680px) { .how-grid { grid-template-columns: 1fr; } }
+    .how-step .step-title { font-weight: 800; margin: 0 0 6px; font-size: 15px; }
+    .how-step .step-body { font-size: 14px; color: #4b5563; margin: 0; line-height: 1.6; }
+    .disclaimer { font-size: 12px; color: #9ca3af; line-height: 1.55; margin-top: 8px; padding: 10px 14px; background: #F9FAFB; border-radius: 8px; border: 1px solid #E5E7EB; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="inner">
+      <div class="brand"><a href="index.html"><img src="foto sito web/logo.png" alt="Logo" class="logo"></a></div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+        <a href="tools.html" class="active">Tools</a>
+      </div>
+    </div>
+  </div>
+  <main class="main">
+    <div class="page-header">
+      <p class="eyebrow">Free Finance Tool</p>
+      <h1>WACC <span>Calculator</span></h1>
+      <p>Estimate a company's weighted average cost of capital using CAPM, after-tax cost of debt, and market-value capital structure weights.</p>
+    </div>
+    <div class="container">
+      <div class="info-box">
+        <strong>How WACC works</strong>
+        WACC is the blended required return for a company's capital providers. It weights the cost of equity and after-tax cost of debt by their share of the financing mix.
+        <details>
+          <summary>See the formula</summary>
+          <div class="formula">WACC = [E / (D + E) x Re] + [D / (D + E) x Rd x (1 - Tax Rate)]</div>
+          <p>Cost of equity uses CAPM: Re = Risk-Free Rate + Beta x Equity Risk Premium + Additional Premiums.</p>
+        </details>
+      </div>
+      <div class="tool-grid">
+        <div>
+          <div class="tool-card">
+            <h2 class="tool-title">Inputs</h2>
+            <p class="section-label">Capital Structure</p>
+            <div class="field"><label>Market Value of Equity <span class="hint">in millions $</span></label><input type="number" id="equityValue" value="12000" min="0" step="100"></div>
+            <div class="field-row">
+              <div class="field"><label>Total Debt <span class="hint">$M</span></label><input type="number" id="debtValue" value="3000" min="0" step="100"></div>
+              <div class="field"><label>Cash <span class="hint">$M, optional</span></label><input type="number" id="cashValue" value="500" min="0" step="50"></div>
+            </div>
+            <p class="section-label">Cost of Equity - CAPM</p>
+            <div class="field-row">
+              <div class="field"><label>Risk-Free Rate <span class="hint">%</span></label><input type="number" id="riskFree" value="4.2" step="0.1"></div>
+              <div class="field"><label>Beta</label><input type="number" id="beta" value="1.15" min="0" step="0.05"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Equity Risk Premium <span class="hint">%</span></label><input type="number" id="erp" value="5.5" min="0" step="0.1"></div>
+              <div class="field"><label>Other Premiums <span class="hint">%</span></label><input type="number" id="otherPremium" value="0.5" min="0" step="0.1"></div>
+            </div>
+            <p class="section-label">Cost of Debt</p>
+            <div class="field-row">
+              <div class="field"><label>Pre-Tax Cost of Debt <span class="hint">%</span></label><input type="number" id="costDebt" value="5.8" min="0" step="0.1"></div>
+              <div class="field"><label>Tax Rate <span class="hint">%</span></label><input type="number" id="taxRate" value="25" min="0" max="60" step="0.5"></div>
+            </div>
+            <button class="btn-calc" onclick="calculateWacc()">Calculate WACC -&gt;</button>
+          </div>
+        </div>
+        <div>
+          <div id="emptyState" class="results-empty">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M5 8h14M7 12h10M9 16h6"/><path d="M4 21h16"/></svg>
+            <p>Fill in the inputs and click<br><strong>Calculate WACC</strong></p>
+          </div>
+          <div id="resultsPanel" class="results-panel">
+            <div class="kpi-row" id="kpiRow"></div>
+            <div class="tool-card">
+              <h3 class="tool-title">Capital Structure</h3>
+              <div class="mix-grid">
+                <div class="donut-wrap"><div class="donut" id="capitalDonut" style="--equity-deg: 288deg;"><div class="donut-center"><strong id="donutWacc">0.0%</strong><span>WACC</span></div></div></div>
+                <div class="legend" id="legendList"></div>
+              </div>
+            </div>
+            <div class="tool-card"><h3 class="tool-title">Weighted Contribution</h3><div class="breakdown" id="breakdownList"></div></div>
+            <div class="tool-card">
+              <p class="sens-title">Sensitivity Analysis - WACC</p>
+              <p class="sens-sub">Beta (rows) vs Equity Risk Premium (columns)</p>
+              <div class="sens-wrap"><table class="sens" id="sensTable"></table></div>
+            </div>
+            <div class="tool-card"><h3 class="tool-title">Model Assumptions</h3><div class="assumptions" id="assumptionsList"></div></div>
+            <p class="disclaimer">This tool is for educational and illustrative purposes only. WACC is assumption-sensitive and should not be treated as financial advice.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <h3 class="tool-title">How to Use This Calculator</h3>
+        <div class="how-grid">
+          <div class="how-step"><p class="step-title">1. Use Market Values</p><p class="step-body">For equity, use market capitalization. For debt, use market value when available, or book value as a practical proxy.</p></div>
+          <div class="how-step"><p class="step-title">2. Estimate Required Returns</p><p class="step-body">Use CAPM for cost of equity and the current yield or marginal borrowing cost for pre-tax cost of debt.</p></div>
+          <div class="how-step"><p class="step-title">3. Stress-Test the Output</p><p class="step-body">Small changes in beta and equity risk premium can materially change WACC, especially for equity-heavy companies.</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="left"><div>&copy; 2026 Stefano Campita. All rights reserved.</div><div>Personal finance website - valuation, corporate finance, markets, and weekly recaps.</div></div>
+      <div class="right"><a class="icon" href="https://www.linkedin.com/in/stefano-campita-372249254/" target="_blank" aria-label="LinkedIn">in</a><a class="icon" href="mailto:stefanocampita2@gmail.com" aria-label="Email">@</a></div>
+    </div>
+  </footer>
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger');
+      var menu = document.querySelector('.menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', open);
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+    function val(id) {
+      var n = parseFloat(document.getElementById(id).value);
+      return isNaN(n) ? 0 : n;
+    }
+    function pct(n) { return n.toFixed(2) + '%'; }
+    function money(n) {
+      if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(1) + 'B';
+      return '$' + n.toFixed(0) + 'M';
+    }
+    function capm(rf, beta, erp, other) { return rf + beta * erp + other; }
+    function buildSensitivity(equity, debt, tax, rf, beta, erp, other, costDebt) {
+      var betaSteps = [beta - 0.20, beta - 0.10, beta, beta + 0.10, beta + 0.20].map(function(x){ return Math.max(0, x); });
+      var erpSteps = [erp - 1.0, erp - 0.5, erp, erp + 0.5, erp + 1.0].map(function(x){ return Math.max(0, x); });
+      var total = equity + debt;
+      var ew = total > 0 ? equity / total : 0;
+      var dw = total > 0 ? debt / total : 0;
+      var afterTaxDebt = costDebt * (1 - tax / 100);
+      var html = '<thead><tr><th>Beta / ERP</th>';
+      erpSteps.forEach(function(e){ html += '<th>' + pct(e) + '</th>'; });
+      html += '</tr></thead><tbody>';
+      betaSteps.forEach(function(b){
+        html += '<tr><th>' + b.toFixed(2) + '</th>';
+        erpSteps.forEach(function(e){
+          var coe = capm(rf, b, e, other);
+          var wacc = ew * coe + dw * afterTaxDebt;
+          var cls = (Math.abs(b - beta) < 0.001 && Math.abs(e - erp) < 0.001) ? ' class="highlight"' : '';
+          html += '<td' + cls + '>' + pct(wacc) + '</td>';
+        });
+        html += '</tr>';
+      });
+      html += '</tbody>';
+      return html;
+    }
+    function calculateWacc() {
+      var equity = val('equityValue');
+      var debt = val('debtValue');
+      var cash = val('cashValue');
+      var rf = val('riskFree');
+      var beta = val('beta');
+      var erp = val('erp');
+      var other = val('otherPremium');
+      var costDebt = val('costDebt');
+      var tax = val('taxRate');
+      var totalCapital = equity + debt;
+      if (totalCapital <= 0) {
+        alert('Please enter at least one positive value for equity or debt.');
+        return;
+      }
+      var equityWeight = equity / totalCapital;
+      var debtWeight = debt / totalCapital;
+      var costEquity = capm(rf, beta, erp, other);
+      var afterTaxDebt = costDebt * (1 - tax / 100);
+      var equityContribution = equityWeight * costEquity;
+      var debtContribution = debtWeight * afterTaxDebt;
+      var wacc = equityContribution + debtContribution;
+      var netDebt = debt - cash;
+      var enterpriseValue = equity + netDebt;
+      document.getElementById('emptyState').style.display = 'none';
+      document.getElementById('resultsPanel').style.display = 'block';
+      document.getElementById('kpiRow').innerHTML =
+        '<div class="kpi"><div class="kpi-label">WACC</div><div class="kpi-value">' + pct(wacc) + '</div><div class="kpi-sub">Blended required return</div></div>' +
+        '<div class="kpi"><div class="kpi-label">Cost of Equity</div><div class="kpi-value">' + pct(costEquity) + '</div><div class="kpi-sub">CAPM-based estimate</div></div>' +
+        '<div class="kpi"><div class="kpi-label">After-Tax Cost of Debt</div><div class="kpi-value">' + pct(afterTaxDebt) + '</div><div class="kpi-sub">Pre-tax cost adjusted for tax shield</div></div>';
+      var equityDeg = Math.max(0, Math.min(360, equityWeight * 360));
+      document.getElementById('capitalDonut').style.setProperty('--equity-deg', equityDeg + 'deg');
+      document.getElementById('donutWacc').textContent = pct(wacc);
+      document.getElementById('legendList').innerHTML =
+        '<div class="legend-item"><span class="swatch"></span><span class="legend-name">Equity Weight</span><span class="legend-value">' + pct(equityWeight * 100) + '</span></div>' +
+        '<div class="legend-item"><span class="swatch debt"></span><span class="legend-name">Debt Weight</span><span class="legend-value">' + pct(debtWeight * 100) + '</span></div>' +
+        '<div class="legend-item"><span class="swatch" style="background:#E5E7EB"></span><span class="legend-name">Enterprise Value</span><span class="legend-value">' + money(enterpriseValue) + '</span></div>';
+      var eqWidth = wacc > 0 ? Math.min(100, equityContribution / wacc * 100) : 0;
+      var debtWidth = wacc > 0 ? Math.min(100, debtContribution / wacc * 100) : 0;
+      document.getElementById('breakdownList').innerHTML =
+        '<div class="break-row"><span class="break-label">Equity Contribution</span><div class="bar-track"><div class="bar-fill" style="width:' + eqWidth + '%"></div></div><span class="break-value">' + pct(equityContribution) + '</span></div>' +
+        '<div class="break-row"><span class="break-label">Debt Contribution</span><div class="bar-track"><div class="bar-fill debt" style="width:' + debtWidth + '%"></div></div><span class="break-value">' + pct(debtContribution) + '</span></div>';
+      document.getElementById('sensTable').innerHTML = buildSensitivity(equity, debt, tax, rf, beta, erp, other, costDebt);
+      document.getElementById('assumptionsList').innerHTML =
+        '<div class="assumption-item"><span class="key">Equity Value</span><span class="val">' + money(equity) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Total Debt</span><span class="val">' + money(debt) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Cash</span><span class="val">' + money(cash) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Net Debt</span><span class="val">' + money(netDebt) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Risk-Free Rate</span><span class="val">' + pct(rf) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Beta</span><span class="val">' + beta.toFixed(2) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Equity Risk Premium</span><span class="val">' + pct(erp) + '</span></div>' +
+        '<div class="assumption-item"><span class="key">Tax Rate</span><span class="val">' + pct(tax) + '</span></div>';
+    }
+    calculateWacc();
+  </script>
+</body>
+</html>
